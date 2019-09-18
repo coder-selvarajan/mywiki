@@ -8,6 +8,6 @@
     "First Category": ["doc1"]
   },
   "misc": {
-    "Useful Info": ["tech-trends", "useful-links", "docker-overview", "learning-techniques"]
+    "Useful Info": ["tech-trends", "useful-links", "docker-overview", "learning-techniques", "developer-roadmap"]
   }
 }
