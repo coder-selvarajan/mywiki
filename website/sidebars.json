@@ -1,0 +1,11 @@
+{
+  "docs": {
+    "Javascript": ["git"],
+    "General": ["git"],
+    "": ["swift-basics"]
+  },
+  "docs-other": {
+    "First Category": ["doc1"]
+  }
+}
+
