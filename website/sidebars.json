@@ -1,11 +1,14 @@
 {
   "docs": {
-    "Javascript": ["git"],
+    "Javascript": ["JS-Basics"],
     "General": ["git"],
     "": ["swift-basics"]
   },
   "docs-other": {
     "First Category": ["doc1"]
+  },
+  "tech-news": {
+    "Tech News": ["tech-trends"]
   }
 }
 

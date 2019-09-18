@@ -42,7 +42,7 @@ const siteConfig = {
     {doc: 'git', label: 'Git'},
     {doc: 'doc1', label: 'Python'},
     {doc: 'swift-basics', label: 'Swift'},
-    
+    {doc: 'tech-trends', label: 'Tech News'},
     // {page: 'help', label: 'Help'},
     {blog: true, label: 'Blog'},
   ],
