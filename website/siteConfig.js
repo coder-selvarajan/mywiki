@@ -42,7 +42,7 @@ const siteConfig = {
     {doc: 'git', label: 'Git'},
     {doc: 'doc1', label: 'Python'},
     {doc: 'swift-basics', label: 'Swift'},
-    {doc: 'tech-trends', label: 'Tech News'},
+    {doc: 'tech-trends', label: 'Misc'},
     // {page: 'help', label: 'Help'},
     {blog: true, label: 'Blog'},
   ],
@@ -57,8 +57,10 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#5e9390',
-    secondaryColor: '#416664',
+    // primaryColor: '#5e9390',
+    // secondaryColor: '#416664',
+    primaryColor: '#7274CE',
+    secondaryColor: '#5e9390',
   },
 
   /* Custom fonts for website */
@@ -76,7 +78,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: `Copyright © ${new Date().getFullYear()} Selvarajan.in`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.

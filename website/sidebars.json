@@ -7,8 +7,7 @@
   "docs-other": {
     "First Category": ["doc1"]
   },
-  "tech-news": {
-    "Tech News": ["tech-trends"]
+  "misc": {
+    "Useful Info": ["tech-trends", "useful-links", "docker-overview", "learning-techniques"]
   }
 }
-
