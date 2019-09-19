@@ -3,7 +3,7 @@ id: tech-trends
 title: Technology Trends
 ---
 
-I am very passionate about building web & mobile apps. I have list down some of technologies I have cross-across the path.  
+I am very passionate about building web & mobile apps. I have listed down some of technologies I have come across the path.  
 
 ## Building mobile apps
 Building mobile apps becoming super easier nowadays.. There are native way of developing apps and there are hybrid way of developing the apps. Below list heads-up the area. 

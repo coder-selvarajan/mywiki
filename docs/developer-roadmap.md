@@ -27,4 +27,3 @@ https://github.com/kamranahmedse/developer-roadmap
 ## Devops Roadmap
 
 ![devops](assets/devops-roadmap.png)
-
