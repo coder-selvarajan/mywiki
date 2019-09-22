@@ -21,8 +21,8 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Tech Wiki', // Title for your website.
-  tagline: 'Knowledge gathered throught my technical learning',
+  title: "Coder's Wiki", // Title for your website.
+  tagline: 'Knowledge gathered during my technical learning',
   url: 'https://coder.selvarajan.in', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -30,7 +30,7 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'tech-wiki',
+  projectName: 'coders-wiki',
   organizationName: 'selvarajan.in',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
@@ -38,22 +38,25 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'git', label: 'Javascript'},
-    {doc: 'git', label: 'Git'},
-    {doc: 'doc1', label: 'Python'},
-    {doc: 'swift-basics', label: 'Swift'},
-    {doc: 'tech-trends', label: 'Misc'},
+    {doc: 'javascript/basics', label: 'Web dev'},
+    {doc: 'swift/swift-basics-pirple', label: 'App dev'},
+    {doc: 'hadoop-overview', label: 'Big data'},
+    // {doc: 'linux-overview', label: 'Linux'},
+    // {doc: 'git', label: 'Git'},
+    {doc: 'git', label: 'Misc'},
+    // { search: true },
     // {page: 'help', label: 'Help'},
-    {blog: true, label: 'Blog'},
+    // {blog: true, label: 'Blog'},
   ],
 
   // If you have users set above, you add it here:
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/favicon.ico',
-  footerIcon: 'img/favicon.ico',
-  favicon: 'img/favicon.ico',
+  headerIcon: 'img/laptop-coding.png',
+  footerIcon: 'img/laptop-coding.png',
+  favicon: 'img/code.png',
+  // favicon: 'img/favicon.ico',
 
   /* Colors for website */
   colors: {
@@ -82,8 +85,12 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: 'default',
+    // theme: 'default',
+    theme: 'github',
   },
+  
+  // Prism is another highlight for the specific language
+  // usePrism: ['js'],
 
   // Add custom scripts here that would be placed in <script> tags.
   scripts: ['https://buttons.github.io/buttons.js'],

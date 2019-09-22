@@ -16,3 +16,4 @@ title: Learning Techniques
   * 3rd Repetition - After 1 day
   * 4th Repetition - After 2-3 weeks
   * 5th Repetition - After 2-3 months
+

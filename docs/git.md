@@ -3,7 +3,13 @@ id: git
 title: GIT Overview
 ---
 
-## Step by step instructions
+![Workflow 1](assets/git_workflow1.png)
+
+![Workflow 2](assets/git_workflow2.png)
+
+---
+
+## Git Commands - Step by Step
 
 ### Initialize git repo
 ```git

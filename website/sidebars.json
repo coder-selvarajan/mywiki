@@ -1,13 +1,54 @@
 {
-  "docs": {
-    "Javascript": ["JS-Basics"],
-    "General": ["git"],
-    "": ["swift-basics"]
+  "web": {
+    "Javascript": 
+    [ "javascript/basics", 
+      "javascript/functions", 
+      "javascript/window-object", 
+      "javascript/dom-object-selectors", 
+      "javascript/events", 
+      "javascript/localstorage", 
+      "javascript/object-oriented", 
+      "javascript/async-programming", 
+      "javascript/rest-api"], 
+    "Resources": 
+    [ "javascript/frameworks-converters", 
+      "javascript/resources", 
+      "javascript/build-chrome-extn", 
+      "developer-roadmap"]
   },
-  "docs-other": {
-    "First Category": ["doc1"]
+  "app-development": {
+    "iOS - Swift": 
+    [ "swift/ios-basics", 
+      "swift/swift-basics-pirple", 
+      "swift/swift-basics-udemy", 
+      "swift/swift-datastructures"],
+    "Cross Platform Apps": 
+    [ "ionic-overview", 
+      "electron-overview"],
+    "MEAN Stack": ["nodejs-overview"]
   },
-  "misc": {
-    "Useful Info": ["tech-trends", "useful-links", "docker-overview", "learning-techniques", "developer-roadmap"]
+  "Big Data": {
+    "Big Data": 
+    [ "hadoop-overview", 
+      "linux-overview", 
+      "linux-commands"],
+    "Python": 
+    [ "python/setup", 
+      "python/basics", 
+      "python/resources"]
+  },
+  "others": {
+    "Overview": 
+    [ "git", 
+      "docker-overview", 
+      "dns-overview",
+      "markdown-cheatsheet", 
+      "asciidoc"],
+    "Concepts": ["programming"],
+    "Other Info": 
+    [ "tech-trends", 
+      "useful-links", 
+      "learning-techniques", 
+      "my-projects-apps"] 
   }
 }

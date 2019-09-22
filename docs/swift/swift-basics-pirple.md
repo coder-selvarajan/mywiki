@@ -1,7 +1,10 @@
 ---
-id: swift-basics
-title: Swift Basics - from Pirple.com
+id: swift-basics-pirple
+title: Swift Basics (from pirple.com)
+sidebar_label: Swift Basics (pirple)
 ---
+
+> This page was created while I was learning Swift with **pirple.com** course
 
 ## Variable declaration
 ```swift
