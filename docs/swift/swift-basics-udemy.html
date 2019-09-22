@@ -1,0 +1,638 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Swift Basics (from udemy.com) · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; This page was created while I was learning Swift with **udemy.com** course"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Swift Basics (from udemy.com) · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="&gt; This page was created while I was learning Swift with **udemy.com** course"/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class="siteNavGroupActive"><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>iOS - Swift</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">iOS - Swift</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/swift/ios-basics">iOS Basics</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/swift/swift-basics-pirple">Swift Basics (pirple)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/swift/swift-basics-udemy">Swift Basics (udemy)</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/swift/swift-datastructures">Data Structures</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Cross Platform Apps</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/ionic-overview">Ionic Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/electron-overview">Electron Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MEAN Stack</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/nodejs-overview">NodeJS Overview</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Swift Basics (from udemy.com)</h1></header><article><div><span><blockquote>
+<p>This page was created while I was learning Swift with <strong>udemy.com</strong> course</p>
+</blockquote>
+<p>Swift 4 is a new programming language developed by Apple Inc for iOS and OS X development. Swift 4 adopts the best of C and Objective-C, without the constraints of C compatibility.</p>
+<ul>
+<li>Swift 4 provides Objective-C like syntax.</li>
+<li>Swift 4 provides seamless access to existing Cocoa frameworks.</li>
+<li>Swift 4 unifies the procedural and object-oriented portions of the language.</li>
+<li>Swift 4 does not need a separate library import to support functionalities like input/output or string handling.</li>
+<li>Swift 4 uses the same runtime as the existing Obj-C system on Mac OS and iOS</li>
+<li>Swift 4 comes with playground feature where Swift 4 programmers can write their code and execute it to see the results immediately.</li>
+<li>You can use the import statement to import any Objective-C framework (or C library) directly into your Swift 4 program</li>
+</ul>
+<p><strong>Tokens</strong></p>
+<p>A Swift 4 program consists of various tokens and a token is either a keyword, an identifier, a constant, a string literal, or a symbol. For example, the following Swift 4 statement consists of three tokens −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-built_in">print</span>(<span class="hljs-string">"test!"</span>)
+</code></pre>
+<p>Semicolons are not needed in Swift, however if you are combining more than one statement then you can use semicolon to separate them.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> myString # <span class="hljs-string">"Hello, World!"</span>; <span class="hljs-built_in">print</span>(myString)
+</code></pre>
+<p>Swift 4 does not allow special characters such as @, $, and % within identifiers. Swift 4 is a case sensitive programming language. Thus, Manpower and manpower are two different identifiers in Swift 4. Here are some examples of acceptable identifiers −</p>
+<pre><code class="hljs">Azad        zara   abc   move_name   a_123
+myname50    _temp  j     a23b9       retVal
+</code></pre>
+<p><strong>Literals</strong></p>
+<p>A literal is the source code representation of a value of an integer, floating-point number, or string type. The following are examples of literals</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-number">92</span>               <span class="hljs-comment">// Integer literal</span>
+    <span class="hljs-number">4.24159</span>          <span class="hljs-comment">// Floating-point literal</span>
+    <span class="hljs-string">"Hello, World!"</span>  <span class="hljs-comment">// String literal</span>
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="built-in-data-types"></a><a href="#built-in-data-types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Built-in Data Types</h2>
+<p>Swift 4 offers the programmer a rich assortment of built-in as well as user-defined data types. The following types of basic data types are most frequently when declaring variables −</p>
+<ul>
+<li><p><strong>Int or UInt</strong> − This is used for whole numbers. More specifically, you can use Int32, Int64 to define 32 or 64 bit signed integer, whereas UInt32 or UInt64 to define 32 or 64 bit unsigned integer variables. For example, 42 and -23.</p></li>
+<li><p><strong>Float</strong> − This is used to represent a 32-bit floating-point number and numbers with smaller decimal points. For example, 3.14159, 0.1, and -273.158.</p></li>
+<li><p><strong>Double</strong> − This is used to represent a 64-bit floating-point number and used when floating-point values must be very large. For example, 3.14159, 0.1, and -273.158.</p></li>
+<li><p><strong>Bool</strong> − This represents a Boolean value which is either true or false.</p></li>
+<li><p><strong>String</strong> − This is an ordered collection of characters. For example, &quot;Hello, World!&quot;</p></li>
+<li><p><strong>Character</strong> − This is a single-character string literal. For example, &quot;C&quot;</p></li>
+<li><p><strong>Optional</strong> − This represents a variable that can hold either a value or no value.</p></li>
+<li><p><strong>Tuples</strong> − This is used to group multiple values in single Compound Value.</p></li>
+</ul>
+<p><strong>Type : Bit Width | Range</strong></p>
+<p><strong>Int8</strong> : 1byte    | -127 to 127</p>
+<p><strong>UInt8</strong> : 1byte   | 0 to 255</p>
+<p><strong>Int32</strong> : 4bytes | -2147483648 to 2147483647</p>
+<p><strong>UInt32</strong> : 4bytes | 0 to 4294967295</p>
+<p><strong>Int64</strong> : 8bytes | -9223372036854775808 to 9223372036854775807</p>
+<p><strong>UInt64</strong> : 8bytes | 0 to 18446744073709551615</p>
+<p><strong>Float</strong> : 4bytes | 1.2E-38 to 3.4E+38 (~6 digits)</p>
+<p><strong>Double</strong> : 8bytes | 2.3E-308 to 1.7E+308 (~15 digits)</p>
+<h3><a class="anchor" aria-hidden="true" id="type-aliases"></a><a href="#type-aliases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type Aliases</h3>
+<p>You can create a new name for an existing type using typealias. Here is the simple syntax to define a new type using typealias −</p>
+<pre><code class="hljs">typealias newname = type
+</code></pre>
+<p>For example, the following line instructs the compiler that Feet is another name for Int −</p>
+<pre><code class="hljs">typealias Feet = Int
+</code></pre>
+<p>the whole code goes like this</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">typealias</span> <span class="hljs-type">Feet</span> = <span class="hljs-type">Int</span>
+    <span class="hljs-keyword">var</span> <span class="hljs-built_in">distance</span>: <span class="hljs-type">Feet</span> = <span class="hljs-number">100</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">distance</span>)
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="type-safety"></a><a href="#type-safety" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type Safety</h3>
+<p>Swift 4 is a type-safe language which means if a part of your code expects a String, you can't pass it an Int by mistake.</p>
+<p>As Swift 4 is type-safe, it performs type-checks when compiling your code and flags any mismatched types as errors.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> varA = <span class="hljs-number">42</span>
+    varA = <span class="hljs-string">"This is hello"</span>
+    <span class="hljs-built_in">print</span>(varA)
+</code></pre>
+<p>When we compile the above program, it produces the following compile time error.</p>
+<h3><a class="anchor" aria-hidden="true" id="type-inference"></a><a href="#type-inference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type Inference</h3>
+<p>Type inference enables a compiler to deduce the type of a particular expression automatically when it compiles your code</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// varA is inferred to be of type Int</span>
+    <span class="hljs-keyword">var</span> varA = <span class="hljs-number">42</span>
+    <span class="hljs-built_in">print</span>(varA)
+
+    <span class="hljs-comment">// varB is inferred to be of type Double</span>
+    <span class="hljs-keyword">var</span> varB = <span class="hljs-number">3.14159</span>
+    <span class="hljs-built_in">print</span>(varB)
+
+    <span class="hljs-comment">// varC is also inferred to be of type Double</span>
+    <span class="hljs-keyword">var</span> varC = <span class="hljs-number">3</span> + <span class="hljs-number">0.14159</span>
+    <span class="hljs-built_in">print</span>(varC)
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="variable-declaration"></a><a href="#variable-declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable declaration</h2>
+<p>Swift has two ways of declaring variables, One by assigning value in the variable and another one by using type annotation. Example:</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> varA = <span class="hljs-number">42</span>
+    <span class="hljs-built_in">print</span>(varA)
+
+    <span class="hljs-keyword">var</span> varB:<span class="hljs-type">Float</span>
+    varB = <span class="hljs-number">3.14159</span>
+    <span class="hljs-built_in">print</span>(varB)
+</code></pre>
+<p>The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Swift 4 is a case-sensitive programming language. We can even use <code>unicode characters</code> as well
+[source,swift]
+var _var = &quot;Hello, Swift 4!&quot;
+print(_var)
+var பெயர் = &quot;பிரேம்&quot;
+print(பெயர்)</p>
+<p><strong>Printing Variables</strong></p>
+<p>You can interpolate a variable value by wrapping the name in parentheses and escape it with a backslash before the opening parenthesis:</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> varA = <span class="hljs-string">"Godzilla"</span>
+    <span class="hljs-keyword">var</span> varB = <span class="hljs-number">1000.00</span>
+
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value of \(varA) is more than \(varB) millions"</span>)
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="optionals"></a><a href="#optionals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optionals</h2>
+<p>Swift 4 also introduces Optionals type, which handles the absence of a value. Optionals say either &quot;there is a value, and it equals x&quot; or &quot;there isn't a value at all&quot;.</p>
+<p>Here’s an optional Integer &amp; String declarations</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> perhapsInt: <span class="hljs-type">Int?</span>
+    <span class="hljs-keyword">var</span> perhapsStr: <span class="hljs-type">String?</span>
+</code></pre>
+<p>Above statements are equivalent to</p>
+<pre><code class="hljs">var perhapsInt: Int? = nil
+var perhapsStr: String? = nil
+</code></pre>
+<p><strong>Forced Unwrapping :</strong></p>
+<p>If you defined a variable as optional, then to get the value from this variable, you will have to unwrap it. This just means putting an exclamation mark at the end of the variable.</p>
+<p>Let's take a simple example −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> myString:<span class="hljs-type">String?</span>
+    myString = <span class="hljs-string">"Hello, Swift 4!"</span>
+
+    <span class="hljs-keyword">if</span> myString != <span class="hljs-literal">nil</span> {
+        <span class="hljs-built_in">print</span>(myString)
+        <span class="hljs-built_in">print</span>(myString!) <span class="hljs-comment">//unwrapping applied here</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"myString has nil value"</span>)
+    }
+</code></pre>
+<p>When we run the above program using playground, we get the following result −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-type">Optional</span>(<span class="hljs-string">"Hello, Swift 4!"</span>)
+    <span class="hljs-type">Hello</span>, <span class="hljs-type">Swift</span> <span class="hljs-number">4</span>!
+</code></pre>
+<p><strong>Automatic Unwrapping :</strong></p>
+<p>You can declare optional variables using exclamation mark instead of a question mark. Such optional variables will unwrap automatically and you do not need to use any further exclamation mark at the end of the variable to get the assigned value. Let's take a simple example −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> myString:<span class="hljs-type">String!</span>
+    myString = <span class="hljs-string">"Hello, Swift 4!"</span>
+
+    <span class="hljs-keyword">if</span> myString != <span class="hljs-literal">nil</span> {
+    <span class="hljs-built_in">print</span>(myString)
+    } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"myString has nil value"</span>)
+    }
+</code></pre>
+<p>When we run the above program using playground, we get the following result −</p>
+<pre><code class="hljs">Hello, Swift 4!
+</code></pre>
+<p><strong>Optional Binding :</strong></p>
+<p>Use optional binding to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable.</p>
+<p>An optional binding for the if statement is as follows −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> constantName = someOptional {
+    statements
+    }
+</code></pre>
+<p>Let's take a simple example to understand the usage of optional binding −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> myString:<span class="hljs-type">String?</span>
+    myString = <span class="hljs-string">"Hello, Swift 4!"</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> yourString = myString {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Your string has - \(yourString)"</span>)
+    } <span class="hljs-keyword">else</span> {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Your string does not have a value"</span>)
+    }
+</code></pre>
+<p>When we run the above program using playground, we get the following result −</p>
+<pre><code class="hljs">Your string has - Hello, Swift 4!
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="tuples"></a><a href="#tuples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tuples</h2>
+<p>Swift 4 also introduces Tuples type, which are used to group multiple values in a single compound Value. The values in a tuple can be of any type, and do not need to be of same type.</p>
+<p>For example, <code>(&quot;Tutorials Point&quot;, 123)</code> is a tuple with two values, one of string Type, and other is integer type. It is a legal command.</p>
+<p>You can create tuples from as many values as you want and from any number of different data types.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> <span class="hljs-type">TupleName</span> = (<span class="hljs-type">Value1</span>, value2,… any number of values)
+</code></pre>
+<p>Here’s a Tuple declaration −</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> error501 = (<span class="hljs-number">501</span>, “<span class="hljs-type">Not</span> implemented”)
+</code></pre>
+<p>You can access the values of tuple using the index numbers that start from 0.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-built_in">print</span>(<span class="hljs-string">"The code is\(error501.0)"</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"The definition of error is\(error501.1)"</span>)
+</code></pre>
+<p>You can name the variables of a tuple while declaring , and you can call them using their names</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> error501 = (errorCode: <span class="hljs-number">501</span>, description: <span class="hljs-string">"Not Implemented"</span>)
+    <span class="hljs-built_in">print</span>(error501.errorCode)   <span class="hljs-comment">// prints 501.</span>
+</code></pre>
+<p>Tuples are helpful in returning multiple values from a function. By returning different values in a tuple we can make decisions depending on different tuple types.</p>
+<p>Note: Tuples are useful for temporary values and are not suited for complex data.</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="literals"></a><a href="#literals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Literals</h2>
+<p><strong>Constants Declaration</strong></p>
+<p>Before you use constants, you must declare them using let keyword as follows</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> constA = <span class="hljs-number">42</span>
+    <span class="hljs-built_in">print</span>(constA)
+
+    <span class="hljs-keyword">let</span> constB:<span class="hljs-type">Float</span> = <span class="hljs-number">3.14159</span>
+    <span class="hljs-built_in">print</span>(constB)
+</code></pre>
+<p><strong>Integer Literals</strong></p>
+<p>An integer literal can be a decimal, binary, octal, or hexadecimal constant. Binary literals begin with 0b, octal literals begin with 0o, and hexadecimal literals begin with 0x and nothing for decimal.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> decimalInteger = <span class="hljs-number">17</span>         <span class="hljs-comment">// 17 in decimal notation</span>
+    <span class="hljs-keyword">let</span> binaryInteger = <span class="hljs-number">0b10001</span>     <span class="hljs-comment">// 17 in binary notation</span>
+    <span class="hljs-keyword">let</span> octalInteger = <span class="hljs-number">0o21</span>         <span class="hljs-comment">// 17 in octal notation</span>
+    <span class="hljs-keyword">let</span> hexadecimalInteger = <span class="hljs-number">0x11</span>   <span class="hljs-comment">// 17 in hexadecimal notation</span>
+</code></pre>
+<p><strong>Floating-point Literals</strong></p>
+<p>A floating-point literal has an integer part, a decimal point, a fractional part, and an exponent part. You can represent floating point literals either in decimal form or hexadecimal form.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> decimalDouble = <span class="hljs-number">12.1875</span>
+    <span class="hljs-keyword">let</span> exponentDouble = <span class="hljs-number">1.21875e1</span>
+    <span class="hljs-keyword">let</span> hexadecimalDouble = <span class="hljs-number">0xC.3p0</span>
+</code></pre>
+<p><strong>String Literals</strong></p>
+<p>String literals cannot contain an unescaped double quote (&quot;), an unescaped backslash (), a carriage return, or a line feed. Special characters can be included in string literals using the following escape sequences −</p>
+<ul>
+<li><code>\0</code> = Null Character</li>
+<li><code>\\</code> = \character</li>
+<li><code>\b</code> = Backspace</li>
+<li><code>\f</code> = Form feed</li>
+<li><code>\n</code> = Newline</li>
+<li><code>\r</code> = Carriage return</li>
+<li><code>\t</code> = Horizontal tab</li>
+<li><code>\v</code> = Vertical tab</li>
+<li><code>\'</code> = Single Quote</li>
+<li><code>\&quot;</code> = Double Quote</li>
+<li><code>\000</code> = Octal number of one to three digits</li>
+<li><code>\xhh...</code> =  Hexadecimal number of one or more digits</li>
+</ul>
+<p>Sample string literal usage :</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> stringL # <span class="hljs-string">"Hello\tWorld\n\nHello\'Swift 4\'"</span>
+    <span class="hljs-built_in">print</span>(stringL)
+</code></pre>
+<p>The Result would be</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-type">Hello</span> <span class="hljs-type">World</span>
+
+    <span class="hljs-type">Hello'Swift</span> <span class="hljs-number">4</span>'
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="operators"></a><a href="#operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators</h2>
+<p><strong>Comparison Operators</strong> : {nbsp} <code>== {nbsp} != {nbsp} &gt; {nbsp} &lt; {nbsp} &gt;= {nbsp} &lt;=</code></p>
+<p><strong>Logical Operators</strong>: {nbsp} <code>&amp;&amp; {nbsp} || {nbsp} !</code></p>
+<p><strong>Bitwise Operators</strong> : {nbsp} <code>&amp; {nbsp} | {nbsp} ^ {nbsp} ~ {nbsp} &lt;&lt; {nbsp} &gt;&gt;</code></p>
+<p><code>&amp;</code>  <br>
+Binary AND Operator copies a bit to the result, if it exists in both operands.<br>
+(A &amp; B) will give 12, which is 0000 1100</p>
+<p><code>|</code>  <br>
+Binary OR Operator copies a bit, if it exists in either operand.<br>
+(A | B) will give 61, which is 0011 1101</p>
+<p><code>^</code>  <br>
+Binary XOR Operator copies the bit, if it is set in one operand but not both.<br>
+(A ^ B) will give 49, which is 0011 0001</p>
+<p><code>~</code>  <br>
+Binary Ones Complement Operator is unary and has the effect of 'flipping' bits.<br>
+(~A ) will give -61, which is 1100 0011 in 2's complement form.</p>
+<p><code>&lt;&lt;</code>  <br>
+Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.<br>
+(A &lt;&lt; 2 will give 240, which is 1111 0000</p>
+<p><code>&gt;&gt;</code>  <br>
+Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.<br>
+A &gt;&gt; 2 will give 15, which is 0000 1111</p>
+<p>Assume A = 60; and B = 13;<br>
+In binary format, they will be as follows:</p>
+<pre><code class="hljs">A = 0011 1100
+B = 0000 1101
+-----------------
+A&amp;B = 0000 1100
+A|B = 0011 1101
+A^B = 0011 0001
+~A = 1100 0011
+</code></pre>
+<p><strong>Assignment Operators</strong> : {nbsp} <code>= {nbsp} += {nbsp} -= {nbsp} *= {nbsp} /= {nbsp} %= {nbsp} &gt;&gt;= {nbsp} &lt;&lt;= {nbsp} &amp;= {nbsp} ^= {nbsp} |=</code></p>
+<p><em>Note: <code>C &lt;&lt; = 2</code> is same as <code>C = C &lt;&lt; 2</code></em></p>
+<h3><a class="anchor" aria-hidden="true" id="range-operators"></a><a href="#range-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Range Operators</h3>
+<p>Swift 4 includes two range operators, which are shortcuts for expressing a range of values. The following table explains these two operators.</p>
+<p>Closed Range<br>
+(a...b) defines a range that runs from a to b, and includes the values a and b. +
+1...5 gives 1, 2, 3, 4 and 5</p>
+<p>Half-Open Range<br>
+(a..&lt; b) defines a range that runs from a to b, but does not include b. +
+1..&lt; 5 gives 1, 2, 3, and 4</p>
+<p>One-sided Range<br>
+a… , defines a range that runs from a to end of elements<br>
+1… gives 1 , 2,3… end of elements</p>
+<pre><code class="hljs">…a , defines a range starting from start to a +
+…2 gives beginning… to 1,2
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="misc-operators"></a><a href="#misc-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Misc Operators</h3>
+<p>Swift 4 supports a few other important operators including range and ? : which are explained in the following table.</p>
+<p>Unary Minus<br>
+The sign of a numeric value can be toggled using a prefixed<br>
+-3 or -4</p>
+<p>Unary Plus<br>
+Returns the value it operates on, without any change<br>
++6 gives 6</p>
+<p>Ternary Conditional<br>
+Condition ? X : Y<br>
+If Condition is true ? Then value X : Otherwise value Y</p>
+<h3><a class="anchor" aria-hidden="true" id="operators-precedence"></a><a href="#operators-precedence" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operators Precedence</h3>
+<p>Operator precedence determines the grouping of terms in an expression. This affects how an expression is evaluated. Certain operators have higher precedence than others; for example, the multiplication operator has higher precedence than the addition operator.</p>
+<p>Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators will be evaluated first.</p>
+<p>Primary Expression Operators (left-to-right)<br>
+<code>() [] . expr++ expr--</code></p>
+<p>Unary Operators (right-to-left)<br>
+<code>* &amp; + - ! ~ ++expr --expr</code>  <br>
+<code>* / %</code>  <br>
+<code>+ -</code>  <br>
+<code>&gt;&gt; &lt;&lt;</code>  <br>
+<code>&lt; &gt; &lt;= &gt;=</code>  <br>
+<code>== !=</code></p>
+<p>Binary Operators (left-to-right)<br>
+<code>&amp; ^ | &amp;&amp; ||</code></p>
+<p>Ternary Operator (right-to-left)<br>
+<code>?:</code></p>
+<p>Assignment Operators (right-to-left)<br>
+<code>= += -= *= /= %= &gt;&gt;= &lt;&lt;= &amp;=^= |=</code></p>
+<p>Comma (left-to-right)<br>
+<code>,</code></p>
+<h2><a class="anchor" aria-hidden="true" id="decision-making"></a><a href="#decision-making" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Decision Making</h2>
+<p><strong>If Statement:</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> varA:<span class="hljs-type">Int</span> = <span class="hljs-number">100</span>;
+
+    <span class="hljs-comment">/* Check the boolean condition using if statement */</span>
+    <span class="hljs-keyword">if</span> varA == <span class="hljs-number">20</span> {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"varA is equal to than 20"</span>);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> varA == <span class="hljs-number">50</span> {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"varA is equal to than 50"</span>);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"None of the values is matching"</span>);
+    }
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value of variable varA is \(varA)"</span>);
+</code></pre>
+<p><strong>Switch statement:</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">switch</span> index {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">100</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is 100"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>,<span class="hljs-number">15</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is either 10 or 15"</span>)
+    <span class="hljs-keyword">default</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"default case"</span>)
+    }
+</code></pre>
+<p><strong>The <code>? :</code> Operator</strong></p>
+<p>Conditional operator <code>? :</code> can be used to replace if...else statements. It has the following general form</p>
+<pre><code class="hljs">Exp1 ? Exp2 : Exp3;
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="loops"></a><a href="#loops" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Loops</h2>
+<p><strong>For in :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someInts:[<span class="hljs-type">Int</span>] = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
+
+    <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> someInts {
+    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is \(index)"</span>)
+    }
+</code></pre>
+<p><strong>While loop :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">while</span> index &lt; <span class="hljs-number">20</span> {
+    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is \(index)"</span>)
+    index = index + <span class="hljs-number">1</span>
+    }
+</code></pre>
+<p><strong>Repeat while :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">repeat</span> {
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is \(index)"</span>)
+        index = index + <span class="hljs-number">1</span>
+    }
+    <span class="hljs-keyword">while</span> index &lt; <span class="hljs-number">20</span>
+</code></pre>
+<p><strong>Continue statement :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">repeat</span> {
+        index = index + <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>( index == <span class="hljs-number">15</span> ){
+            <span class="hljs-keyword">continue</span>
+        }
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is \(index)"</span>)
+    } <span class="hljs-keyword">while</span> index &lt; <span class="hljs-number">20</span>
+</code></pre>
+<p>Here number 15 will be skipped printing</p>
+<p><strong>Break Statement :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">repeat</span> {
+        index = index + <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>( index == <span class="hljs-number">15</span> ){
+            <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is \(index)"</span>)
+    } <span class="hljs-keyword">while</span> index &lt; <span class="hljs-number">20</span>
+</code></pre>
+<p>Here numbers after 15 will be skipped printing</p>
+<p><strong>Switch fallthrough :</strong></p>
+<p>If we do not use fallthrough statement, then the program will come out of the switch statement after executing the matching case statement.</p>
+<p><em>EXAMPLE1:</em></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">switch</span> index {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">100</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is 100"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>,<span class="hljs-number">15</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is either 10 or 15"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is 5"</span>)
+    <span class="hljs-keyword">default</span> :
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"default case"</span>)
+    }
+</code></pre>
+<p><em>OUTPUT:</em></p>
+<pre><code class="hljs">Value of index is either 10 or 15
+</code></pre>
+<p><em>EXAMPLE2:</em></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> index = <span class="hljs-number">10</span>
+
+    <span class="hljs-keyword">switch</span> index {
+        <span class="hljs-keyword">case</span> <span class="hljs-number">100</span> :
+            <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is 100"</span>)
+            <span class="hljs-keyword">fallthrough</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>,<span class="hljs-number">15</span> :
+            <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is either 10 or 15"</span>)
+            <span class="hljs-keyword">fallthrough</span>
+        <span class="hljs-keyword">case</span> <span class="hljs-number">5</span> :
+            <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of index is 5"</span>)
+        <span class="hljs-keyword">default</span> :
+            <span class="hljs-built_in">print</span>( <span class="hljs-string">"default case"</span>)
+    }
+</code></pre>
+<p><em>OUTPUT:</em></p>
+<pre><code class="hljs">Value of index is either 10 or 15 +
+Value of index is 5
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="strings"></a><a href="#strings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Strings</h2>
+<p><em>EXAMPLE:</em></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// String creation using String literal</span>
+    <span class="hljs-keyword">var</span> stringA = <span class="hljs-string">"Hello, Swift 4!"</span>
+    <span class="hljs-built_in">print</span>( stringA )
+
+    <span class="hljs-comment">// String creation using String instance</span>
+    <span class="hljs-keyword">var</span> stringB = <span class="hljs-type">String</span>(<span class="hljs-string">"Hello, Swift 4!"</span>)
+    <span class="hljs-built_in">print</span>( stringB )
+
+    <span class="hljs-comment">//Multiple line string</span>
+
+    <span class="hljs-keyword">let</span> stringC = <span class="hljs-string">"""
+    Hey this is a
+    example of multiple Line
+    string by tutorialsPoint 
+
+    """</span>
+    <span class="hljs-built_in">print</span>(stringC)
+</code></pre>
+<p><em>OUTPUT:</em></p>
+<pre><code class="hljs">Hello, Swift 4!
+Hello, Swift 4!
+Hey this is a
+example of multiple Line
+string by tutorialsPoint
+</code></pre>
+<p><strong>Empty String:</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// Empty string creation using String instance</span>
+    <span class="hljs-keyword">let</span> stringB = <span class="hljs-type">String</span>()
+
+    <span class="hljs-keyword">if</span> stringB.isEmpty {
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"stringB is empty"</span> )
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-built_in">print</span>( <span class="hljs-string">"stringB is not empty"</span> )
+    }
+</code></pre>
+<p><strong>String Constants:</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// stringB can not be modified</span>
+    <span class="hljs-keyword">let</span> stringB = <span class="hljs-type">String</span>(<span class="hljs-string">"Hello, Swift 4!"</span>)
+    stringB + = <span class="hljs-string">"--Readers--"</span>
+    <span class="hljs-built_in">print</span>( stringB )
+</code></pre>
+<p><em>OUTPUT:</em></p>
+<pre><code class="hljs">Swift throws an error!
+</code></pre>
+<p><strong>String Interpolation:</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> varA = <span class="hljs-number">20</span>
+    <span class="hljs-keyword">let</span> constA = <span class="hljs-number">100</span>
+    <span class="hljs-keyword">var</span> varC:<span class="hljs-type">Float</span> = <span class="hljs-number">20.0</span>
+
+    <span class="hljs-keyword">var</span> stringA = <span class="hljs-string">"\(varA) times \(constA) is equal to \(varC * 100)"</span>
+    <span class="hljs-built_in">print</span>( stringA )
+</code></pre>
+<p><em>OUTPUT:</em></p>
+<pre><code class="hljs">20 times 100 is equal to 2000.0
+</code></pre>
+<p><strong>String iteration:</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">for</span> chars <span class="hljs-keyword">in</span> <span class="hljs-string">"ThisString"</span> {
+    <span class="hljs-built_in">print</span>(chars, terminator: <span class="hljs-string">" "</span>)
+    }
+</code></pre>
+<p><strong>Unicode strings:</strong></p>
+<p>You can access a UTF-8 and UTF-16 representation of a String by iterating over its utf8 and utf16 properties</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> unicodeString = <span class="hljs-string">"Dog???"</span>
+
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"UTF-8 Codes: "</span>)
+    <span class="hljs-keyword">for</span> code <span class="hljs-keyword">in</span> unicodeString.utf8 {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(code) "</span>)
+    }
+
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"\n"</span>)
+
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"UTF-16 Codes: "</span>)
+    <span class="hljs-keyword">for</span> code <span class="hljs-keyword">in</span> unicodeString.utf16 {
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(code) "</span>)
+    }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="string-functions-operators"></a><a href="#string-functions-operators" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>String Functions &amp; Operators</h3>
+<p><strong>isEmpty</strong>  <br>
+A Boolean value that determines whether a string is empty or not.</p>
+<p><strong>hasPrefix(prefix: String)</strong>  <br>
+Function to check whether a given parameter string exists as a prefix of the string or not.</p>
+<p><strong>hasSuffix(suffix: String)</strong>  <br>
+Function to check whether a given parameter string exists as a suffix of the string or not.</p>
+<p><strong>toInt()</strong>  <br>
+Function to convert numeric String value into Integer.</p>
+<p><strong>count()</strong>  <br>
+Global function to count the number of Characters in a string.</p>
+<p><strong>utf8</strong>  <br>
+Property to return a UTF-8 representation of a string.</p>
+<p><strong>utf16</strong>  <br>
+Property to return a UTF-16 representation of a string.</p>
+<p><strong>unicodeScalars</strong>  <br>
+Property to return a Unicode Scalar representation of a string.</p>
+<p><strong>+</strong>  <br>
+Operator to concatenate two strings, or a string and a character, or two characters.</p>
+<p><strong>+=</strong>  <br>
+Operator to append a string or character to an existing string.</p>
+<p><strong>==</strong>
+Operator to determine the equality of two strings.</p>
+<p><strong>&lt;</strong>  <br>
+Operator to perform a lexicographical comparison to determine whether one string evaluates as less than another.</p>
+<p><strong>startIndex</strong>  <br>
+To get the value at starting index of string.</p>
+<p><strong>endIndex</strong>  <br>
+To get the value at ending index of string.</p>
+<p><strong>Indices</strong>  <br>
+To access the indeces one by one. i.e all the characters of string one by one.</p>
+<p><strong>insert(&quot;Value&quot;, at: position)</strong>  <br>
+To insert a value at a position.</p>
+<p><strong>remove(at: position)</strong></p>
+<p><strong>removeSubrange(range)</strong>  <br>
+to remove a value at a position, or to remove a range of values from string.</p>
+<p><strong>reversed()</strong>  <br>
+returns the reverse of a string</p>
+<h3><a class="anchor" aria-hidden="true" id="characters"></a><a href="#characters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Characters</h3>
+<p>A character in Swift is a single character String literal, addressed by the data type Character. If you try to store more than one character in a Character type variable or constant, then Swift will not allow that.</p>
+<p>It is not possible to create an empty Character variable or constant which will have an empty value. The following syntax is not possible</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// Following is wrong in Swift 4</span>
+    <span class="hljs-keyword">let</span> char1: <span class="hljs-type">Character</span> = <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> char2: <span class="hljs-type">Character</span> = <span class="hljs-string">""</span>
+
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value of char1 \(char1)"</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value of char2 \(char2)"</span>)
+</code></pre>
+<p><strong>Asscessing characters from string :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">for</span> ch <span class="hljs-keyword">in</span> <span class="hljs-string">"Hello"</span> {
+        <span class="hljs-built_in">print</span>(ch)
+    }
+</code></pre>
+<p><strong>Concatenating Strings with Characters :</strong></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> varA:<span class="hljs-type">String</span> = <span class="hljs-string">"Hello "</span>
+    <span class="hljs-keyword">let</span> varB:<span class="hljs-type">Character</span> = <span class="hljs-string">"G"</span>
+
+    varA.append( varB )
+
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value of varC = \(varA)"</span>)
+</code></pre>
+<p><em>OUTPUT:</em></p>
+<pre><code class="hljs">Value of varC = Hello G
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/swift/swift-basics-pirple"><span class="arrow-prev">← </span><span>Swift Basics (pirple)</span></a><a class="docs-next button" href="/mywiki/docs/swift/swift-datastructures"><span>Data Structures</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#built-in-data-types">Built-in Data Types</a><ul class="toc-headings"><li><a href="#type-aliases">Type Aliases</a></li><li><a href="#type-safety">Type Safety</a></li><li><a href="#type-inference">Type Inference</a></li></ul></li><li><a href="#variable-declaration">Variable declaration</a></li><li><a href="#optionals">Optionals</a></li><li><a href="#tuples">Tuples</a></li><li><a href="#literals">Literals</a></li><li><a href="#operators">Operators</a><ul class="toc-headings"><li><a href="#range-operators">Range Operators</a></li><li><a href="#misc-operators">Misc Operators</a></li><li><a href="#operators-precedence">Operators Precedence</a></li></ul></li><li><a href="#decision-making">Decision Making</a></li><li><a href="#loops">Loops</a></li><li><a href="#strings">Strings</a><ul class="toc-headings"><li><a href="#string-functions-operators">String Functions &amp; Operators</a></li><li><a href="#characters">Characters</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

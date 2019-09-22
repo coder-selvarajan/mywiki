@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Swift Basics (from pirple.com) · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; This page was created while I was learning Swift with **pirple.com** course"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Swift Basics (from pirple.com) · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="&gt; This page was created while I was learning Swift with **pirple.com** course"/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>iOS - Swift</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">iOS - Swift</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/swift/ios-basics">iOS Basics</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/swift/swift-basics-pirple">Swift Basics (pirple)</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/swift/swift-basics-udemy">Swift Basics (udemy)</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/swift/swift-datastructures">Data Structures</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Cross Platform Apps</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/ionic-overview">Ionic Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/electron-overview">Electron Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MEAN Stack</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/nodejs-overview">NodeJS Overview</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Swift Basics (from pirple.com)</h1></header><article><div><span><blockquote>
+<p>This page was created while I was learning Swift with <strong>pirple.com</strong> course</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="variable-declaration"></a><a href="#variable-declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variable declaration</h2>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// 1</span>
+    <span class="hljs-keyword">var</span>/<span class="hljs-keyword">let</span> name : type = value
+    
+    <span class="hljs-comment">// 2</span>
+    <span class="hljs-keyword">var</span>/<span class="hljs-keyword">let</span> name : type
+    name = value
+
+    <span class="hljs-comment">// 3</span>
+    <span class="hljs-keyword">var</span>/<span class="hljs-keyword">let</span> name = value
+</code></pre>
+<p>Primitive types::
+Int, Int8, Int16, Int32, Int64, UInt, UInt8, UInt16, UInt32, UInt64 +
+Float(32), Double(64), CGFloat(Similar to Float) +
+Bool +
+Character +</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// Valid. length=1</span>
+    <span class="hljs-keyword">var</span> char1 : <span class="hljs-type">Character</span> = <span class="hljs-string">"?"</span> 
+     
+    <span class="hljs-comment">// Invalid, length=0  </span>
+    <span class="hljs-keyword">var</span> char2 : <span class="hljs-type">Character</span> = <span class="hljs-string">""</span>
+</code></pre>
+<p>Emojis can be represented with Character</p>
+<h2><a class="anchor" aria-hidden="true" id="strings"></a><a href="#strings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Strings</h2>
+<p>Not a primitive type</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> name : <span class="hljs-type">String</span> = <span class="hljs-string">"Mammoth Interative"</span>
+    <span class="hljs-keyword">let</span> startIndex = name.index(name.startIndex, offsetBy: <span class="hljs-number">3</span>)
+    <span class="hljs-keyword">let</span> endIndex = name.index(name.startIndex, offsetBy: <span class="hljs-number">7</span>)
+    <span class="hljs-keyword">let</span> moth : <span class="hljs-type">String</span> = name.substring(with: startIndex..&lt;endIndex)  
+    <span class="hljs-comment">// Result: moth</span>
+</code></pre>
+<p>Multilevel string:</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> multilineString : <span class="hljs-type">String</span> = <span class="hljs-string">"""
+        Hello how are you?
+        I'm doing well, how are you?
+    """</span>
+</code></pre>
+<p>Optional:</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> test : <span class="hljs-type">String?</span> = <span class="hljs-string">"Axe"</span>
+    test = <span class="hljs-literal">nil</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="tuples"></a><a href="#tuples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tuples</h2>
+<p>Tuples are variables/constants with multiple values</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// syntax</span>
+    <span class="hljs-keyword">var</span>/<span class="hljs-keyword">let</span> name : (val_type1, val_type2) = (val1, val2)
+    
+    <span class="hljs-keyword">let</span> item : (<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>) = (<span class="hljs-string">"Food"</span>, <span class="hljs-number">10</span>)
+    <span class="hljs-keyword">let</span> itemName : <span class="hljs-type">String</span> = item.<span class="hljs-number">0</span>
+    <span class="hljs-keyword">let</span> itemQuantity : <span class="hljs-type">Int</span> = item.<span class="hljs-number">1</span>
+    
+    <span class="hljs-comment">// another way</span>
+    <span class="hljs-keyword">let</span> (name, quantity) = item
+    <span class="hljs-keyword">let</span> (name, <span class="hljs-number">_</span>) = item
+    
+    <span class="hljs-comment">// assigning param name </span>
+    <span class="hljs-keyword">let</span> item2 = (name: <span class="hljs-string">"Matches"</span>, qty: <span class="hljs-number">15</span>)
+</code></pre>
+<p>Type Convertion::
+Double(10) +
+Float(15) +
+Int(50.79) // 50 +
+String(50) // &quot;50&quot; +</p>
+<p>Conditional Operators::
+==, !=, &lt;, &lt;=, &gt;, &gt;=, ===, !==</p>
+<p>Logical::
+&amp;&amp;, ||, |</p>
+<p>Ternary::
+a ? result_if_true : result_if_false</p>
+<p>Nil-coalescing::
+a ?? b
+int1 = int2 ?? 10 // if int2 is nil, then int1 will be assigned to 10</p>
+<p>== Collections</p>
+<p><em>Collection types</em></p>
+<h2><a class="anchor" aria-hidden="true" id="arrays"></a><a href="#arrays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arrays</h2>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> inventory : [<span class="hljs-type">String</span>] = [<span class="hljs-string">"food"</span>, <span class="hljs-string">"hat"</span>, <span class="hljs-string">"coat"</span>]
+    
+    <span class="hljs-comment">// reassigning</span>
+    inventory = [<span class="hljs-string">"food"</span>, <span class="hljs-string">"shirt"</span>]
+
+    <span class="hljs-comment">//multiple type values</span>
+    <span class="hljs-keyword">var</span> randomArray : [<span class="hljs-type">Any</span>] = [<span class="hljs-number">1</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">"hello"</span>]
+
+    <span class="hljs-comment">// type of declarations</span>
+    <span class="hljs-keyword">var</span> array1 : [<span class="hljs-type">Int</span>] = []
+    <span class="hljs-keyword">var</span> array2 = [<span class="hljs-type">Int</span>]()
+
+    <span class="hljs-comment">// assigning value</span>
+    <span class="hljs-keyword">var</span> array3 : [<span class="hljs-type">Int</span>] = [<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]
+    <span class="hljs-comment">// defaulting value in array</span>
+    <span class="hljs-keyword">var</span> array4 : [<span class="hljs-type">Int</span>] = <span class="hljs-type">Array</span>(repeating: <span class="hljs-number">0</span>, <span class="hljs-built_in">count</span>: <span class="hljs-number">5</span>)
+
+</code></pre>
+<p><em>Retrieve Elements/Attributes :</em></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> inventory : [(<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>)] = [(<span class="hljs-string">"Gloves"</span>,<span class="hljs-number">2</span>),(<span class="hljs-string">"Fruit"</span>,<span class="hljs-number">4</span>),(<span class="hljs-string">"Axe"</span>,<span class="hljs-number">1</span>)]
+    <span class="hljs-keyword">let</span> secondItem : (<span class="hljs-type">String</span>, <span class="hljs-type">Int</span>) = inventory[<span class="hljs-number">1</span>]
+
+    <span class="hljs-comment">//handling of nil and access to first element</span>
+    <span class="hljs-keyword">let</span> firstItem : (<span class="hljs-type">String</span>,<span class="hljs-type">Int</span>)? = inventory.first
+    <span class="hljs-comment">// getting the inner value</span>
+    <span class="hljs-keyword">let</span> thirdItemName : <span class="hljs-type">String</span> = inventory[<span class="hljs-number">2</span>].<span class="hljs-number">0</span>
+
+    <span class="hljs-comment">//to find item in array</span>
+    <span class="hljs-keyword">let</span> array2 : [<span class="hljs-type">Int</span>] = [<span class="hljs-number">1</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>]
+    array2.<span class="hljs-built_in">contains</span>(<span class="hljs-number">10</span>)
+</code></pre>
+<p><em>Modify Array/Elements :</em></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// modify array</span>
+    inventory = [(<span class="hljs-string">"Gloves"</span>,<span class="hljs-number">3</span>),(<span class="hljs-string">"Fruit"</span>,<span class="hljs-number">5</span>),(<span class="hljs-string">"Shoes"</span>,<span class="hljs-number">6</span>)]
+    <span class="hljs-comment">// modify item</span>
+    inventory[<span class="hljs-number">1</span>] = (<span class="hljs-string">"Gloves"</span>, <span class="hljs-number">2</span>)
+
+    <span class="hljs-comment">// update second and third items in array</span>
+    inventory[<span class="hljs-number">1</span>...<span class="hljs-number">2</span>] = [(<span class="hljs-string">"fish"</span>,<span class="hljs-number">3</span>), (<span class="hljs-string">"socks"</span>, <span class="hljs-number">9</span>)]
+
+    <span class="hljs-comment">// append item</span>
+    inventory.append((<span class="hljs-string">"Glasses"</span>, <span class="hljs-number">1</span>))
+    <span class="hljs-comment">// or</span>
+    inventory += [(<span class="hljs-string">"fish"</span>,<span class="hljs-number">3</span>), (<span class="hljs-string">"socks"</span>, <span class="hljs-number">9</span>)]
+
+    <span class="hljs-comment">// insert at position</span>
+    inventory.insert((<span class="hljs-string">"Hat"</span>,<span class="hljs-number">2</span>), at: <span class="hljs-number">2</span>)
+
+    <span class="hljs-comment">// remove item</span>
+    inventory.remove(at: <span class="hljs-number">0</span>)
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="multi-dimentional-array"></a><a href="#multi-dimentional-array" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multi-dimentional Array</h2>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// multi-dim array</span>
+    <span class="hljs-keyword">var</span> shoppingList : [[<span class="hljs-type">String</span>]] = [
+        [<span class="hljs-string">"fruit"</span>,<span class="hljs-string">"cheese"</span>,<span class="hljs-string">"bread"</span>],
+        [<span class="hljs-string">"t-shirt"</span>,<span class="hljs-string">"shorts"</span>],
+        [<span class="hljs-string">"paper towel"</span>]]
+
+    <span class="hljs-comment">// retrieve data</span>
+    <span class="hljs-keyword">let</span> shorts : <span class="hljs-type">String</span> = shoppingList[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]
+    <span class="hljs-keyword">let</span> bread : <span class="hljs-type">String</span> = shoppingList[<span class="hljs-number">0</span>][<span class="hljs-number">2</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="ranges"></a><a href="#ranges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ranges</h2>
+<pre><code class="hljs css language-swift">    <span class="hljs-comment">// range as var</span>
+    <span class="hljs-keyword">var</span> range1 = <span class="hljs-number">1</span>...<span class="hljs-number">10</span>
+    <span class="hljs-keyword">var</span> range2 = <span class="hljs-number">1</span>..&lt;<span class="hljs-number">10</span>
+    <span class="hljs-keyword">let</span> higherThan5 = <span class="hljs-number">6</span>...
+
+    <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> range1 {
+        <span class="hljs-built_in">print</span>(number)
+    }
+
+    <span class="hljs-comment">// use of range with array</span>
+    <span class="hljs-keyword">let</span> numArray : [<span class="hljs-type">Int</span>] = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]
+    <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> numArray[<span class="hljs-number">4</span>...] {
+        <span class="hljs-built_in">print</span>(number)
+    }
+</code></pre>
+<p>Range can be used in Switch statement as well.</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> health : <span class="hljs-type">Int</span> = <span class="hljs-number">95</span>
+
+    <span class="hljs-keyword">switch</span> health {
+    <span class="hljs-keyword">case</span> <span class="hljs-number">100</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"full health"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">50</span>..&lt;<span class="hljs-number">100</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"healthy"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>..&lt;<span class="hljs-number">50</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"low health"</span>)
+    <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"dead"</span>)
+    <span class="hljs-keyword">default</span> :
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"health out of range"</span>)
+    }
+</code></pre>
+<p><em>Checking nil value:</em></p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> item : <span class="hljs-type">String?</span> = <span class="hljs-string">"Fruit"</span>
+    <span class="hljs-keyword">var</span> itemName : <span class="hljs-type">String</span> = <span class="hljs-string">""</span>
+
+    <span class="hljs-comment">// checking nil</span>
+    <span class="hljs-keyword">if</span> (item != <span class="hljs-literal">nil</span>) {
+        itemName = item! <span class="hljs-comment">//unwrapping</span>
+    }
+
+    <span class="hljs-comment">// another way</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> itemName = item {
+        <span class="hljs-comment">// execute code based on itemName</span>
+    }
+
+    <span class="hljs-comment">// another different approach is</span>
+    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span> {
+        <span class="hljs-keyword">guard</span> <span class="hljs-keyword">let</span> itemName3 = item <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+        <span class="hljs-built_in">print</span>(itemName3)
+    }
+    doSomething()
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/swift/ios-basics"><span class="arrow-prev">← </span><span class="function-name-prevnext">iOS Basics</span></a><a class="docs-next button" href="/mywiki/docs/swift/swift-basics-udemy"><span>Swift Basics (udemy)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#variable-declaration">Variable declaration</a></li><li><a href="#strings">Strings</a></li><li><a href="#tuples">Tuples</a></li><li><a href="#arrays">Arrays</a></li><li><a href="#multi-dimentional-array">Multi-dimentional Array</a></li><li><a href="#ranges">Ranges</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

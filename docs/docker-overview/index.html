@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Docker Overview · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Docker is a platform to develop, deploy, and run applications inside containers. Docker is essentially synonymous with containerization. If you’re a current or aspiring software developer or data scientist, Docker is in your future."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Docker Overview · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="Docker is a platform to develop, deploy, and run applications inside containers. Docker is essentially synonymous with containerization. If you’re a current or aspiring software developer or data scientist, Docker is in your future."/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class="siteNavGroupActive"><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Overview</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Overview</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/git">GIT Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/docker-overview">Docker Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/dns-overview">DNS - Domain Name Server</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/markdown-cheatsheet">Markdown cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/asciidoc">Asciidoc Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/programming">Programming</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Info</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/tech-trends">Technology Trends</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/useful-links">Useful Links/Tools</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/learning-techniques">Learning Techniques</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/my-projects-apps">My Projects &amp; Apps</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Docker Overview</h1></header><article><div><span><p>Docker is a platform to develop, deploy, and run applications inside containers. Docker is essentially synonymous with containerization. If you’re a current or aspiring software developer or data scientist, Docker is in your future.</p>
+<p>Other Tutorial links here<br>
+<a href="https://docker-curriculum.com/#introduction">https://docker-curriculum.com/#introduction</a><br>
+<a href="https://www.tutorialspoint.com/docker/">https://www.tutorialspoint.com/docker/</a></p>
+<h2><a class="anchor" aria-hidden="true" id="container"></a><a href="#container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container</h2>
+<p>Like a physical plastic container, a Docker container:</p>
+<ul>
+<li><strong>Holds things</strong> — Something is either inside the container or outside the container.</li>
+<li><strong>Is portable</strong> — It can be used on your local machine, your coworker’s machine, or a cloud provider’s servers (e.g. AWS). Sort of like that box of childhood knickknacks you keep moving with you from home to home.</li>
+<li><strong>Has clear interfaces for access</strong> — Our physical container has a lid for opening and putting things in and taking things out. Similarly, a Docker container has several mechanisms for interfacing with the outside world. It has ports that can be opened for interacting through the browser. You can configure it to interact with data through the command line.</li>
+<li><strong>Can be obtained from a remote location</strong> — You can get another empty plastic container from Amazon.com when you need it. Amazon gets its plastic containers from manufacturers who stamp them out by the thousands from a single mold. In the case of a Docker container, an offsite registry keeps an image, which is like a mold, for your container. Then when you need a container you can make one from the image.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="concepts"></a><a href="#concepts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Concepts</h2>
+<h3><a class="anchor" aria-hidden="true" id="virtual-machines"></a><a href="#virtual-machines" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Virtual Machines</h3>
+<p>Virtual machines are the precursors to Docker containers. Virtual machines also isolate an application and its dependencies. However, Docker containers are superior to virtual machines because they take fewer resources, are very portable, and are faster to spin up. Check out this article for a great discussion of the similarities and differences.</p>
+<h3><a class="anchor" aria-hidden="true" id="docker-image"></a><a href="#docker-image" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Image</h3>
+<p>I mentioned images above. What’s an image? I’m glad you asked! The meaning of the term image in the context of Docker doesn’t map all that well to a physical image.</p>
+<p>Docker images are more like blueprints, cookie cutters, or molds. Images are the immutable master template that is used to pump out containers that are all exactly alike.</p>
+<p>An image contains the Dockerfile, libraries, and code your application needs to run, all bundled together.</p>
+<h3><a class="anchor" aria-hidden="true" id="dockerfile"></a><a href="#dockerfile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dockerfile</h3>
+<p>A Dockerfile is a file with instructions for how Docker should build your image.</p>
+<p>The Dockerfile refers to a base image that is used to build the initial image layer. Popular official base images include python, ubuntu, and alpine.</p>
+<p>Additional layers can then be stacked on top of the base image layers, according to the instructions in the Dockerfile. For example, a Dockerfile for a machine learning application could tell Docker to add NumPy, Pandas, and Scikit-learn in an intermediate layer.</p>
+<p>Finally, a thin, writable layer is stacked on top of the other layers according to the Dockerfile code. (You understand that a thin layer is small in size because you intuitively understand the thin metaphor, right 😃?)</p>
+<p>I’ll explore Dockerfiles in more depth in future articles in this series.</p>
+<h3><a class="anchor" aria-hidden="true" id="docker-container"></a><a href="#docker-container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Container</h3>
+<p>A Docker image plus the command docker run image_name creates and starts a container from an image.</p>
+<h3><a class="anchor" aria-hidden="true" id="container-registry"></a><a href="#container-registry" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container Registry</h3>
+<p>If you want other people to be able to make containers from your image, you send the image to a container registry. Docker Hub is the largest registry and the default.</p>
+<h2><a class="anchor" aria-hidden="true" id="cooking-with-docker"></a><a href="#cooking-with-docker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cooking with Docker</h2>
+<p>Phew! That’s a lot of pieces. Let’s put this all together in terms of making a pizza.</p>
+<ul>
+<li>The recipe is like the Dockerfile. It tells you what to do to get to your end goal.</li>
+<li>The ingredients are the layers. You’ve got crust, sauce, and cheese for this pizza.</li>
+</ul>
+<p>Think of the recipe and the ingredients combined as an all-in-one pizza-making-kit. It’s the Docker image.</p>
+<p>The recipe (Dockerfile) tells us what we’re going to do. Here’s the plan:</p>
+<ul>
+<li>The crust is preformed and immutable, it’s like a basic ubuntu parent image. It’s the bottom layer and gets built first.</li>
+<li>Then you’ll add some cheese. Adding this second layer to the pizza is like installing an external library — for example NumPy.</li>
+<li>Then you’ll sprinkle on some basil. The basil is like the code in a file that you wrote to run your app.</li>
+</ul>
+<p>Alright, let’s get cooking.</p>
+<ul>
+<li>The oven that bakes the pizza is like the Docker platform. You installed the oven into your house when you moved in so you could make things with it. Similarly, you installed Docker onto your computer so you could cook up containers.</li>
+<li>You start your oven by turning a knob. The docker run image_name command is like your knob — it creates and starts your container.</li>
+<li>The cooked pizza is like a Docker container.</li>
+<li>Eating the pizza is like using your app.</li>
+</ul>
+<p>Like making a pizza, making an app in a Docker container takes some work, but at the end you have something great. Enjoy 🍕!</p>
+<h2><a class="anchor" aria-hidden="true" id="docker-ecosystem-terms"></a><a href="#docker-ecosystem-terms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Ecosystem Terms</h2>
+<p>I’ve broken Docker terms into two categories for easier mental model creation: Essentials and Scaling. Let’s hit the eight essentials first.</p>
+<h3><a class="anchor" aria-hidden="true" id="docker-essentials"></a><a href="#docker-essentials" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Docker Essentials</h3>
+<ul>
+<li><strong>Platform</strong> — the software that makes Docker containers possible</li>
+<li><strong>Engine</strong> — client-server app (CE or Enterprise)</li>
+<li><strong>Client</strong> — handles Docker CLI so you can communicate with the Daemon</li>
+<li><strong>Daemon</strong> — Docker server that manages key things</li>
+<li><strong>Volumes</strong> — persistent data storage</li>
+<li><strong>Registry</strong> — remote image storage</li>
+<li><strong>Docker Hub</strong> — default and largest Docker Registry</li>
+<li><strong>Repository</strong> — collection of Docker images, e.g. Alpine</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="scaling-docker"></a><a href="#scaling-docker" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scaling Docker</h3>
+<ul>
+<li><strong>Networking</strong> — connect containers together</li>
+<li><strong>Compose</strong> — time saver for multi-container apps</li>
+<li><strong>Swarm</strong> — orchestrates container deployment</li>
+<li><strong>Services</strong> — containers in production</li>
+</ul>
+<p>Because we’re keeping with food metaphors, and everyone loves a baker’s dozen, we have one more related term for you: Kubernetes.</p>
+<p><strong>Kubernetes</strong></p>
+<p>Kubernetes automates deployment, scaling, and management of containerized applications. It’s the clear winner in the container orchestration market. Instead of Docker Swarm, use Kubernetes to scale up projects with multiple Docker containers. Kubernetes isn’t an official part of Docker; it’s more like Docker’s BFF.</p>
+<p>I have a whole series on Kubernetes in the works. Kubernetes is pretty awesome.</p>
+<p>Now that you know the conceptual landscape and common terms I suggest you try out Docker.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/git"><span class="arrow-prev">← </span><span>GIT Overview</span></a><a class="docs-next button" href="/mywiki/docs/dns-overview"><span>DNS - Domain Name Server</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#container">Container</a></li><li><a href="#concepts">Concepts</a><ul class="toc-headings"><li><a href="#virtual-machines">Virtual Machines</a></li><li><a href="#docker-image">Docker Image</a></li><li><a href="#dockerfile">Dockerfile</a></li><li><a href="#docker-container">Docker Container</a></li><li><a href="#container-registry">Container Registry</a></li></ul></li><li><a href="#cooking-with-docker">Cooking with Docker</a></li><li><a href="#docker-ecosystem-terms">Docker Ecosystem Terms</a><ul class="toc-headings"><li><a href="#docker-essentials">Docker Essentials</a></li><li><a href="#scaling-docker">Scaling Docker</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

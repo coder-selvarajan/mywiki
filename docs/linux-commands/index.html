@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Linux Commands · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 1 - SYSTEM INFORMATION"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Linux Commands · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="## 1 - SYSTEM INFORMATION"/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class="siteNavGroupActive"><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Big Data</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Big Data</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/hadoop-overview">Hadoop Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/linux-overview">Linux Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/linux-commands">Linux Commands</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Python</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/python/setup">Python Setup</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/python/basics">Python Basics</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/python/resources">Python Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Linux Commands</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="1-system-information"></a><a href="#1-system-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 - SYSTEM INFORMATION</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>uname -a</strong></td><td style="text-align:left">Display Linux system information</td></tr>
+<tr><td style="text-align:left"><strong>uname -r</strong></td><td style="text-align:left">Display kernel release information</td></tr>
+<tr><td style="text-align:left"><strong>cat /etc/redhat-release</strong></td><td style="text-align:left">Show which version of redhat installed</td></tr>
+<tr><td style="text-align:left"><strong>uptime</strong></td><td style="text-align:left">Show how long the system has been running + load</td></tr>
+<tr><td style="text-align:left"><strong>hostname</strong></td><td style="text-align:left">Show system host name</td></tr>
+<tr><td style="text-align:left"><strong>hostname -I</strong></td><td style="text-align:left">Display the IP addresses of the host</td></tr>
+<tr><td style="text-align:left"><strong>last reboot</strong></td><td style="text-align:left">Show system reboot history</td></tr>
+<tr><td style="text-align:left"><strong>date</strong></td><td style="text-align:left">Show the current date and time</td></tr>
+<tr><td style="text-align:left"><strong>cal</strong></td><td style="text-align:left">Show this month's calendar</td></tr>
+<tr><td style="text-align:left"><strong>w</strong></td><td style="text-align:left">Display who is online</td></tr>
+<tr><td style="text-align:left"><strong>whoami</strong></td><td style="text-align:left">Who you are logged in as</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="2-hardware-information"></a><a href="#2-hardware-information" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2 - HARDWARE INFORMATION</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>dmesg</strong></td><td style="text-align:left">Display messages in kernel ring buffer</td></tr>
+<tr><td style="text-align:left"><strong>cat /proc/cpuinfo</strong></td><td style="text-align:left">Display CPU information</td></tr>
+<tr><td style="text-align:left"><strong>cat /proc/meminfo</strong></td><td style="text-align:left">Display memory information</td></tr>
+<tr><td style="text-align:left"><strong>free -h</strong></td><td style="text-align:left">Display free and used memory ( -h for human readable, -m for MB, -g for GB.)</td></tr>
+<tr><td style="text-align:left"><strong>lspci -tv</strong></td><td style="text-align:left">Display PCI devices</td></tr>
+<tr><td style="text-align:left"><strong>lsusb -tv</strong></td><td style="text-align:left">Display USB devices</td></tr>
+<tr><td style="text-align:left"><strong>dmidecode</strong></td><td style="text-align:left">Display DMI/SMBIOS (hardware info) from the BIOS</td></tr>
+<tr><td style="text-align:left"><strong>hdparm -i /dev/sda</strong></td><td style="text-align:left">Show info about disk sda</td></tr>
+<tr><td style="text-align:left"><strong>hdparm -tT /dev/sda</strong></td><td style="text-align:left">Perform a read speed test on disk sda</td></tr>
+<tr><td style="text-align:left"><strong>badblocks -s /dev/sda</strong></td><td style="text-align:left">Test for unreadable blocks on disk sda</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="3-performance-monitoring-and-statistics"></a><a href="#3-performance-monitoring-and-statistics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3 - PERFORMANCE MONITORING AND STATISTICS</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>top</strong></td><td style="text-align:left">Display and manage the top processes</td></tr>
+<tr><td style="text-align:left"><strong>htop</strong></td><td style="text-align:left">Interactive process viewer (top alternative)</td></tr>
+<tr><td style="text-align:left"><strong>mpstat 1</strong></td><td style="text-align:left">Display processor related statistics</td></tr>
+<tr><td style="text-align:left"><strong>vmstat 1</strong></td><td style="text-align:left">Display virtual memory statistics</td></tr>
+<tr><td style="text-align:left"><strong>iostat 1</strong></td><td style="text-align:left">Display I/O statistics</td></tr>
+<tr><td style="text-align:left"><strong>tail 100 /var/log/messages</strong></td><td style="text-align:left">Display the last 100 syslog messages  <br/> (Use /var/log/syslog for Debian based systems.)</td></tr>
+<tr><td style="text-align:left"><strong>tcpdump -i eth0</strong></td><td style="text-align:left">Capture and display all packets on interface eth0</td></tr>
+<tr><td style="text-align:left"><strong>tcpdump -i eth0 'port 80'</strong></td><td style="text-align:left">Monitor all traffic on port 80 ( HTTP )</td></tr>
+<tr><td style="text-align:left"><strong>lsof</strong></td><td style="text-align:left">List all open files on the system</td></tr>
+<tr><td style="text-align:left"><strong>lsof -u user</strong></td><td style="text-align:left">List files opened by user</td></tr>
+<tr><td style="text-align:left"><strong>free -h</strong></td><td style="text-align:left">Display free and used memory</td></tr>
+<tr><td style="text-align:left">( -h for human readable, -m for MB, -g for GB.)</td></tr>
+<tr><td style="text-align:left"><strong>watch df -h</strong></td><td style="text-align:left">Execute &quot;df -h&quot;, showing periodic updates</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="4-user-information-and-management"></a><a href="#4-user-information-and-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4 - USER INFORMATION AND MANAGEMENT</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>id</strong></td><td style="text-align:left">Display the user and group ids of your current user.</td></tr>
+<tr><td style="text-align:left"><strong>last</strong></td><td style="text-align:left">Display the last users who have logged onto the system.</td></tr>
+<tr><td style="text-align:left"><strong>who</strong></td><td style="text-align:left">Show who is logged into the system.</td></tr>
+<tr><td style="text-align:left"><strong>w</strong></td><td style="text-align:left">Show who is logged in and what they are doing.</td></tr>
+<tr><td style="text-align:left"><strong>groupadd test</strong></td><td style="text-align:left">Create a group named &quot;test&quot;.</td></tr>
+<tr><td style="text-align:left"><strong>useradd -c &quot;John Smith&quot; -m john</strong></td><td style="text-align:left">Create an account named john, with a comment of &quot;John Smith&quot; and create the user's home directory.</td></tr>
+<tr><td style="text-align:left"><strong>userdel john</strong></td><td style="text-align:left">Delete the john account.</td></tr>
+<tr><td style="text-align:left"><strong>usermod -aG sales john</strong></td><td style="text-align:left">Add the john account to the sales group</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="5-file-and-directory-commands"></a><a href="#5-file-and-directory-commands" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5 - FILE AND DIRECTORY COMMANDS</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>ls -al</strong></td><td style="text-align:left">List all files in a long listing (detailed) format</td></tr>
+<tr><td style="text-align:left"><strong>pwd</strong></td><td style="text-align:left">Display the present working directory</td></tr>
+<tr><td style="text-align:left"><strong>mkdir directory</strong></td><td style="text-align:left">Create a directory</td></tr>
+<tr><td style="text-align:left"><strong>rm file</strong></td><td style="text-align:left">Remove (delete) file</td></tr>
+<tr><td style="text-align:left"><strong>rm -r directory</strong></td><td style="text-align:left">Remove the directory and its contents recursively</td></tr>
+<tr><td style="text-align:left"><strong>rm -f file</strong></td><td style="text-align:left">Force removal of file without prompting for confirmation</td></tr>
+<tr><td style="text-align:left"><strong>rm -rf directory</strong></td><td style="text-align:left">Forcefully remove directory recursively</td></tr>
+<tr><td style="text-align:left"><strong>cp file1 file2</strong></td><td style="text-align:left">Copy file1 to file2</td></tr>
+<tr><td style="text-align:left"><strong>cp -r source_directory destination</strong></td><td style="text-align:left">Copy source_directory recursively to destination. If destination exists, copy source_directory into destination, otherwise create destination with the contents of source_directory.</td></tr>
+<tr><td style="text-align:left"><strong>mv file1 file2</strong></td><td style="text-align:left">Rename or move file1 to file2. If file2 is an existing directory, move file1 into directory file2</td></tr>
+<tr><td style="text-align:left"><strong>ln -s /path/to/file linkname</strong></td><td style="text-align:left">Create symbolic link to linkname</td></tr>
+<tr><td style="text-align:left"><strong>touch file</strong></td><td style="text-align:left">Create an empty file or update the access and modification times of file.</td></tr>
+<tr><td style="text-align:left"><strong>cat file</strong></td><td style="text-align:left">View the contents of file</td></tr>
+<tr><td style="text-align:left"><strong>less file</strong></td><td style="text-align:left">Browse through a text file</td></tr>
+<tr><td style="text-align:left"><strong>head file</strong></td><td style="text-align:left">Display the first 10 lines of file</td></tr>
+<tr><td style="text-align:left"><strong>tail file</strong></td><td style="text-align:left">Display the last 10 lines of file</td></tr>
+<tr><td style="text-align:left"><strong>tail -f file</strong></td><td style="text-align:left">Display the last 10 lines of file and &quot;follow&quot; the file as it grows.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="6-process-management"></a><a href="#6-process-management" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6 - PROCESS MANAGEMENT</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>ps</strong></td><td style="text-align:left">Display your currently running processes</td></tr>
+<tr><td style="text-align:left"><strong>ps -ef</strong></td><td style="text-align:left">Display all the currently running processes on the system.</td></tr>
+<tr><td style="text-align:left"><strong>ps -ef</strong></td><td style="text-align:left">grep processname</td><td>Display process information for processname</td></tr>
+<tr><td style="text-align:left"><strong>top</strong></td><td style="text-align:left">Display and manage the top processes</td></tr>
+<tr><td style="text-align:left"><strong>htop</strong></td><td style="text-align:left">Interactive process viewer (top alternative)</td></tr>
+<tr><td style="text-align:left"><strong>kill pid</strong></td><td style="text-align:left">Kill process with process ID of pid</td></tr>
+<tr><td style="text-align:left"><strong>killall processname</strong></td><td style="text-align:left">Kill all processes named processname</td></tr>
+<tr><td style="text-align:left"><strong>program &amp;</strong></td><td style="text-align:left">Start program in the background</td></tr>
+<tr><td style="text-align:left"><strong>bg</strong></td><td style="text-align:left">Display stopped or background jobs</td></tr>
+<tr><td style="text-align:left"><strong>fg</strong></td><td style="text-align:left">Brings the most recent background job to foreground</td></tr>
+<tr><td style="text-align:left"><strong>fg n</strong></td><td style="text-align:left">Brings job n to the foreground</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="7-file-permissions"></a><a href="#7-file-permissions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7 -FILE PERMISSIONS</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">PERMISSION</th><th style="text-align:left">EXAMPLE</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>U -- G -- W</strong></td></tr>
+<tr><td style="text-align:left"><strong>rwx rwx rwx</strong></td><td style="text-align:left">chmod 777 filename # Use sparingly!</td></tr>
+<tr><td style="text-align:left"><strong>rwx rwx r-x</strong></td><td style="text-align:left">chmod 775 filename</td></tr>
+<tr><td style="text-align:left"><strong>rwx r-x r-x</strong></td><td style="text-align:left">chmod 755 filename</td></tr>
+<tr><td style="text-align:left"><strong>rw- rw- r--</strong></td><td style="text-align:left">chmod 664 filename</td></tr>
+<tr><td style="text-align:left"><strong>rw- r-- r--</strong></td><td style="text-align:left">chmod 644 filename</td></tr>
+</tbody>
+</table>
+<p><strong>LEGEND</strong></p>
+<pre><code class="hljs">U = User        r = Read
+G = Group       w = write
+W = World       x = execute
+                - = no access
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="8-networking"></a><a href="#8-networking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8 - NETWORKING</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>ifconfig -a</strong></td><td style="text-align:left">Display all network interfaces and ip address</td></tr>
+<tr><td style="text-align:left"><strong>ifconfig eth0</strong></td><td style="text-align:left">Display eth0 address and details</td></tr>
+<tr><td style="text-align:left"><strong>ethtool eth0</strong></td><td style="text-align:left">Query or control network driver and hardware settings</td></tr>
+<tr><td style="text-align:left"><strong>ping host</strong></td><td style="text-align:left">Send ICMP echo request to host</td></tr>
+<tr><td style="text-align:left"><strong>whois domain</strong></td><td style="text-align:left">Display whois information for domain</td></tr>
+<tr><td style="text-align:left"><strong>dig domain</strong></td><td style="text-align:left">Display DNS information for domain</td></tr>
+<tr><td style="text-align:left"><strong>dig -x IP_ADDRESS</strong></td><td style="text-align:left">Reverse lookup of IP_ADDRESS</td></tr>
+<tr><td style="text-align:left"><strong>host domain</strong></td><td style="text-align:left">Display DNS ip address for domain</td></tr>
+<tr><td style="text-align:left"><strong>hostname -i</strong></td><td style="text-align:left">Display the network address of the host name.</td></tr>
+<tr><td style="text-align:left"><strong>hostname -I</strong></td><td style="text-align:left">Display all local ip addresses</td></tr>
+<tr><td style="text-align:left"><strong>wget <a href="http://domain.com/file">http://domain.com/file</a></strong></td><td style="text-align:left">Download <a href="http://domain.com/file">http://domain.com/file</a></td></tr>
+<tr><td style="text-align:left"><strong>netstat -nutlp</strong></td><td style="text-align:left">Display listening tcp and udp ports and corresponding programs</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="9-archives-tar-files"></a><a href="#9-archives-tar-files" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9 - ARCHIVES (TAR FILES)</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>tar cf archive.tar directory</strong></td><td style="text-align:left">Create tar named archive.tar containing directory .</td></tr>
+<tr><td style="text-align:left"><strong>tar xf archive.tar</strong></td><td style="text-align:left">Extract the contents from archive.tar .</td></tr>
+<tr><td style="text-align:left"><strong>tar czf archive.tar.gz directory</strong></td><td style="text-align:left">Create a gzip compressed tar file name archive.tar.gz .</td></tr>
+<tr><td style="text-align:left"><strong>tar xzf archive.tar.gz</strong></td><td style="text-align:left">Extract a gzip compressed tar file.</td></tr>
+<tr><td style="text-align:left"><strong>tar cjf archive.tar.bz2 directory</strong></td><td style="text-align:left">Create a tar file with bzip2 compression</td></tr>
+<tr><td style="text-align:left"><strong>tar xjf archive.tar.bz2</strong></td><td style="text-align:left">Extract a bzip2 compressed tar file.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="10-installing-packages"></a><a href="#10-installing-packages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10 - INSTALLING PACKAGES</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>yum search keyword</strong></td><td style="text-align:left">Search for a package by keyword .</td></tr>
+<tr><td style="text-align:left"><strong>yum install package</strong></td><td style="text-align:left">Install package .</td></tr>
+<tr><td style="text-align:left"><strong>yum info package</strong></td><td style="text-align:left">Display description and summary information about package .</td></tr>
+<tr><td style="text-align:left"><strong>rpm -i package.rpm</strong></td><td style="text-align:left">Install package from local file named package.rpm</td></tr>
+<tr><td style="text-align:left"><strong>yum remove package</strong></td><td style="text-align:left">Remove/uninstall package .</td></tr>
+<tr><td style="text-align:left"><strong>tar zxvf sourcecode.tar.gz - cd sourcecode - ./configure - make - make install</strong></td><td style="text-align:left">Install software from source code.</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="11-search"></a><a href="#11-search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11 - SEARCH</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>grep pattern file</strong></td><td style="text-align:left">Search for pattern in file</td></tr>
+<tr><td style="text-align:left"><strong>grep -r pattern directory</strong></td><td style="text-align:left">Search recursively for pattern in directory</td></tr>
+<tr><td style="text-align:left"><strong>locate name</strong></td><td style="text-align:left">Find files and directories by name</td></tr>
+<tr><td style="text-align:left"><em><em>find /home/john -name 'prefix</em>'</em>*</td><td style="text-align:left">Find files in /home/john that start with &quot;prefix&quot;.</td></tr>
+<tr><td style="text-align:left"><strong>find /home -size +100M</strong></td><td style="text-align:left">Find files larger than 100MB in /home</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="12-ssh-logins"></a><a href="#12-ssh-logins" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12 - SSH LOGINS</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>ssh host</strong></td><td style="text-align:left">Connect to host as your local username.</td></tr>
+<tr><td style="text-align:left"><strong>ssh user@host</strong></td><td style="text-align:left">Connect to host as user</td></tr>
+<tr><td style="text-align:left"><strong>ssh -p port user@host</strong></td><td style="text-align:left">Connect to host using port</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="13-file-transfers"></a><a href="#13-file-transfers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>13 - FILE TRANSFERS</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>scp file.txt server:/tmp</strong></td><td style="text-align:left">Secure copy file.txt to the /tmp folder on server</td></tr>
+<tr><td style="text-align:left"><em><em>scp server:/var/www/</em>.html /tmp</em>*</td><td style="text-align:left">Copy *.html files from server to the local /tmp folder.</td></tr>
+<tr><td style="text-align:left"><strong>scp -r server:/var/www /tmp</strong></td><td style="text-align:left">Copy all files and directories recursively from server to the current system's /tmp folder.</td></tr>
+<tr><td style="text-align:left"><strong>rsync -a /home /backups/</strong></td><td style="text-align:left">Synchronize /home to /backups/home</td></tr>
+<tr><td style="text-align:left"><strong>rsync -avz /home server:/backups/</strong></td><td style="text-align:left">Synchronize files/directories between the local and remote system with compression enabled</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="14-disk-usage"></a><a href="#14-disk-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14 - DISK USAGE</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>df -h</strong></td><td style="text-align:left">Show free and used space on mounted filesystems</td></tr>
+<tr><td style="text-align:left"><strong>df -i</strong></td><td style="text-align:left">Show free and used inodes on mounted filesystems</td></tr>
+<tr><td style="text-align:left"><strong>fdisk -l</strong></td><td style="text-align:left">Display disks partitions sizes and types</td></tr>
+<tr><td style="text-align:left"><strong>du -ah</strong></td><td style="text-align:left">Display disk usage for all files and directories in human readable format</td></tr>
+<tr><td style="text-align:left"><strong>du -sh</strong></td><td style="text-align:left">Display total disk usage off the current directory</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="15-directory-navigation"></a><a href="#15-directory-navigation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>15 - DIRECTORY NAVIGATION</h2>
+<table>
+<thead>
+<tr><th style="text-align:left">Command</th><th style="text-align:left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><strong>cd ..</strong></td><td style="text-align:left">To go up one level of the directory tree. (Change into the parent directory.)</td></tr>
+<tr><td style="text-align:left"><strong>cd</strong></td><td style="text-align:left">Go to the $HOME directory</td></tr>
+<tr><td style="text-align:left"><strong>cd /etc</strong></td><td style="text-align:left">Change to the /etc directory</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/linux-overview"><span class="arrow-prev">← </span><span>Linux Overview</span></a><a class="docs-next button" href="/mywiki/docs/python/setup"><span>Python Setup</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-system-information">1 - SYSTEM INFORMATION</a></li><li><a href="#2-hardware-information">2 - HARDWARE INFORMATION</a></li><li><a href="#3-performance-monitoring-and-statistics">3 - PERFORMANCE MONITORING AND STATISTICS</a></li><li><a href="#4-user-information-and-management">4 - USER INFORMATION AND MANAGEMENT</a></li><li><a href="#5-file-and-directory-commands">5 - FILE AND DIRECTORY COMMANDS</a></li><li><a href="#6-process-management">6 - PROCESS MANAGEMENT</a></li><li><a href="#7-file-permissions">7 -FILE PERMISSIONS</a></li><li><a href="#8-networking">8 - NETWORKING</a></li><li><a href="#9-archives-tar-files">9 - ARCHIVES (TAR FILES)</a></li><li><a href="#10-installing-packages">10 - INSTALLING PACKAGES</a></li><li><a href="#11-search">11 - SEARCH</a></li><li><a href="#12-ssh-logins">12 - SSH LOGINS</a></li><li><a href="#13-file-transfers">13 - FILE TRANSFERS</a></li><li><a href="#14-disk-usage">14 - DISK USAGE</a></li><li><a href="#15-directory-navigation">15 - DIRECTORY NAVIGATION</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

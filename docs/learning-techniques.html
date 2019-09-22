@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Learning Techniques · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="* Read and understand the concept throughly "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Learning Techniques · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="* Read and understand the concept throughly "/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class="siteNavGroupActive"><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Other Info</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Overview</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/git">GIT Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/docker-overview">Docker Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/dns-overview">DNS - Domain Name Server</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/markdown-cheatsheet">Markdown cheatsheet</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/asciidoc">Asciidoc Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Concepts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/programming">Programming</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Info</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/tech-trends">Technology Trends</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/useful-links">Useful Links/Tools</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/learning-techniques">Learning Techniques</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/my-projects-apps">My Projects &amp; Apps</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Learning Techniques</h1></header><article><div><span><ul>
+<li><p>Read and understand the concept throughly</p></li>
+<li><p>Repetition</p>
+<ul>
+<li>1st Repetition - Right after Learning</li>
+<li>2nd Repetition - After 15-20 minutes</li>
+<li>3rd Repetition - After 6-8 hours</li>
+<li>4th Repetition - After 24 hours</li>
+</ul></li>
+<li><p>How to memorize something for a long time</p>
+<ul>
+<li>1st Repetition - Right after learning</li>
+<li>2nd Repetition - After 20-30 minutes</li>
+<li>3rd Repetition - After 1 day</li>
+<li>4th Repetition - After 2-3 weeks</li>
+<li>5th Repetition - After 2-3 months</li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/useful-links"><span class="arrow-prev">← </span><span>Useful Links/Tools</span></a><a class="docs-next button" href="/mywiki/docs/my-projects-apps"><span>My Projects &amp; Apps</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

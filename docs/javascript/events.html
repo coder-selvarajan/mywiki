@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Events · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Event Listeners:"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Events · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="## Event Listeners:"/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/basics">Javascript Basics</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/functions">Functions</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/window-object">Window Object</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/dom-object-selectors">DOM Objects &amp; Selectors</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/javascript/events">Events</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/localstorage">LocalStorage</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/object-oriented">Object Oriented Features</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/async-programming">Async Programming</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/rest-api">REST Api</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/resources">Other Resources</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/build-chrome-extn">Build Chrome Extention</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/developer-roadmap">Web Developer Roadmap - 2019</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Events</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="event-listeners"></a><a href="#event-listeners" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Listeners:</h2>
+<pre><code class="hljs css language-javascript">    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.clear-tasks'</span>).addEventListener(<span class="hljs-string">'click'</span>, onClick);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onClick</span>(<span class="hljs-params">e</span>)</span>{
+        <span class="hljs-comment">//console.log('Clicked');</span>
+        <span class="hljs-keyword">let</span> val;
+        val = e;
+
+        <span class="hljs-comment">// Event target element</span>
+        val = e.target;
+        val = e.target.id;
+        val = e.target.className;
+        val = e.target.classList;
+        <span class="hljs-comment">// Event type</span>
+        val = e.type;
+        <span class="hljs-comment">// Timestamp</span>
+        val = e.timeStamp;
+
+        <span class="hljs-comment">// Coords event relative to the window</span>
+        val = e.clientY;
+        val = e.clientX;
+        <span class="hljs-comment">// Coords event relative to the element</span>
+        val = e.offsetY;
+        val = e.offsetX;
+        <span class="hljs-built_in">console</span>.log(val);
+    }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="mouse-events"></a><a href="#mouse-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mouse Events:</h2>
+<pre><code class="hljs css language-javascript">    <span class="hljs-keyword">const</span> clearBtn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.clear-tasks'</span>);
+    <span class="hljs-keyword">const</span> card = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card'</span>);
+    <span class="hljs-keyword">const</span> heading = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'h5'</span>);
+
+    <span class="hljs-comment">// Click</span>
+    clearBtn.addEventListener(<span class="hljs-string">'click'</span>, runEvent);
+    <span class="hljs-comment">// Doubleclick</span>
+    clearBtn.addEventListener(<span class="hljs-string">'dblclick'</span>, runEvent);
+    <span class="hljs-comment">// Mousedown</span>
+    clearBtn.addEventListener(<span class="hljs-string">'mousedown'</span>, runEvent);
+    <span class="hljs-comment">// Mouseup</span>
+    clearBtn.addEventListener(<span class="hljs-string">'mouseup'</span>, runEvent);
+    <span class="hljs-comment">// Mouseenter</span>
+    card.addEventListener(<span class="hljs-string">'mouseenter'</span>, runEvent);
+    <span class="hljs-comment">// Mouseleave</span>
+    card.addEventListener(<span class="hljs-string">'mouseleave'</span>, runEvent);
+    <span class="hljs-comment">// Mouseover</span>
+    card.addEventListener(<span class="hljs-string">'mouseover'</span>, runEvent);
+    <span class="hljs-comment">// Mouseout</span>
+    card.addEventListener(<span class="hljs-string">'mouseout'</span>, runEvent);
+
+    <span class="hljs-comment">// Mousemove</span>
+    card.addEventListener(<span class="hljs-string">'mousemove'</span>, runEvent);
+
+    <span class="hljs-comment">// Event Handler</span>
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runEvent</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`EVENT TYPE: <span class="hljs-subst">${e.type}</span>`</span>);
+        heading.textContent= <span class="hljs-string">`MouseX: <span class="hljs-subst">${e.offsetX}</span> MouseY: <span class="hljs-subst">${e.offsetY}</span>`</span>;
+        <span class="hljs-built_in">document</span>.body.style.backgroundColor = 
+                <span class="hljs-string">`rgb(<span class="hljs-subst">${e.offsetX}</span>, <span class="hljs-subst">${e.offsetY}</span>, 40)`</span>;
+    }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="key-events"></a><a href="#key-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key Events:</h2>
+<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">const</span> form = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'form'</span>);
+    <span class="hljs-keyword">const</span> taskInput = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task'</span>);
+    <span class="hljs-keyword">const</span> heading = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'h5'</span>);
+    <span class="hljs-keyword">const</span> select = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'select'</span>);
+
+    <span class="hljs-comment">// Clear input</span>
+    taskInput.value = <span class="hljs-string">''</span>;
+
+    form.addEventListener(<span class="hljs-string">'submit'</span>, runEvent);
+    <span class="hljs-comment">// Keydown</span>
+    taskInput.addEventListener(<span class="hljs-string">'keydown'</span>, runEvent);
+    <span class="hljs-comment">// Keydown</span>
+    taskInput.addEventListener(<span class="hljs-string">'keyup'</span>, runEvent);
+    <span class="hljs-comment">// Keypress</span>
+    taskInput.addEventListener(<span class="hljs-string">'keypress'</span>, runEvent);
+    <span class="hljs-comment">// Focus</span>
+    taskInput.addEventListener(<span class="hljs-string">'focus'</span>, runEvent);
+    <span class="hljs-comment">// Blur</span>
+    taskInput.addEventListener(<span class="hljs-string">'blur'</span>, runEvent);
+    <span class="hljs-comment">// Cut</span>
+    taskInput.addEventListener(<span class="hljs-string">'cut'</span>, runEvent);
+    <span class="hljs-comment">// Paste</span>
+    taskInput.addEventListener(<span class="hljs-string">'paste'</span>, runEvent);
+    <span class="hljs-comment">// Input</span>
+    taskInput.addEventListener(<span class="hljs-string">'input'</span>, runEvent);
+
+    <span class="hljs-comment">// Change</span>
+    select.addEventListener(<span class="hljs-string">'change'</span>, runEvent);
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">runEvent</span>(<span class="hljs-params">e</span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`EVENT TYPE: <span class="hljs-subst">${e.type}</span>`</span>);
+        <span class="hljs-built_in">console</span>.log(e.target.value);
+        heading.innerText = e.target.value;
+        Get input value
+        <span class="hljs-built_in">console</span>.log(taskInput.value);
+        e.preventDefault();
+    }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="event-bubbling-delegation"></a><a href="#event-bubbling-delegation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Event Bubbling &amp; Delegation:</h2>
+<pre><code class="hljs css language-Javascript">    <span class="hljs-comment">// EVENT BUBBLING - parent events get called. </span>
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card-title'</span>).addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'card title'</span>);
+    });
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card-content'</span>).addEventListener(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'card content'</span>);
+    });
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'card'</span>);
+    });
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.col'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'col'</span>);
+    });
+
+    <span class="hljs-comment">// EVENT DELGATION - Delegating the parent event to child elements</span>
+    <span class="hljs-built_in">document</span>.body.addEventListener(<span class="hljs-string">'click'</span>, deleteItem);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deleteItem</span>(<span class="hljs-params">e</span>)</span>{
+        <span class="hljs-keyword">if</span>(e.target.parentElement.classList.contains(<span class="hljs-string">'delete-item'</span>)){
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'delete item'</span>);
+            e.target.parentElement.parentElement.remove();
+        }
+    }
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="html-page-lifecycle"></a><a href="#html-page-lifecycle" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTML Page - Lifecycle</h2>
+<p><strong>The lifecycle of an HTML page has three important events:</strong></p>
+<ul>
+<li>DOMContentLoaded – the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <img> and stylesheets may be not yet loaded.</li>
+<li>load – the browser loaded all resources (images, styles etc).</li>
+<li>beforeunload/unload – when the user is leaving the page.</li>
+</ul>
+<p>From <a href="https://javascript.info/onload-ondomcontentloaded">https://javascript.info/onload-ondomcontentloaded</a></p>
+<p><img src="/mywiki/docs/assets/life-cycle-events.png" alt="Events Life Cyle" title="Events Life Cycle"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/javascript/dom-object-selectors"><span class="arrow-prev">← </span><span>DOM Objects &amp; Selectors</span></a><a class="docs-next button" href="/mywiki/docs/javascript/localstorage"><span class="function-name-prevnext">LocalStorage</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#event-listeners">Event Listeners:</a></li><li><a href="#mouse-events">Mouse Events:</a></li><li><a href="#key-events">Key Events:</a></li><li><a href="#event-bubbling-delegation">Event Bubbling &amp; Delegation:</a></li><li><a href="#html-page-lifecycle">HTML Page - Lifecycle</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

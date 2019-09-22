@@ -1,0 +1,497 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Hadoop Overview · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Background "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Hadoop Overview · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="## Background "/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Big Data</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Big Data</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/hadoop-overview">Hadoop Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/linux-overview">Linux Overview</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/linux-commands">Linux Commands</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Python</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/python/setup">Python Setup</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/python/basics">Python Basics</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/python/resources">Python Resources</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Hadoop Overview</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="background"></a><a href="#background" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Background</h2>
+<p>Hadoop - is a set of technologies.. used to store and process huge amounts of data..</p>
+<p>Hadoop is not a database.. its an alternative file system with a processing library..</p>
+<h4><a class="anchor" aria-hidden="true" id="libraries"></a><a href="#libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Libraries</h4>
+<p>MapReduce 1&amp;2, Hive, Pig</p>
+<h4><a class="anchor" aria-hidden="true" id="rdbms-limits"></a><a href="#rdbms-limits" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDBMS Limits</h4>
+<ul>
+<li>Scalability</li>
+<li>Speed</li>
+<li>Queryability, sophisticated processing</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="database-choices"></a><a href="#database-choices" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Database Choices:</h4>
+<ul>
+<li><p>File systems</p>
+<ul>
+<li>HDFS (Hadoop distributed file system)</li>
+</ul></li>
+<li><p>Databases</p>
+<ul>
+<li>NoSQL(key/value, columnstore, doc db(mongo db), etc)</li>
+<li>RDBMS (MySql, Sql Server, Oracle)</li>
+</ul></li>
+</ul>
+<ul>
+<li>When implementing Hadoop then Hadoop is an addition to your RDBMS..</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="hadoop-hbase"></a><a href="#hadoop-hbase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop &amp; HBase:</h4>
+<ul>
+<li>Hadoop uses alternative file system(HDFS)</li>
+<li>HBase is a NoSQL database (wide columnstore)
+<ul>
+<li>wide columnstore = customerid having name. value attributes for customer related info.</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="cap-theory"></a><a href="#cap-theory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CAP Theory:</h4>
+<ul>
+<li>Consistency
+<ul>
+<li>Transactions</li>
+</ul></li>
+<li>Availability
+<ul>
+<li>Up-time</li>
+</ul></li>
+<li>Partioning
+<ul>
+<li>Scalability</li>
+</ul></li>
+</ul>
+<ul>
+<li><p>Hadoop fits in Scalability</p>
+<ul>
+<li>commodity(old/bad) hardware for data storage</li>
+</ul></li>
+<li><p>Flexibility (availability)</p>
+<ul>
+<li>Commodity hardware for distributed processing</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="what-kind-of-data-for-hadoop"></a><a href="#what-kind-of-data-for-hadoop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What kind of data for Hadoop?</h4>
+<ul>
+<li>LOB(line of business)
+- usually transactional and not a good fit..</li>
+<li>Behavioral data</li>
+</ul>
+<ul>
+<li>Hadoop is a suplement to the existing relational database.. its not a replacement for RDBMS ..</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="what-is-hadoop"></a><a href="#what-is-hadoop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is Hadoop?</h2>
+<pre><code class="hljs">- 2 Components plus projects
+    - Open source data storage: HDFS
+    - Processing API: MapReduce
+    - Other projects/libraries: HBase, Hive, Pig etc.
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="hadoop-distributions"></a><a href="#hadoop-distributions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop Distributions</h4>
+<pre><code class="hljs">- Apache Hadoop (Open Source)
+- Cloudera, MapR, Hortonworks(Commercial)
+- AWS, Windows Azure HDInsight (Cloud)
+    - here aws uses open source hadoop
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="why-use-hadoop"></a><a href="#why-use-hadoop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Why use Hadoop?</h3>
+<ul>
+<li>Cheaper (scales to petabytes or more)</li>
+<li>Faster (parallel data processing)</li>
+<li>Better (suited for particular types of 'Big data')</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="hadoop-business-problems-use-cases"></a><a href="#hadoop-business-problems-use-cases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop Business Problems: (Use-cases)</h4>
+<ul>
+<li>Risk modeling</li>
+<li>Customer churn analysis</li>
+<li>Recommendation engine</li>
+<li>Ad targeting</li>
+<li>Transactional analysis</li>
+<li>Threat analysis</li>
+<li>Search quality</li>
+</ul>
+<p><strong>Hadoop users: FB, Yahoo, Amazon, eBay, American airlines, NYT, IBM</strong></p>
+<h4><a class="anchor" aria-hidden="true" id="hadoop-vs-hbase-core-core"></a><a href="#hadoop-vs-hbase-core-core" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop Vs HBase: (Core &amp; Core)</h4>
+<ul>
+<li>file system has larger files..</li>
+<li>each information will be in 3 times</li>
+<li>HDFS by default is 64MB or 128MB (these r called chunks)</li>
+<li>MapReduce is developed in Java.</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="hbase-wide-column"></a><a href="#hbase-wide-column" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HBase (Wide column):</h2>
+<p>ID      Data
+1       Name=&quot;Tamilan&quot;, Location=&quot;Chennai&quot;
+2       Name=&quot;Maran&quot;, Car=&quot;Honda&quot;
+3       Location=&quot;Blore&quot;, Car=&quot;Toyota&quot;, Color=&quot;CherryRed&quot;</p>
+<p>HBase/Hive are not part of Hadoop core..</p>
+<p>Hadoop Developer
+Hadoop Administrator
+Hadoop Architect</p>
+<h4><a class="anchor" aria-hidden="true" id="understanding-jvm"></a><a href="#understanding-jvm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Understanding JVM:</h4>
+<ul>
+<li>Hadoop processes run in separate JVMs</li>
+<li>JVMs dont share state</li>
+<li>JVM processes differ between Hadoop 1.0 and 2.0</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="hadoop-file-systems"></a><a href="#hadoop-file-systems" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop File Systems</h4>
+<ul>
+<li>HDFS (Hadoop distributed file system)</li>
+<li>2 modes of implementation
+<ul>
+<li>Distributed(3 copies) or pseudo-distributed(for testing - will be implemented in single node on single machine)</li>
+</ul></li>
+<li>Regular file system</li>
+<li>Regular file system (Hadoop can be run in rfs)
+<ul>
+<li>Standalone mode</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="files-and-jvms"></a><a href="#files-and-jvms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Files and JVMS</h4>
+<ul>
+<li><p>Single node (for all hadoop processes)</p>
+<ul>
+<li>Local file system</li>
+<li>Single JVM</li>
+</ul></li>
+<li><p>Pseudo-distributed</p>
+<ul>
+<li>Uses HDFS</li>
+<li>JVM daemons run processes</li>
+</ul></li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="core-libraries"></a><a href="#core-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core Libraries:</h2>
+<ul>
+<li>Map Reduce v2 / YARN - Yet Another Resource Negociator</li>
+<li>HBase for wide column store</li>
+<li>Hive to query HBase</li>
+<li>Pig scripting for ETL</li>
+<li>Mahout library - for machine learning and predictive analytics</li>
+<li>Oozie - for workflow or coordination of jobs.</li>
+<li>Zookeeper - for coordination of groups of jobs</li>
+<li>Sqoop - for data exchange in between other systems (RDBMS like Sql server)</li>
+<li>Flume - is a log collector - coz hadoop jobs produce a large amount of log info abt job process</li>
+<li>Ambari - provisioning, managing and maintaining hadoop clusters</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="cloudera-hadoop"></a><a href="#cloudera-hadoop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloudera Hadoop</h2>
+<p>Cloudera is a commercial distribution of hadoop used widely across the industry.</p>
+<h4><a class="anchor" aria-hidden="true" id="different-versions-of-cloudera"></a><a href="#different-versions-of-cloudera" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Different versions of Cloudera:</h4>
+<ul>
+<li>Cloudera Enterprice</li>
+<li>Cloudera Express</li>
+<li>Cloudera Live (Live demo: <a href="http://demo.gethue.com/home">http://demo.gethue.com/home</a> )</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="another-verdor-hortonworkscom"></a><a href="#another-verdor-hortonworkscom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Another verdor: hortonworks.com</h4>
+<pre><code class="hljs">- have distributions for unix &amp; windows
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="another-one-maprcom"></a><a href="#another-one-maprcom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Another one: mapr.com</h4>
+<h4><a class="anchor" aria-hidden="true" id="cloudera-demo"></a><a href="#cloudera-demo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloudera Demo:</h4>
+<pre><code class="hljs">- Hue is the interface for hadoop cluster in cloudera..
+- Under query editor..
+    - Job Designer = MapReduce
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="cloud-hosted-hadoop"></a><a href="#cloud-hosted-hadoop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloud hosted Hadoop:</h2>
+<ul>
+<li>Hadoop with AWS (Amazon EMR - Elastic mapreduce) (setup and configurations are different)</li>
+<li>Hadoop with Azure  (New &gt; Data services &gt; HDInight &gt; Hadoop</li>
+</ul>
+<ul>
+<li>Setting up hadoop is quite complecated..</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="setting-up-hadoop"></a><a href="#setting-up-hadoop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting up Hadoop:</h3>
+<ul>
+<li>Hadoop binaries(apache hadoop) or vendor distribution</li>
+<li>Hadoop version</li>
+<li>Location (preferably the hadoop cluster on cloud)
+<ul>
+<li>Local install (free but takes a long time)</li>
+<li>Local VM (must install virtualization software)</li>
+<li>Cloud (costs money to test!)</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="setting-up-hadoop-data-storage"></a><a href="#setting-up-hadoop-data-storage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting Up Hadoop Data Storage</h4>
+<ul>
+<li>Local
+<ul>
+<li>File system (single distribution)</li>
+<li>HDFS (pseudo or distributed)</li>
+</ul></li>
+<li>Cloud
+<ul>
+<li>Cloud files (S3, BLOG)</li>
+<li>HDFS</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="setting-up-hadoop-libraries"></a><a href="#setting-up-hadoop-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting Up Hadoop Libraries</h4>
+<ul>
+<li>MapReduce
+<ul>
+<li>version 1.0 or 2.0</li>
+</ul></li>
+<li>Other libraries</li>
+<li>Developer Tools</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="cloudera-hadoop-virtual-machine"></a><a href="#cloudera-hadoop-virtual-machine" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloudera Hadoop Virtual Machine</h4>
+<ul>
+<li>OS + virtualization software</li>
+<li>Hadoop virtual machine for that type of VM</li>
+<li>Cloudera tools and samples</li>
+<li>Cloudera Hadoop VM is an enterprice edition for development. if we need to deploy then we need to pay the fee.</li>
+<li>Install developer tools</li>
+</ul>
+<blockquote>
+<p>Note: CDH5 and Cloudera Manager 5 - To enable Cloudera Manager we need 8GB ram and 2 virtual CPU cores</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="hadoop-local-install"></a><a href="#hadoop-local-install" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop Local install:</h3>
+<ul>
+<li>Download from apache.hadoop.com</li>
+<li>extract and run the downloads..</li>
+<li>cd conf/</li>
+<li>vi core-site.xml</li>
+<li>vi hdfs-site.xml</li>
+<li>vi mapred-site.xml</li>
+<li>vi hadoop-env.sh</li>
+<li>cat masters</li>
+<li>cat slaves</li>
+<li>bin/hadoop namenode -format</li>
+<li>bin/start-all.sh</li>
+<li>jps</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="hadoop-architectural-components"></a><a href="#hadoop-architectural-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hadoop architectural components:</h2>
+<ul>
+<li>HDFS</li>
+<li>MapReduce</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="demons"></a><a href="#demons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demons:</h4>
+<ul>
+<li>NameNode      - Storage</li>
+<li>DataNode,         - Storage</li>
+<li>SecondaryNameNode,    - Storage</li>
+<li>Jps</li>
+<li>JobTracker,       - Processing</li>
+<li>TaskTracker,      - Processing</li>
+</ul>
+<ul>
+<li><p>JobTracker, TaskTracker are responsible for running MapReduce tasks and jobs.</p></li>
+<li><p>MapReduce programs are written in Java.</p></li>
+<li><p>Hadoop allows to use other languages via streaming..</p></li>
+<li><p>Hadoop sends the mapreduce jobs across the data nodes and the data analysis is done across the data nodes and the final results returned back to master node.</p></li>
+<li><p>Namenode communicates with Datanodes</p></li>
+<li><p>JobTracker communicates the job/process with TaskTracker</p></li>
+<li><p>Computation(program) is processor bound.</p></li>
+</ul>
+<ul>
+<li>Structured</li>
+<li>Unstructured (FB: vids, pics, texts, audio)</li>
+<li>Semi-structured (log files)</li>
+</ul>
+<p>Big Data - definition is given by IBM</p>
+<h3><a class="anchor" aria-hidden="true" id="adding-core-libraries"></a><a href="#adding-core-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding Core Libraries:</h3>
+<ul>
+<li><p><strong>HBase</strong>  <br>
+Allows SQL like queries which generates MapReduce jobs</p></li>
+<li><p><strong>Hive</strong>  <br>
+SQL-like query, create batch (MapReduce) jobs</p></li>
+<li><p><strong>Pig</strong>  <br>
+ETL-like scripting language (for data manupulation like stripping, trimming, joining)</p></li>
+<li><p><strong>Impala</strong>  <br>
+SQL-like query(in-memory querying), interactive process (no batch process)</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="adding-other-libraries"></a><a href="#adding-other-libraries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding Other Libraries:</h4>
+<ul>
+<li><p><strong>Mahout</strong>  <br>
+Machine learning algorithms, predictive analytics, data mining</p></li>
+<li><p><strong>Spark</strong>  <br>
+Resilient distributed data sets (in-memory streaming)</p></li>
+<li><p><strong>Storm</strong>  <br>
+complex event processing (in-memory streaming)</p></li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="mapreduce-programming-languages"></a><a href="#mapreduce-programming-languages" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapReduce - Programming Languages</h2>
+<ul>
+<li><p>Hadoop IDEs</p>
+<ul>
+<li>Eclipse (Java)</li>
+<li>Sublime (python)</li>
+<li>RStudio (R Language)</li>
+</ul></li>
+<li><p>Hadoop 2.0</p>
+<ul>
+<li>JobTracker &amp; TaskTracker are replaced by Yarn ResourceManager and Yarn Nodemanager</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="what-is-mapreduce"></a><a href="#what-is-mapreduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What is MapReduce?</h3>
+<ul>
+<li>Programming paradigm</li>
+<li>Designed to solve one problem</li>
+<li>Created by Google (purpose: how to index or get meaning out of all the information that is available on the internet.</li>
+<li>Bringing computation to data location rather bringing data to compute.</li>
+<li>Two parts (Map, Reduce)</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="the-map-part-of-mapreduce"></a><a href="#the-map-part-of-mapreduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Map part of MapReduce:</h4>
+<ul>
+<li>Execute the Map() function on data.</li>
+<li>Execute on each node.</li>
+<li>Output&lt;key, value&gt; pairs on each node</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="the-reduce-part-of-mapreduce"></a><a href="#the-reduce-part-of-mapreduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Reduce part of MapReduce:</h4>
+<ul>
+<li>Execute the Reduce() function on data</li>
+<li>Execute on some node</li>
+<li>Aggregate sets of &lt;key, value&gt; pairs on some nodes</li>
+<li>Output a combined list</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="mapreduce-10"></a><a href="#mapreduce-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapReduce 1.0</h3>
+<ul>
+<li>Distributed, scalable, cheap</li>
+<li>Storage
+<ul>
+<li>HDFS - triple replicated</li>
+<li>Commodity hardware</li>
+</ul></li>
+<li>Processing
+<ul>
+<li>Parallel via Map(local) and Reduce(aggregated)</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="codng-steps"></a><a href="#codng-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Codng Steps</h4>
+<ul>
+<li>Create a class</li>
+<li>Create a static Map class</li>
+<li>Create a static Reduce class</li>
+<li>Create a main function
+<ul>
+<li>Create a job</li>
+<li>Job calls the Map and Reduce classes</li>
+</ul></li>
+</ul>
+<ul>
+<li>In MapReduce, its a single type of input in, run your mapper, get your key-value pairs out, run your reducer, get your combined list, and then go on to the next one.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="hello-world-for-mapreduce"></a><a href="#hello-world-for-mapreduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hello World for MapReduce</h4>
+<ul>
+<li>&quot;Word count&quot;</li>
+<li>Takes some text as input</li>
+<li>Produces a list of words and counts them</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="key-aspects-of-mapreduce"></a><a href="#key-aspects-of-mapreduce" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key aspects of MapReduce</h4>
+<ul>
+<li><p>It's an API, or set of libraries</p>
+<p>Job - unit of MapReduce work / instance
+Map task - runs on each node
+Reduce task - runs on some nodes
+Source data - HDFS or other location</p></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="mapreduce-deamons-nad-service"></a><a href="#mapreduce-deamons-nad-service" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapReduce Deamons nad Service</h4>
+<ul>
+<li>JVMs or services - isolated processes (no state share)
+Job Tracker - one (controller and scheduler)
+Task Tracker - one per cluster (monitors tasks)</li>
+<li>Job configurations
+Specify input/output locations for job instances
+Job clients submit jobs for execution</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="mapreduce-coding-patterns"></a><a href="#mapreduce-coding-patterns" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapReduce Coding Patterns</h4>
+<pre><code class="hljs">- Standard - usually written in Java
+- Hadoop Streaming - Java base
+    Other language for mapper/reducer logic
+- Hadoop Pipes - uses C++
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="running-first-mapreduce-job"></a><a href="#running-first-mapreduce-job" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running First MapReduce Job</h4>
+<pre><code class="hljs">- Word count == &quot;Hello World!&quot;
+- IDEs and runners
+- Eclipse and Hadoop SDKs
+- File system or HDFS
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="mapreduce-job-output"></a><a href="#mapreduce-job-output" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapReduce Job Output</h4>
+<ul>
+<li>Success</li>
+<li>Series of text files</li>
+<li>Immutable if stored on HDFS</li>
+<li>Each run needs a new file name</li>
+<li>Usually appends run time to file name for uniqueness</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="mapreduce-job-status-and-logs"></a><a href="#mapreduce-job-status-and-logs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>MapReduce Job Status and Logs</h4>
+<ul>
+<li>Monitoring job run status</li>
+<li>Local websites to view logs</li>
+<li>Logs</li>
+<li>Troubleshooting failed job runs</li>
+<li>Error logs</li>
+</ul>
+<p><strong>Exploring Cloudera distribution Hue user interface..</strong></p>
+<h4><a class="anchor" aria-hidden="true" id="ways-to-run-mapreduce-jobs"></a><a href="#ways-to-run-mapreduce-jobs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ways to Run MapReduce Jobs:</h4>
+<pre><code class="hljs">- Configure JobConf options
+- From the development environment (IDE)
+- From a GUI (Hue / HDInsight console)
+- From the command line 
+    hadoop jar filename.jar input output
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="job-execution-optimizations"></a><a href="#job-execution-optimizations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Job Execution optimizations</h3>
+<h4><a class="anchor" aria-hidden="true" id="methods-to-write-mapreduce-jobs"></a><a href="#methods-to-write-mapreduce-jobs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods to write MapReduce Jobs</h4>
+<pre><code class="hljs">- Standard - usually writte in Java
+- Streaming
+- Pipes
+- Abstraction libraries
+    Hive, Pig, etc. (higher-level language)
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="better-mapreduce-optimizations"></a><a href="#better-mapreduce-optimizations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Better MapReduce: Optimizations</h4>
+<pre><code class="hljs">- Optimize before the job runs
+- Optimize onload of the data
+- Optimize the map phase of the job
+- Optimize the shuffle phase of the job
+- Optimize the reduce phase of the job
+- Optimize after the job completes
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="hive"></a><a href="#hive" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hive:</h2>
+<ul>
+<li>is useful for query like requirements.. like sum, average, coun etc..</li>
+<li>is not much suitable for data cleansing(like parsing, stripping, processing etc)..</li>
+</ul>
+<p><img src="/mywiki/docs/assets/hive.png" alt="Hive Sql" title="Hive Sql"></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/mywiki/docs/linux-overview"><span>Linux Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#background">Background</a></li><li><a href="#what-is-hadoop">What is Hadoop?</a><ul class="toc-headings"><li><a href="#why-use-hadoop">Why use Hadoop?</a></li></ul></li><li><a href="#hbase-wide-column">HBase (Wide column):</a></li><li><a href="#core-libraries">Core Libraries:</a></li><li><a href="#cloudera-hadoop">Cloudera Hadoop</a></li><li><a href="#cloud-hosted-hadoop">Cloud hosted Hadoop:</a><ul class="toc-headings"><li><a href="#setting-up-hadoop">Setting up Hadoop:</a></li><li><a href="#hadoop-local-install">Hadoop Local install:</a></li></ul></li><li><a href="#hadoop-architectural-components">Hadoop architectural components:</a><ul class="toc-headings"><li><a href="#adding-core-libraries">Adding Core Libraries:</a></li></ul></li><li><a href="#mapreduce-programming-languages">MapReduce - Programming Languages</a><ul class="toc-headings"><li><a href="#what-is-mapreduce">What is MapReduce?</a></li><li><a href="#mapreduce-10">MapReduce 1.0</a></li><li><a href="#job-execution-optimizations">Job Execution optimizations</a></li></ul></li><li><a href="#hive">Hive:</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Other Resources · Coder Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Graphics/Shapes"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Other Resources · Coder Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/mywiki/"/><meta property="og:description" content="## Graphics/Shapes"/><meta property="og:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/mywiki/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/mywiki/img/laptop-coding.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/mywiki/js/scrollSpy.js"></script><link rel="stylesheet" href="/mywiki/css/main.css"/><script src="/mywiki/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/mywiki/"><img class="logo" src="/mywiki/img/laptop-coding.png" alt="Coder Wiki"/><h2 class="headerTitleWithLogo">Coder Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/mywiki/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/mywiki/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/mywiki/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/mywiki/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Resources</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/basics">Javascript Basics</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/functions">Functions</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/window-object">Window Object</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/dom-object-selectors">DOM Objects &amp; Selectors</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/events">Events</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/localstorage">LocalStorage</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/object-oriented">Object Oriented Features</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/async-programming">Async Programming</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/rest-api">REST Api</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/mywiki/docs/javascript/resources">Other Resources</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/javascript/build-chrome-extn">Build Chrome Extention</a></li><li class="navListItem"><a class="navItem" href="/mywiki/docs/developer-roadmap">Web Developer Roadmap - 2019</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Other Resources</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="graphics-shapes"></a><a href="#graphics-shapes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Graphics/Shapes</h2>
+<p>Raphaël is a small JavaScript library that should simplify your work with vector graphics on the web<br>
+<a href="https://dmitrybaranovskiy.github.io/raphael/">https://dmitrybaranovskiy.github.io/raphael/</a></p>
+<p>GoJS is a JavaScript and TypeScript library for building interactive diagrams and graphs.<br>
+<a href="https://gojs.net/beta/index.html">https://gojs.net/beta/index.html</a></p>
+<p>oCanvas is a JavaScript library intended to make development with HTML5 Canvas easier.<br>
+<a href="http://ocanvas.org/">http://ocanvas.org/</a></p>
+<h2><a class="anchor" aria-hidden="true" id="best-mind-map-apps"></a><a href="#best-mind-map-apps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Best mind map apps</h2>
+<p><strong>Free tools:</strong>  <br>
+<a href="https://app.wisemapping.com/c/login">https://app.wisemapping.com/c/login</a><br>
+<a href="http://freemind.sourceforge.net/wiki/index.php/Main_Page">http://freemind.sourceforge.net/wiki/index.php/Main_Page</a></p>
+<p><strong>Paid tools:</strong>  <br>
+<a href="https://bubbl.us/">https://bubbl.us/</a><br>
+<a href="https://www.xmind.net/zen/">https://www.xmind.net/zen/</a></p>
+<h2><a class="anchor" aria-hidden="true" id="mind-map-building-tools-libraries-in-javascript"></a><a href="#mind-map-building-tools-libraries-in-javascript" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mind map building tools/libraries in javascript</h2>
+<p>Create mindmap with GoJS:<br>
+<a href="https://gojs.net/latest/samples/mindMap.html">https://gojs.net/latest/samples/mindMap.html</a></p>
+<p>Dracula.js is a set of tools to display and layout interactive connected graphs and networks<br>
+<a href="https://www.graphdracula.net/">https://www.graphdracula.net/</a></p>
+<p>The JavaScript InfoVis Toolkit provides tools for creating Interactive Data Visualizations for the Web.<br>
+<a href="http://philogb.github.io/jit/">http://philogb.github.io/jit/</a></p>
+<p><a href="https://live.yworks.com/demos/complete/mindmap/">https://live.yworks.com/demos/complete/mindmap/</a></p>
+<p><a href="https://jsplumbtoolkit.com/">https://jsplumbtoolkit.com/</a></p>
+<p>Mind map canvas:<br>
+<a href="https://github.com/mindmup/mapjs/">https://github.com/mindmup/mapjs/</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/mywiki/docs/javascript/frameworks-converters"><span class="arrow-prev">← </span><span>Frameworks &amp; Converters</span></a><a class="docs-next button" href="/mywiki/docs/javascript/build-chrome-extn"><span>Build Chrome Extention</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#graphics-shapes">Graphics/Shapes</a></li><li><a href="#best-mind-map-apps">Best mind map apps</a></li><li><a href="#mind-map-building-tools-libraries-in-javascript">Mind map building tools/libraries in javascript</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/mywiki/" class="nav-home"><img src="/mywiki/img/laptop-coding.png" alt="Coder Wiki" width="66" height="58"/></a><div><h5>Docs</h5><a href="/mywiki/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/mywiki/docs/en/doc2.html">Guides (or other categories)</a><a href="/mywiki/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/mywiki/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/mywiki/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/mywiki/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
