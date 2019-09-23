@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://coder-selvarajan.github.io/mywiki/blog</id>
+    <id>https://coder-selvarajan.github.io/blog</id>
     <title>Coder Wiki Blog</title>
     <updated>2017-10-24T06:00:00Z</updated>
     <generator>Feed for Node.js</generator>
-    <link rel="alternate" href="https://coder-selvarajan.github.io/mywiki/blog"/>
+    <link rel="alternate" href="https://coder-selvarajan.github.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Coder Wiki news and events.</subtitle>
-    <logo>https://coder-selvarajan.github.io/mywiki/img/laptop-coding.png</logo>
+    <logo>https://coder-selvarajan.github.io/img/laptop-coding2.png</logo>
     <rights>Copyright © 2019 Selvarajan.in</rights>
     <entry>
         <title type="html"><![CDATA[New Version 1.0.0]]></title>
-        <id>https://coder-selvarajan.github.io/mywiki/blog/2017/10/24/new-version-1.0.0.html</id>
-        <link href="https://coder-selvarajan.github.io/mywiki/blog/2017/10/24/new-version-1.0.0.html">
+        <id>https://coder-selvarajan.github.io/blog/2017/10/24/new-version-1.0.0.html</id>
+        <link href="https://coder-selvarajan.github.io/blog/2017/10/24/new-version-1.0.0.html">
         </link>
         <updated>2017-10-24T06:00:00Z</updated>
         <summary type="html"><![CDATA[<p>This blog post will test file name parsing issues when periods are present.</p> ]]></summary>
