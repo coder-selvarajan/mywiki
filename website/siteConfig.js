@@ -53,9 +53,9 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/laptop-coding.png',
-  footerIcon: 'img/laptop-coding.png',
-  favicon: 'img/laptop-coding.png',
+  headerIcon: 'img/laptop-coding2.png',
+  footerIcon: 'img/laptop-coding2.png',
+  favicon: 'img/laptop-coding2.png',
   // favicon: 'img/favicon.ico',
 
   /* Colors for website */
@@ -63,7 +63,7 @@ const siteConfig = {
     // primaryColor: '#5e9390',
     // secondaryColor: '#416664',
     primaryColor: '#7274CE',
-    secondaryColor: '#5e9390',
+    secondaryColor: '#9e72ce',
   },
 
   /* Custom fonts for website */
