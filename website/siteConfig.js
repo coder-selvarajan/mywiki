@@ -24,7 +24,7 @@ const siteConfig = {
   title: "Coder Wiki", // Title for your website.
   tagline: 'Knowledge gathered during my technical learning',
   url: 'https://coder-selvarajan.github.io', // Your website URL
-  baseUrl: '/mywiki/', // Base URL for your project */
+  baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
