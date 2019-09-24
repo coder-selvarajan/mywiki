@@ -19,6 +19,23 @@ This will download the repo under `CoderWiki` folder.
 ```
     npm run start
 ```
+- You may add/modify the content in the site and push the cahnges to github repo
+- If you have right credentials then you may even publish your changes to [coder wiki](https://coder.selvarajan.in) site by using below command
+
+`In Windows:` 
+```
+    SET GIT_USER=coder-selvarajan 
+    SET CURRENT_BRANCH=master 
+    npm run publish-gh-pages
+```
+
+`In Linux\Mac:` 
+```
+    GIT_USER=coder-selvarajan \
+    CURRENT_BRANCH=master \
+    npm run publish-gh-pages
+```
+
 
 ---
 
