@@ -67,10 +67,9 @@ class HomeSplash extends React.Component {
             {/* <Button href="#try">Try It Out</Button> */}
             <Button href={docUrl('javascript/basics')}>Javascript</Button>
             <Button href={docUrl('python/basics')}>Python</Button>
-            <Button href={docUrl('swift/swift-basics-udemy')}>Swift</Button>
+            <Button href={docUrl('swift/swift-basics-pirple')}>Swift</Button>
             <Button href={docUrl('nodejs-overview')}>Node JS</Button>
             <Button href={docUrl('hadoop-overview')}>Hadoop</Button>
-            <Button href={docUrl('linux-commands')}>Linux</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -100,8 +99,8 @@ class Index extends React.Component {
       <div
         className="productShowcaseSection paddingBottom"
         style={{textAlign: 'center'}}>
-        <h3><a href="/docs/developer-roadmap">Web Developer Roadmap 2019</a></h3>
-        <MarkdownBlock>Click on the title to see the roadmap that details the inner components of frontend, backend and devops development process.</MarkdownBlock>
+        <h2>Feature Callout</h2>
+        <MarkdownBlock>These are features of this project</MarkdownBlock>
       </div>
     );
 
@@ -140,14 +139,10 @@ class Index extends React.Component {
         {[
           {
             content:
-              `Tasky: https://github.com/coder-selvarajan/tasky  
-              TechieTab: https://github.com/coder-selvarajan/techie-tab  
-              Build Vocabulary: https://github.com/coder-selvarajan/build_vocabulary  
-              Grocery 2 Home: https://github.com/coder-selvarajan/grocery2home  
-              MyWiki: https://github.com/coder-selvarajan/mywiki`,
-            image: `${baseUrl}img/undraw_code_review.svg`,
+              'Each new Docusaurus project has **randomly-generated** theme colors.',
+            image: `${baseUrl}img/undraw_youtube_tutorial.svg`,
             imageAlign: 'right',
-            title: 'My projects on Github',
+            title: 'Randomly Generated Theme Colors',
           },
         ]}
       </Block>
@@ -157,16 +152,16 @@ class Index extends React.Component {
       <Block layout="fourColumn">
         {[
           {
-            content: `Learn the basics of git & github <a href="${baseUrl}\docs\\git">HERE</a>.`,
-            image: `${baseUrl}img/git.png`,
+            content: 'This is the content of my feature',
+            image: `${baseUrl}img/undraw_react.svg`,
             imageAlign: 'top',
-            title: 'Git',
+            title: 'Feature One',
           },
           {
-            content: `Get started with Docker <a href="${baseUrl}\docs\\docker-overview">HERE</a>`,
-            image: `${baseUrl}img/docker.png`,
+            content: 'The content of my second feature',
+            image: `${baseUrl}img/undraw_operating_system.svg`,
             imageAlign: 'top',
-            title: 'Docker',
+            title: 'Feature Two',
           },
         ]}
       </Block>
@@ -205,14 +200,12 @@ class Index extends React.Component {
       <div>
         <HomeSplash siteConfig={siteConfig} language={language} />
         <div className="mainContainer">
-          
           <Features />
-          <LearnHow />
           <FeatureCallout />
-          
-          {/* <TryOut /> */}
-          {/* <Description /> */}
-          {/* <Showcase /> */}
+          <LearnHow />
+          <TryOut />
+          <Description />
+          <Showcase />
         </div>
       </div>
     );
