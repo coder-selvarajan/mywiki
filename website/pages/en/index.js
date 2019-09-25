@@ -66,11 +66,11 @@ class HomeSplash extends React.Component {
           <PromoSection>
             {/* <Button href="#try">Try It Out</Button> */}
             <Button href={docUrl('javascript/basics')}>Javascript</Button>
-            <Button href={docUrl('python/basics')}>Python</Button>
             <Button href={docUrl('swift/swift-basics-udemy')}>Swift</Button>
+            <Button href={docUrl('python/basics')}>Python</Button>
             <Button href={docUrl('nodejs-overview')}>Node JS</Button>
-            <Button href={docUrl('hadoop-overview')}>Hadoop</Button>
-            <Button href={docUrl('linux-commands')}>Linux</Button>
+            {/* <Button href={docUrl('hadoop-overview')}>Hadoop</Button>
+            <Button href={docUrl('linux-commands')}>Linux</Button> */}
           </PromoSection>
         </div>
       </SplashContainer>
@@ -163,10 +163,22 @@ class Index extends React.Component {
             title: 'Git',
           },
           {
+            content: `Learn basic linux commands <a href="${baseUrl}\docs\\linux-commands">HERE</a>`,
+            image: `${baseUrl}img/linux.jpg`,
+            imageAlign: 'top',
+            title: 'Linux',
+          },
+          {
             content: `Get started with Docker <a href="${baseUrl}\docs\\docker-overview">HERE</a>`,
             image: `${baseUrl}img/docker.png`,
             imageAlign: 'top',
             title: 'Docker',
+          },
+          {
+            content: `Get started with Bigdata-Hadoop <a href="${baseUrl}\docs\\hadoop-overview">HERE</a>`,
+            image: `${baseUrl}img/hadoop.png`,
+            imageAlign: 'top',
+            title: 'Hadoop',
           },
         ]}
       </Block>
