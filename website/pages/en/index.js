@@ -140,13 +140,15 @@ class Index extends React.Component {
         {[
           {
             content:
-              `Tasky: https://github.com/coder-selvarajan/tasky  
+              `Tasky: https://github.com/coder-selvarajan/tasky   
               TechieTab: https://github.com/coder-selvarajan/techie-tab  
               Build Vocabulary: https://github.com/coder-selvarajan/build_vocabulary  
               Grocery 2 Home: https://github.com/coder-selvarajan/grocery2home  
               MyWiki: https://github.com/coder-selvarajan/mywiki`,
-            image: `${baseUrl}img/undraw_code_review.svg`,
-            imageAlign: 'right',
+            // image: `${baseUrl}img/undraw_code_review.svg`,
+            image: `${baseUrl}img/project-list2.png`,
+            imageAlign: 'left',
+            contentAlign: 'left',
             title: 'My projects on Github',
           },
         ]}
@@ -157,16 +159,16 @@ class Index extends React.Component {
       <Block layout="fourColumn">
         {[
           {
-            content: `Learn the basics of git & github <a href="${baseUrl}\docs\\git">HERE</a>.`,
-            image: `${baseUrl}img/git.png`,
-            imageAlign: 'top',
-            title: 'Git',
-          },
-          {
             content: `Learn basic linux commands <a href="${baseUrl}\docs\\linux-commands">HERE</a>`,
             image: `${baseUrl}img/linux.jpg`,
             imageAlign: 'top',
             title: 'Linux',
+          },
+          {
+            content: `Learn the basics of git & github <a href="${baseUrl}\docs\\git">HERE</a>.`,
+            image: `${baseUrl}img/git.png`,
+            imageAlign: 'top',
+            title: 'Git',
           },
           {
             content: `Get started with Docker <a href="${baseUrl}\docs\\docker-overview">HERE</a>`,
@@ -180,6 +182,7 @@ class Index extends React.Component {
             imageAlign: 'top',
             title: 'Hadoop',
           },
+          
         ]}
       </Block>
     );
