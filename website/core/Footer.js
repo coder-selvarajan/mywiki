@@ -37,40 +37,40 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl('javascript/build-chrome-extn', this.props.language)}>
+            <a href={this.docUrl('javascript/build-chrome-extn')}>
               How to build a chrome Extension
             </a>
-            <a href={this.docUrl('javascript/frameworks-converters', this.props.language)}>
-              Frameworks &amp; Converters
-            </a>
-            <a href={this.docUrl('markdown-cheatsheet', this.props.language)}>
-              Markdown cheatsheet
-            </a>
-            <a href={this.docUrl('programming', this.props.language)}>
+            <a href={this.docUrl('programming')}>
               Programming Concepts
             </a>
-          </div>
-          <div>
-            <h5>Community</h5>
-            <a href={this.pageUrl('users.html', this.props.language)}>
-              User Showcase
+            <a href={this.docUrl('dns-overview')}>
+              Domain Name Server - Explained
             </a>
-            <a
-              href="https://stackoverflow.com/questions/tagged/"
-              target="_blank"
-              rel="noreferrer noopener">
-              Stack Overflow
+            <a href={this.docUrl('tech-trends')}>
+              Technology Trends
             </a>
-            <a href="https://discordapp.com/">Project Chat</a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noreferrer noopener">
-              Twitter
+            <a href={this.docUrl('setup-coder-wiki')}>
+              Setup Coder Wiki locally
             </a>
           </div>
           <div>
-            <h5>More</h5>
+            <h5>Tools - Links</h5>
+            <a href={this.docUrl('javascript/frameworks-converters')}>
+              Frameworks &amp; Converters
+            </a>
+            <a href={this.docUrl('markdown-cheatsheet')}>
+              Markdown cheatsheet
+            </a>
+            <a href={this.docUrl('useful-links')}>
+              Useful Links
+            </a>
+            <a href={this.docUrl('javascript/resources')}>
+              Other Development Resources
+            </a>
+            
+          </div>
+          <div>
+            <h5>Connect</h5>
             {/* <a href={`${this.props.config.baseUrl}blog`}>Blog</a> */}
             <a href="https://instagram.com/">Instagram</a>
             <a href="https://twitter.com/">Twitter</a>
