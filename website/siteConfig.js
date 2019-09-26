@@ -22,6 +22,7 @@ const users = [
 
 const siteConfig = {
   title: "", // Title for your website.
+  sitetitle: "Coder Wiki",
   tagline: 'Knowledge base from my technical learning',
   url: 'https://coder-selvarajan.github.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
@@ -53,9 +54,9 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/logo3.png',
-  footerIcon: 'img/laptop-coding3.png',
-  favicon: 'img/laptop-coding3.png',
+  headerIcon: 'img/coder-wiki.png',
+  footerIcon: 'img/code.png',
+  favicon: 'img/code.png',
   // favicon: 'img/favicon.ico',
 
   /* Colors for website */
