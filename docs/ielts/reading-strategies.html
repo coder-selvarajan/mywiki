@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Speaking Part2 · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Sample Answers and Analysis"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Speaking Part2 · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## Sample Answers and Analysis"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Other Topics</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Speaking</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-strategies">Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-dos-donts">DO&#x27;s &amp; DON&#x27;Ts</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part1">Mock - Park 1</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part3">Mock - Part 3</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part123">Mock Part 1,2 &amp; 3</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-part2-questions">Part2 Questions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Writing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-strategies">Writing Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-vocabulary">Vocabulary - Writing</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-tasks">Writing Tasks</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-markers">Writing Markers</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Topics</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ielts/reading-strategies">Sample Q&amp;A</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/listening-strategies">Listening Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/grammer-useful-links">Other English Topics</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/band-description">Band Description</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Speaking Part2</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="sample-answers-and-analysis"></a><a href="#sample-answers-and-analysis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample Answers and Analysis</h2>
+<h2><a class="anchor" aria-hidden="true" id="question-1"></a><a href="#question-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Question 1</h2>
+<p>Descnbe a major decision you have taken in your life.</p>
+<p>You should say:</p>
+<ul>
+<li>What the decision was</li>
+<li>What other choices were available to you</li>
+<li>Why you made the decision you did +</li>
+</ul>
+<p>And explain if you think the decision was a good one.</p>
+<h3><a class="anchor" aria-hidden="true" id="sample-answer"></a><a href="#sample-answer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample Answer</h3>
+<p>A really important decision I've made recently is to study abroad, which is the reason I'm here talking to you now. No-one from my family has ever had the chance to study abroad before. My parents were actually hoping I'd start working for our family textile business as soon as I graduate. I think it's too soon to join the family business though. I really want to study marketing — especially fashion marketing — and English so I can sell our company products to buyers all over the world. If I study fashion marketing in the UK, I can learn how to do business in the fashion industry, which is of course very competitive and fastmoving. As for whether it was the right decision, I'm pretty confident it was and I can't change my mind now anyway because I borrowed money from my parents to pay for my tuition. I'm going to do my best to finish my course and I will go back to my country with new ideas that will help expand our business. All I need now is to get a good score in IELTS. So, anyway, that's an important decision in my life.</p>
+<p>Like many questions in IELTS Speaking Part 2, this one deals with an event or action in the past. There is, however, a switch to the present when the candidate is required to reflect on the decision.</p>
+<p><strong>This IELTS candidate scores highly by</strong></p>
+<ul>
+<li>Getting straight to the point and saying what the decision was in the very first sentence Paraphrasing the topic: A really important decision</li>
+<li>Using a range of tenses — past simple, present simple and present perfect — with great accuracy</li>
+<li>Using a wide range of grammatical forms such as a conditional sentence (If l...) and a cleft sentence (All / need now is..</li>
+<li>Signalling parts of the question: As for whether it was the right decision...</li>
+<li>Avoiding over-formality and using expressions such as actually and pretty that are appropriate to conversational style</li>
+<li>Providing a summarising sentence to wrap up the response</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="question-2"></a><a href="#question-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Question 2</h2>
+<p>Describe something you do to forget about work or study.</p>
+<p>You should say:</p>
+<ul>
+<li>What the activity is</li>
+<li>How often you do it</li>
+<li>How it helps you forget</li>
+</ul>
+<p>And say whether you would recommend other people try the same thing.</p>
+<h3><a class="anchor" aria-hidden="true" id="sample-answer-1"></a><a href="#sample-answer-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample Answer</h3>
+<p>I'd like to talk about horse-riding, which has been my hobby since I was around ten years old. I'm actually the joint owner of a horse with two of my friends and we take turns looking after him, cleaning out the stable and so on. I don't have a part-time job so I spend most of my weekends at the stable. Taking care of a horse is quite a dirty business so it's obviously very different from studying at college. That means I can forget about my classes during the week when I'm at the stable on the weekend. There's quite a large field next to the stable and I just get a wonderful sense of freedom when I'm riding around on my horse.</p>
+<p>College seems a million miles away! Do I think other people would enjoy horse-riding? Yes, absolutely. I think everyone should give it a try. Horses are absolutely wonderful animals, very gentle and intelligent. If you ever have the chance to ride a horse, you should definitely give it a try.</p>
+<p>This is a much trickier question because the words work and study in the first sentence may lead some IELTS candidates to speak about either of those topics. In fact, you should speak about some kind or leisure activity or other form of relaxation that helps you forget about work or study.</p>
+<p><strong>This IELTS candidate scores highly by</strong></p>
+<ul>
+<li>Showing a clear understanding of the question</li>
+<li>Getting straight to the point by mentioning the activity in the first sentence</li>
+<li>Using present simple verbs throughout to show that this is a regular activity</li>
+<li>Sticking to the question even though the topic might be a very enjoyable one to speak about</li>
+<li>Showing awareness of hyperbole (a million miles), phrasal verbs (give it a try) and other forms common to spoken English</li>
+<li>Using a rhetorical question to move from one part of the question to another: Do I think...? Ending with a clear concluding sentence, in this case a recommendation</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="question-3"></a><a href="#question-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Question 3</h2>
+<p>Describe a language you would like to learn.</p>
+<p>You should say:</p>
+<ul>
+<li>What the language is</li>
+<li>Where it is spoken</li>
+<li>Why you are interested in this language</li>
+</ul>
+<p>And say if you think you will ever actually have the chance to learn it.</p>
+<h3><a class="anchor" aria-hidden="true" id="sample-answer-2"></a><a href="#sample-answer-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sample Answer</h3>
+<p>Let me tell you about a language I've always wanted to learn, which is Russian. It's spoken in Russia, obviously, but also in many other countries which have been influenced by Russia including places like Mongolia and Kazakhstan. It's quite a difficult language to learn because the alphabet is not the Roman one, which means that you have to learn to read and write from scratch, a but like studying Chinese or Japanese. Well, the reason I would like to learn Russian is that the energy industry is huge and there are lots of jobs. A lot of my country's oil and gas comes from Russia so it's really useful to be able to speak that language if you want to work in the energy field. I have actually been to Russia before so I know from experience that a lot of Russians can't speak English very well, so that's another good reason to learn their language. The only problem is I'm already thirty years old and I've spent more than fifteen years learning English. I don't know if I would ever be able to leam Russian successfully because it's a difficult language for anyone to learn, especially someone older like me. But it would be really great to try.</p>
+<p>One problem IELTS candidates have with hypothetical questions such as this one is that they fail to recognise them as hypothetical. Since candidates are already learning English, they should talk about another language that is neither English nor their first language. This can be realistic (e.g. Spanish) or unrealistic (e.g. Ancient Greek). It doesn't matter as long as the language is not one you are currently learning.</p>
+<p><strong>This IELTS candidate scores highly by</strong></p>
+<ul>
+<li>Beginning with an impact sentence: Let me tell you about...</li>
+<li>Using would to show that the response is hypothetical</li>
+<li>Signalling parts of the question: The reason I would like to leam Russian is...</li>
+<li>Using reference links to avoid overuse of the topic word 'Russian': that language; their language; it</li>
+<li>Giving more than one reason</li>
+<li>Returning to the main point of the question in the final sentence
+​</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ielts/writing-markers"><span class="arrow-prev">← </span><span>Writing Markers</span></a><a class="docs-next button" href="/docs/ielts/listening-strategies"><span>Listening Strategies</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#sample-answers-and-analysis">Sample Answers and Analysis</a></li><li><a href="#question-1">Question 1</a><ul class="toc-headings"><li><a href="#sample-answer">Sample Answer</a></li></ul></li><li><a href="#question-2">Question 2</a><ul class="toc-headings"><li><a href="#sample-answer-1">Sample Answer</a></li></ul></li><li><a href="#question-3">Question 3</a><ul class="toc-headings"><li><a href="#sample-answer-2">Sample Answer</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code.png" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/programming">Programming Concepts</a><a href="/docs/tech-trends">Technology Trends</a><a href="/docs/setup-coder-wiki">Setup Coder Wiki locally</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools - Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/markdown-cheatsheet">Markdown cheatsheet</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Connect</h5><a href="https://instagram.com/">Instagram</a><a href="https://twitter.com/">Twitter</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/coder-selvarajan/mywiki/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Speaking Strategies · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="### Speaking - Part1 - Strategies"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Speaking Strategies · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="### Speaking - Part1 - Strategies"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Speaking</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Speaking</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ielts/speaking-strategies">Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-dos-donts">DO&#x27;s &amp; DON&#x27;Ts</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part1">Mock - Park 1</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part3">Mock - Part 3</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part123">Mock Part 1,2 &amp; 3</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-part2-questions">Part2 Questions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Writing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-strategies">Writing Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-vocabulary">Vocabulary - Writing</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-tasks">Writing Tasks</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-markers">Writing Markers</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Topics</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/reading-strategies">Sample Q&amp;A</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/listening-strategies">Listening Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/grammer-useful-links">Other English Topics</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/band-description">Band Description</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Speaking Strategies</h1></header><article><div><span><h3><a class="anchor" aria-hidden="true" id="speaking-part1-strategies"></a><a href="#speaking-part1-strategies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Speaking - Part1 - Strategies</h3>
+<ul>
+<li><strong>Focus on Fludddency:</strong> Don't hesitate or stop while you're answering. Speak clearly.</li>
+<li><strong>Be Short and Simple:</strong> Don't give long, detailed answers. Two or three sentences are enough.</li>
+<li><strong>Complete Your Sentences:</strong> One-word answers are not enough. Make complete sentences. (e.g. &quot;1 live in Tokyo.&quot; not &quot;Tokyo.&quot;)</li>
+<li><strong>Finish Strong:</strong> Say your answer and then end your sentence with confidence. Don't keep talking on and on.</li>
+<li><strong>Be Confident:</strong> Even though your body language is not scored, your posture and even your facial expression can affect how you speak. Sit up straight but comfortable, smile, and make good eye contact.</li>
+<li><strong>Relax and get comfortable:</strong> Part 1 is a warmup and is not where your main score will be decided.
+Use it as a chance to get comfortable speaking with your examiner.</li>
+<li><strong>Listen carefully</strong> - Pay attention to each question. Think about the tense you have to use for each question.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="speaking-part2-strategies"></a><a href="#speaking-part2-strategies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Speaking - Part2 - Strategies</h3>
+<ul>
+<li><strong>Make notes before you talk</strong> - Make it easier for yourself. Make notes before you start talking.</li>
+<li><strong>Memorise a good opener</strong> - Starting your talk is difficult, so memorise an opening phrase.</li>
+<li><strong>Paraphrase the topic</strong> - When referring to the topic, don't use the words from the topic card. Instead, use your own words. This is called paraphrasing. So, if the topic is &quot;describe a beautiful place to visit in your country&quot; don't say: &quot;I'm going to describe a beautiful place to visit in China.&quot; Instead, say, for example: &quot;I'm going to talk about a stunning destination, which people can travel to in the north-east of China.</li>
+<li><strong>Keep talking</strong> - Try to keep talking... and talking... and talking. Don't worry about the time. The examiner will stop you after 2 minutes.</li>
+<li><strong>Make eye contact with the examiner</strong> - Make sure you look up from your notes and topic card and make eye contact with the examiner when you are speaking. But don't stare at him!</li>
+<li><strong>Decide what to talk about quickly</strong> (Lie if you need to!)- Sometimes it's difficult to think of something to talk about. Let's say you have to talk about your favourite teacher. Remember you have a minute to prepare your talk.</li>
+<li><strong>Ask for clarification</strong> - If you don't understand a word on the topic card or your task, you can ask the examiner to explain. But, don't just say &quot;l don't understand.&quot; Instead, use some more advanced phrases. &quot;So, in other words, I should.</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="how-to-prepare-for-the-speaking-test"></a><a href="#how-to-prepare-for-the-speaking-test" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to prepare for the speaking test</h4>
+<p>Get a preparation buddy 2. Record yourself on your phone or computer 3. Practise making notes</p>
+<p><a href="https://ieltscharlie.com/ielts-speakinq/ielts-speakinq-part-æ">https://ieltscharlie.com/ielts-speakinq/ielts-speakinq-part-æ</a>
+​</p>
+<h3><a class="anchor" aria-hidden="true" id="speaking-part3-strategies"></a><a href="#speaking-part3-strategies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Speaking - Part3 - Strategies</h3>
+<p>Here is a general stuctLre. (ORE) Give your opinion. Give a reason for your opinion. Give an example.</p>
+<h4><a class="anchor" aria-hidden="true" id="tip-1-listen-carefully"></a><a href="#tip-1-listen-carefully" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP 1 &gt;&gt; LISTEN CAREFULLY</h4>
+<p>Listen to the questions the examiner asks you and think about the structure of the question. For example; 1- Has travel become safer in recent years? (The past to present, opinion) 2. What are the pros and cons of low-cost air travel? (Opinion, advantages, disadvantages) 3 How do you think people will travel in the future? (Present, future, opinion, hypothetical)</p>
+<h4><a class="anchor" aria-hidden="true" id="tip-2-know-about-the-most-common-types-of-questions"></a><a href="#tip-2-know-about-the-most-common-types-of-questions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP 2 &gt;&gt; KNOW ABOUT THE MOST COMMON TYPES OF QUESTIONS</h4>
+<p>I.Opinion — When asked your opinion, be honest or if you don't really know about the topic, make it up! 2. Assess — You may be asked what you think about someone else's opinion, do you agree or disagree? Give reasons why. 3. Hypothetical — These types of questions ask you to comment on something that is an imaginary or unreal situation. Like saying 'In the future how do you think we will travel?' Use your imagination to give your answer 4. Cause and Effect — Think about the cause of the situation and the effects it has had. 5.Compare and Contrast — To look at the similarities and differences of the given topic/question. 6. Past — What has changed from the past until now? (the present) 7. Future — Give your opinion on what might happen in the future (using would or could).</p>
+<h4><a class="anchor" aria-hidden="true" id="tip-3-stay-calm-and-focus"></a><a href="#tip-3-stay-calm-and-focus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP 3 &gt;&gt; STAY CALM AND FOCUS</h4>
+<p>Stay calm and focus on the day of your exam and give your opinions to the best of your ability on the day. They will ask you questions to push your limits and see how well you can answer, demonstrating your use of the grammatical structures and vocabulary.</p>
+<h4><a class="anchor" aria-hidden="true" id="tip-4-answer-all-of-the-questions"></a><a href="#tip-4-answer-all-of-the-questions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP 4 &gt;&gt; ANSWER ALL OF THE QUESTIONS</h4>
+<p>It is common for many people to say 'l don't know' or to lose focus when they get a question they know little about. Always answer the questions and if you feel as though you don't know about the topic, then buy yourself some time by saying; 'l haven't really thought about that before.... but in my opinion ' then give your opinion, etc. Obviously do not do that for every question, only for the ones where you are really stuck for something to say to start off with.</p>
+<h4><a class="anchor" aria-hidden="true" id="tip-5-take-your-time"></a><a href="#tip-5-take-your-time" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP 5 &gt;&gt; TAKE YOUR TIME</h4>
+<p>Don't try to answer the questions as quickly as possible, take your time and answer them to the best of your ability. Give your opinion, the reasoning behind it and support with specific examples. If you can remember to do that (answer depending on the type of question asked) then your answers should stretch and show the examiner what you are capable of.</p>
+<p><a href="https://ieltsfocus.com/2017/01/30fielts-speakinq-part-3-strateqy/">https://ieltsfocus.com/2017/01/30fielts-speakinq-part-3-strateqy/</a>
+​</p>
+<h2><a class="anchor" aria-hidden="true" id="other-strategies"></a><a href="#other-strategies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other Strategies</h2>
+<ul>
+<li><p>Come up with common topics and give thought analysis on it</p></li>
+<li><p>Think about these topics</p>
+<ul>
+<li><p>Travel, trips, picnic</p></li>
+<li><p>Sports, favourite</p></li>
+<li><p>Family, relationship</p></li>
+<li><p>Hobbies, Free time</p></li>
+<li><p>News, Newspaper, Magazine, Books, Authors</p></li>
+<li><p>Film making, Movies</p></li>
+<li><p>Music and songs</p></li>
+<li><p>Celebrity, Favourite, their life</p></li>
+<li><p>Inspiration, motivation</p></li>
+<li><p>Spirituality, Yoga, Meditation</p></li>
+<li><p>Events, Functions, Parties</p></li>
+<li><p>Refer these links for more topics<br>
+<a href="http://ieltsliz.com/ielts-speaking-part-1-topics/">http://ieltsliz.com/ielts-speaking-part-1-topics/</a><br>
+<a href="http://ieltsliz.com/ielts-speaking-part-2-topics/">http://ieltsliz.com/ielts-speaking-part-2-topics/</a></p></li>
+</ul></li>
+<li><p>Remember/Write life events in chronological order</p></li>
+<li><p>Practice the test everyday</p></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/ielts/speaking-dos-donts"><span>DO&#x27;s &amp; DON&#x27;Ts</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#other-strategies">Other Strategies</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code.png" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/programming">Programming Concepts</a><a href="/docs/tech-trends">Technology Trends</a><a href="/docs/setup-coder-wiki">Setup Coder Wiki locally</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools - Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/markdown-cheatsheet">Markdown cheatsheet</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Connect</h5><a href="https://instagram.com/">Instagram</a><a href="https://twitter.com/">Twitter</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/coder-selvarajan/mywiki/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

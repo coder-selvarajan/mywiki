@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Speaking Tips · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## DOs"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Speaking Tips · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## DOs"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/javascript/basics" target="_self">Web dev</a></li><li class=""><a href="/docs/swift/swift-basics-pirple" target="_self">App dev</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">Big data</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Speaking</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Speaking</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-strategies">Strategies</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ielts/speaking-dos-donts">DO&#x27;s &amp; DON&#x27;Ts</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part1">Mock - Park 1</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part3">Mock - Part 3</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-mock-part123">Mock Part 1,2 &amp; 3</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/speaking-part2-questions">Part2 Questions</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Writing</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-strategies">Writing Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-vocabulary">Vocabulary - Writing</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-tasks">Writing Tasks</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/writing-markers">Writing Markers</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Other Topics</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/ielts/reading-strategies">Sample Q&amp;A</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/listening-strategies">Listening Strategies</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/grammer-useful-links">Other English Topics</a></li><li class="navListItem"><a class="navItem" href="/docs/ielts/band-description">Band Description</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Speaking Tips</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="dos"></a><a href="#dos" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOs</h2>
+<ul>
+<li>Use good vocabularys. Refer the technique to build vocabulary below.</li>
+<li>Be little more expressive. Its ok to giggle and laugh</li>
+<li>If you dont understand the question then ask - I'm afraid I dint get that, would you mind repeating it?</li>
+<li>Use would &amp; could a lot</li>
+<li>Read/listen the instructions fully</li>
+<li>Take cues from question</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="donts"></a><a href="#donts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DON'Ts</h2>
+<ul>
+<li>Dont use fillers much. Also avoid sounding <em>aa.. ah..</em> too much in between sentences</li>
+<li>Dont give one word answers</li>
+<li>Dont make wrong collacation</li>
+<li>Can &amp; able will not come together in one sentence</li>
+<li>Don't repeat words from the question - rephrase it</li>
+<li>Do not repeat</li>
+<li>Do not freeze</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="learning-improvement-tips"></a><a href="#learning-improvement-tips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Learning/Improvement Tips</h2>
+<ul>
+<li><p>Learn vocabulary in context. For example: Travel. Learn 2 words everyday about travel for about 5 days.. revisit them often.. use them in your talks.. then move on to next context</p></li>
+<li><p>Build a narattive: Learn to tell stories &amp; lies ;)</p></li>
+<li><p>Gramatical range - timeline</p></li>
+<li><p>Gather 20 to 50 words that can be used in any talk.</p></li>
+<li><p>Improve synonymous - dont use the same word</p></li>
+<li><p><strong>Use these 5 words to score high in IELTS speaking</strong></p>
+<ul>
+<li>Plethora - lot of, plenty of</li>
+<li>Mesmerise - while describing something amazing</li>
+<li>However - while speaking about contradicting statements</li>
+<li>Recapitulate - While summazing your idea/discussion</li>
+<li>Dilema - while deciding between two choices</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="faqs"></a><a href="#faqs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>FAQs</h2>
+<ul>
+<li>If the examinor asks a tricky question or about a topic you have no clue then, you may answer to it like this:
+<ul>
+<li>You can hosnestly admit that you dont know about it and explain why you dont know about it and what you are doing alternative to that. just make a story around it.</li>
+</ul></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ielts/speaking-strategies"><span class="arrow-prev">← </span><span>Strategies</span></a><a class="docs-next button" href="/docs/ielts/speaking-sample-answer"><span>Next</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#dos">DOs</a></li><li><a href="#donts">DON'Ts</a></li><li><a href="#learning-improvement-tips">Learning/Improvement Tips</a></li><li><a href="#faqs">FAQs</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code.png" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/programming">Programming Concepts</a><a href="/docs/tech-trends">Technology Trends</a><a href="/docs/setup-coder-wiki">Setup Coder Wiki locally</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools - Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/markdown-cheatsheet">Markdown cheatsheet</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Connect</h5><a href="https://instagram.com/">Instagram</a><a href="https://twitter.com/">Twitter</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/coder-selvarajan/mywiki/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
