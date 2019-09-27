@@ -51,5 +51,26 @@
       "learning-techniques", 
       "my-projects-apps",
       "setup-coder-wiki"] 
+  },
+  "ielts": {
+    "Speaking": 
+    [ "ielts/speaking-strategies", 
+      "ielts/speaking-dos-donts", 
+      "ielts/speaking-sample-answer",
+      "ielts/speaking-mock-part1", 
+      "ielts/speaking-mock-part3",
+      "ielts/speaking-mock-part123",
+    "ielts/speaking-part2-questions"],
+    "Writing": [
+      "ielts/writing-strategies",
+      "ielts/writing-vocabulary",
+      "ielts/writing-tasks",
+      "ielts/writing-markers"],
+    "Other Topics": 
+    [ "ielts/reading-strategies",
+      "ielts/listening-strategies", 
+      "ielts/grammer-useful-links", 
+      "ielts/band-description", 
+      "ielts/grammer"] 
   }
 }

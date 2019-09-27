@@ -43,14 +43,14 @@ class Footer extends React.Component {
             <a href={this.docUrl('programming')}>
               Programming Concepts
             </a>
-            <a href={this.docUrl('dns-overview')}>
-              Domain Name Server - Explained
-            </a>
             <a href={this.docUrl('tech-trends')}>
               Technology Trends
             </a>
             <a href={this.docUrl('setup-coder-wiki')}>
               Setup Coder Wiki locally
+            </a>
+            <a href={this.docUrl('ielts/speaking-strategies')}>
+              IELTS Tips
             </a>
           </div>
           <div>
@@ -67,7 +67,6 @@ class Footer extends React.Component {
             <a href={this.docUrl('javascript/resources')}>
               Other Development Resources
             </a>
-            
           </div>
           <div>
             <h5>Connect</h5>
