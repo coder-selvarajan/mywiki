@@ -102,3 +102,7 @@ git clone https://github.com/coder-selvarajan/myapp.git
 ```git
 git pull
 ```
+
+## Advanced Git
+
+### HEAD 

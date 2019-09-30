@@ -12,16 +12,16 @@ Install Visual Studio Code and add following extentions
 To find the time it took to execute the scripts:
 
 ```js
-	console.time('Hello')
-	console.log('hello world')
-	console.log('hello world')
-	console.log('hello world')
-	console.log('hello world')
-	console.timeEnd('Hello')
+console.time('Hello')
+console.log('hello world')
+console.log('hello world')
+console.log('hello world')
+console.log('hello world')
+console.timeEnd('Hello')
 
-	RESULT:
-	==>   Hello:
-			0.05898324 sec
+RESULT:
+==>   Hello:
+		0.05898324 sec
 ```
 
 ## Declaration: Var, Let, Const 
@@ -31,14 +31,14 @@ To find the time it took to execute the scripts:
 * Const: cannot reassign, but object's property can be changed. 
 
 ```Javascript
-	const msg = "Hello world";
-	Msg = "Welcome";  // not accepted
-	
-	const person = { name: "ABC", age: 30 };
-	Person.age = 35;   // accepted
+const msg = "Hello world";
+Msg = "Welcome";  // not accepted
 
-	Const num = [1,2,3,4,5];
-	Num.push(6);   // accepted
+const person = { name: "ABC", age: 30 };
+Person.age = 35;   // accepted
+
+Const num = [1,2,3,4,5];
+Num.push(6);   // accepted
 ```
 
 ### Primitive datatypes:
@@ -75,49 +75,49 @@ To find type of a variable use:
 
 **To String 1:**
 ```Javascript
-	let a;
-	a=String(5);
-	a=String(4+6);
-	a=String(true);
-	a=String(new Date());
-	a=String([1,2,3,4]);
+let a;
+a=String(5);
+a=String(4+6);
+a=String(true);
+a=String(new Date());
+a=String([1,2,3,4]);
 ```
 
 **To String 2:**
 ```Javascript
-	let a;
-	a=(5).toString();
-	a=(true).toString();
+let a;
+a=(5).toString();
+a=(true).toString();
 ```
 
 **To Number:**
 ```Javascript
-	a = Number('5')
-	a.toFixed(2); // 5.00
+a = Number('5')
+a.toFixed(2); // 5.00
 
-	b = Number(true);   //1
-	b = Number(false);  //0
-	b = Number(null);    //0
-	b = Number('hello');      //NaN
-	b = Number([1,2,3,4]);  //NaN
+b = Number(true);   //1
+b = Number(false);  //0
+b = Number(null);    //0
+b = Number('hello');      //NaN
+b = Number([1,2,3,4]);  //NaN
 
-	b = parseInt('100');          //100
-	b = parseFloat('100.30');  //100.30
+b = parseInt('100');          //100
+b = parseFloat('100.30');  //100.30
 ```
 
 ## Math Operations
 ```Javascript
-	Math.PI
-	Math.E
-	Math.round(2.4); //2
-	Math.ceil(2.4); //3
-	Math.floor(2.8);  //2
-	Math.sqrt(64);  //8
-	Math.abs(-3);  //3
-	Math.pow(8,2);  //64
-	Math.min(3,7,2,5,6); //2
-	Math.random();
-	Math.floor(Math.random() * 20);
+Math.PI
+Math.E
+Math.round(2.4); //2
+Math.ceil(2.4); //3
+Math.floor(2.8);  //2
+Math.sqrt(64);  //8
+Math.abs(-3);  //3
+Math.pow(8,2);  //64
+Math.min(3,7,2,5,6); //2
+Math.random();
+Math.floor(Math.random() * 20);
 ```
 ---
 
@@ -147,35 +147,35 @@ To find type of a variable use:
 ### ES5:
 
 ```html
-	Html = '<ul> ' +
-			'<li>Name: ' + name + '</li>' + 
-			'<li>Age: ' + age + '</li>' + 
-			'<li>Job: ' + job + '</li>' +
-			'<li>City: ' + city + '</li>' +
-	'</ul>';
+Html = '<ul> ' +
+		'<li>Name: ' + name + '</li>' + 
+		'<li>Age: ' + age + '</li>' + 
+		'<li>Job: ' + job + '</li>' +
+		'<li>City: ' + city + '</li>' +
+'</ul>';
 ```
 
 ### ES6:
 
 ```html
-	Html = `<ul> 
-			<li>Name: ${name} </li> 
-			<li>Age: ${age} </li>
-			<li>Job: ${job} </li>
-			<li>City: ${city} </li>
-			<li>City: ${4+6} </li>
-			<li>City: ${ fnDisplay() } </li>
-			<li>City: ${age>30 ? 'over 30' : 'under 30' } </li>
-			</ul>`;
+Html = `<ul> 
+		<li>Name: ${name} </li> 
+		<li>Age: ${age} </li>
+		<li>Job: ${job} </li>
+		<li>City: ${city} </li>
+		<li>City: ${4+6} </li>
+		<li>City: ${ fnDisplay() } </li>
+		<li>City: ${age>30 ? 'over 30' : 'under 30' } </li>
+		</ul>`;
 ```
 ---
 
 ## Arrays
 
 ```Javascript
-	const num = [1,2,4,6,8,3];
-	const num2 = new Array(23,5,6,34,75);
-	var mix = [22,'apple', true, undefined, null, {a:1, b:2}, new Date()];
+const num = [1,2,4,6,8,3];
+const num2 = new Array(23,5,6,34,75);
+var mix = [22,'apple', true, undefined, null, {a:1, b:2}, new Date()];
 ```
 
 ## Functions
@@ -198,40 +198,40 @@ To find type of a variable use:
 ## Objects
 
 ```Javascript
-	const person = { 
-		firstName: 'Senthamilan',
-		lastName: 'Semmai',
-		age: 40,
-		hobbies: ['nature', 'social'],
-		address: {
-			City: 'thanjavore',
-			State: 'TN'
-			},
-		getBirthyear: function(){
-			return 1978;
-			}
-		};
+const person = { 
+	firstName: 'Senthamilan',
+	lastName: 'Semmai',
+	age: 40,
+	hobbies: ['nature', 'social'],
+	address: {
+		City: 'thanjavore',
+		State: 'TN'
+		},
+	getBirthyear: function(){
+		return 1978;
+		}
+	};
 
-	Person.firstName;  //Result: Senthamilan
+Person.firstName;  //Result: Senthamilan
 ```
 
 **Date**
 
 ```Javascript
-	var d = new Date();
+var d = new Date();
 ```
 
 ## Conditions
 	 
 ```Javascript
-	// Equel to (== vs ===):
-	If (n == 100) // checks the value only.
-	If (n === 150)  //checks the type & value
+// Equel to (== vs ===):
+If (n == 100) // checks the value only.
+If (n === 150)  //checks the type & value
 ```
 
 ```Javascript
-	//var id;
-	if(typeof id == 'undefined'){
-		console.log('msg: id undefined');
-	}
+//var id;
+if(typeof id == 'undefined'){
+	console.log('msg: id undefined');
+}
 ```

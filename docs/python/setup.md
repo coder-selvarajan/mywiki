@@ -32,19 +32,19 @@ _Notes from 'Programming with Mosh' & 'Code Dojo' youtube channel_
 
 **/hello/views.py**
 ```python
-      from django.http import HttpResponse
-      def myView(request):
-            return HttpResponse('Hello, World!')
+from django.http import HttpResponse
+def myView(request):
+      return HttpResponse('Hello, World!')
 ```
 
 **/django_project1/urls.py**
 ```python
-      from hello.views import myView
+from hello.views import myView
 
-      urlpatterns = [
-            path('admin/', admin.site.urls),
-            path('sayHello/', myView),
-      ]
+urlpatterns = [
+      path('admin/', admin.site.urls),
+      path('sayHello/', myView),
+]
 ```
 
 **Online courses**  
