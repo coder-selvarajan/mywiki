@@ -61,16 +61,16 @@
 <li>ES6 Code snippets</li>
 </ul>
 <p>To find the time it took to execute the scripts:</p>
-<pre><code class="hljs css language-js">    <span class="hljs-built_in">console</span>.time(<span class="hljs-string">'Hello'</span>)
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
-    <span class="hljs-built_in">console</span>.timeEnd(<span class="hljs-string">'Hello'</span>)
+<pre><code class="hljs css language-js"><span class="hljs-built_in">console</span>.time(<span class="hljs-string">'Hello'</span>)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello world'</span>)
+<span class="hljs-built_in">console</span>.timeEnd(<span class="hljs-string">'Hello'</span>)
 
-    RESULT:
-    ==&gt;   Hello:
-            <span class="hljs-number">0.05898324</span> sec
+RESULT:
+==&gt;   Hello:
+        <span class="hljs-number">0.05898324</span> sec
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="declaration-var-let-const"></a><a href="#declaration-var-let-const" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration: Var, Let, Const</h2>
 <ul>
@@ -78,14 +78,14 @@
 <li>Let : Similar to Var</li>
 <li>Const: cannot reassign, but object's property can be changed.</li>
 </ul>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">const</span> msg = <span class="hljs-string">"Hello world"</span>;
-    Msg = <span class="hljs-string">"Welcome"</span>;  <span class="hljs-comment">// not accepted</span>
-    
-    <span class="hljs-keyword">const</span> person = { <span class="hljs-attr">name</span>: <span class="hljs-string">"ABC"</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span> };
-    Person.age = <span class="hljs-number">35</span>;   <span class="hljs-comment">// accepted</span>
+<pre><code class="hljs css language-Javascript"><span class="hljs-keyword">const</span> msg = <span class="hljs-string">"Hello world"</span>;
+Msg = <span class="hljs-string">"Welcome"</span>;  <span class="hljs-comment">// not accepted</span>
 
-    Const num = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
-    Num.push(<span class="hljs-number">6</span>);   <span class="hljs-comment">// accepted</span>
+<span class="hljs-keyword">const</span> person = { <span class="hljs-attr">name</span>: <span class="hljs-string">"ABC"</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">30</span> };
+Person.age = <span class="hljs-number">35</span>;   <span class="hljs-comment">// accepted</span>
+
+Const num = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+Num.push(<span class="hljs-number">6</span>);   <span class="hljs-comment">// accepted</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="primitive-datatypes"></a><a href="#primitive-datatypes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Primitive datatypes:</h3>
 <pre><code class="hljs">1. String
@@ -114,43 +114,43 @@
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="conversion"></a><a href="#conversion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conversion</h2>
 <p><strong>To String 1:</strong></p>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">let</span> a;
-    a=<span class="hljs-built_in">String</span>(<span class="hljs-number">5</span>);
-    a=<span class="hljs-built_in">String</span>(<span class="hljs-number">4</span>+<span class="hljs-number">6</span>);
-    a=<span class="hljs-built_in">String</span>(<span class="hljs-literal">true</span>);
-    a=<span class="hljs-built_in">String</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
-    a=<span class="hljs-built_in">String</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]);
+<pre><code class="hljs css language-Javascript"><span class="hljs-keyword">let</span> a;
+a=<span class="hljs-built_in">String</span>(<span class="hljs-number">5</span>);
+a=<span class="hljs-built_in">String</span>(<span class="hljs-number">4</span>+<span class="hljs-number">6</span>);
+a=<span class="hljs-built_in">String</span>(<span class="hljs-literal">true</span>);
+a=<span class="hljs-built_in">String</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+a=<span class="hljs-built_in">String</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]);
 </code></pre>
 <p><strong>To String 2:</strong></p>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">let</span> a;
-    a=(<span class="hljs-number">5</span>).toString();
-    a=(<span class="hljs-literal">true</span>).toString();
+<pre><code class="hljs css language-Javascript"><span class="hljs-keyword">let</span> a;
+a=(<span class="hljs-number">5</span>).toString();
+a=(<span class="hljs-literal">true</span>).toString();
 </code></pre>
 <p><strong>To Number:</strong></p>
-<pre><code class="hljs css language-Javascript">    a = <span class="hljs-built_in">Number</span>(<span class="hljs-string">'5'</span>)
-    a.toFixed(<span class="hljs-number">2</span>); <span class="hljs-comment">// 5.00</span>
+<pre><code class="hljs css language-Javascript">a = <span class="hljs-built_in">Number</span>(<span class="hljs-string">'5'</span>)
+a.toFixed(<span class="hljs-number">2</span>); <span class="hljs-comment">// 5.00</span>
 
-    b = <span class="hljs-built_in">Number</span>(<span class="hljs-literal">true</span>);   <span class="hljs-comment">//1</span>
-    b = <span class="hljs-built_in">Number</span>(<span class="hljs-literal">false</span>);  <span class="hljs-comment">//0</span>
-    b = <span class="hljs-built_in">Number</span>(<span class="hljs-literal">null</span>);    <span class="hljs-comment">//0</span>
-    b = <span class="hljs-built_in">Number</span>(<span class="hljs-string">'hello'</span>);      <span class="hljs-comment">//NaN</span>
-    b = <span class="hljs-built_in">Number</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]);  <span class="hljs-comment">//NaN</span>
+b = <span class="hljs-built_in">Number</span>(<span class="hljs-literal">true</span>);   <span class="hljs-comment">//1</span>
+b = <span class="hljs-built_in">Number</span>(<span class="hljs-literal">false</span>);  <span class="hljs-comment">//0</span>
+b = <span class="hljs-built_in">Number</span>(<span class="hljs-literal">null</span>);    <span class="hljs-comment">//0</span>
+b = <span class="hljs-built_in">Number</span>(<span class="hljs-string">'hello'</span>);      <span class="hljs-comment">//NaN</span>
+b = <span class="hljs-built_in">Number</span>([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]);  <span class="hljs-comment">//NaN</span>
 
-    b = <span class="hljs-built_in">parseInt</span>(<span class="hljs-string">'100'</span>);          <span class="hljs-comment">//100</span>
-    b = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">'100.30'</span>);  <span class="hljs-comment">//100.30</span>
+b = <span class="hljs-built_in">parseInt</span>(<span class="hljs-string">'100'</span>);          <span class="hljs-comment">//100</span>
+b = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">'100.30'</span>);  <span class="hljs-comment">//100.30</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="math-operations"></a><a href="#math-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Math Operations</h2>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-built_in">Math</span>.PI
-    <span class="hljs-built_in">Math</span>.E
-    <span class="hljs-built_in">Math</span>.round(<span class="hljs-number">2.4</span>); <span class="hljs-comment">//2</span>
-    <span class="hljs-built_in">Math</span>.ceil(<span class="hljs-number">2.4</span>); <span class="hljs-comment">//3</span>
-    <span class="hljs-built_in">Math</span>.floor(<span class="hljs-number">2.8</span>);  <span class="hljs-comment">//2</span>
-    <span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-number">64</span>);  <span class="hljs-comment">//8</span>
-    <span class="hljs-built_in">Math</span>.abs(<span class="hljs-number">-3</span>);  <span class="hljs-comment">//3</span>
-    <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>);  <span class="hljs-comment">//64</span>
-    <span class="hljs-built_in">Math</span>.min(<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>); <span class="hljs-comment">//2</span>
-    <span class="hljs-built_in">Math</span>.random();
-    <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">20</span>);
+<pre><code class="hljs css language-Javascript"><span class="hljs-built_in">Math</span>.PI
+<span class="hljs-built_in">Math</span>.E
+<span class="hljs-built_in">Math</span>.round(<span class="hljs-number">2.4</span>); <span class="hljs-comment">//2</span>
+<span class="hljs-built_in">Math</span>.ceil(<span class="hljs-number">2.4</span>); <span class="hljs-comment">//3</span>
+<span class="hljs-built_in">Math</span>.floor(<span class="hljs-number">2.8</span>);  <span class="hljs-comment">//2</span>
+<span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-number">64</span>);  <span class="hljs-comment">//8</span>
+<span class="hljs-built_in">Math</span>.abs(<span class="hljs-number">-3</span>);  <span class="hljs-comment">//3</span>
+<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">8</span>,<span class="hljs-number">2</span>);  <span class="hljs-comment">//64</span>
+<span class="hljs-built_in">Math</span>.min(<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>); <span class="hljs-comment">//2</span>
+<span class="hljs-built_in">Math</span>.random();
+<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">20</span>);
 </code></pre>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="string-methods"></a><a href="#string-methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>String methods</h2>
@@ -175,29 +175,29 @@
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="template-strings"></a><a href="#template-strings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Template strings</h2>
 <h3><a class="anchor" aria-hidden="true" id="es5"></a><a href="#es5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES5:</h3>
-<pre><code class="hljs css language-html">    Html = '<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span> ' +
-            '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Name: ' + name + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' + 
-            '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Age: ' + age + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' + 
-            '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Job: ' + job + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' +
-            '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ' + city + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' +
-    '<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>';
+<pre><code class="hljs css language-html">Html = '<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span> ' +
+        '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Name: ' + name + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' + 
+        '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Age: ' + age + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' + 
+        '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Job: ' + job + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' +
+        '<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ' + city + '<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>' +
+'<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>';
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="es6"></a><a href="#es6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6:</h3>
-<pre><code class="hljs css language-html">    Html = `<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span> 
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Name: ${name} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> 
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Age: ${age} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Job: ${job} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${city} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${4+6} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${ fnDisplay() } <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${age&gt;30 ? 'over 30' : 'under 30' } <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>`;
+<pre><code class="hljs css language-html">Html = `<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span> 
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Name: ${name} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> 
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Age: ${age} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Job: ${job} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${city} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${4+6} <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${ fnDisplay() } <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>City: ${age&gt;30 ? 'over 30' : 'under 30' } <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>`;
 </code></pre>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="arrays"></a><a href="#arrays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arrays</h2>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">const</span> num = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">3</span>];
-    <span class="hljs-keyword">const</span> num2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">23</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">34</span>,<span class="hljs-number">75</span>);
-    <span class="hljs-keyword">var</span> mix = [<span class="hljs-number">22</span>,<span class="hljs-string">'apple'</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>, {<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">2</span>}, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()];
+<pre><code class="hljs css language-Javascript"><span class="hljs-keyword">const</span> num = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">8</span>,<span class="hljs-number">3</span>];
+<span class="hljs-keyword">const</span> num2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">23</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">34</span>,<span class="hljs-number">75</span>);
+<span class="hljs-keyword">var</span> mix = [<span class="hljs-number">22</span>,<span class="hljs-string">'apple'</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>, {<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>, <span class="hljs-attr">b</span>:<span class="hljs-number">2</span>}, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()];
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="functions"></a><a href="#functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h2>
 <ul>
@@ -216,33 +216,33 @@
 </ul>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="objects"></a><a href="#objects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Objects</h2>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">const</span> person = { 
-        <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Senthamilan'</span>,
-        <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Semmai'</span>,
-        <span class="hljs-attr">age</span>: <span class="hljs-number">40</span>,
-        <span class="hljs-attr">hobbies</span>: [<span class="hljs-string">'nature'</span>, <span class="hljs-string">'social'</span>],
-        <span class="hljs-attr">address</span>: {
-            <span class="hljs-attr">City</span>: <span class="hljs-string">'thanjavore'</span>,
-            <span class="hljs-attr">State</span>: <span class="hljs-string">'TN'</span>
-            },
-        <span class="hljs-attr">getBirthyear</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-number">1978</span>;
-            }
-        };
+<pre><code class="hljs css language-Javascript"><span class="hljs-keyword">const</span> person = { 
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Senthamilan'</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Semmai'</span>,
+    <span class="hljs-attr">age</span>: <span class="hljs-number">40</span>,
+    <span class="hljs-attr">hobbies</span>: [<span class="hljs-string">'nature'</span>, <span class="hljs-string">'social'</span>],
+    <span class="hljs-attr">address</span>: {
+        <span class="hljs-attr">City</span>: <span class="hljs-string">'thanjavore'</span>,
+        <span class="hljs-attr">State</span>: <span class="hljs-string">'TN'</span>
+        },
+    <span class="hljs-attr">getBirthyear</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1978</span>;
+        }
+    };
 
-    Person.firstName;  <span class="hljs-comment">//Result: Senthamilan</span>
+Person.firstName;  <span class="hljs-comment">//Result: Senthamilan</span>
 </code></pre>
 <p><strong>Date</strong></p>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+<pre><code class="hljs css language-Javascript"><span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="conditions"></a><a href="#conditions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conditions</h2>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-comment">// Equel to (== vs ===):</span>
-    If (n == <span class="hljs-number">100</span>) <span class="hljs-comment">// checks the value only.</span>
-    If (n === <span class="hljs-number">150</span>)  <span class="hljs-comment">//checks the type &amp; value</span>
+<pre><code class="hljs css language-Javascript"><span class="hljs-comment">// Equel to (== vs ===):</span>
+If (n == <span class="hljs-number">100</span>) <span class="hljs-comment">// checks the value only.</span>
+If (n === <span class="hljs-number">150</span>)  <span class="hljs-comment">//checks the type &amp; value</span>
 </code></pre>
-<pre><code class="hljs css language-Javascript">    <span class="hljs-comment">//var id;</span>
-    <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> id == <span class="hljs-string">'undefined'</span>){
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'msg: id undefined'</span>);
-    }
+<pre><code class="hljs css language-Javascript"><span class="hljs-comment">//var id;</span>
+<span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> id == <span class="hljs-string">'undefined'</span>){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'msg: id undefined'</span>);
+}
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/javascript/functions"><span>Functions</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#declaration-var-let-const">Declaration: Var, Let, Const</a><ul class="toc-headings"><li><a href="#primitive-datatypes">Primitive datatypes:</a></li><li><a href="#reference-data-types">Reference data types:</a></li><li><a href="#dynamically-typed-language">Dynamically typed language</a></li></ul></li><li><a href="#conversion">Conversion</a></li><li><a href="#math-operations">Math Operations</a></li><li><a href="#string-methods">String methods</a></li><li><a href="#template-strings">Template strings</a><ul class="toc-headings"><li><a href="#es5">ES5:</a></li><li><a href="#es6">ES6:</a></li></ul></li><li><a href="#arrays">Arrays</a></li><li><a href="#functions">Functions</a></li><li><a href="#objects">Objects</a></li><li><a href="#conditions">Conditions</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code.png" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/programming">Programming Concepts</a><a href="/docs/tech-trends">Technology Trends</a><a href="/docs/setup-coder-wiki">Setup Coder Wiki locally</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools - Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/markdown-cheatsheet">Markdown cheatsheet</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Connect</h5><a href="https://instagram.com/">Instagram</a><a href="https://twitter.com/">Twitter</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/coder-selvarajan/mywiki/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

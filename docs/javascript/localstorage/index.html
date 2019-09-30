@@ -54,45 +54,44 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">LocalStorage</h1></header><article><div><span><pre><code class="hljs css language-js">    <span class="hljs-comment">// set local storage item</span>
-    localStorage.setItem(<span class="hljs-string">'name'</span>, <span class="hljs-string">'John'</span>);
-    localStorage.setItem(<span class="hljs-string">'age'</span>, <span class="hljs-string">'30'</span>);
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">LocalStorage</h1></header><article><div><span><pre><code class="hljs css language-js"><span class="hljs-comment">// set local storage item</span>
+localStorage.setItem(<span class="hljs-string">'name'</span>, <span class="hljs-string">'John'</span>);
+localStorage.setItem(<span class="hljs-string">'age'</span>, <span class="hljs-string">'30'</span>);
 
-    <span class="hljs-comment">// set session storage item</span>
-    sessionStorage.setItem(<span class="hljs-string">'name'</span>, <span class="hljs-string">'Beth'</span>);
+<span class="hljs-comment">// set session storage item</span>
+sessionStorage.setItem(<span class="hljs-string">'name'</span>, <span class="hljs-string">'Beth'</span>);
 
-    <span class="hljs-comment">// remove from storage</span>
-    localStorage.removeItem(<span class="hljs-string">'name'</span>);
+<span class="hljs-comment">// remove from storage</span>
+localStorage.removeItem(<span class="hljs-string">'name'</span>);
 
-    <span class="hljs-comment">// get from storage</span>
-    <span class="hljs-keyword">const</span> name = localStorage.getItem(<span class="hljs-string">'name'</span>);
-    <span class="hljs-keyword">const</span> age = localStorage.getItem(<span class="hljs-string">'age'</span>);
+<span class="hljs-comment">// get from storage</span>
+<span class="hljs-keyword">const</span> name = localStorage.getItem(<span class="hljs-string">'name'</span>);
+<span class="hljs-keyword">const</span> age = localStorage.getItem(<span class="hljs-string">'age'</span>);
 
-    <span class="hljs-comment">// clear local storage</span>
-    localStorage.clear();
-    <span class="hljs-built_in">console</span>.log(name, age);
+<span class="hljs-comment">// clear local storage</span>
+localStorage.clear();
+<span class="hljs-built_in">console</span>.log(name, age);
 
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'form'</span>).addEventListener(<span class="hljs-string">'submit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
-        <span class="hljs-keyword">const</span> task = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task'</span>).value;
-        <span class="hljs-keyword">let</span> tasks;
-        <span class="hljs-keyword">if</span>(localStorage.getItem(<span class="hljs-string">'tasks'</span>) === <span class="hljs-literal">null</span>) {
-            tasks = [];
-        } <span class="hljs-keyword">else</span> {
-            tasks = <span class="hljs-built_in">JSON</span>.parse(localStorage.getItem(<span class="hljs-string">'tasks'</span>));
-        }
-        tasks.push(task);
-        
-        localStorage.setItem(<span class="hljs-string">'tasks'</span>, <span class="hljs-built_in">JSON</span>.stringify(tasks));
-        alert(<span class="hljs-string">'Task saved'</span>);
-        e.preventDefault();
-    });
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'form'</span>).addEventListener(<span class="hljs-string">'submit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+    <span class="hljs-keyword">const</span> task = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task'</span>).value;
+    <span class="hljs-keyword">let</span> tasks;
+    <span class="hljs-keyword">if</span>(localStorage.getItem(<span class="hljs-string">'tasks'</span>) === <span class="hljs-literal">null</span>) {
+        tasks = [];
+    } <span class="hljs-keyword">else</span> {
+        tasks = <span class="hljs-built_in">JSON</span>.parse(localStorage.getItem(<span class="hljs-string">'tasks'</span>));
+    }
+    tasks.push(task);
+    
+    localStorage.setItem(<span class="hljs-string">'tasks'</span>, <span class="hljs-built_in">JSON</span>.stringify(tasks));
+    alert(<span class="hljs-string">'Task saved'</span>);
+    e.preventDefault();
+});
 
-    <span class="hljs-keyword">const</span> tasks = <span class="hljs-built_in">JSON</span>.parse(localStorage.getItem(<span class="hljs-string">'tasks'</span>));
-    tasks.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">task</span>)</span>{
-        <span class="hljs-built_in">console</span>.log(task);
-    });
+<span class="hljs-keyword">const</span> tasks = <span class="hljs-built_in">JSON</span>.parse(localStorage.getItem(<span class="hljs-string">'tasks'</span>));
+tasks.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">task</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(task);
+});
 </code></pre>
-<p><br/></p>
 <blockquote>
 <p>My To-do list app is built with localstorage. Visit the app page <a href="https://github.com/Coder-Selvarajan/tasky"><strong>HERE</strong></a></p>
 </blockquote>

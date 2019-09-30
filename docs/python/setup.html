@@ -87,17 +87,17 @@ You may see the common page in the url.</li>
 <li>Add the below code to create a view in <strong>hello</strong> app and configure the url. Then access <a href="http://127.0.0.1:8000/sayHello">http://127.0.0.1:8000/sayHello</a> and view the app.</li>
 </ul>
 <p><strong>/hello/views.py</strong></p>
-<pre><code class="hljs css language-python">      <span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse
-      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">myView</span><span class="hljs-params">(request)</span>:</span>
-            <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">'Hello, World!'</span>)
+<pre><code class="hljs css language-python"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">myView</span><span class="hljs-params">(request)</span>:</span>
+      <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">'Hello, World!'</span>)
 </code></pre>
 <p><strong>/django_project1/urls.py</strong></p>
-<pre><code class="hljs css language-python">      <span class="hljs-keyword">from</span> hello.views <span class="hljs-keyword">import</span> myView
+<pre><code class="hljs css language-python"><span class="hljs-keyword">from</span> hello.views <span class="hljs-keyword">import</span> myView
 
-      urlpatterns = [
-            path(<span class="hljs-string">'admin/'</span>, admin.site.urls),
-            path(<span class="hljs-string">'sayHello/'</span>, myView),
-      ]
+urlpatterns = [
+      path(<span class="hljs-string">'admin/'</span>, admin.site.urls),
+      path(<span class="hljs-string">'sayHello/'</span>, myView),
+]
 </code></pre>
 <p><strong>Online courses</strong></p>
 <p><a href="https://www.learnpython.org/">https://www.learnpython.org/</a><br>

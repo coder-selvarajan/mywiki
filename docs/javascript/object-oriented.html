@@ -55,208 +55,208 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Object Oriented Features</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="constructors-this-keyword"></a><a href="#constructors-this-keyword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Constructors.. 'this' keyword</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-comment">// Person constructor</span>
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, dob</span>) </span>{
-        <span class="hljs-keyword">this</span>.name = name;
-        <span class="hljs-comment">// this.age = age;</span>
-        <span class="hljs-keyword">this</span>.birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dob);
-        <span class="hljs-keyword">this</span>.calculateAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-keyword">const</span> diff = <span class="hljs-built_in">Date</span>.now() - <span class="hljs-keyword">this</span>.birthday.getTime();
-            <span class="hljs-keyword">const</span> ageDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(diff);
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(ageDate.getUTCFullYear() - <span class="hljs-number">1970</span>);
-        }
-    }
-
-    <span class="hljs-comment">// const brad = new Person('Brad', 36);</span>
-    <span class="hljs-comment">// const john = new Person('John', 30);</span>
-    <span class="hljs-comment">// console.log(john.age);</span>
-
-    <span class="hljs-keyword">const</span> brad = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Brad'</span>, <span class="hljs-string">'9-10-1981'</span>);
-    <span class="hljs-built_in">console</span>.log(brad.calculateAge());
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="builtin-constructors-new-keyword"></a><a href="#builtin-constructors-new-keyword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Builtin constructors: (new keyword)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">const</span> name1 = <span class="hljs-string">'Jeff'</span>;
-    <span class="hljs-keyword">const</span> name2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">'Jeff'</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> name2);
-
-    <span class="hljs-comment">// Function</span>
-    <span class="hljs-keyword">const</span> getSum1 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>)</span>{
-        <span class="hljs-keyword">return</span> x + y;
-    }
-    <span class="hljs-keyword">const</span> getSum2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">'x'</span>,<span class="hljs-string">'y'</span>, <span class="hljs-string">'return 1 + 1'</span>);
-    <span class="hljs-built_in">console</span>.log(getSum2(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)); <span class="hljs-comment">//result: 2</span>
-
-    <span class="hljs-comment">// Object</span>
-    <span class="hljs-keyword">const</span> john1 = {<span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>};
-    <span class="hljs-keyword">const</span> john2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>({<span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>});
-    <span class="hljs-built_in">console</span>.log(john2);
-
-    <span class="hljs-comment">// Arrays</span>
-    <span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
-    <span class="hljs-keyword">const</span> arr2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>);
-
-    <span class="hljs-comment">// Regular Expressions</span>
-    <span class="hljs-keyword">const</span> re1 = <span class="hljs-regexp">/\w+/</span>;
-    <span class="hljs-keyword">const</span> re2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\w+'</span>);
-    <span class="hljs-built_in">console</span>.log(re2);
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="prototypes"></a><a href="#prototypes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototypes:</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-comment">//Object.prototype</span>
-    <span class="hljs-comment">//Person.prototype</span>
-
-    <span class="hljs-comment">// Person constructor</span>
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">firstName, lastName, dob</span>) </span>{
-        <span class="hljs-keyword">this</span>.firstName = firstName;
-        <span class="hljs-keyword">this</span>.lastName = lastName;
-        <span class="hljs-keyword">this</span>.birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dob);
-        <span class="hljs-comment">// this.calculateAge = function(){</span>
-        <span class="hljs-comment">// const diff = Date.now() - this.birthday.getTime();</span>
-        <span class="hljs-comment">// const ageDate = new Date(diff);</span>
-        <span class="hljs-comment">// return Math.abs(ageDate.getUTCFullYear() - 1970);</span>
-        <span class="hljs-comment">// }</span>
-    }
-
-    <span class="hljs-comment">// Calculate age</span>
-    Person.prototype.calculateAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Person constructor</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, dob</span>) </span>{
+    <span class="hljs-keyword">this</span>.name = name;
+    <span class="hljs-comment">// this.age = age;</span>
+    <span class="hljs-keyword">this</span>.birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dob);
+    <span class="hljs-keyword">this</span>.calculateAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
         <span class="hljs-keyword">const</span> diff = <span class="hljs-built_in">Date</span>.now() - <span class="hljs-keyword">this</span>.birthday.getTime();
         <span class="hljs-keyword">const</span> ageDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(diff);
         <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(ageDate.getUTCFullYear() - <span class="hljs-number">1970</span>);
     }
+}
 
-    <span class="hljs-comment">// Get full name</span>
-    Person.prototype.getFullName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
-    }
+<span class="hljs-comment">// const brad = new Person('Brad', 36);</span>
+<span class="hljs-comment">// const john = new Person('John', 30);</span>
+<span class="hljs-comment">// console.log(john.age);</span>
 
-    <span class="hljs-comment">// Gets Married</span>
-    Person.prototype.getsMaried = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newLastName</span>)</span>{
-        <span class="hljs-keyword">this</span>.lastName = newLastName;
-    }
-    <span class="hljs-keyword">const</span> john = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>, <span class="hljs-string">'8-12-90'</span>);
-    <span class="hljs-keyword">const</span> mary = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Mary'</span>, <span class="hljs-string">'Johnson'</span>, <span class="hljs-string">'March 20 1978'</span>);
-    <span class="hljs-built_in">console</span>.log(mary);
-    <span class="hljs-built_in">console</span>.log(john.calculateAge());
-    <span class="hljs-built_in">console</span>.log(mary.getFullName());
-    mary.getsMaried(<span class="hljs-string">'Smith'</span>);
-    <span class="hljs-built_in">console</span>.log(mary.getFullName());
-    <span class="hljs-built_in">console</span>.log(mary.hasOwnProperty(<span class="hljs-string">'firstName'</span>));
-    <span class="hljs-built_in">console</span>.log(mary.hasOwnProperty(<span class="hljs-string">'getFullName'</span>));
+<span class="hljs-keyword">const</span> brad = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Brad'</span>, <span class="hljs-string">'9-10-1981'</span>);
+<span class="hljs-built_in">console</span>.log(brad.calculateAge());
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="builtin-constructors-new-keyword"></a><a href="#builtin-constructors-new-keyword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Builtin constructors: (new keyword)</h2>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> name1 = <span class="hljs-string">'Jeff'</span>;
+<span class="hljs-keyword">const</span> name2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">'Jeff'</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> name2);
+
+<span class="hljs-comment">// Function</span>
+<span class="hljs-keyword">const</span> getSum1 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>)</span>{
+    <span class="hljs-keyword">return</span> x + y;
+}
+<span class="hljs-keyword">const</span> getSum2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span>(<span class="hljs-string">'x'</span>,<span class="hljs-string">'y'</span>, <span class="hljs-string">'return 1 + 1'</span>);
+<span class="hljs-built_in">console</span>.log(getSum2(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>)); <span class="hljs-comment">//result: 2</span>
+
+<span class="hljs-comment">// Object</span>
+<span class="hljs-keyword">const</span> john1 = {<span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>};
+<span class="hljs-keyword">const</span> john2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>({<span class="hljs-attr">name</span>: <span class="hljs-string">"John"</span>});
+<span class="hljs-built_in">console</span>.log(john2);
+
+<span class="hljs-comment">// Arrays</span>
+<span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+<span class="hljs-keyword">const</span> arr2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>);
+
+<span class="hljs-comment">// Regular Expressions</span>
+<span class="hljs-keyword">const</span> re1 = <span class="hljs-regexp">/\w+/</span>;
+<span class="hljs-keyword">const</span> re2 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\w+'</span>);
+<span class="hljs-built_in">console</span>.log(re2);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="prototypes"></a><a href="#prototypes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototypes:</h2>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Object.prototype</span>
+<span class="hljs-comment">//Person.prototype</span>
+
+<span class="hljs-comment">// Person constructor</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">firstName, lastName, dob</span>) </span>{
+    <span class="hljs-keyword">this</span>.firstName = firstName;
+    <span class="hljs-keyword">this</span>.lastName = lastName;
+    <span class="hljs-keyword">this</span>.birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dob);
+    <span class="hljs-comment">// this.calculateAge = function(){</span>
+    <span class="hljs-comment">// const diff = Date.now() - this.birthday.getTime();</span>
+    <span class="hljs-comment">// const ageDate = new Date(diff);</span>
+    <span class="hljs-comment">// return Math.abs(ageDate.getUTCFullYear() - 1970);</span>
+    <span class="hljs-comment">// }</span>
+}
+
+<span class="hljs-comment">// Calculate age</span>
+Person.prototype.calculateAge = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">const</span> diff = <span class="hljs-built_in">Date</span>.now() - <span class="hljs-keyword">this</span>.birthday.getTime();
+    <span class="hljs-keyword">const</span> ageDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(diff);
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(ageDate.getUTCFullYear() - <span class="hljs-number">1970</span>);
+}
+
+<span class="hljs-comment">// Get full name</span>
+Person.prototype.getFullName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
+}
+
+<span class="hljs-comment">// Gets Married</span>
+Person.prototype.getsMaried = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newLastName</span>)</span>{
+    <span class="hljs-keyword">this</span>.lastName = newLastName;
+}
+<span class="hljs-keyword">const</span> john = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>, <span class="hljs-string">'8-12-90'</span>);
+<span class="hljs-keyword">const</span> mary = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Mary'</span>, <span class="hljs-string">'Johnson'</span>, <span class="hljs-string">'March 20 1978'</span>);
+<span class="hljs-built_in">console</span>.log(mary);
+<span class="hljs-built_in">console</span>.log(john.calculateAge());
+<span class="hljs-built_in">console</span>.log(mary.getFullName());
+mary.getsMaried(<span class="hljs-string">'Smith'</span>);
+<span class="hljs-built_in">console</span>.log(mary.getFullName());
+<span class="hljs-built_in">console</span>.log(mary.hasOwnProperty(<span class="hljs-string">'firstName'</span>));
+<span class="hljs-built_in">console</span>.log(mary.hasOwnProperty(<span class="hljs-string">'getFullName'</span>));
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="prototypepal-inheritance"></a><a href="#prototypepal-inheritance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prototypepal Inheritance:</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-comment">// Person constructor</span>
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">firstName, lastName</span>) </span>{
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Person constructor</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">firstName, lastName</span>) </span>{
+    <span class="hljs-keyword">this</span>.firstName = firstName;
+    <span class="hljs-keyword">this</span>.lastName = lastName;
+}
+<span class="hljs-comment">// Greeting</span>
+Person.prototype.greeting = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
+}
+<span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>);
+<span class="hljs-built_in">console</span>.log(person1.greeting());
+
+<span class="hljs-comment">// Customer constructor</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Customer</span>(<span class="hljs-params">firstName, lastName, phone, membership</span>) </span>{
+    Person.call(<span class="hljs-keyword">this</span>, firstName, lastName);
+    <span class="hljs-keyword">this</span>.phone = phone;
+    <span class="hljs-keyword">this</span>.membership = membership;
+}
+
+<span class="hljs-comment">// Inherit the Person prototype methods</span>
+Customer.prototype = <span class="hljs-built_in">Object</span>.create(Person.prototype);
+<span class="hljs-comment">// Make customer.prototype return Customer()</span>
+Customer.prototype.constructor = Customer;
+
+<span class="hljs-comment">// Create customer</span>
+<span class="hljs-keyword">const</span> customer1 = <span class="hljs-keyword">new</span> Customer(<span class="hljs-string">'Tom'</span>, <span class="hljs-string">'Smith'</span>, <span class="hljs-string">'555-555-5555'</span>, <span class="hljs-string">'Standard'</span>);
+<span class="hljs-built_in">console</span>.log(customer1);
+
+<span class="hljs-comment">// Customer greeting</span>
+Customer.prototype.greeting = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span> 
+            welcome to our company`</span>;
+}
+
+<span class="hljs-built_in">console</span>.log(customer1.greeting());
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="using-objectcreatealternative-way-to-create-objects"></a><a href="#using-objectcreatealternative-way-to-create-objects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using object.create(alternative way to create objects)</h2>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> personPrototypes = {
+    <span class="hljs-attr">greeting</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
+    },
+    <span class="hljs-attr">getsMarried</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newLastName</span>) </span>{
+        <span class="hljs-keyword">this</span>.lastName = newLastName;
+    }
+}
+
+<span class="hljs-keyword">const</span> mary = <span class="hljs-built_in">Object</span>.create(personPrototypes);
+mary.firstName = <span class="hljs-string">'Mary'</span>;
+mary.lastName = <span class="hljs-string">'Williams'</span>;
+mary.age = <span class="hljs-number">30</span>;
+mary.getsMarried(<span class="hljs-string">'Thompson'</span>);
+<span class="hljs-built_in">console</span>.log(mary.greeting());
+
+<span class="hljs-keyword">const</span> brad = <span class="hljs-built_in">Object</span>.create(personPrototypes, {
+    <span class="hljs-attr">firstName</span>: {<span class="hljs-attr">value</span>: <span class="hljs-string">'Brad'</span>},
+    <span class="hljs-attr">lastName</span>: {<span class="hljs-attr">value</span>: <span class="hljs-string">'Traversy'</span>},
+    <span class="hljs-attr">age</span>: {<span class="hljs-attr">value</span>: <span class="hljs-number">36</span>}
+});
+
+<span class="hljs-built_in">console</span>.log(brad);
+<span class="hljs-built_in">console</span>.log(brad.greeting());
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="es6-classes"></a><a href="#es6-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6 Classes:</h2>
+<pre><code class="hljs css language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+    <span class="hljs-keyword">constructor</span>(firstName, lastName, dob) {
+        <span class="hljs-keyword">this</span>.firstName = firstName;
+        <span class="hljs-keyword">this</span>.lastName = lastName;
+        <span class="hljs-keyword">this</span>.birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dob);
+    }
+    greeting() {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
+    }
+    calculateAge() {
+        <span class="hljs-keyword">const</span> diff = <span class="hljs-built_in">Date</span>.now() - <span class="hljs-keyword">this</span>.birthday.getTime();
+        <span class="hljs-keyword">const</span> ageDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(diff);
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(ageDate.getUTCFullYear() - <span class="hljs-number">1970</span>);
+    }
+    getsMarried(newLastName) {
+        <span class="hljs-keyword">this</span>.lastName = newLastName;
+    }
+    <span class="hljs-keyword">static</span> addNumbers(x, y) {
+        <span class="hljs-keyword">return</span> x + y;
+    }
+}
+
+<span class="hljs-keyword">const</span> mary = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Mary'</span>, <span class="hljs-string">'Williams'</span>, <span class="hljs-string">'11-13-1980'</span>);
+mary.getsMarried(<span class="hljs-string">'Thompson'</span>);
+<span class="hljs-built_in">console</span>.log(mary);
+<span class="hljs-built_in">console</span>.log(Person.addNumbers(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>));
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="es6-sub-classes"></a><a href="#es6-sub-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6 - Sub classes:</h2>
+<pre><code class="hljs css language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
+    <span class="hljs-keyword">constructor</span>(firstName, lastName) {
         <span class="hljs-keyword">this</span>.firstName = firstName;
         <span class="hljs-keyword">this</span>.lastName = lastName;
     }
-    <span class="hljs-comment">// Greeting</span>
-    Person.prototype.greeting = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    greeting() {
         <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
     }
-    <span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>);
-    <span class="hljs-built_in">console</span>.log(person1.greeting());
+}
 
-    <span class="hljs-comment">// Customer constructor</span>
-    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Customer</span>(<span class="hljs-params">firstName, lastName, phone, membership</span>) </span>{
-        Person.call(<span class="hljs-keyword">this</span>, firstName, lastName);
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span> </span>{
+    <span class="hljs-keyword">constructor</span>(firstName, lastName, phone, membership) {
+        <span class="hljs-keyword">super</span>(firstName, lastName);
         <span class="hljs-keyword">this</span>.phone = phone;
         <span class="hljs-keyword">this</span>.membership = membership;
     }
-
-    <span class="hljs-comment">// Inherit the Person prototype methods</span>
-    Customer.prototype = <span class="hljs-built_in">Object</span>.create(Person.prototype);
-    <span class="hljs-comment">// Make customer.prototype return Customer()</span>
-    Customer.prototype.constructor = Customer;
-
-    <span class="hljs-comment">// Create customer</span>
-    <span class="hljs-keyword">const</span> customer1 = <span class="hljs-keyword">new</span> Customer(<span class="hljs-string">'Tom'</span>, <span class="hljs-string">'Smith'</span>, <span class="hljs-string">'555-555-5555'</span>, <span class="hljs-string">'Standard'</span>);
-    <span class="hljs-built_in">console</span>.log(customer1);
-
-    <span class="hljs-comment">// Customer greeting</span>
-    Customer.prototype.greeting = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span> 
-                welcome to our company`</span>;
+    <span class="hljs-keyword">static</span> getMembershipCost() {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">500</span>;
     }
+}
 
-    <span class="hljs-built_in">console</span>.log(customer1.greeting());
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="using-objectcreatealternative-way-to-create-objects"></a><a href="#using-objectcreatealternative-way-to-create-objects" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using object.create(alternative way to create objects)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">const</span> personPrototypes = {
-        <span class="hljs-attr">greeting</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
-        },
-        <span class="hljs-attr">getsMarried</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newLastName</span>) </span>{
-            <span class="hljs-keyword">this</span>.lastName = newLastName;
-        }
-    }
-
-    <span class="hljs-keyword">const</span> mary = <span class="hljs-built_in">Object</span>.create(personPrototypes);
-    mary.firstName = <span class="hljs-string">'Mary'</span>;
-    mary.lastName = <span class="hljs-string">'Williams'</span>;
-    mary.age = <span class="hljs-number">30</span>;
-    mary.getsMarried(<span class="hljs-string">'Thompson'</span>);
-    <span class="hljs-built_in">console</span>.log(mary.greeting());
-
-    <span class="hljs-keyword">const</span> brad = <span class="hljs-built_in">Object</span>.create(personPrototypes, {
-        <span class="hljs-attr">firstName</span>: {<span class="hljs-attr">value</span>: <span class="hljs-string">'Brad'</span>},
-        <span class="hljs-attr">lastName</span>: {<span class="hljs-attr">value</span>: <span class="hljs-string">'Traversy'</span>},
-        <span class="hljs-attr">age</span>: {<span class="hljs-attr">value</span>: <span class="hljs-number">36</span>}
-    });
-
-    <span class="hljs-built_in">console</span>.log(brad);
-    <span class="hljs-built_in">console</span>.log(brad.greeting());
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="es6-classes"></a><a href="#es6-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6 Classes:</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
-        <span class="hljs-keyword">constructor</span>(firstName, lastName, dob) {
-            <span class="hljs-keyword">this</span>.firstName = firstName;
-            <span class="hljs-keyword">this</span>.lastName = lastName;
-            <span class="hljs-keyword">this</span>.birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(dob);
-        }
-        greeting() {
-            <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
-        }
-        calculateAge() {
-            <span class="hljs-keyword">const</span> diff = <span class="hljs-built_in">Date</span>.now() - <span class="hljs-keyword">this</span>.birthday.getTime();
-            <span class="hljs-keyword">const</span> ageDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(diff);
-            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(ageDate.getUTCFullYear() - <span class="hljs-number">1970</span>);
-        }
-        getsMarried(newLastName) {
-            <span class="hljs-keyword">this</span>.lastName = newLastName;
-        }
-        <span class="hljs-keyword">static</span> addNumbers(x, y) {
-            <span class="hljs-keyword">return</span> x + y;
-        }
-    }
-
-    <span class="hljs-keyword">const</span> mary = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Mary'</span>, <span class="hljs-string">'Williams'</span>, <span class="hljs-string">'11-13-1980'</span>);
-    mary.getsMarried(<span class="hljs-string">'Thompson'</span>);
-    <span class="hljs-built_in">console</span>.log(mary);
-    <span class="hljs-built_in">console</span>.log(Person.addNumbers(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>));
-</code></pre>
-<h2><a class="anchor" aria-hidden="true" id="es6-sub-classes"></a><a href="#es6-sub-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6 - Sub classes:</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>{
-        <span class="hljs-keyword">constructor</span>(firstName, lastName) {
-            <span class="hljs-keyword">this</span>.firstName = firstName;
-            <span class="hljs-keyword">this</span>.lastName = lastName;
-        }
-        greeting() {
-            <span class="hljs-keyword">return</span> <span class="hljs-string">`Hello there <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span> <span class="hljs-subst">${<span class="hljs-keyword">this</span>.lastName}</span>`</span>;
-        }
-    }
-
-    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span> </span>{
-        <span class="hljs-keyword">constructor</span>(firstName, lastName, phone, membership) {
-            <span class="hljs-keyword">super</span>(firstName, lastName);
-            <span class="hljs-keyword">this</span>.phone = phone;
-            <span class="hljs-keyword">this</span>.membership = membership;
-        }
-        <span class="hljs-keyword">static</span> getMembershipCost() {
-            <span class="hljs-keyword">return</span> <span class="hljs-number">500</span>;
-        }
-    }
-
-    <span class="hljs-keyword">const</span> john = <span class="hljs-keyword">new</span> Customer(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>, <span class="hljs-string">'555-555-5555'</span>, <span class="hljs-string">'Standard'</span>);
-    <span class="hljs-built_in">console</span>.log(john.greeting());
-    <span class="hljs-built_in">console</span>.log(Customer.getMembershipCost());
+<span class="hljs-keyword">const</span> john = <span class="hljs-keyword">new</span> Customer(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>, <span class="hljs-string">'555-555-5555'</span>, <span class="hljs-string">'Standard'</span>);
+<span class="hljs-built_in">console</span>.log(john.greeting());
+<span class="hljs-built_in">console</span>.log(Customer.getMembershipCost());
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/javascript/localstorage"><span class="arrow-prev">← </span><span class="function-name-prevnext">LocalStorage</span></a><a class="docs-next button" href="/docs/javascript/async-programming"><span>Async Programming</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#constructors-this-keyword">Constructors.. 'this' keyword</a></li><li><a href="#builtin-constructors-new-keyword">Builtin constructors: (new keyword)</a></li><li><a href="#prototypes">Prototypes:</a></li><li><a href="#prototypepal-inheritance">Prototypepal Inheritance:</a></li><li><a href="#using-objectcreatealternative-way-to-create-objects">Using object.create(alternative way to create objects)</a></li><li><a href="#es6-classes">ES6 Classes:</a></li><li><a href="#es6-sub-classes">ES6 - Sub classes:</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code.png" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/programming">Programming Concepts</a><a href="/docs/tech-trends">Technology Trends</a><a href="/docs/setup-coder-wiki">Setup Coder Wiki locally</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools - Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/markdown-cheatsheet">Markdown cheatsheet</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Connect</h5><a href="https://instagram.com/">Instagram</a><a href="https://twitter.com/">Twitter</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/coder-selvarajan/mywiki/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

@@ -55,104 +55,104 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">DOM Objects &amp; Selectors</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="document-object-basic-things"></a><a href="#document-object-basic-things" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Document object - basic things:</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">let</span> val;
-      
-    val = <span class="hljs-built_in">document</span>.all[<span class="hljs-number">2</span>];      <span class="hljs-comment">//prints: &lt;meta charset="UTF-8"&gt;</span>
-    val = <span class="hljs-built_in">document</span>.all.length;  <span class="hljs-comment">//prints: 43</span>
-    val = <span class="hljs-built_in">document</span>.head;
-    val = <span class="hljs-built_in">document</span>.body;
-    val = <span class="hljs-built_in">document</span>.doctype;
-    val = <span class="hljs-built_in">document</span>.domain;
-    val = <span class="hljs-built_in">document</span>.URL;
-    val = <span class="hljs-built_in">document</span>.characterSet;
-    val = <span class="hljs-built_in">document</span>.contentType;
-    val = <span class="hljs-built_in">document</span>.forms;
-    val = <span class="hljs-built_in">document</span>.forms[<span class="hljs-number">0</span>];
-    val = <span class="hljs-built_in">document</span>.forms[<span class="hljs-number">0</span>].id;
-    val = <span class="hljs-built_in">document</span>.links;
-    val = <span class="hljs-built_in">document</span>.links[<span class="hljs-number">0</span>];
-    val = <span class="hljs-built_in">document</span>.images;
-    val = <span class="hljs-built_in">document</span>.scripts;
-    val = <span class="hljs-built_in">document</span>.scripts[<span class="hljs-number">0</span>].getAttribute(<span class="hljs-string">'src'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-keyword">let</span> val;
+  
+val = <span class="hljs-built_in">document</span>.all[<span class="hljs-number">2</span>];      <span class="hljs-comment">//prints: &lt;meta charset="UTF-8"&gt;</span>
+val = <span class="hljs-built_in">document</span>.all.length;  <span class="hljs-comment">//prints: 43</span>
+val = <span class="hljs-built_in">document</span>.head;
+val = <span class="hljs-built_in">document</span>.body;
+val = <span class="hljs-built_in">document</span>.doctype;
+val = <span class="hljs-built_in">document</span>.domain;
+val = <span class="hljs-built_in">document</span>.URL;
+val = <span class="hljs-built_in">document</span>.characterSet;
+val = <span class="hljs-built_in">document</span>.contentType;
+val = <span class="hljs-built_in">document</span>.forms;
+val = <span class="hljs-built_in">document</span>.forms[<span class="hljs-number">0</span>];
+val = <span class="hljs-built_in">document</span>.forms[<span class="hljs-number">0</span>].id;
+val = <span class="hljs-built_in">document</span>.links;
+val = <span class="hljs-built_in">document</span>.links[<span class="hljs-number">0</span>];
+val = <span class="hljs-built_in">document</span>.images;
+val = <span class="hljs-built_in">document</span>.scripts;
+val = <span class="hljs-built_in">document</span>.scripts[<span class="hljs-number">0</span>].getAttribute(<span class="hljs-string">'src'</span>);
 
-    <span class="hljs-comment">// loop thru document elements - sample</span>
-    <span class="hljs-keyword">let</span> scripts = <span class="hljs-built_in">document</span>.scripts;
-    <span class="hljs-keyword">let</span> scriptsArr = <span class="hljs-built_in">Array</span>.from(scripts); <span class="hljs-comment">//collection to array</span>
+<span class="hljs-comment">// loop thru document elements - sample</span>
+<span class="hljs-keyword">let</span> scripts = <span class="hljs-built_in">document</span>.scripts;
+<span class="hljs-keyword">let</span> scriptsArr = <span class="hljs-built_in">Array</span>.from(scripts); <span class="hljs-comment">//collection to array</span>
 
-    scriptsArr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">script</span>)</span>{
-        <span class="hljs-comment">//prints all the script file paths. </span>
-        <span class="hljs-built_in">console</span>.log(script.getAttribute(<span class="hljs-string">'src'</span>)); 
-    });
+scriptsArr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">script</span>)</span>{
+    <span class="hljs-comment">//prints all the script file paths. </span>
+    <span class="hljs-built_in">console</span>.log(script.getAttribute(<span class="hljs-string">'src'</span>)); 
+});
 
-    <span class="hljs-built_in">console</span>.log(val);
+<span class="hljs-built_in">console</span>.log(val);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="dom-selectors-single-element"></a><a href="#dom-selectors-single-element" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM - Selectors:  (Single Element)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-keyword">let</span> val = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
 
-    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).style.background = <span class="hljs-string">'#333'</span>;
-    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).textContent = <span class="hljs-string">'Task List'</span>;
-    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).innerText = <span class="hljs-string">'My Task List'</span>;
-    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).innerHTML = <span class="hljs-string">'&lt;b&gt;My Task List&lt;/b&gt;'</span>;
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).style.background = <span class="hljs-string">'#333'</span>;
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).textContent = <span class="hljs-string">'Task List'</span>;
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).innerText = <span class="hljs-string">'My Task List'</span>;
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>).innerHTML = <span class="hljs-string">'&lt;b&gt;My Task List&lt;/b&gt;'</span>;
 
-    <span class="hljs-keyword">var</span> taskTitle = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
-    taskTitle.innerHTML = <span class="hljs-string">'&lt;b&gt;My Task List&lt;/b&gt;'</span>;
+<span class="hljs-keyword">var</span> taskTitle = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
+taskTitle.innerHTML = <span class="hljs-string">'&lt;b&gt;My Task List&lt;/b&gt;'</span>;
 
-    <span class="hljs-built_in">console</span>.log(val);
+<span class="hljs-built_in">console</span>.log(val);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="dom-queryselector-single-element"></a><a href="#dom-queryselector-single-element" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM QuerySelector: (Single Element)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">let</span> val = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-keyword">let</span> val = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
 
-    val = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#task-title'</span>);
-    val = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card-title'</span>);
-    val = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'h5'</span>);
+val = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#task-title'</span>);
+val = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card-title'</span>);
+val = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'h5'</span>);
 
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li'</span>).style.color = <span class="hljs-string">'red'</span>;
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:last-child'</span>).style.color = <span class="hljs-string">'blue'</span>;
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:nth-child(3)'</span>).style.color = <span class="hljs-string">'green'</span>;
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:nth-child(odd)'</span>).style.background = <span class="hljs-string">'#ccc'</span>;
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:nth-child(even)'</span>).style.background = <span class="hljs-string">'#fff'</span>;
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li'</span>).style.color = <span class="hljs-string">'red'</span>;
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:last-child'</span>).style.color = <span class="hljs-string">'blue'</span>;
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:nth-child(3)'</span>).style.color = <span class="hljs-string">'green'</span>;
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:nth-child(odd)'</span>).style.background = <span class="hljs-string">'#ccc'</span>;
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:nth-child(even)'</span>).style.background = <span class="hljs-string">'#fff'</span>;
 
-    <span class="hljs-built_in">console</span>.log(val);
+<span class="hljs-built_in">console</span>.log(val);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="dom-selectors-multiple-elements"></a><a href="#dom-selectors-multiple-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM - Selectors:  (Multiple Elements)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">const</span> items = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>)
-                          .getElementsByClassName(<span class="hljs-string">'collection-item'</span>);
-    <span class="hljs-comment">// items will be the html collection here..</span>
-    items[<span class="hljs-number">4</span>].style.color = <span class="hljs-string">'red'</span>;
-    <span class="hljs-built_in">console</span>.log(items);
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> items = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>)
+                        .getElementsByClassName(<span class="hljs-string">'collection-item'</span>);
+<span class="hljs-comment">// items will be the html collection here..</span>
+items[<span class="hljs-number">4</span>].style.color = <span class="hljs-string">'red'</span>;
+<span class="hljs-built_in">console</span>.log(items);
 
-    <span class="hljs-keyword">let</span> lis = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>).getElementsByTagName(<span class="hljs-string">'li'</span>);
-    lis[<span class="hljs-number">2</span>].style.color = <span class="hljs-string">'red'</span>;
+<span class="hljs-keyword">let</span> lis = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>).getElementsByTagName(<span class="hljs-string">'li'</span>);
+lis[<span class="hljs-number">2</span>].style.color = <span class="hljs-string">'red'</span>;
 
-    <span class="hljs-comment">// convert collection to array</span>
-    lis = <span class="hljs-built_in">Array</span>.from(lis);
-    lis.reverse();
+<span class="hljs-comment">// convert collection to array</span>
+lis = <span class="hljs-built_in">Array</span>.from(lis);
+lis.reverse();
 
-    lis.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">li, index</span>)</span>{
-        <span class="hljs-built_in">console</span>.log(li.className);
-        li.textContent = <span class="hljs-string">`List-item <span class="hljs-subst">${index}</span>`</span>;
-    });
+lis.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">li, index</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(li.className);
+    li.textContent = <span class="hljs-string">`List-item <span class="hljs-subst">${index}</span>`</span>;
+});
 
-    <span class="hljs-built_in">console</span>.log(lis);
+<span class="hljs-built_in">console</span>.log(lis);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="dom-queryselectorall-multiple-elements"></a><a href="#dom-queryselectorall-multiple-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DOM QuerySelectorAll: (Multiple Elements)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">const</span> items = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'ul.collection li.collection-item'</span>);
-    <span class="hljs-comment">// items will be a Nodelist here.. It is not the html collection. </span>
-    <span class="hljs-comment">// so we dont need to convert it to array to loop it thru.. </span>
-    items.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item, index</span>)</span>{
-        item.textContent = <span class="hljs-string">`<span class="hljs-subst">${index}</span> : hello`</span>;
-    });
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> items = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'ul.collection li.collection-item'</span>);
+<span class="hljs-comment">// items will be a Nodelist here.. It is not the html collection. </span>
+<span class="hljs-comment">// so we dont need to convert it to array to loop it thru.. </span>
+items.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item, index</span>)</span>{
+    item.textContent = <span class="hljs-string">`<span class="hljs-subst">${index}</span> : hello`</span>;
+});
 
-    <span class="hljs-keyword">const</span> liOdd = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'li:nth-child(odd)'</span>);
-    <span class="hljs-keyword">const</span> liEven = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'li:nth-child(even)'</span>);
-    liOdd.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">li, index</span>)</span>{
-        li.style.background = <span class="hljs-string">'gainsboro'</span>;
-    });
+<span class="hljs-keyword">const</span> liOdd = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'li:nth-child(odd)'</span>);
+<span class="hljs-keyword">const</span> liEven = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'li:nth-child(even)'</span>);
+liOdd.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">li, index</span>)</span>{
+    li.style.background = <span class="hljs-string">'gainsboro'</span>;
+});
 
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;liEven.length; i++){
-        liEven[i].style.background = <span class="hljs-string">'whitesmoke'</span>;
-    }
-    <span class="hljs-built_in">console</span>.log(items);
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>; i&lt;liEven.length; i++){
+    liEven[i].style.background = <span class="hljs-string">'whitesmoke'</span>;
+}
+<span class="hljs-built_in">console</span>.log(items);
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="gist"></a><a href="#gist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gist :</h3>
 <h4><a class="anchor" aria-hidden="true" id="single-element"></a><a href="#single-element" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Single element</h4>
@@ -173,145 +173,145 @@
 </ul>
 <hr>
 <h1><a class="anchor" aria-hidden="true" id="traversing-the-dom"></a><a href="#traversing-the-dom" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Traversing the DOM:</h1>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">let</span> val;
-    <span class="hljs-keyword">const</span> list = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul.collection'</span>);
-    <span class="hljs-keyword">const</span> listItem = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li.collection-item:first-child'</span>);
-    val = listItem;
-    val = list;
+<pre><code class="hljs css language-js"><span class="hljs-keyword">let</span> val;
+<span class="hljs-keyword">const</span> list = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul.collection'</span>);
+<span class="hljs-keyword">const</span> listItem = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li.collection-item:first-child'</span>);
+val = listItem;
+val = list;
 
-    <span class="hljs-comment">// Get child nodes</span>
-    val = list.childNodes;
-    val = list.childNodes[<span class="hljs-number">0</span>];
-    val = list.childNodes[<span class="hljs-number">0</span>].nodeName;
+<span class="hljs-comment">// Get child nodes</span>
+val = list.childNodes;
+val = list.childNodes[<span class="hljs-number">0</span>];
+val = list.childNodes[<span class="hljs-number">0</span>].nodeName;
 
-    <span class="hljs-comment">// ChildNodes contain element textnode link comment etc.. </span>
-    <span class="hljs-comment">// 1 - Element</span>
-    <span class="hljs-comment">// 2 - Attribute (deprecated)</span>
-    <span class="hljs-comment">// 3 - Text node</span>
-    <span class="hljs-comment">// 8 - Comment</span>
-    <span class="hljs-comment">// 9 - Document itself</span>
-    <span class="hljs-comment">// 10 - Doctype</span>
+<span class="hljs-comment">// ChildNodes contain element textnode link comment etc.. </span>
+<span class="hljs-comment">// 1 - Element</span>
+<span class="hljs-comment">// 2 - Attribute (deprecated)</span>
+<span class="hljs-comment">// 3 - Text node</span>
+<span class="hljs-comment">// 8 - Comment</span>
+<span class="hljs-comment">// 9 - Document itself</span>
+<span class="hljs-comment">// 10 - Doctype</span>
 
-    <span class="hljs-comment">// Get children element nodes</span>
-    val = list.children;
-    val = list.children[<span class="hljs-number">1</span>];
-    list.children[<span class="hljs-number">1</span>].textContent = <span class="hljs-string">'Hello'</span>;
-    <span class="hljs-comment">// Children of children</span>
-    list.children[<span class="hljs-number">3</span>].children[<span class="hljs-number">0</span>].id = <span class="hljs-string">'test-link'</span>;
-    val = list.children[<span class="hljs-number">3</span>].children[<span class="hljs-number">0</span>];
-    <span class="hljs-comment">// First child</span>
-    val = list.firstChild;
-    val = list.firstElementChild;
-    <span class="hljs-comment">// Last child</span>
-    val = list.lastChild;
-    val = list.lastElementChild;
-    <span class="hljs-comment">// Count child elements</span>
-    val = list.childElementCount;
-    <span class="hljs-comment">// Get parent node</span>
-    val = listItem.parentNode;
-    val = listItem.parentElement;
-    val = listItem.parentElement.parentElement;
-    <span class="hljs-comment">// Get next sibling</span>
-    val = listItem.nextSibling;
-    val = listItem.nextElementSibling.nextElementSibling.previousElementSibling;
-    <span class="hljs-comment">// Get prev sibling</span>
-    val = listItem.previousSibling;
-    val = listItem.previousElementSibling;
-    <span class="hljs-built_in">console</span>.log(val);
+<span class="hljs-comment">// Get children element nodes</span>
+val = list.children;
+val = list.children[<span class="hljs-number">1</span>];
+list.children[<span class="hljs-number">1</span>].textContent = <span class="hljs-string">'Hello'</span>;
+<span class="hljs-comment">// Children of children</span>
+list.children[<span class="hljs-number">3</span>].children[<span class="hljs-number">0</span>].id = <span class="hljs-string">'test-link'</span>;
+val = list.children[<span class="hljs-number">3</span>].children[<span class="hljs-number">0</span>];
+<span class="hljs-comment">// First child</span>
+val = list.firstChild;
+val = list.firstElementChild;
+<span class="hljs-comment">// Last child</span>
+val = list.lastChild;
+val = list.lastElementChild;
+<span class="hljs-comment">// Count child elements</span>
+val = list.childElementCount;
+<span class="hljs-comment">// Get parent node</span>
+val = listItem.parentNode;
+val = listItem.parentElement;
+val = listItem.parentElement.parentElement;
+<span class="hljs-comment">// Get next sibling</span>
+val = listItem.nextSibling;
+val = listItem.nextElementSibling.nextElementSibling.previousElementSibling;
+<span class="hljs-comment">// Get prev sibling</span>
+val = listItem.previousSibling;
+val = listItem.previousElementSibling;
+<span class="hljs-built_in">console</span>.log(val);
 </code></pre>
 <p><strong>Difference between <code>.children</code> and <code>.childNodes</code></strong></p>
 <p><code>.children</code> is a property of an Element. Only Elements have children, and these children are all of type Element.</p>
 <p>However .childNodes is a property of Node. <code>.childNodes</code> can contain any node.</p>
 <p>So a concrete example would be</p>
-<pre><code class="hljs css language-js">    <span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
-    el.textContent = <span class="hljs-string">"foo"</span>
-    el.childNodes.length === <span class="hljs-number">1</span>; <span class="hljs-comment">// TextNode is a node child</span>
-    el.children.length === <span class="hljs-number">0</span>; <span class="hljs-comment">// no Element children</span>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">"div"</span>);
+el.textContent = <span class="hljs-string">"foo"</span>
+el.childNodes.length === <span class="hljs-number">1</span>; <span class="hljs-comment">// TextNode is a node child</span>
+el.children.length === <span class="hljs-number">0</span>; <span class="hljs-comment">// no Element children</span>
 </code></pre>
 <p>Of course <code>.children</code> is DOM4 so browser support is shaky, however if you use the DOM-shim, your cross browser problems will go away!</p>
 <p>Most of the time you want to use <code>.children</code> because generally you don't want to loop over TextNodes or Comments in your DOM manipulation.</p>
 <p>If you do want to manipulate TextNodes you probably want .textContent instead.</p>
 <h2><a class="anchor" aria-hidden="true" id="create-element-with-id-class-attributes-children"></a><a href="#create-element-with-id-class-attributes-children" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create Element: (with id, class, attributes, children)</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-comment">// Create element</span>
-    <span class="hljs-keyword">const</span> li = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'li'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Create element</span>
+<span class="hljs-keyword">const</span> li = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'li'</span>);
 
-    <span class="hljs-comment">// Add class</span>
-    li.className = <span class="hljs-string">'collection-item'</span>;
+<span class="hljs-comment">// Add class</span>
+li.className = <span class="hljs-string">'collection-item'</span>;
 
-    <span class="hljs-comment">// Add id</span>
-    li.id = <span class="hljs-string">'new-item'</span>;
+<span class="hljs-comment">// Add id</span>
+li.id = <span class="hljs-string">'new-item'</span>;
 
-    <span class="hljs-comment">// Add attribute</span>
-    li.setAttribute(<span class="hljs-string">'title'</span>, <span class="hljs-string">'New Item'</span>);
+<span class="hljs-comment">// Add attribute</span>
+li.setAttribute(<span class="hljs-string">'title'</span>, <span class="hljs-string">'New Item'</span>);
 
-    <span class="hljs-comment">// Create text node and append</span>
-    li.appendChild(<span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">'Hello World'</span>));
+<span class="hljs-comment">// Create text node and append</span>
+li.appendChild(<span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">'Hello World'</span>));
 
-    <span class="hljs-comment">// Create new link element</span>
-    <span class="hljs-keyword">const</span> link = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>);
+<span class="hljs-comment">// Create new link element</span>
+<span class="hljs-keyword">const</span> link = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>);
 
-    <span class="hljs-comment">// Add classes</span>
-    link.className = <span class="hljs-string">'delete-item secondary-content'</span>;
+<span class="hljs-comment">// Add classes</span>
+link.className = <span class="hljs-string">'delete-item secondary-content'</span>;
 
-    <span class="hljs-comment">// Add icon html</span>
-    link.innerHTML = <span class="hljs-string">'&lt;i class="fa fa-remove"&gt;&lt;/i&gt;'</span>;
+<span class="hljs-comment">// Add icon html</span>
+link.innerHTML = <span class="hljs-string">'&lt;i class="fa fa-remove"&gt;&lt;/i&gt;'</span>;
 
-    <span class="hljs-comment">// Append link into li</span>
-    li.appendChild(link);
+<span class="hljs-comment">// Append link into li</span>
+li.appendChild(link);
 
-    <span class="hljs-comment">// Append li as child to ul</span>
-    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul.collection'</span>).appendChild(li);
+<span class="hljs-comment">// Append li as child to ul</span>
+<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul.collection'</span>).appendChild(li);
 
-    <span class="hljs-built_in">console</span>.log(li);
+<span class="hljs-built_in">console</span>.log(li);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="removing-replacing-elements"></a><a href="#removing-replacing-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Removing &amp; Replacing Elements:</h2>
-<pre><code class="hljs css language-js">    <span class="hljs-comment">// REPLACE ELEMENT</span>
-    <span class="hljs-comment">// Create Element</span>
-    <span class="hljs-keyword">const</span> newHeading = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'h2'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-comment">// REPLACE ELEMENT</span>
+<span class="hljs-comment">// Create Element</span>
+<span class="hljs-keyword">const</span> newHeading = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'h2'</span>);
 
-    <span class="hljs-comment">// Add id</span>
-    newHeading.id = <span class="hljs-string">'task-title'</span>;
-    <span class="hljs-comment">// New text node</span>
-    newHeading.appendChild(<span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">'Task List'</span>));
-    <span class="hljs-comment">// Get the old heading</span>
-    <span class="hljs-keyword">const</span> oldHeading = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
+<span class="hljs-comment">// Add id</span>
+newHeading.id = <span class="hljs-string">'task-title'</span>;
+<span class="hljs-comment">// New text node</span>
+newHeading.appendChild(<span class="hljs-built_in">document</span>.createTextNode(<span class="hljs-string">'Task List'</span>));
+<span class="hljs-comment">// Get the old heading</span>
+<span class="hljs-keyword">const</span> oldHeading = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'task-title'</span>);
 
-    <span class="hljs-comment">//Parent</span>
-    <span class="hljs-keyword">const</span> cardAction = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card-action'</span>);
+<span class="hljs-comment">//Parent</span>
+<span class="hljs-keyword">const</span> cardAction = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.card-action'</span>);
 
-    <span class="hljs-comment">// Replace</span>
-    cardAction.replaceChild(newHeading, oldHeading);
+<span class="hljs-comment">// Replace</span>
+cardAction.replaceChild(newHeading, oldHeading);
 
-    <span class="hljs-comment">// REMOVE ELEMENT</span>
-    <span class="hljs-keyword">const</span> lis = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'li'</span>);
-    <span class="hljs-keyword">const</span> list = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>);
+<span class="hljs-comment">// REMOVE ELEMENT</span>
+<span class="hljs-keyword">const</span> lis = <span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'li'</span>);
+<span class="hljs-keyword">const</span> list = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'ul'</span>);
 
-    <span class="hljs-comment">// Remove list item</span>
-    lis[<span class="hljs-number">0</span>].remove();
+<span class="hljs-comment">// Remove list item</span>
+lis[<span class="hljs-number">0</span>].remove();
 
-    <span class="hljs-comment">// Remove child element</span>
-    list.removeChild(lis[<span class="hljs-number">3</span>]);
+<span class="hljs-comment">// Remove child element</span>
+list.removeChild(lis[<span class="hljs-number">3</span>]);
 
-    <span class="hljs-comment">// CLASSES &amp; ATTR</span>
-    <span class="hljs-keyword">const</span> firstLi = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:first-child'</span>);
-    <span class="hljs-keyword">const</span> link = firstLi.children[<span class="hljs-number">0</span>];
-    <span class="hljs-keyword">let</span> val;
+<span class="hljs-comment">// CLASSES &amp; ATTR</span>
+<span class="hljs-keyword">const</span> firstLi = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'li:first-child'</span>);
+<span class="hljs-keyword">const</span> link = firstLi.children[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">let</span> val;
 
-    <span class="hljs-comment">// Classes</span>
-    val = link.className;
-    val = link.classList;
-    val = link.classList[<span class="hljs-number">0</span>];
-    link.classList.add(<span class="hljs-string">'test'</span>);
-    link.classList.remove(<span class="hljs-string">'test'</span>);
-    val = link;
+<span class="hljs-comment">// Classes</span>
+val = link.className;
+val = link.classList;
+val = link.classList[<span class="hljs-number">0</span>];
+link.classList.add(<span class="hljs-string">'test'</span>);
+link.classList.remove(<span class="hljs-string">'test'</span>);
+val = link;
 
-    <span class="hljs-comment">// Attributes</span>
-    val = link.getAttribute(<span class="hljs-string">'href'</span>);
-    val = link.setAttribute(<span class="hljs-string">'href'</span>, <span class="hljs-string">'http://google.com'</span>);
-    link.setAttribute(<span class="hljs-string">'title'</span>, <span class="hljs-string">'Google'</span>);
-    val = link.hasAttribute(<span class="hljs-string">'title'</span>);
-    link.removeAttribute(<span class="hljs-string">'title'</span>);
-    val = link;
-    <span class="hljs-built_in">console</span>.log(val);
+<span class="hljs-comment">// Attributes</span>
+val = link.getAttribute(<span class="hljs-string">'href'</span>);
+val = link.setAttribute(<span class="hljs-string">'href'</span>, <span class="hljs-string">'http://google.com'</span>);
+link.setAttribute(<span class="hljs-string">'title'</span>, <span class="hljs-string">'Google'</span>);
+val = link.hasAttribute(<span class="hljs-string">'title'</span>);
+link.removeAttribute(<span class="hljs-string">'title'</span>);
+val = link;
+<span class="hljs-built_in">console</span>.log(val);
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/javascript/window-object"><span class="arrow-prev">← </span><span>Window Object</span></a><a class="docs-next button" href="/docs/javascript/events"><span>Events</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#document-object-basic-things">Document object - basic things:</a></li><li><a href="#dom-selectors-single-element">DOM - Selectors:  (Single Element)</a></li><li><a href="#dom-queryselector-single-element">DOM QuerySelector: (Single Element)</a></li><li><a href="#dom-selectors-multiple-elements">DOM - Selectors:  (Multiple Elements)</a></li><li><a href="#dom-queryselectorall-multiple-elements">DOM QuerySelectorAll: (Multiple Elements)</a><ul class="toc-headings"><li><a href="#gist">Gist :</a></li></ul></li><li><a href="#create-element-with-id-class-attributes-children">Create Element: (with id, class, attributes, children)</a></li><li><a href="#removing-replacing-elements">Removing &amp; Replacing Elements:</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code.png" alt="" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/programming">Programming Concepts</a><a href="/docs/tech-trends">Technology Trends</a><a href="/docs/setup-coder-wiki">Setup Coder Wiki locally</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools - Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/markdown-cheatsheet">Markdown cheatsheet</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Connect</h5><a href="https://instagram.com/">Instagram</a><a href="https://twitter.com/">Twitter</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/coder-selvarajan/mywiki/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
