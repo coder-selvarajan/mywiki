@@ -56,21 +56,21 @@
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Data Structures</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="arrays"></a><a href="#arrays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Arrays</h2>
 <p>The syntax of array looks like this</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someArray = [<span class="hljs-type">SomeType</span>](<span class="hljs-built_in">count</span>: nElements, repeatedValue: <span class="hljs-type">InitValue</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someArray = [<span class="hljs-type">SomeType</span>](<span class="hljs-built_in">count</span>: nElements, repeatedValue: <span class="hljs-type">InitValue</span>)
 </code></pre>
 <p>You can use the following statement to create an empty array of Int type having 3 elements and the initial value as zero</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someInts = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>: <span class="hljs-number">3</span>, repeatedValue: <span class="hljs-number">0</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someInts = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>: <span class="hljs-number">3</span>, repeatedValue: <span class="hljs-number">0</span>)
 </code></pre>
 <p>Following is one more example to create an array of three elements and assign three values to that array</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someInts:[<span class="hljs-type">Int</span>] = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someInts:[<span class="hljs-type">Int</span>] = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
 </code></pre>
 <p>The following example shows how to create, initialize, and access arrays −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someInts = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>: <span class="hljs-number">3</span>, repeatedValue: <span class="hljs-number">10</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someInts = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>: <span class="hljs-number">3</span>, repeatedValue: <span class="hljs-number">10</span>)
 
-    <span class="hljs-keyword">var</span> someVar = someInts[<span class="hljs-number">0</span>]
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of first element is \(someVar)"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of second element is \(someInts[1])"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of third element is \(someInts[2])"</span> )
+<span class="hljs-keyword">var</span> someVar = someInts[<span class="hljs-number">0</span>]
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of first element is \(someVar)"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of second element is \(someInts[1])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of third element is \(someInts[2])"</span> )
 </code></pre>
 <p><em>OUTPUT:</em></p>
 <pre><code class="hljs">Value of first element is 10
@@ -79,20 +79,20 @@ Value of third element is 10
 </code></pre>
 <p><strong>Modifying Arrays</strong></p>
 <p>You can use append() method or addition assignment operator (+=) to add a new item at the end of an array. Take a look at the following example. Here, initially, we create an empty array and then add new elements into the same array −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someInts = [<span class="hljs-type">Int</span>]()
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someInts = [<span class="hljs-type">Int</span>]()
 
-    someInts.append(<span class="hljs-number">20</span>)
-    someInts.append(<span class="hljs-number">30</span>)
-    someInts += [<span class="hljs-number">40</span>]
+someInts.append(<span class="hljs-number">20</span>)
+someInts.append(<span class="hljs-number">30</span>)
+someInts += [<span class="hljs-number">40</span>]
 
-    <span class="hljs-comment">// Modify last element</span>
-    someInts[<span class="hljs-number">2</span>] = <span class="hljs-number">50</span>
+<span class="hljs-comment">// Modify last element</span>
+someInts[<span class="hljs-number">2</span>] = <span class="hljs-number">50</span>
 
-    <span class="hljs-keyword">var</span> someVar = someInts[<span class="hljs-number">0</span>]
+<span class="hljs-keyword">var</span> someVar = someInts[<span class="hljs-number">0</span>]
 
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of first element is \(someVar)"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of second element is \(someInts[1])"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of third element is \(someInts[2])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of first element is \(someVar)"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of second element is \(someInts[1])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of third element is \(someInts[2])"</span> )
 </code></pre>
 <p><em>OUTPUT:</em></p>
 <pre><code class="hljs">Value of first element is 20
@@ -100,35 +100,35 @@ Value of second element is 30
 Value of third element is 50
 </code></pre>
 <p><em>Iterating over an array :</em></p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someStrs = [<span class="hljs-type">String</span>]()
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someStrs = [<span class="hljs-type">String</span>]()
 
-    someStrs.append(<span class="hljs-string">"Apple"</span>)
-    someStrs.append(<span class="hljs-string">"Amazon"</span>)
-    someStrs += [<span class="hljs-string">"Google"</span>]
-    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> someStrs {
-        <span class="hljs-built_in">print</span>(item)
-    }
+someStrs.append(<span class="hljs-string">"Apple"</span>)
+someStrs.append(<span class="hljs-string">"Amazon"</span>)
+someStrs += [<span class="hljs-string">"Google"</span>]
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> someStrs {
+    <span class="hljs-built_in">print</span>(item)
+}
 </code></pre>
 <p>You can use enumerate() function which returns the index of an item along with its value as shown below</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someStrs = [<span class="hljs-type">String</span>]()
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someStrs = [<span class="hljs-type">String</span>]()
 
-    someStrs.append(<span class="hljs-string">"Apple"</span>)
-    someStrs.append(<span class="hljs-string">"Amazon"</span>)
-    someStrs += [<span class="hljs-string">"Google"</span>]
+someStrs.append(<span class="hljs-string">"Apple"</span>)
+someStrs.append(<span class="hljs-string">"Amazon"</span>)
+someStrs += [<span class="hljs-string">"Google"</span>]
 
-    <span class="hljs-keyword">for</span> (index, item) <span class="hljs-keyword">in</span> someStrs.enumerated() {
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value at index = \(index) is \(item)"</span>)
-    }
+<span class="hljs-keyword">for</span> (index, item) <span class="hljs-keyword">in</span> someStrs.enumerated() {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Value at index = \(index) is \(item)"</span>)
+}
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="adding-two-arrays"></a><a href="#adding-two-arrays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adding Two Arrays</h3>
 <p>You can use the addition operator (+) to add two arrays of the same type which will yield a new array with a combination of values from the two arrays as follows</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> intsA = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>:<span class="hljs-number">2</span>, repeatedValue: <span class="hljs-number">2</span>)
-    <span class="hljs-keyword">var</span> intsB = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>:<span class="hljs-number">3</span>, repeatedValue: <span class="hljs-number">1</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> intsA = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>:<span class="hljs-number">2</span>, repeatedValue: <span class="hljs-number">2</span>)
+<span class="hljs-keyword">var</span> intsB = [<span class="hljs-type">Int</span>](<span class="hljs-built_in">count</span>:<span class="hljs-number">3</span>, repeatedValue: <span class="hljs-number">1</span>)
 
-    <span class="hljs-keyword">var</span> intsC # intsA + intsB
-    <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> intsC {
-        <span class="hljs-built_in">print</span>(item)
-    }
+<span class="hljs-keyword">var</span> intsC # intsA + intsB
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> intsC {
+    <span class="hljs-built_in">print</span>(item)
+}
 </code></pre>
 <p><em>OUTPUT:</em></p>
 <pre><code class="hljs">2
@@ -144,32 +144,32 @@ Value of third element is 50
 <p>All the basic swift values are of hashable type by default and may be used as set values.</p>
 <h3><a class="anchor" aria-hidden="true" id="creating-sets"></a><a href="#creating-sets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating Sets</h3>
 <p>You can create an empty set of a certain type using the following initializer syntax</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someSet = <span class="hljs-type">Set</span>&lt;<span class="hljs-type">Character</span>&gt;()     
-    <span class="hljs-comment">//Character can be replaced by data type of set.</span>
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someSet = <span class="hljs-type">Set</span>&lt;<span class="hljs-type">Character</span>&gt;()     
+<span class="hljs-comment">//Character can be replaced by data type of set.</span>
 
-    <span class="hljs-comment">//OR you can create it with below way too</span>
-    <span class="hljs-keyword">let</span> letters: <span class="hljs-type">Set</span> = [a,b,<span class="hljs-built_in">c</span>,d]
+<span class="hljs-comment">//OR you can create it with below way too</span>
+<span class="hljs-keyword">let</span> letters: <span class="hljs-type">Set</span> = [a,b,<span class="hljs-built_in">c</span>,d]
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="accessing-and-modifying-sets"></a><a href="#accessing-and-modifying-sets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessing and modifying Sets</h3>
-<pre><code class="hljs css language-swift">    someSet.<span class="hljs-built_in">count</span>  <span class="hljs-comment">// prints the number of elements</span>
-    someSet.insert(<span class="hljs-string">"c"</span>)  <span class="hljs-comment">// adds the element to Set.</span>
-    someSet.isEmpty  <span class="hljs-comment">// returns true or false depending on the set Elements.</span>
-    someSet.remove(<span class="hljs-string">"c"</span>)  <span class="hljs-comment">// removes a element </span>
-    <span class="hljs-comment">//removeAll() can be used to remove all elements</span>
+<pre><code class="hljs css language-swift">someSet.<span class="hljs-built_in">count</span>  <span class="hljs-comment">// prints the number of elements</span>
+someSet.insert(<span class="hljs-string">"c"</span>)  <span class="hljs-comment">// adds the element to Set.</span>
+someSet.isEmpty  <span class="hljs-comment">// returns true or false depending on the set Elements.</span>
+someSet.remove(<span class="hljs-string">"c"</span>)  <span class="hljs-comment">// removes a element </span>
+<span class="hljs-comment">//removeAll() can be used to remove all elements</span>
 
-    someSet.<span class="hljs-built_in">contains</span>(<span class="hljs-string">"c"</span>)  <span class="hljs-comment">// to check if set contains this value.</span>
+someSet.<span class="hljs-built_in">contains</span>(<span class="hljs-string">"c"</span>)  <span class="hljs-comment">// to check if set contains this value.</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="iterating-over-a-set"></a><a href="#iterating-over-a-set" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Iterating over a Set</h3>
 <p>You can iterate over a set using for-in loop −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">for</span> items <span class="hljs-keyword">in</span> someSet {
-        <span class="hljs-built_in">print</span>(someSet)
-    }
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">for</span> items <span class="hljs-keyword">in</span> someSet {
+    <span class="hljs-built_in">print</span>(someSet)
+}
 
-    <span class="hljs-comment">//Swift sets are not in an ordered way, </span>
-    <span class="hljs-comment">//to iterate over a set in ordered way use</span>
-    <span class="hljs-keyword">for</span> items <span class="hljs-keyword">in</span> someSet.sorted() {
-        <span class="hljs-built_in">print</span>(someSet)
-    }  
+<span class="hljs-comment">//Swift sets are not in an ordered way, </span>
+<span class="hljs-comment">//to iterate over a set in ordered way use</span>
+<span class="hljs-keyword">for</span> items <span class="hljs-keyword">in</span> someSet.sorted() {
+    <span class="hljs-built_in">print</span>(someSet)
+}  
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="performing-set-operations"></a><a href="#performing-set-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Performing Set Operations</h3>
 <p>Following are the methods for performing set operations −</p>
@@ -178,15 +178,15 @@ Value of third element is 50
 <li>Union</li>
 <li>subtracting</li>
 </ul>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> evens: <span class="hljs-type">Set</span> = [<span class="hljs-number">10</span>,<span class="hljs-number">12</span>,<span class="hljs-number">14</span>,<span class="hljs-number">16</span>,<span class="hljs-number">18</span>]
-    <span class="hljs-keyword">let</span> odds: <span class="hljs-type">Set</span> = [<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">11</span>,<span class="hljs-number">13</span>]
-    <span class="hljs-keyword">let</span> primes = [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>]
-    odds.union(evens).sorted()
-    <span class="hljs-comment">// [5,7,9,10,11,12,13,14,16,18]</span>
-    odds.intersection(evens).sorted()
-    <span class="hljs-comment">//[]</span>
-    odds.subtracting(primes).sorted()
-    <span class="hljs-comment">//[9, 11, 13]</span>
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">let</span> evens: <span class="hljs-type">Set</span> = [<span class="hljs-number">10</span>,<span class="hljs-number">12</span>,<span class="hljs-number">14</span>,<span class="hljs-number">16</span>,<span class="hljs-number">18</span>]
+<span class="hljs-keyword">let</span> odds: <span class="hljs-type">Set</span> = [<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">11</span>,<span class="hljs-number">13</span>]
+<span class="hljs-keyword">let</span> primes = [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>]
+odds.union(evens).sorted()
+<span class="hljs-comment">// [5,7,9,10,11,12,13,14,16,18]</span>
+odds.intersection(evens).sorted()
+<span class="hljs-comment">//[]</span>
+odds.subtracting(primes).sorted()
+<span class="hljs-comment">//[9, 11, 13]</span>
 </code></pre>
 <hr>
 <h2><a class="anchor" aria-hidden="true" id="dictionaries"></a><a href="#dictionaries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dictionaries</h2>
@@ -194,17 +194,17 @@ Value of third element is 50
 <p>A dictionary key can be either an integer or a string without a restriction, but it should be unique within a dictionary.</p>
 <p>If you assign a created dictionary to a variable, then it is always mutable which means you can change it by adding, removing, or changing its items. But if you assign a dictionary to a constant, then that dictionary is immutable, and its size and contents cannot be changed.</p>
 <p><em>SYNTAX:</em></p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict = [<span class="hljs-type">Int</span>: <span class="hljs-type">String</span>]()
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict = [<span class="hljs-type">Int</span>: <span class="hljs-type">String</span>]()
 </code></pre>
 <p><em>EXAMPLE:</em></p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="sequence-based-initialization"></a><a href="#sequence-based-initialization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sequence Based Initialization</h3>
 <p>Swift 4 allows you to create Dictionary from arrays (Key-Value Pairs.)</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> cities = [<span class="hljs-string">"Delhi"</span>,<span class="hljs-string">"Bangalore"</span>,<span class="hljs-string">"Hyderabad"</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> cities = [<span class="hljs-string">"Delhi"</span>,<span class="hljs-string">"Bangalore"</span>,<span class="hljs-string">"Hyderabad"</span>]
 </code></pre>
 <p>You can use the following simple syntax to create an empty dictionary whose key will be of Int type and the associated values will be strings −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> <span class="hljs-type">Distance</span> = [<span class="hljs-number">2000</span>,<span class="hljs-number">10</span>, <span class="hljs-number">620</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> <span class="hljs-type">Distance</span> = [<span class="hljs-number">2000</span>,<span class="hljs-number">10</span>, <span class="hljs-number">620</span>]
 </code></pre>
 <p>Here is an example to create a dictionary from a set of given values −</p>
 <pre><code class="hljs css language-swift"><span class="hljs-keyword">let</span> cityDistanceDict = <span class="hljs-type">Dictionary</span>(uniqueKeysWithValues: <span class="hljs-built_in">zip</span>(cities, <span class="hljs-type">Distance</span>))
@@ -212,7 +212,7 @@ Value of third element is 50
 <p>The above lines of code will create a dictionary with Cities as key and Distance as Value</p>
 <h3><a class="anchor" aria-hidden="true" id="filtering"></a><a href="#filtering" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filtering</h3>
 <p>Swift 4 allows you to filter values from a dictionary.</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> closeCities = cityDistanceDict.<span class="hljs-built_in">filter</span> { $<span class="hljs-number">0</span>.value &lt; <span class="hljs-number">1000</span> }
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> closeCities = cityDistanceDict.<span class="hljs-built_in">filter</span> { $<span class="hljs-number">0</span>.value &lt; <span class="hljs-number">1000</span> }
 </code></pre>
 <p>If we run the above code our closeCities Dictionary will be.</p>
 <p><em>OUTPUT:</em></p>
@@ -220,10 +220,10 @@ Value of third element is 50
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="dictionary-grouping"></a><a href="#dictionary-grouping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dictionary Grouping</h3>
 <p>Swift 4 allows you to create grouping of Dictionary values.</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> cities = [<span class="hljs-string">"Delhi"</span>,<span class="hljs-string">"Bangalore"</span>,<span class="hljs-string">"Hyderabad"</span>,<span class="hljs-string">"Dehradun"</span>,<span class="hljs-string">"Bihar"</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> cities = [<span class="hljs-string">"Delhi"</span>,<span class="hljs-string">"Bangalore"</span>,<span class="hljs-string">"Hyderabad"</span>,<span class="hljs-string">"Dehradun"</span>,<span class="hljs-string">"Bihar"</span>]
 </code></pre>
 <p>You can use the following simple syntax to group the values of dictionary according to first alphabet.</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> <span class="hljs-type">GroupedCities</span> = <span class="hljs-type">Dictionary</span>(grouping: cities ) { $<span class="hljs-number">0</span>.first! }
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> <span class="hljs-type">GroupedCities</span> = <span class="hljs-type">Dictionary</span>(grouping: cities ) { $<span class="hljs-number">0</span>.first! }
 </code></pre>
 <p>The result of above code will be</p>
 <p><em>OUTPUT:</em></p>
@@ -231,78 +231,78 @@ Value of third element is 50
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="accessing-modifying-dictionaries"></a><a href="#accessing-modifying-dictionaries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessing &amp; Modifying Dictionaries</h3>
 <p>You can use <code>updateValue(forKey:)</code> method to add an existing value to a given key of the dictionary. This method returns an optional value of the dictionary's value type. Here is a simple example −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
-    <span class="hljs-keyword">var</span> oldVal = someDict.updateValue(<span class="hljs-string">"New value of one"</span>, forKey: <span class="hljs-number">1</span>)
-    <span class="hljs-keyword">var</span> someVar = someDict[<span class="hljs-number">1</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
+<span class="hljs-keyword">var</span> oldVal = someDict.updateValue(<span class="hljs-string">"New value of one"</span>, forKey: <span class="hljs-number">1</span>)
+<span class="hljs-keyword">var</span> someVar = someDict[<span class="hljs-number">1</span>]
 
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Old value of key = 1 is \(oldVal)"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 1 is \(someVar)"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 2 is \(someDict[2])"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 3 is \(someDict[3])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Old value of key = 1 is \(oldVal)"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 1 is \(someVar)"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 2 is \(someDict[2])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 3 is \(someDict[3])"</span> )
 </code></pre>
 <p>Or you may do like this as well.. both produces the same output</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
-    <span class="hljs-keyword">var</span> oldVal = someDict[<span class="hljs-number">1</span>]
-    someDict[<span class="hljs-number">1</span>] = <span class="hljs-string">"New value of one"</span>
-    <span class="hljs-keyword">var</span> someVar = someDict[<span class="hljs-number">1</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
+<span class="hljs-keyword">var</span> oldVal = someDict[<span class="hljs-number">1</span>]
+someDict[<span class="hljs-number">1</span>] = <span class="hljs-string">"New value of one"</span>
+<span class="hljs-keyword">var</span> someVar = someDict[<span class="hljs-number">1</span>]
 
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Old value of key = 1 is \(oldVal)"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 1 is \(someVar)"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 2 is \(someDict[2])"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 3 is \(someDict[3])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Old value of key = 1 is \(oldVal)"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 1 is \(someVar)"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 2 is \(someDict[2])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 3 is \(someDict[3])"</span> )
 </code></pre>
 <p><em>OUTPUT:</em></p>
-<pre><code class="hljs css language-swift">    <span class="hljs-type">Old</span> value of key = <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"One"</span>)
-    <span class="hljs-type">Value</span> of key = <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"New value of one"</span>)
-    <span class="hljs-type">Value</span> of key = <span class="hljs-number">2</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"Two"</span>)
-    <span class="hljs-type">Value</span> of key = <span class="hljs-number">3</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"Three"</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-type">Old</span> value of key = <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"One"</span>)
+<span class="hljs-type">Value</span> of key = <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"New value of one"</span>)
+<span class="hljs-type">Value</span> of key = <span class="hljs-number">2</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"Two"</span>)
+<span class="hljs-type">Value</span> of key = <span class="hljs-number">3</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"Three"</span>)
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="remove-key-value-pairs"></a><a href="#remove-key-value-pairs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remove Key-Value Pairs</h3>
 <p>You can use removeValueForKey() method to remove a key-value pair from a dictionary. This method removes the key-value pair if it exists and returns the removed value, or returns nil if no value existed. Here is a simple example −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
-    
-    <span class="hljs-keyword">var</span> removedValue = someDict.removeValue(forKey: <span class="hljs-number">2</span>)
-    <span class="hljs-comment">// or you may just set the value to nil.. both works..  </span>
-    <span class="hljs-comment">// someDict[2] = nil</span>
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
 
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 1 is \(someDict[1])"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 2 is \(someDict[2])"</span> )
-    <span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 3 is \(someDict[3])"</span> )
+<span class="hljs-keyword">var</span> removedValue = someDict.removeValue(forKey: <span class="hljs-number">2</span>)
+<span class="hljs-comment">// or you may just set the value to nil.. both works..  </span>
+<span class="hljs-comment">// someDict[2] = nil</span>
+
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 1 is \(someDict[1])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 2 is \(someDict[2])"</span> )
+<span class="hljs-built_in">print</span>( <span class="hljs-string">"Value of key = 3 is \(someDict[3])"</span> )
 </code></pre>
 <p><em>OUTPUT:</em></p>
-<pre><code class="hljs css language-swift">    <span class="hljs-type">Value</span> of key = <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"One"</span>)
-    <span class="hljs-type">Value</span> of key = <span class="hljs-number">2</span> <span class="hljs-keyword">is</span> <span class="hljs-literal">nil</span>
-    <span class="hljs-type">Value</span> of key = <span class="hljs-number">3</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"Three"</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-type">Value</span> of key = <span class="hljs-number">1</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"One"</span>)
+<span class="hljs-type">Value</span> of key = <span class="hljs-number">2</span> <span class="hljs-keyword">is</span> <span class="hljs-literal">nil</span>
+<span class="hljs-type">Value</span> of key = <span class="hljs-number">3</span> <span class="hljs-keyword">is</span> <span class="hljs-type">Optional</span>(<span class="hljs-string">"Three"</span>)
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="iterating-over-a-dictionary"></a><a href="#iterating-over-a-dictionary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Iterating Over a Dictionary</h3>
 <p>You can use <code>enumerate()</code> function which returns the index of the item along with its (key, value) pair as shown below in the example −</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
-    <span class="hljs-keyword">for</span> (key, value) <span class="hljs-keyword">in</span> someDict.enumerated() {
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">"Dictionary key \(key) - Dictionary value \(value)"</span>)
-    }
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
+<span class="hljs-keyword">for</span> (key, value) <span class="hljs-keyword">in</span> someDict.enumerated() {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Dictionary key \(key) - Dictionary value \(value)"</span>)
+}
 </code></pre>
 <p><em>OUTPUT:</em></p>
-<pre><code class="hljs css language-swift">    <span class="hljs-type">Dictionary</span> key <span class="hljs-number">0</span> - <span class="hljs-type">Dictionary</span> value (key: <span class="hljs-number">2</span>, value: <span class="hljs-string">"Two"</span>)
-    <span class="hljs-type">Dictionary</span> key <span class="hljs-number">1</span> - <span class="hljs-type">Dictionary</span> value (key: <span class="hljs-number">3</span>, value: <span class="hljs-string">"Three"</span>)
-    <span class="hljs-type">Dictionary</span> key <span class="hljs-number">2</span> - <span class="hljs-type">Dictionary</span> value (key: <span class="hljs-number">1</span>, value: <span class="hljs-string">"One"</span>)
+<pre><code class="hljs css language-swift"><span class="hljs-type">Dictionary</span> key <span class="hljs-number">0</span> - <span class="hljs-type">Dictionary</span> value (key: <span class="hljs-number">2</span>, value: <span class="hljs-string">"Two"</span>)
+<span class="hljs-type">Dictionary</span> key <span class="hljs-number">1</span> - <span class="hljs-type">Dictionary</span> value (key: <span class="hljs-number">3</span>, value: <span class="hljs-string">"Three"</span>)
+<span class="hljs-type">Dictionary</span> key <span class="hljs-number">2</span> - <span class="hljs-type">Dictionary</span> value (key: <span class="hljs-number">1</span>, value: <span class="hljs-string">"One"</span>)
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="convert-to-arrays"></a><a href="#convert-to-arrays" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Convert to Arrays</h3>
 <p>You can extract a list of key-value pairs from a given dictionary to build separate arrays for both keys and values. Here is an example</p>
-<pre><code class="hljs css language-swift">    <span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
+<pre><code class="hljs css language-swift"><span class="hljs-keyword">var</span> someDict:[<span class="hljs-type">Int</span>:<span class="hljs-type">String</span>] = [<span class="hljs-number">1</span>:<span class="hljs-string">"One"</span>, <span class="hljs-number">2</span>:<span class="hljs-string">"Two"</span>, <span class="hljs-number">3</span>:<span class="hljs-string">"Three"</span>]
 
-    <span class="hljs-keyword">let</span> dictKeys = [<span class="hljs-type">Int</span>](someDict.keys)
-    <span class="hljs-keyword">let</span> dictValues = [<span class="hljs-type">String</span>](someDict.values)
+<span class="hljs-keyword">let</span> dictKeys = [<span class="hljs-type">Int</span>](someDict.keys)
+<span class="hljs-keyword">let</span> dictValues = [<span class="hljs-type">String</span>](someDict.values)
 
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Print Dictionary Keys"</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Print Dictionary Keys"</span>)
 
-    <span class="hljs-keyword">for</span> (key) <span class="hljs-keyword">in</span> dictKeys {
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(key)"</span>)
-    }
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">"Print Dictionary Values"</span>)
+<span class="hljs-keyword">for</span> (key) <span class="hljs-keyword">in</span> dictKeys {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(key)"</span>)
+}
+<span class="hljs-built_in">print</span>(<span class="hljs-string">"Print Dictionary Values"</span>)
 
-    <span class="hljs-keyword">for</span> (value) <span class="hljs-keyword">in</span> dictValues {
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(value)"</span>)
-    }
+<span class="hljs-keyword">for</span> (value) <span class="hljs-keyword">in</span> dictValues {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"\(value)"</span>)
+}
 </code></pre>
 <p><em>OUTPUT:</em></p>
 <pre><code class="hljs">Print Dictionary Keys
