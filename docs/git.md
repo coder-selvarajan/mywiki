@@ -106,3 +106,16 @@ git pull
 ## Advanced Git
 
 ### HEAD 
+
+    git checkout f124343
+    git checkout commit
+    git show HEAD
+
+    git tag v1.2
+    git checkout v1.2
+
+#### To see the commit history:  
+
+    git log
+
+

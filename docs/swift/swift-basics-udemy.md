@@ -20,12 +20,12 @@ Swift 4 is a new programming language developed by Apple Inc for iOS and OS X de
 
 A Swift 4 program consists of various tokens and a token is either a keyword, an identifier, a constant, a string literal, or a symbol. For example, the following Swift 4 statement consists of three tokens −
 ```swift
-    print("test!")
+print("test!")
 ```
 
 Semicolons are not needed in Swift, however if you are combining more than one statement then you can use semicolon to separate them.
 ```swift
-    var myString # "Hello, World!"; print(myString)
+var myString # "Hello, World!"; print(myString)
 ```
 
 Swift 4 does not allow special characters such as @, $, and % within identifiers. Swift 4 is a case sensitive programming language. Thus, Manpower and manpower are two different identifiers in Swift 4. Here are some examples of acceptable identifiers −
@@ -37,9 +37,9 @@ Swift 4 does not allow special characters such as @, $, and % within identifiers
 
 A literal is the source code representation of a value of an integer, floating-point number, or string type. The following are examples of literals  
 ```swift
-    92               // Integer literal
-    4.24159          // Floating-point literal
-    "Hello, World!"  // String literal
+92               // Integer literal
+4.24159          // Floating-point literal
+"Hello, World!"  // String literal
 ```
 
 ---
@@ -96,9 +96,9 @@ For example, the following line instructs the compiler that Feet is another name
 
 the whole code goes like this
 ```swift
-    typealias Feet = Int
-    var distance: Feet = 100
-    print(distance)
+typealias Feet = Int
+var distance: Feet = 100
+print(distance)
 ```
 
 ### Type Safety
@@ -107,9 +107,9 @@ Swift 4 is a type-safe language which means if a part of your code expects a Str
 
 As Swift 4 is type-safe, it performs type-checks when compiling your code and flags any mismatched types as errors.
 ```swift
-    var varA = 42
-    varA = "This is hello"
-    print(varA)
+var varA = 42
+varA = "This is hello"
+print(varA)
 ```
 
 When we compile the above program, it produces the following compile time error.
@@ -118,17 +118,17 @@ When we compile the above program, it produces the following compile time error.
 
 Type inference enables a compiler to deduce the type of a particular expression automatically when it compiles your code
 ```swift
-    // varA is inferred to be of type Int
-    var varA = 42
-    print(varA)
+// varA is inferred to be of type Int
+var varA = 42
+print(varA)
 
-    // varB is inferred to be of type Double
-    var varB = 3.14159
-    print(varB)
+// varB is inferred to be of type Double
+var varB = 3.14159
+print(varB)
 
-    // varC is also inferred to be of type Double
-    var varC = 3 + 0.14159
-    print(varC)
+// varC is also inferred to be of type Double
+var varC = 3 + 0.14159
+print(varC)
 ```
 
 ---
@@ -138,29 +138,30 @@ Type inference enables a compiler to deduce the type of a particular expression 
 Swift has two ways of declaring variables, One by assigning value in the variable and another one by using type annotation. Example: 
 
 ```swift
-    var varA = 42
-    print(varA)
+var varA = 42
+print(varA)
 
-    var varB:Float
-    varB = 3.14159
-    print(varB)
+var varB:Float
+varB = 3.14159
+print(varB)
 ```
 
 The name of a variable can be composed of letters, digits, and the underscore character. It must begin with either a letter or an underscore. Upper and lowercase letters are distinct because Swift 4 is a case-sensitive programming language. We can even use `unicode characters` as well
-[source,swift]
-    var _var = "Hello, Swift 4!"
-    print(_var)
-    var பெயர் = "பிரேம்"
-    print(பெயர்)
+```swift
+var _var = "Hello, Swift 4!"
+print(_var)
+var பெயர் = "பிரேம்"
+print(பெயர்)
+```
 
 **Printing Variables**
 
 You can interpolate a variable value by wrapping the name in parentheses and escape it with a backslash before the opening parenthesis: 
 ```swift
-    var varA = "Godzilla"
-    var varB = 1000.00
+var varA = "Godzilla"
+var varB = 1000.00
 
-    print("Value of \(varA) is more than \(varB) millions")
+print("Value of \(varA) is more than \(varB) millions")
 ```
 
 ---
@@ -171,15 +172,15 @@ Swift 4 also introduces Optionals type, which handles the absence of a value. Op
 
 Here’s an optional Integer & String declarations 
 ```swift
-    var perhapsInt: Int?
-    var perhapsStr: String?
+var perhapsInt: Int?
+var perhapsStr: String?
 ```
 
 Above statements are equivalent to 
-    
-    var perhapsInt: Int? = nil
-    var perhapsStr: String? = nil
-
+```swift
+var perhapsInt: Int? = nil
+var perhapsStr: String? = nil
+```
 
 **Forced Unwrapping :**
 
@@ -187,35 +188,35 @@ If you defined a variable as optional, then to get the value from this variable,
 
 Let's take a simple example −
 ```swift
-    var myString:String?
-    myString = "Hello, Swift 4!"
+var myString:String?
+myString = "Hello, Swift 4!"
 
-    if myString != nil {
-        print(myString)
-        print(myString!) //unwrapping applied here
-    } else {
-        print("myString has nil value")
-    }
+if myString != nil {
+    print(myString)
+    print(myString!) //unwrapping applied here
+} else {
+    print("myString has nil value")
+}
 ```
 
 When we run the above program using playground, we get the following result −
 ```swift
-    Optional("Hello, Swift 4!")
-    Hello, Swift 4!
+Optional("Hello, Swift 4!")
+Hello, Swift 4!
 ```
 
 **Automatic Unwrapping :**
 
 You can declare optional variables using exclamation mark instead of a question mark. Such optional variables will unwrap automatically and you do not need to use any further exclamation mark at the end of the variable to get the assigned value. Let's take a simple example −
 ```swift
-    var myString:String!
-    myString = "Hello, Swift 4!"
+var myString:String!
+myString = "Hello, Swift 4!"
 
-    if myString != nil {
+if myString != nil {
     print(myString)
-    } else {
+} else {
     print("myString has nil value")
-    }
+}
 ```
 
 When we run the above program using playground, we get the following result −
@@ -228,21 +229,21 @@ Use optional binding to find out whether an optional contains a value, and if so
 
 An optional binding for the if statement is as follows −
 ```swift
-    if let constantName = someOptional {
+if let constantName = someOptional {
     statements
-    }
+}
 ```
 
 Let's take a simple example to understand the usage of optional binding −
 ```swift
-    var myString:String?
-    myString = "Hello, Swift 4!"
+var myString:String?
+myString = "Hello, Swift 4!"
 
-    if let yourString = myString {
+if let yourString = myString {
     print("Your string has - \(yourString)")
-    } else {
+} else {
     print("Your string does not have a value")
-    }
+}
 ```
 
 When we run the above program using playground, we get the following result −
@@ -259,24 +260,24 @@ For example, `("Tutorials Point", 123)` is a tuple with two values, one of strin
 
 You can create tuples from as many values as you want and from any number of different data types.
 ```swift
-    var TupleName = (Value1, value2,… any number of values)
+var TupleName = (Value1, value2,… any number of values)
 ```
 
 Here’s a Tuple declaration −
 ```swift
-    var error501 = (501, “Not implemented”)
+var error501 = (501, “Not implemented”)
 ```
 
 You can access the values of tuple using the index numbers that start from 0.
 ```swift
-    print("The code is\(error501.0)")
-    print("The definition of error is\(error501.1)")
+print("The code is\(error501.0)")
+print("The definition of error is\(error501.1)")
 ```
 
 You can name the variables of a tuple while declaring , and you can call them using their names
 ```swift
-    var error501 = (errorCode: 501, description: "Not Implemented")
-    print(error501.errorCode)   // prints 501.
+var error501 = (errorCode: 501, description: "Not Implemented")
+print(error501.errorCode)   // prints 501.
 ```
 
 Tuples are helpful in returning multiple values from a function. By returning different values in a tuple we can make decisions depending on different tuple types.
@@ -291,30 +292,30 @@ Note: Tuples are useful for temporary values and are not suited for complex data
 
 Before you use constants, you must declare them using let keyword as follows 
 ```swift
-    let constA = 42
-    print(constA)
+let constA = 42
+print(constA)
 
-    let constB:Float = 3.14159
-    print(constB)
+let constB:Float = 3.14159
+print(constB)
 ```
 
 **Integer Literals**
 
 An integer literal can be a decimal, binary, octal, or hexadecimal constant. Binary literals begin with 0b, octal literals begin with 0o, and hexadecimal literals begin with 0x and nothing for decimal.
 ```swift
-    let decimalInteger = 17         // 17 in decimal notation
-    let binaryInteger = 0b10001     // 17 in binary notation
-    let octalInteger = 0o21         // 17 in octal notation
-    let hexadecimalInteger = 0x11   // 17 in hexadecimal notation
+let decimalInteger = 17         // 17 in decimal notation
+let binaryInteger = 0b10001     // 17 in binary notation
+let octalInteger = 0o21         // 17 in octal notation
+let hexadecimalInteger = 0x11   // 17 in hexadecimal notation
 ```
 
 **Floating-point Literals**
 
 A floating-point literal has an integer part, a decimal point, a fractional part, and an exponent part. You can represent floating point literals either in decimal form or hexadecimal form.
 ```swift
-    let decimalDouble = 12.1875
-    let exponentDouble = 1.21875e1
-    let hexadecimalDouble = 0xC.3p0
+let decimalDouble = 12.1875
+let exponentDouble = 1.21875e1
+let hexadecimalDouble = 0xC.3p0
 ```
 
 **String Literals**
@@ -336,15 +337,15 @@ String literals cannot contain an unescaped double quote ("), an unescaped backs
 
 Sample string literal usage : 
 ```swift
-    let stringL # "Hello\tWorld\n\nHello\'Swift 4\'"
-    print(stringL)
+let stringL # "Hello\tWorld\n\nHello\'Swift 4\'"
+print(stringL)
 ```
 
 The Result would be
 ```swift
-    Hello World
+Hello World
 
-    Hello'Swift 4'
+Hello'Swift 4'
 ```
 
 ---
@@ -468,32 +469,32 @@ Comma (left-to-right)
 **If Statement:**
 
 ```swift
-    var varA:Int = 100;
+var varA:Int = 100;
 
-    /* Check the boolean condition using if statement */
-    if varA == 20 {
-        print("varA is equal to than 20");
-    } else if varA == 50 {
-        print("varA is equal to than 50");
-    } else {
-        print("None of the values is matching");
-    }
-    print("Value of variable varA is \(varA)");
+/* Check the boolean condition using if statement */
+if varA == 20 {
+    print("varA is equal to than 20");
+} else if varA == 50 {
+    print("varA is equal to than 50");
+} else {
+    print("None of the values is matching");
+}
+print("Value of variable varA is \(varA)");
 ```
 
 **Switch statement:**
 
 ```swift
-    var index = 10
+var index = 10
 
-    switch index {
-    case 100 :
-        print( "Value of index is 100")
-    case 10,15 :
-        print( "Value of index is either 10 or 15")
-    default :
-        print( "default case")
-    }
+switch index {
+case 100 :
+    print( "Value of index is 100")
+case 10,15 :
+    print( "Value of index is either 10 or 15")
+default :
+    print( "default case")
+}
 ```
 
 **The `? :` Operator**
@@ -508,60 +509,60 @@ Conditional operator `? :` can be used to replace if...else statements. It has t
 
 **For in :**
 ```swift
-    var someInts:[Int] = [10, 20, 30]
+var someInts:[Int] = [10, 20, 30]
 
-    for index in someInts {
+for index in someInts {
     print( "Value of index is \(index)")
-    }
+}
 ```
 
 **While loop :**
 ```swift
-    var index = 10
+var index = 10
 
-    while index < 20 {
+while index < 20 {
     print( "Value of index is \(index)")
     index = index + 1
-    }
+}
 ```
 
 **Repeat while :**
 ```swift
-    var index = 10
+var index = 10
 
-    repeat {
-        print( "Value of index is \(index)")
-        index = index + 1
-    }
-    while index < 20
+repeat {
+    print( "Value of index is \(index)")
+    index = index + 1
+}
+while index < 20
 ```
 
 **Continue statement :**
 ```swift
-    var index = 10
+var index = 10
 
-    repeat {
-        index = index + 1
-        if( index == 15 ){
-            continue
-        }
-        print( "Value of index is \(index)")
-    } while index < 20
+repeat {
+    index = index + 1
+    if( index == 15 ){
+        continue
+    }
+    print( "Value of index is \(index)")
+} while index < 20
 ```
 
 Here number 15 will be skipped printing
 
 **Break Statement :**
 ```swift
-    var index = 10
+var index = 10
 
-    repeat {
-        index = index + 1
-        if( index == 15 ){
-            break
-        }
-        print( "Value of index is \(index)")
-    } while index < 20
+repeat {
+    index = index + 1
+    if( index == 15 ){
+        break
+    }
+    print( "Value of index is \(index)")
+} while index < 20
 ```
 
 Here numbers after 15 will be skipped printing
@@ -572,18 +573,18 @@ If we do not use fallthrough statement, then the program will come out of the sw
 
 _EXAMPLE1:_
 ```swift
-    var index = 10
+var index = 10
 
-    switch index {
-    case 100 :
-        print( "Value of index is 100")
-    case 10,15 :
-        print( "Value of index is either 10 or 15")
-    case 5 :
-        print( "Value of index is 5")
-    default :
-        print( "default case")
-    }
+switch index {
+case 100 :
+    print( "Value of index is 100")
+case 10,15 :
+    print( "Value of index is either 10 or 15")
+case 5 :
+    print( "Value of index is 5")
+default :
+    print( "default case")
+}
 ```
 
 _OUTPUT:_
@@ -593,20 +594,20 @@ _OUTPUT:_
 
 _EXAMPLE2:_
 ```swift
-    var index = 10
+var index = 10
 
-    switch index {
-        case 100 :
-            print( "Value of index is 100")
-            fallthrough
-        case 10,15 :
-            print( "Value of index is either 10 or 15")
-            fallthrough
-        case 5 :
-            print( "Value of index is 5")
-        default :
-            print( "default case")
-    }
+switch index {
+    case 100 :
+        print( "Value of index is 100")
+        fallthrough
+    case 10,15 :
+        print( "Value of index is either 10 or 15")
+        fallthrough
+    case 5 :
+        print( "Value of index is 5")
+    default :
+        print( "default case")
+}
 ```
 
 _OUTPUT:_
@@ -620,23 +621,22 @@ _OUTPUT:_
 
 _EXAMPLE:_
 ```swift
-    // String creation using String literal
-    var stringA = "Hello, Swift 4!"
-    print( stringA )
+// String creation using String literal
+var stringA = "Hello, Swift 4!"
+print( stringA )
 
-    // String creation using String instance
-    var stringB = String("Hello, Swift 4!")
-    print( stringB )
+// String creation using String instance
+var stringB = String("Hello, Swift 4!")
+print( stringB )
 
-    //Multiple line string
+//Multiple line string
 
-    let stringC = """
-    Hey this is a
-    example of multiple Line
-    string by tutorialsPoint 
-
-    """
-    print(stringC)
+let stringC = """
+Hey this is a
+example of multiple Line
+string by tutorialsPoint 
+"""
+print(stringC)
 ```
 
 _OUTPUT:_ 
@@ -649,22 +649,22 @@ _OUTPUT:_
 
 **Empty String:**
 ```swift
-    // Empty string creation using String instance
-    let stringB = String()
+// Empty string creation using String instance
+let stringB = String()
 
-    if stringB.isEmpty {
-        print( "stringB is empty" )
-    } else {
-        print( "stringB is not empty" )
-    }
+if stringB.isEmpty {
+    print( "stringB is empty" )
+} else {
+    print( "stringB is not empty" )
+}
 ```
 
 **String Constants:**
 ```swift
-    // stringB can not be modified
-    let stringB = String("Hello, Swift 4!")
-    stringB + = "--Readers--"
-    print( stringB )
+// stringB can not be modified
+let stringB = String("Hello, Swift 4!")
+stringB + = "--Readers--"
+print( stringB )
 ```
 
 _OUTPUT:_ 
@@ -674,12 +674,12 @@ _OUTPUT:_
 **String Interpolation:** 
 
 ```swift
-    var varA = 20
-    let constA = 100
-    var varC:Float = 20.0
+var varA = 20
+let constA = 100
+var varC:Float = 20.0
 
-    var stringA = "\(varA) times \(constA) is equal to \(varC * 100)"
-    print( stringA )
+var stringA = "\(varA) times \(constA) is equal to \(varC * 100)"
+print( stringA )
 ```
 
 _OUTPUT:_
@@ -689,9 +689,9 @@ _OUTPUT:_
 **String iteration:**
 
 ```swift
-    for chars in "ThisString" {
+for chars in "ThisString" {
     print(chars, terminator: " ")
-    }
+}
 ```
 
 **Unicode strings:**
@@ -699,19 +699,19 @@ _OUTPUT:_
 You can access a UTF-8 and UTF-16 representation of a String by iterating over its utf8 and utf16 properties
 
 ```swift
-    var unicodeString = "Dog???"
+var unicodeString = "Dog???"
 
-    print("UTF-8 Codes: ")
-    for code in unicodeString.utf8 {
-        print("\(code) ")
-    }
+print("UTF-8 Codes: ")
+for code in unicodeString.utf8 {
+    print("\(code) ")
+}
 
-    print("\n")
+print("\n")
 
-    print("UTF-16 Codes: ")
-    for code in unicodeString.utf16 {
-        print("\(code) ")
-    }
+print("UTF-16 Codes: ")
+for code in unicodeString.utf16 {
+    print("\(code) ")
+}
 ```
 
 ### String Functions & Operators
@@ -778,29 +778,29 @@ A character in Swift is a single character String literal, addressed by the data
 
 It is not possible to create an empty Character variable or constant which will have an empty value. The following syntax is not possible  
 ```swift
-    // Following is wrong in Swift 4
-    let char1: Character = ""
-    var char2: Character = ""
+// Following is wrong in Swift 4
+let char1: Character = ""
+var char2: Character = ""
 
-    print("Value of char1 \(char1)")
-    print("Value of char2 \(char2)")
+print("Value of char1 \(char1)")
+print("Value of char2 \(char2)")
 ```
 
 **Asscessing characters from string :**  
 ```swift
-    for ch in "Hello" {
-        print(ch)
-    }
+for ch in "Hello" {
+    print(ch)
+}
 ```
 
 **Concatenating Strings with Characters :**  
 ```swift
-    var varA:String = "Hello "
-    let varB:Character = "G"
+var varA:String = "Hello "
+let varB:Character = "G"
 
-    varA.append( varB )
+varA.append( varB )
 
-    print("Value of varC = \(varA)")
+print("Value of varC = \(varA)")
 ```
 
 _OUTPUT:_
