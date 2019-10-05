@@ -43,7 +43,8 @@
       "docker-overview", 
       "dns-overview",
       "markdown-cheatsheet", 
-      "asciidoc"],
+      "asciidoc",
+      "jenkins-overview"],
     "Concepts": ["programming"],
     "Other Info": 
     [ "tech-trends", 
