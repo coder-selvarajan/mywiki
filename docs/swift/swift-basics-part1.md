@@ -1,10 +1,8 @@
 ---
-id: swift-basics-udemy
-title: Swift Basics (from udemy.com)
-sidebar_label: Swift Basics (udemy)
+id: swift-basics-part1
+title: Swift Basics - Part 1
+sidebar_label: Swift Basics - Part 1
 ---
-
-> This page was created while I was learning Swift with **udemy.com** course
 
 Swift 4 is a new programming language developed by Apple Inc for iOS and OS X development. Swift 4 adopts the best of C and Objective-C, without the constraints of C compatibility.
 

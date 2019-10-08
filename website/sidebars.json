@@ -19,8 +19,8 @@
   "app-development": {
     "iOS - Swift": 
     [ "swift/ios-basics", 
-      "swift/swift-basics-pirple", 
-      "swift/swift-basics-udemy", 
+      "swift/swift-basics-part1", 
+      "swift/swift-basics-part2", 
       "swift/swift-datastructures"],
     "Cross Platform Apps": 
     [ "ionic-overview", 

@@ -40,7 +40,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'javascript/basics', label: 'Web dev'},
-    {doc: 'swift/swift-basics-pirple', label: 'App dev'},
+    {doc: 'swift/swift-basics-part1', label: 'App dev'},
     {doc: 'hadoop-overview', label: 'Big data'},
     // {doc: 'linux-overview', label: 'Linux'},
     // {doc: 'git', label: 'Git'},
