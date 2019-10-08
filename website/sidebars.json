@@ -46,12 +46,12 @@
       "asciidoc",
       "jenkins-overview"],
     "Concepts": ["programming"],
-    "Other Info": 
-    [ "tech-trends", 
-      "useful-links", 
+    "Links": [ "useful-links", 
       "popular-github-repos",
+      "my-projects-apps" ],
+    "Misc": 
+    [ "tech-trends", 
       "learning-techniques", 
-      "my-projects-apps",
       "setup-coder-wiki"] 
   },
   "ielts": {
