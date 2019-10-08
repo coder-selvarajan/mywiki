@@ -38,6 +38,7 @@ https://github.com/Paul-Browne/lazyestload.js
 Extension to record browser interactions   
 https://github.com/checkly/puppeteer-recorder 
 
+---
 
 ## Dev Tools
 
@@ -67,6 +68,7 @@ https://hihayk.com/#/
 Block Element Modifier approach  
 http://getbem.com/introduction/
 
+---
 
 ## Tech Blogs
 
@@ -101,3 +103,5 @@ https://www.gatsbyjs.org/
 Reference sites for nice typography & elegant design  
 https://checklyhq.com/docs/  
 https://www.quackit.com/  
+
+--- 
