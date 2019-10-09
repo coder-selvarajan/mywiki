@@ -10,6 +10,8 @@
       "javascript/object-oriented", 
       "javascript/async-programming", 
       "javascript/rest-api"], 
+    "React": 
+    [ "react/reactjs-overview"],
     "Resources": 
     [ "javascript/frameworks-converters", 
       "javascript/resources", 
