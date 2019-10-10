@@ -105,3 +105,15 @@ https://checklyhq.com/docs/
 https://www.quackit.com/  
 
 --- 
+
+## Developer Stuffs:  
+
+React-native Cheat-sheet:  
+https://rationalappdev.com/react-native-cheat-sheet/  
+
+React-native course:  
+https://egghead.io/courses/react-native-fundamentals
+
+
+## Inspiring Developers/Tech youtubers:  
+http://www.dailywebtuition.com/
