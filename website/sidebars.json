@@ -11,7 +11,7 @@
       "javascript/async-programming", 
       "javascript/rest-api"], 
     "React": 
-    [ "react/reactjs-overview"],
+    [ "react/overview"],
     "MEAN Stack": ["nodejs-overview", "electron-overview"],
     "Resources": 
     [ "javascript/frameworks-converters", 
@@ -44,11 +44,13 @@
     [ "git", 
       "docker-overview", 
       "dns-overview",
-      "markdown-cheatsheet", 
-      "asciidoc",
       "jenkins-overview"],
-    "Concepts": ["programming"],
-    "Links": [ "useful-links", 
+    "Cheatsheet": 
+    [ "cheatsheet/programming",
+      "cheatsheet/markdown", 
+      "cheatsheet/asciidoc" ],
+    "Links": 
+    [ "useful-links", 
       "popular-github-repos",
       "my-projects-apps" ],
     "Misc": 

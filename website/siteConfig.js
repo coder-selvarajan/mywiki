@@ -55,8 +55,8 @@ const siteConfig = {
 
   /* path to images for header/footer */
   headerIcon: 'img/coder-wiki.png',
-  footerIcon: 'img/code.png',
-  favicon: 'img/code.png',
+  footerIcon: 'img/code-logo.png',
+  favicon: 'img/code-logo.png',
   // favicon: 'img/favicon.ico',
 
   /* Colors for website */

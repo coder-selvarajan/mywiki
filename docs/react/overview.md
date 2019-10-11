@@ -1,5 +1,5 @@
 ---
-id: reactjs-overview
+id: overview
 title: React JS - Overview
 sidebar_label: Overview
 ---
@@ -45,3 +45,14 @@ class tweet extends Component {
     - Webpack
     - Babel
 	
+## ES6 Essentials
+
+- Let/Const
+- Objects
+- this 
+- Arrow Funcs
+- Destructuring
+- Spread
+- Classes 
+- Modules 
+

@@ -36,78 +36,48 @@ class Footer extends React.Component {
             )}
           </a>
           <div>
-            <h5>Docs</h5>
+            <h5>How tos / Tips</h5>
             <a href={this.docUrl('javascript/build-chrome-extn')}>
               How to build a chrome Extension
             </a>
-            <a href={this.docUrl('programming')}>
-              Programming Concepts
+            <a href={this.docUrl('setup-coder-wiki')}>
+              How to setup Coder Wiki locally
             </a>
             <a href={this.docUrl('tech-trends')}>
-              Technology Trends
+              Tech Trends / Tips
             </a>
-            <a href={this.docUrl('setup-coder-wiki')}>
-              Setup Coder Wiki locally
-            </a>
-            <a href={this.docUrl('ielts/speaking-strategies')}>
+           <a href={this.docUrl('ielts/speaking-strategies')}>
               IELTS Tips
             </a>
           </div>
           <div>
-            <h5>Tools - Links</h5>
+            <h5>Tools / Links</h5>
             <a href={this.docUrl('javascript/frameworks-converters')}>
               Frameworks &amp; Converters
             </a>
-            <a href={this.docUrl('markdown-cheatsheet')}>
-              Markdown cheatsheet
-            </a>
             <a href={this.docUrl('useful-links')}>
               Useful Links
+            </a>
+            <a href={this.docUrl('popular-github-repos')}>
+              Popular Github Repos
             </a>
             <a href={this.docUrl('javascript/resources')}>
               Other Development Resources
             </a>
           </div>
           <div>
+            <h5>Cheatsheet</h5>
+            <a href={this.docUrl('cheatsheet/programming')}>
+              Programming Cheatsheet
+            </a>
+            <a href={this.docUrl('cheatsheet/markdown')}>
+              Markdown Cheatsheet
+            </a>
+            <br/>
             <h5>Connect</h5>
             {/* <a href={`${this.props.config.baseUrl}blog`}>Blog</a> */}
-            <a href="https://instagram.com/">Instagram</a>
-            <a href="https://twitter.com/">Twitter</a>
-            <a href="https://github.com/">GitHub</a>
-            <a
-              className="github-button"
-              href={this.props.config.repoUrl}
-              data-icon="octicon-star"
-              data-count-href="/coder-selvarajan/mywiki/stargazers"
-              data-show-count="true"
-              data-count-aria-label="# stargazers on GitHub"
-              aria-label="Star this project on GitHub">
-              Star
-            </a>
-            {this.props.config.twitterUsername && (
-              <div className="social">
-                <a
-                  href={`https://twitter.com/${
-                    this.props.config.twitterUsername
-                  }`}
-                  className="twitter-follow-button">
-                  Follow @{this.props.config.twitterUsername}
-                </a>
-              </div>
-            )}
-            {this.props.config.facebookAppId && (
-              <div className="social">
-                <div
-                  className="fb-like"
-                  data-href={this.props.config.url}
-                  data-colorscheme="dark"
-                  data-layout="standard"
-                  data-share="true"
-                  data-width="225"
-                  data-show-faces="false"
-                />
-              </div>
-            )}
+            <a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a>
+            
           </div>
         </section>
 

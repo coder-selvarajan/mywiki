@@ -1,6 +1,6 @@
 ---
 id: programming
-title: Programming Concepts
+title: Programming Cheatsheet
 sidebar_label: Programming
 ---
 

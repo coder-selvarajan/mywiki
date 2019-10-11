@@ -1,6 +1,7 @@
 ---
 id: asciidoc
-title: Asciidoc Overview
+title: Asciidoc Cheatsheet
+sidebar_label: Asciidoc
 ---
 
 [AsciiDoctor](https://asciidoctor.org/) is a fast text processor and publishing tool for converting AsciiDoc to Html5  

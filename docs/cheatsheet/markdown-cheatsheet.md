@@ -1,6 +1,7 @@
 ---
-id: markdown-cheatsheet
-title: Markdown cheatsheet
+id: markdown
+title: Markdown Cheatsheet
+sidebar_label: Markdown
 ---
 
 ![markdown-cheatsheet](assets/markdown-syntax.png)
