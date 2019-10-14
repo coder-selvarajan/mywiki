@@ -31,8 +31,48 @@ title: React-Native Overview
 - TabBarIOS
 - ToolbarAndroid
 
+#### APIs for Device Interaction
+
+- CameraRoll
+- AsyncStorage
+- Grolocation
+- ImageEditor
+- PushNotifications
+- Vibration
+- Share / Messages
+
 
 ## Installation & Setup 
+
+#### Development Environments 
+
+- Windows 
+    - Android Studio
+    - Android SDK
+    - Android AVD
+- Mac 
+    - Xcode
+    - Simulator
+
+#### Sample React code
+
+```js
+import React, {Component} from 'react';
+import { AppRegistry, Text, View } from 'react-native';
+
+class MyApp extends Component {
+    render(){
+        return (
+            <view>
+                <text>Hell World</Text>
+            </view>
+        );
+    }
+}
+
+AppRegistry.registerComponent('MyApp', ()=>MyApp);
+
+```
 
 ## Initializing & Running the App
 

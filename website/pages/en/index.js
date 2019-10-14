@@ -166,22 +166,28 @@ class Index extends React.Component {
             title: 'Linux',
           },
           {
-            content: `Learn the basics of git & github <a href="${baseUrl}\docs\\git">HERE</a>.`,
-            image: `${baseUrl}img/git.png`,
-            imageAlign: 'top',
-            title: 'Git',
-          },
-          {
             content: `Get started with Docker <a href="${baseUrl}\docs\\docker-overview">HERE</a>`,
             image: `${baseUrl}img/docker.png`,
             imageAlign: 'top',
             title: 'Docker',
           },
           {
-            content: `Get started with Bigdata-Hadoop <a href="${baseUrl}\docs\\hadoop-overview">HERE</a>`,
-            image: `${baseUrl}img/hadoop.png`,
+            content: `Learn the basics of git & github <a href="${baseUrl}\docs\\git">HERE</a>.`,
+            image: `${baseUrl}img/git.png`,
             imageAlign: 'top',
-            title: 'Hadoop',
+            title: 'Git',
+          },
+          // {
+          //   content: `Get started with Bigdata-Hadoop <a href="${baseUrl}\docs\\hadoop-overview">HERE</a>`,
+          //   image: `${baseUrl}img/hadoop.png`,
+          //   imageAlign: 'top',
+          //   title: 'Hadoop',
+          // },
+          {
+            content: `Useful tools, news & links <a href="${baseUrl}\docs\\useful-links">HERE</a>`,
+            image: `${baseUrl}img/gears.png`,
+            imageAlign: 'top',
+            title: 'Tools',
           },
           
         ]}

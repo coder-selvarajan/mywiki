@@ -72,7 +72,16 @@ http://getbem.com/introduction/
 
 ## Tech Blogs
 
+https://scotch.io/  
+https://tutsplus.com/  
+https://blog.cleancoder.com/  
 https://kamranahmed.info/
+
+## Tech Podcasts/Radio
+
+Radio/Podcasts about Technologies:  
+https://syntax.fm/  
+https://blog.codepen.io/radio/  
 
 
 ## Tech news / RSS Feed
