@@ -54,6 +54,25 @@ title: React-Native Overview
     - Xcode
     - Simulator
 
+
+### Setting-up Development Environment
+
+#### Install react native cli
+
+    npm install -g react-native-cli
+
+#### Install yarn
+
+Yarn is a new package manager for Javascript
+
+    npm install -g yarn
+
+#### Create React-native app
+
+    reat-native init myapp
+
+
+
 #### Sample React code
 
 ```js
@@ -73,6 +92,9 @@ class MyApp extends Component {
 AppRegistry.registerComponent('MyApp', ()=>MyApp);
 
 ```
+
+
+
 
 ## Initializing & Running the App
 

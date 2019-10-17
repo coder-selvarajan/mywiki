@@ -8,6 +8,14 @@ title: Useful Links/Tools
 For Javascript, here is a free course   
 https://courses.learncodeonline.in/learn/Javascript-for-2018-developer
 
+JavaScript Algorithms:  
+https://scotch.io/courses/the-ultimate-guide-to-javascript-algorithms
+
+React Starter:  
+https://scotch.io/starters/react
+
+Other Courses:  
+https://scotch.io/courses
 
 Introduction to Algorithms book   
 https://amzn.to/2A1B0Ak
@@ -67,6 +75,9 @@ https://hihayk.com/#/
 
 Block Element Modifier approach  
 http://getbem.com/introduction/
+
+ColorBox:  
+https://www.colorbox.io/
 
 ---
 
