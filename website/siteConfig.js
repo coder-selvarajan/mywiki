@@ -87,7 +87,8 @@ const siteConfig = {
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     // theme: 'default',
-    theme: 'github',
+    // theme: 'github',
+    theme: 'atom-one-dark' //'atom-one-light', //'atelier-plateau-dark', //'ocean', //'rainbow', //'railscasts',
   },
   
   // Prism is another highlight for the specific language
