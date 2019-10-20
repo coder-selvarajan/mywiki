@@ -79,8 +79,10 @@ Yarn is a new package manager for Javascript
     react-native run-ios
 
 
-#### Sample React-native code
+## Sample React-native Code
 
+<!--DOCUSAURUS_CODE_TABS-->
+<!--Hello-World-->
 ```js
 import React, {Component} from 'react';
 import { AppRegistry, Text, View } from 'react-native';
@@ -96,12 +98,11 @@ class MyApp extends Component {
 }
 
 AppRegistry.registerComponent('MyApp', ()=>MyApp);
-
 ```
 
-#### State, Props & Default Props
-
+<!--State-Props-->
 ```js
+// Below code results the `message` if it is passed into the component, otherwise it displays `Hi there`
 ...
 ...
 constructor(props){
@@ -111,6 +112,7 @@ constructor(props){
     }
 }
 
+//Default props
 statis defaultProps = {
     message: 'Hi there'
 }
@@ -127,17 +129,10 @@ render() {
 
 ```
 
-> Above code results the `message` if it is passed into the component, otherwise it displays `Hi there`
-
-#### Debug the app
-
-    react-native log-ios
-
-#### Using Styles
-
-React stylesheets are little different than the CSS. It follows camalCase for element names. 
-
+<!--Stylesheet-->
 ```js
+// React stylesheets are little different than the CSS. It follows camalCase for element names. 
+
 import React, {Component} from 'react';
 import {AppRegistry, Text, View, StyleSheet} from 'react-native';
 
@@ -162,6 +157,126 @@ const styles = StyleSheet.create({
 
 AppRegistry.registerComponent('Component2', () => Component2);
 ```
+
+<!--Flexbox-->
+```js
+import React, {Component} from 'react';
+import {AppRegistry, Text, View, StyleSheet} from 'react-native';
+
+export default class Component2 extends Component{
+    render(){
+        return(
+            <View>
+                <View style={styles.container}>
+                    <View style={styles.v1}>
+                        <Text>View 1</Text>
+                    </View>
+                    <View style={styles.v2}>
+                        <Text>View 2</Text>
+                    </View>
+                    <View style={styles.v3}>
+                        <Text>View 3</Text>
+                    </View>
+                </View>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection:'row',
+        height:100
+    },
+    v1: {
+        flex:1,
+        backgroundColor:'red',
+        padding:10
+    },
+    v2: {
+        flex:1,
+        backgroundColor:'green',
+        padding:10
+    },
+    v3: {
+        flex:1,
+        backgroundColor:'black',
+        padding:10
+    },
+    vText: {
+        color:'white'
+    }
+});
+
+AppRegistry.registerComponent('Component2', () => Component2);
+```
+
+<!--Touchable-->
+```js
+import React, {Component} from 'react';
+import {AppRegistry, Text, View, StyleSheet, TouchableHighlight, TouchableOpacity} from 'react-native';
+
+export default class Component2 extends Component{
+    onPress(){
+        console.log('Area Pressed');
+    }
+
+    onPress2(){
+        console.log('Area 2 Pressed');
+    }
+
+    render(){
+        return(
+            <View>
+                <View style={styles.container}>
+                    <TouchableHighlight 
+                        style={styles.v1} 
+                        onPress={this.onPress}
+                        underlayColor="blue" >
+                        <View>
+                            <Text>View 1</Text>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableOpacity
+                        style={styles.v2}
+                        onPress={this.onPress2} >
+                        <View>
+                            <Text>View 2</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
+        );
+  }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection:'row',
+        height:100
+    },
+    v1: {
+        flex:1,
+        backgroundColor:'red',
+        padding:10
+    },
+    v2: {
+        flex:1,
+        backgroundColor:'green',
+        padding:10
+    }
+});
+
+AppRegistry.registerComponent('Component2', () => Component2);
+```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+
+#### Debug the app
+
+    react-native log-ios
+
+
 
 ### Tools and Projects
 
