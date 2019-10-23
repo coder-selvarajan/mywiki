@@ -1,0 +1,373 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Useful Snippets · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## 1. all"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Useful Snippets · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## 1. all"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/javascript/basics" target="_self">Web</a></li><li class=""><a href="/docs/swift/swift-basics-part1" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Resources</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/basics">Javascript Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/functions">Functions</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/window-object">Window Object</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/dom-object-selectors">DOM Objects &amp; Selectors</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/events">Events</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/localstorage">LocalStorage</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/object-oriented">Object Oriented Features</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/async-programming">Async Programming</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/rest-api">REST Api</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/overview">Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MEAN Stack</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/nodejs-overview">NodeJS Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/electron-overview">Electron Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/resources">Other Resources</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/build-chrome-extn">Build Chrome Extention</a></li><li class="navListItem"><a class="navItem" href="/docs/developer-roadmap">Web Developer Roadmap - 2019</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/javascript/useful-snippets">Useful JS Snippets</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Useful Snippets</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="1-all"></a><a href="#1-all" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. all</h2>
+<p>This snippet returns true if the predicate function returns true for all elements in a collection and false otherwise. You can omit the second argument fn if you want to use Boolean as a default value.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> all = <span class="hljs-function">(<span class="hljs-params">arr, fn = <span class="hljs-built_in">Boolean</span></span>) =&gt;</span> arr.every(fn);
+
+all([<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], x =&gt; x &gt; <span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+all([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// true</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="2-allequal"></a><a href="#2-allequal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. allEqual</h2>
+<p>This snippet checks whether all elements of the array are equal.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> allEqual = <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> arr.every(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val === arr[<span class="hljs-number">0</span>]);
+
+allEqual([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]); <span class="hljs-comment">// false</span>
+allEqual([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]); <span class="hljs-comment">// true</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="3-approximatelyequal"></a><a href="#3-approximatelyequal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. approximatelyEqual</h2>
+<p>This snippet checks whether two numbers are approximately equal to each other, with a small difference.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> approximatelyEqual = <span class="hljs-function">(<span class="hljs-params">v1, v2, epsilon = <span class="hljs-number">0.001</span></span>) =&gt;</span> <span class="hljs-built_in">Math</span>.abs(v1 - v2) &lt; epsilon;
+
+approximatelyEqual(<span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">2.0</span>, <span class="hljs-number">1.5708</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="4-arraytocsv"></a><a href="#4-arraytocsv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. arrayToCSV</h2>
+<p>This snippet converts the elements that don’t have commas or double quotes to strings with comma-separated values.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> arrayToCSV = <span class="hljs-function">(<span class="hljs-params">arr, delimiter = <span class="hljs-string">','</span></span>) =&gt;</span>
+  arr.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-string">`"<span class="hljs-subst">${x}</span>"`</span>).join(delimiter)).join(<span class="hljs-string">'\n'</span>);
+  
+arrayToCSV([[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]]); <span class="hljs-comment">// '"a","b"\n"c","d"'</span>
+arrayToCSV([[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]], <span class="hljs-string">';'</span>); <span class="hljs-comment">// '"a";"b"\n"c";"d"'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="5-arraytohtmllist"></a><a href="#5-arraytohtmllist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. arrayToHtmlList</h2>
+<p>This snippet converts the elements of an array into <code>&lt;li&gt;</code> tags and appends them to the list of the given ID.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> arrayToHtmlList = <span class="hljs-function">(<span class="hljs-params">arr, listID</span>) =&gt;</span>
+  (<span class="hljs-function"><span class="hljs-params">el</span> =&gt;</span> (
+    (el = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#'</span> + listID)),
+    (el.innerHTML += arr.map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-string">`&lt;li&gt;<span class="hljs-subst">${item}</span>&lt;/li&gt;`</span>).join(<span class="hljs-string">''</span>))
+  ))();
+  
+arrayToHtmlList([<span class="hljs-string">'item 1'</span>, <span class="hljs-string">'item 2'</span>], <span class="hljs-string">'myListID'</span>);
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="6-attempt"></a><a href="#6-attempt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. attempt</h2>
+<p>This snippet executes a function, returning either the result or the caught error object.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> attempt = <span class="hljs-function">(<span class="hljs-params">fn, ...args</span>) =&gt;</span> {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">return</span> fn(...args);
+  } <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-keyword">return</span> e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span> ? e : <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(e);
+  }
+};
+<span class="hljs-keyword">var</span> elements = attempt(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">document</span>.querySelectorAll(selector);
+}, <span class="hljs-string">'&gt;_&gt;'</span>);
+<span class="hljs-keyword">if</span> (elements <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>) elements = []; <span class="hljs-comment">// elements = []</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="7-average"></a><a href="#7-average" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. average</h2>
+<p>This snippet returns the average of two or more numerical values.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> average = <span class="hljs-function">(<span class="hljs-params">...nums</span>) =&gt;</span> nums.reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val, <span class="hljs-number">0</span>) / nums.length;
+average(...[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// 2</span>
+average(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 2</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="8-averageby"></a><a href="#8-averageby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8. averageBy</h2>
+<p>This snippet returns the average of an array after initially doing the mapping of each element to a value using a given function.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> averageBy = <span class="hljs-function">(<span class="hljs-params">arr, fn</span>) =&gt;</span>
+  arr.map(<span class="hljs-keyword">typeof</span> fn === <span class="hljs-string">'function'</span> ? fn : <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val[fn]).reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val, <span class="hljs-number">0</span>) /
+  arr.length;
+  
+averageBy([{ <span class="hljs-attr">n</span>: <span class="hljs-number">4</span> }, { <span class="hljs-attr">n</span>: <span class="hljs-number">2</span> }, { <span class="hljs-attr">n</span>: <span class="hljs-number">8</span> }, { <span class="hljs-attr">n</span>: <span class="hljs-number">6</span> }], o =&gt; o.n); <span class="hljs-comment">// 5</span>
+averageBy([{ <span class="hljs-attr">n</span>: <span class="hljs-number">4</span> }, { <span class="hljs-attr">n</span>: <span class="hljs-number">2</span> }, { <span class="hljs-attr">n</span>: <span class="hljs-number">8</span> }, { <span class="hljs-attr">n</span>: <span class="hljs-number">6</span> }], <span class="hljs-string">'n'</span>); <span class="hljs-comment">// 5</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="9-bifurcate"></a><a href="#9-bifurcate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9. bifurcate</h2>
+<p>This snippet splits values into two groups and then puts a truthy element of filter in the first group, and in the second group otherwise.
+You can use Array.prototype.reduce() and Array.prototype.push() to add elements to groups based on filter.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> bifurcate = <span class="hljs-function">(<span class="hljs-params">arr, filter</span>) =&gt;</span>
+  arr.reduce(<span class="hljs-function">(<span class="hljs-params">acc, val, i</span>) =&gt;</span> (acc[filter[i] ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>].push(val), acc), [[], []]);
+bifurcate([<span class="hljs-string">'beep'</span>, <span class="hljs-string">'boop'</span>, <span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>]); 
+<span class="hljs-comment">// [ ['beep', 'boop', 'bar'], ['foo'] ]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="10-bifurcateby"></a><a href="#10-bifurcateby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10. bifurcateBy</h2>
+<p>This snippet splits values into two groups, based on a predicate function. If the predicate function returns a truthy value, the element will be placed in the first group. Otherwise, it will be placed in the second group.
+You can use Array.prototype.reduce() and Array.prototype.push() to add elements to groups, based on the value returned by fn for each element.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> bifurcateBy = <span class="hljs-function">(<span class="hljs-params">arr, fn</span>) =&gt;</span>
+  arr.reduce(<span class="hljs-function">(<span class="hljs-params">acc, val, i</span>) =&gt;</span> (acc[fn(val, i) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>].push(val), acc), [[], []]);
+  
+bifurcateBy([<span class="hljs-string">'beep'</span>, <span class="hljs-string">'boop'</span>, <span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>], x =&gt; x[<span class="hljs-number">0</span>] === <span class="hljs-string">'b'</span>); 
+<span class="hljs-comment">// [ ['beep', 'boop', 'bar'], ['foo'] ]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="11-bottomvisible"></a><a href="#11-bottomvisible" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11. bottomVisible</h2>
+<p>This snippet checks whether the bottom of a page is visible.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> bottomVisible = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+  <span class="hljs-built_in">document</span>.documentElement.clientHeight + <span class="hljs-built_in">window</span>.scrollY &gt;=
+  (<span class="hljs-built_in">document</span>.documentElement.scrollHeight || <span class="hljs-built_in">document</span>.documentElement.clientHeight);
+
+bottomVisible(); <span class="hljs-comment">// true</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="12-bytesize"></a><a href="#12-bytesize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>12. byteSize</h2>
+<p>This snippet returns the length of a string in bytes.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> byteSize = <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> <span class="hljs-keyword">new</span> Blob([str]).size;
+
+byteSize(<span class="hljs-string">'😀'</span>); <span class="hljs-comment">// 4</span>
+byteSize(<span class="hljs-string">'Hello World'</span>); <span class="hljs-comment">// 11</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="13-capitalize"></a><a href="#13-capitalize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>13. capitalize</h2>
+<p>This snippet capitalizes the first letter of a string.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> capitalize = <span class="hljs-function">(<span class="hljs-params">[first, ...rest]</span>) =&gt;</span>
+  first.toUpperCase() + rest.join(<span class="hljs-string">''</span>);
+  
+capitalize(<span class="hljs-string">'fooBar'</span>); <span class="hljs-comment">// 'FooBar'</span>
+capitalize(<span class="hljs-string">'fooBar'</span>, <span class="hljs-literal">true</span>); <span class="hljs-comment">// 'FooBar'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="14-capitalizeeveryword"></a><a href="#14-capitalizeeveryword" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>14. capitalizeEveryWord</h2>
+<p>This snippet capitalizes the first letter of every word in a given string.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> capitalizeEveryWord = <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> str.replace(<span class="hljs-regexp">/\b[a-z]/g</span>, char =&gt; char.toUpperCase());
+
+capitalizeEveryWord(<span class="hljs-string">'hello world!'</span>); <span class="hljs-comment">// 'Hello World!'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="15-castarray"></a><a href="#15-castarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>15. castArray</h2>
+<p>This snippet converts a non-array value into array.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> castArray = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> (<span class="hljs-built_in">Array</span>.isArray(val) ? val : [val]);
+
+castArray(<span class="hljs-string">'foo'</span>); <span class="hljs-comment">// ['foo']</span>
+castArray([<span class="hljs-number">1</span>]); <span class="hljs-comment">// [1]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="16-compact"></a><a href="#16-compact" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>16. compact</h2>
+<p>This snippet removes false values from an array.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> compact = <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> arr.filter(<span class="hljs-built_in">Boolean</span>);
+
+compact([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">false</span>, <span class="hljs-number">2</span>, <span class="hljs-string">''</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'e'</span> * <span class="hljs-number">23</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-string">'s'</span>, <span class="hljs-number">34</span>]); 
+<span class="hljs-comment">// [ 1, 2, 3, 'a', 's', 34 ]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="17-countoccurrences"></a><a href="#17-countoccurrences" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>17. countOccurrences</h2>
+<p>This snippet counts the occurrences of a value in an array.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> countOccurrences = <span class="hljs-function">(<span class="hljs-params">arr, val</span>) =&gt;</span> arr.reduce(<span class="hljs-function">(<span class="hljs-params">a, v</span>) =&gt;</span> (v === val ? a + <span class="hljs-number">1</span> : a), <span class="hljs-number">0</span>);
+countOccurrences([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">1</span>); <span class="hljs-comment">// 3</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="18-create-directory"></a><a href="#18-create-directory" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>18. Create Directory</h2>
+<p>This snippet uses existsSync() to check whether a directory exists and then mkdirSync() to create it if it doesn’t.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">const</span> createDirIfNotExists = <span class="hljs-function"><span class="hljs-params">dir</span> =&gt;</span> (!fs.existsSync(dir) ? fs.mkdirSync(dir) : <span class="hljs-literal">undefined</span>);
+createDirIfNotExists(<span class="hljs-string">'test'</span>); 
+<span class="hljs-comment">// creates the directory 'test', if it doesn't exist</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="19-currenturl"></a><a href="#19-currenturl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>19. currentURL</h2>
+<p>This snippet returns the current URL.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> currentURL = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">window</span>.location.href;
+
+currentURL(); <span class="hljs-comment">// 'https://medium.com/@fatosmorina'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="20-dayofyear"></a><a href="#20-dayofyear" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>20. dayOfYear</h2>
+<p>This snippet gets the day of the year from a Date object.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> dayOfYear = <span class="hljs-function"><span class="hljs-params">date</span> =&gt;</span>
+  <span class="hljs-built_in">Math</span>.floor((date - <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(date.getFullYear(), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) / <span class="hljs-number">1000</span> / <span class="hljs-number">60</span> / <span class="hljs-number">60</span> / <span class="hljs-number">24</span>);
+
+dayOfYear(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()); <span class="hljs-comment">// 272</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="21-decapitalize"></a><a href="#21-decapitalize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>21. decapitalize</h2>
+<p>This snippet turns the first letter of a string into lowercase.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> decapitalize = <span class="hljs-function">(<span class="hljs-params">[first, ...rest]</span>) =&gt;</span>
+  first.toLowerCase() + rest.join(<span class="hljs-string">''</span>)
+
+decapitalize(<span class="hljs-string">'FooBar'</span>); <span class="hljs-comment">// 'fooBar'</span>
+decapitalize(<span class="hljs-string">'FooBar'</span>); <span class="hljs-comment">// 'fooBar'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="22-deepflatten"></a><a href="#22-deepflatten" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>22. deepFlatten</h2>
+<p>This snippet flattens an array recursively.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> deepFlatten = <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> [].concat(...arr.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> (<span class="hljs-built_in">Array</span>.isArray(v) ? deepFlatten(v) : v)));
+
+deepFlatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>], [[<span class="hljs-number">3</span>], <span class="hljs-number">4</span>], <span class="hljs-number">5</span>]); <span class="hljs-comment">// [1,2,3,4,5]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="23-default"></a><a href="#23-default" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>23. default</h2>
+<p>This snippet assigns default values for all properties in an object that are undefined.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> defaults = <span class="hljs-function">(<span class="hljs-params">obj, ...defs</span>) =&gt;</span> <span class="hljs-built_in">Object</span>.assign({}, obj, ...defs.reverse(), obj);
+
+defaults({ <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> }, { <span class="hljs-attr">b</span>: <span class="hljs-number">2</span> }, { <span class="hljs-attr">b</span>: <span class="hljs-number">6</span> }, { <span class="hljs-attr">a</span>: <span class="hljs-number">3</span> }); <span class="hljs-comment">// { a: 1, b: 2 }</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="24-defer"></a><a href="#24-defer" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>24. defer</h2>
+<p>This snippet delays the execution of a function until the current call stack is cleared.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> defer = <span class="hljs-function">(<span class="hljs-params">fn, ...args</span>) =&gt;</span> setTimeout(fn, <span class="hljs-number">1</span>, ...args);
+
+defer(<span class="hljs-built_in">console</span>.log, <span class="hljs-string">'a'</span>), <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'b'</span>); <span class="hljs-comment">// logs 'b' then 'a'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="25-degreestorads"></a><a href="#25-degreestorads" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>25. degreesToRads</h2>
+<p>This code snippet can be used to convert a value from degrees to radians.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> degreesToRads = <span class="hljs-function"><span class="hljs-params">deg</span> =&gt;</span> (deg * <span class="hljs-built_in">Math</span>.PI) / <span class="hljs-number">180.0</span>;
+
+degreesToRads(<span class="hljs-number">90.0</span>); <span class="hljs-comment">// ~1.5708</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="26-difference"></a><a href="#26-difference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>26. difference</h2>
+<p>This snippet finds the difference between two arrays.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> difference = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> s = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(b);
+  <span class="hljs-keyword">return</span> a.filter(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> !s.has(x));
+};
+
+difference([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">// [3]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="27-differenceby"></a><a href="#27-differenceby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>27. differenceBy</h2>
+<p>This method returns the difference between two arrays, after applying a given function to each element of both lists.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> differenceBy = <span class="hljs-function">(<span class="hljs-params">a, b, fn</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> s = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(b.map(fn));
+  <span class="hljs-keyword">return</span> a.filter(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> !s.has(fn(x)));
+};
+
+differenceBy([<span class="hljs-number">2.1</span>, <span class="hljs-number">1.2</span>], [<span class="hljs-number">2.3</span>, <span class="hljs-number">3.4</span>], <span class="hljs-built_in">Math</span>.floor); <span class="hljs-comment">// [1.2]</span>
+differenceBy([{ <span class="hljs-attr">x</span>: <span class="hljs-number">2</span> }, { <span class="hljs-attr">x</span>: <span class="hljs-number">1</span> }], [{ <span class="hljs-attr">x</span>: <span class="hljs-number">1</span> }], v =&gt; v.x); <span class="hljs-comment">// [ { x: 2 } ]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="28-differencewith"></a><a href="#28-differencewith" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>28. differenceWith</h2>
+<p>This snippet removes the values for which the comparator function returns false.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> differenceWith = <span class="hljs-function">(<span class="hljs-params">arr, val, comp</span>) =&gt;</span> arr.filter(<span class="hljs-function"><span class="hljs-params">a</span> =&gt;</span> val.findIndex(<span class="hljs-function"><span class="hljs-params">b</span> =&gt;</span> comp(a, b)) === <span class="hljs-number">-1</span>);
+
+differenceWith([<span class="hljs-number">1</span>, <span class="hljs-number">1.2</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1.9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">0</span>], (a, b) =&gt; <span class="hljs-built_in">Math</span>.round(a) === <span class="hljs-built_in">Math</span>.round(b)); 
+<span class="hljs-comment">// [1, 1.2]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="29-digitize"></a><a href="#29-digitize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>29. digitize</h2>
+<p>This snippet gets a number as input and returns an array of its digits.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> digitize = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> [...<span class="hljs-string">`<span class="hljs-subst">${n}</span>`</span>].map(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(i));
+
+digitize(<span class="hljs-number">431</span>); <span class="hljs-comment">// [4, 3, 1]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="30-distance"></a><a href="#30-distance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>30. distance</h2>
+<p>This snippet returns the distance between two points by calculating the Euclidean distance.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> distance = <span class="hljs-function">(<span class="hljs-params">x0, y0, x1, y1</span>) =&gt;</span> <span class="hljs-built_in">Math</span>.hypot(x1 - x0, y1 - y0);
+
+distance(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 2.23606797749979</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="31-drop-elements"></a><a href="#31-drop-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>31. Drop Elements</h2>
+<p>This snippet returns a new array with n elements removed from the left.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> drop = <span class="hljs-function">(<span class="hljs-params">arr, n = <span class="hljs-number">1</span></span>) =&gt;</span> arr.slice(n);
+
+drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [2,3]</span>
+drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [3]</span>
+drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">42</span>); <span class="hljs-comment">// []</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="32-dropright"></a><a href="#32-dropright" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>32. dropRight</h2>
+<p>This snippet returns a new array with n elements removed from the right.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> dropRight = <span class="hljs-function">(<span class="hljs-params">arr, n = <span class="hljs-number">1</span></span>) =&gt;</span> arr.slice(<span class="hljs-number">0</span>, -n);
+
+dropRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [1,2]</span>
+dropRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [1]</span>
+dropRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">42</span>); <span class="hljs-comment">// []</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="33-droprightwhile"></a><a href="#33-droprightwhile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>33. dropRightWhile</h2>
+<p>This snippet removes elements from the right side of an array until the passed function returns true.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> dropRightWhile = <span class="hljs-function">(<span class="hljs-params">arr, func</span>) =&gt;</span> {
+  <span class="hljs-keyword">while</span> (arr.length &gt; <span class="hljs-number">0</span> &amp;&amp; !func(arr[arr.length - <span class="hljs-number">1</span>])) arr = arr.slice(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>);
+  <span class="hljs-keyword">return</span> arr;
+};
+
+dropRightWhile([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], n =&gt; n &lt; <span class="hljs-number">3</span>); <span class="hljs-comment">// [1, 2]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="34-dropwhile"></a><a href="#34-dropwhile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>34. dropWhile</h2>
+<p>This snippet removes elements from an array until the passed function returns true.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> dropWhile = <span class="hljs-function">(<span class="hljs-params">arr, func</span>) =&gt;</span> {
+  <span class="hljs-keyword">while</span> (arr.length &gt; <span class="hljs-number">0</span> &amp;&amp; !func(arr[<span class="hljs-number">0</span>])) arr = arr.slice(<span class="hljs-number">1</span>);
+  <span class="hljs-keyword">return</span> arr;
+};
+
+dropWhile([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], n =&gt; n &gt;= <span class="hljs-number">3</span>); <span class="hljs-comment">// [3,4]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="35-elementcontains"></a><a href="#35-elementcontains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>35. elementContains</h2>
+<p>This snippet checks whether the parent element contains the child.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> elementContains = <span class="hljs-function">(<span class="hljs-params">parent, child</span>) =&gt;</span> parent !== child &amp;&amp; parent.contains(child);
+
+elementContains(<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'head'</span>), <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'title'</span>)); <span class="hljs-comment">// true</span>
+elementContains(<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>), <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>)); <span class="hljs-comment">// false</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="36-filter-duplicate-elements"></a><a href="#36-filter-duplicate-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>36. Filter Duplicate Elements</h2>
+<p>This snippet removes duplicate values in an array.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> filterNonUnique = <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> [ …<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(arr)];
+filterNonUnique([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]); <span class="hljs-comment">// [1, 2, 3, 4, 5]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="37-findkey"></a><a href="#37-findkey" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>37. findKey</h2>
+<p>This snippet returns the first key that satisfies a given function.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> findKey = <span class="hljs-function">(<span class="hljs-params">obj, fn</span>) =&gt;</span> <span class="hljs-built_in">Object</span>.keys(obj).find(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> fn(obj[key], key, obj));
+
+findKey(
+  {
+    <span class="hljs-attr">barney</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">36</span>, <span class="hljs-attr">active</span>: <span class="hljs-literal">true</span> },
+    <span class="hljs-attr">fred</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">40</span>, <span class="hljs-attr">active</span>: <span class="hljs-literal">false</span> },
+    <span class="hljs-attr">pebbles</span>: { <span class="hljs-attr">age</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">active</span>: <span class="hljs-literal">true</span> }
+  },
+  o =&gt; o[<span class="hljs-string">'active'</span>]
+); <span class="hljs-comment">// 'barney'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="38-findlast"></a><a href="#38-findlast" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>38. findLast</h2>
+<p>This snippet returns the last element for which a given function returns a truthy value.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> findLast = <span class="hljs-function">(<span class="hljs-params">arr, fn</span>) =&gt;</span> arr.filter(fn).pop();
+
+findLast([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], n =&gt; n % <span class="hljs-number">2</span> === <span class="hljs-number">1</span>); <span class="hljs-comment">// 3</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="39-flatten"></a><a href="#39-flatten" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>39. flatten</h2>
+<p>This snippet flattens an array up to a specified depth using recursion.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> flatten = <span class="hljs-function">(<span class="hljs-params">arr, depth = <span class="hljs-number">1</span></span>) =&gt;</span>
+  arr.reduce(<span class="hljs-function">(<span class="hljs-params">a, v</span>) =&gt;</span> a.concat(depth &gt; <span class="hljs-number">1</span> &amp;&amp; <span class="hljs-built_in">Array</span>.isArray(v) ? flatten(v, depth - <span class="hljs-number">1</span>) : v), []);
+
+flatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>], <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">// [1, 2, 3, 4]</span>
+flatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-number">6</span>], <span class="hljs-number">7</span>], <span class="hljs-number">8</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [1, 2, 3, [4, 5], 6, 7, 8]</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="40-foreachright"></a><a href="#40-foreachright" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>40. forEachRight</h2>
+<p>This snippet executes a function for each element of an array starting from the array’s last element.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> forEachRight = <span class="hljs-function">(<span class="hljs-params">arr, callback</span>) =&gt;</span>
+  arr
+    .slice(<span class="hljs-number">0</span>)
+    .reverse()
+    .forEach(callback);
+    
+forEachRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], val =&gt; <span class="hljs-built_in">console</span>.log(val)); <span class="hljs-comment">// '4', '3', '2', '1'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="41-forown"></a><a href="#41-forown" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>41. forOwn</h2>
+<p>This snippet iterates on each property of an object and iterates a callback for each one respectively.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> forOwn = <span class="hljs-function">(<span class="hljs-params">obj, fn</span>) =&gt;</span> <span class="hljs-built_in">Object</span>.keys(obj).forEach(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> fn(obj[key], key, obj));
+forOwn({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span>, <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> }, v =&gt; <span class="hljs-built_in">console</span>.log(v)); <span class="hljs-comment">// 'bar', 1</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="42-functionname"></a><a href="#42-functionname" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>42. functionName</h2>
+<p>This snippet prints the name of a function into the console.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> functionName = <span class="hljs-function"><span class="hljs-params">fn</span> =&gt;</span> (<span class="hljs-built_in">console</span>.debug(fn.name), fn);
+
+functionName(<span class="hljs-built_in">Math</span>.max); <span class="hljs-comment">// max (logged in debug channel of console)</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/developer-roadmap"><span class="arrow-prev">← </span><span>Web Developer Roadmap - 2019</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-all">1. all</a></li><li><a href="#2-allequal">2. allEqual</a></li><li><a href="#3-approximatelyequal">3. approximatelyEqual</a></li><li><a href="#4-arraytocsv">4. arrayToCSV</a></li><li><a href="#5-arraytohtmllist">5. arrayToHtmlList</a></li><li><a href="#6-attempt">6. attempt</a></li><li><a href="#7-average">7. average</a></li><li><a href="#8-averageby">8. averageBy</a></li><li><a href="#9-bifurcate">9. bifurcate</a></li><li><a href="#10-bifurcateby">10. bifurcateBy</a></li><li><a href="#11-bottomvisible">11. bottomVisible</a></li><li><a href="#12-bytesize">12. byteSize</a></li><li><a href="#13-capitalize">13. capitalize</a></li><li><a href="#14-capitalizeeveryword">14. capitalizeEveryWord</a></li><li><a href="#15-castarray">15. castArray</a></li><li><a href="#16-compact">16. compact</a></li><li><a href="#17-countoccurrences">17. countOccurrences</a></li><li><a href="#18-create-directory">18. Create Directory</a></li><li><a href="#19-currenturl">19. currentURL</a></li><li><a href="#20-dayofyear">20. dayOfYear</a></li><li><a href="#21-decapitalize">21. decapitalize</a></li><li><a href="#22-deepflatten">22. deepFlatten</a></li><li><a href="#23-default">23. default</a></li><li><a href="#24-defer">24. defer</a></li><li><a href="#25-degreestorads">25. degreesToRads</a></li><li><a href="#26-difference">26. difference</a></li><li><a href="#27-differenceby">27. differenceBy</a></li><li><a href="#28-differencewith">28. differenceWith</a></li><li><a href="#29-digitize">29. digitize</a></li><li><a href="#30-distance">30. distance</a></li><li><a href="#31-drop-elements">31. Drop Elements</a></li><li><a href="#32-dropright">32. dropRight</a></li><li><a href="#33-droprightwhile">33. dropRightWhile</a></li><li><a href="#34-dropwhile">34. dropWhile</a></li><li><a href="#35-elementcontains">35. elementContains</a></li><li><a href="#36-filter-duplicate-elements">36. Filter Duplicate Elements</a></li><li><a href="#37-findkey">37. findKey</a></li><li><a href="#38-findlast">38. findLast</a></li><li><a href="#39-flatten">39. flatten</a></li><li><a href="#40-foreachright">40. forEachRight</a></li><li><a href="#41-forown">41. forOwn</a></li><li><a href="#42-functionname">42. functionName</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
