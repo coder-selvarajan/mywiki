@@ -17,7 +17,8 @@
     [ "javascript/frameworks-converters", 
       "javascript/resources", 
       "javascript/build-chrome-extn", 
-      "developer-roadmap"]
+      "developer-roadmap",
+      "javascript/useful-snippets"]
   },
   "mobile": {
     "iOS - Swift": 
