@@ -134,6 +134,9 @@ https://rationalappdev.com/react-native-cheat-sheet/
 React-native course:  
 https://egghead.io/courses/react-native-fundamentals
 
+30 Seconds of Code:  
+https://github.com/30-seconds/30-seconds-of-code  
+https://www.30secondsofcode.org/  
 
 ## Inspiring Developers/Tech youtubers:  
 http://www.dailywebtuition.com/

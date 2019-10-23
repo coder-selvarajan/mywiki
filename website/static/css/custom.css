@@ -14,3 +14,13 @@
 
 @media only screen and (min-width: 1500px) {
 }
+
+/* To hide the scrollbar for TOC by default */
+nav.onPageNav {
+    overflow: hidden;
+}
+
+/* To enable scrollbar for TOC on mouse-hover while the content exceeds the screen height */
+nav.onPageNav:hover {
+    overflow-y: auto;
+}
