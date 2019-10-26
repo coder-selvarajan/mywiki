@@ -13,12 +13,12 @@
     "React": 
     [ "react/overview"],
     "MEAN Stack": ["nodejs-overview", "electron-overview"],
-    "Resources": 
+    "JS Resources": 
     [ "javascript/frameworks-converters", 
       "javascript/resources", 
       "javascript/build-chrome-extn", 
-      "developer-roadmap",
-      "javascript/useful-snippets"]
+      "javascript/useful-snippets",
+      "javascript/es6-features"]
   },
   "mobile": {
     "iOS - Swift": 
@@ -49,7 +49,8 @@
     "Cheatsheet": 
     [ "cheatsheet/programming",
       "cheatsheet/markdown", 
-      "cheatsheet/asciidoc" ],
+      "cheatsheet/asciidoc",
+      "developer-roadmap" ],
     "Links": 
     [ "useful-links", 
       "popular-github-repos",

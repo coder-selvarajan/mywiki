@@ -13,6 +13,9 @@ title: React-Native Overview
 - Uses the same fundamental building blocks as a native app built with Swift / Objective-C / Java
 - Better and faster than Cordova / PhoneGap / Ionic
 
+React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, state, and props.
+
+
 ### Advantages
 
 - Cross platform
@@ -108,7 +111,7 @@ AppRegistry.registerComponent('MyApp', ()=>MyApp);
 constructor(props){
     super(props);
     this.state = {
-        message = tihs.props.message;
+        message: tihs.props.message;
     }
 }
 

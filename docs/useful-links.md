@@ -3,6 +3,31 @@ id: useful-links
 title: Useful Links/Tools
 ---
 
+
+## Developer Stuffs:  
+
+The Modern Javascript Tutorial  
+https://javascript.info/
+
+
+React-native Cheat-sheet:  
+https://rationalappdev.com/react-native-cheat-sheet/  
+
+
+React-native course:  
+https://egghead.io/courses/react-native-fundamentals
+
+
+30 Seconds of Code:  
+https://github.com/30-seconds/30-seconds-of-code  
+https://www.30secondsofcode.org/  
+
+
+## Inspiring Developers/Tech youtubers:  
+http://www.dailywebtuition.com/
+
+--- 
+
 ## Free courses
 
 For Javascript, here is a free course   
@@ -123,24 +148,6 @@ https://www.gatsbyjs.org/
 Reference sites for nice typography & elegant design  
 https://checklyhq.com/docs/  
 https://www.quackit.com/  
-
---- 
-
-## Developer Stuffs:  
-
-React-native Cheat-sheet:  
-https://rationalappdev.com/react-native-cheat-sheet/  
-
-React-native course:  
-https://egghead.io/courses/react-native-fundamentals
-
-30 Seconds of Code:  
-https://github.com/30-seconds/30-seconds-of-code  
-https://www.30secondsofcode.org/  
-
-## Inspiring Developers/Tech youtubers:  
-http://www.dailywebtuition.com/
-
 
 --- 
 
