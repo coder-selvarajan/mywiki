@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Javascript Grammar · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&gt; Notes collected from JavascriptGrammar Book - II "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Javascript Grammar · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="&gt; Notes collected from JavascriptGrammar Book - II "/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/javascript/basics" target="_self">Web</a></li><li class=""><a href="/docs/swift/swift-basics-part1" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Javascript</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/functions">Functions</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/window-object">Window Object</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/dom-object-selectors">DOM Objects &amp; Selectors</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/events">Events</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/localstorage">LocalStorage</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/object-oriented">Object Oriented Features</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/async-programming">Async Programming</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/rest-api">REST Api</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/javascript/grammar">Grammar</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/overview">Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MEAN Stack</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/nodejs-overview">NodeJS Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/electron-overview">Electron Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/resources">Other Resources</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/build-chrome-extn">Build Chrome Extention</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/useful-snippets">Useful JS Snippets</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/es6-features">ES6 Features</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Javascript Grammar</h1></header><article><div><span><blockquote>
+<p>Notes collected from JavascriptGrammar Book - II</p>
+</blockquote>
+<p>Some of the modern features used commonly:</p>
+<ul>
+<li>rest, spread, arrow function, template strings, destructuring</li>
+<li>higher order functions (map, reduce, filter)</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="anonymous-function"></a><a href="#anonymous-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Anonymous function:</h4>
+<p>Founction without a name is called annonymous function. For example..</p>
+<pre><code class="hljs css language-js">setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'You time is up'</span>); }, <span class="hljs-number">2000</span>);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="chrome-console"></a><a href="#chrome-console" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Chrome Console</h4>
+<p>Apart from console.log there are other useful functions.</p>
+<ul>
+<li><p>copy(obj)</p>
+<ul>
+<li>this copies the object to copy buffer.</li>
+</ul></li>
+<li><p>console.dir(obj)</p>
+<ul>
+<li>It prints all the properties and methods of an object or a DOM element as well.</li>
+</ul></li>
+<li><p>console.error(&quot;..&quot;)</p>
+<ul>
+<li>It prints the error in console. It also generates the stack trace.</li>
+</ul></li>
+<li><p>console.time() &amp; console.timeEnd()</p>
+<ul>
+<li>You can track the amount of time between function calls. This can be helpful when optimizing code:</li>
+</ul></li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-built_in">console</span>.time();
+<span class="hljs-keyword">for</span>(...) {
+    ...
+    ...
+}
+<span class="hljs-built_in">console</span>.timeEnd();
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="entry-point"></a><a href="#entry-point" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Entry point</h3>
+<p>You can start writing your code directly into <code>&lt;script&gt;</code> tags. But this means it will be executed instantly and simultaneously as the script is being downloaded into the browser, without concern for DOM or other media.</p>
+<p>This can create a problem because your code might be accessing DOM elements before they are fully downloaded from the server.</p>
+<p>To remedy the situation, you may want to wait until the DOM tree is fully available.</p>
+<p>To wait on the DOM event, add an event listener to the document object. The name of the event is <code>DOMContentLoaded</code>.</p>
+<blockquote>
+<p>Do not write your code just in <code>&lt;script&gt;</code> tags, without entry point function.</p>
+</blockquote>
+<blockquote>
+<p>Do make your program entry point either <strong>DOMContentLoaded</strong>, <strong>readyState</strong> or the native <strong>window.onload</strong> method for waiting on media depending on whether you need to wait for just the DOM or the rest of media.</p>
+</blockquote>
+<p>For added safety you might also check the value of readyState property before attaching the DOMContentLoaded event :</p>
+<pre><code class="hljs css language-js">...
+function load(){
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"dom loaded"</span>);
+}
+
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.readyState == <span class="hljs-string">"loading"</span>) {
+    <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">"DOM Content Loaded"</span>, load);
+} <span class="hljs-keyword">else</span> {
+    load();
+}
+...
+</code></pre>
+<p>With window.onload method, you can wait until all images and similar media have been fully downloaded.</p>
+<h3><a class="anchor" aria-hidden="true" id="import-export"></a><a href="#import-export" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Import / Export</h3>
+<p>Starting from ES6 we should use import (and export) keyword to import variables, functions and classes from an external file.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Mouse</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.x = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">this</span>.y = <span class="hljs-number">0</span>;
+}
+
+<span class="hljs-comment">// OR</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Keyboard</span>(<span class="hljs-params"></span>) </span>{
+    ...
+    ...
+}
+
+<span class="hljs-keyword">export</span> { Keyboard }
+</code></pre>
+<p>In order to export the Mouse class and start using it in the application, we must make sure the script tag’s type attribute is changed to ”module” (this is required.)</p>
+<pre><code class="hljs css language-js">&lt;script type=<span class="hljs-string">"module"</span>&gt; 
+    <span class="hljs-keyword">import</span> { Mouse } <span class="hljs-keyword">from</span> <span class="hljs-string">'./mouse.js'</span>;
+    <span class="hljs-keyword">let</span> mouse = <span class="hljs-keyword">new</span> Mouse();
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+<p>Dynamic import <code>ES10</code></p>
+<pre><code class="hljs css language-js">element.addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> <span class="hljs-built_in">module</span> = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(<span class="hljs-string">'./click.js'</span>);
+    <span class="hljs-built_in">module</span>.clickEvent();
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="strict-mode"></a><a href="#strict-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Strict Mode</h3>
+<p>This strict context prevents certain actions from being taken and throws an exception.</p>
+<p>For example, in strict mode you cannot use undeclared variables. Without strict mode, using an undeclared variable will automatically create that variable.</p>
+<pre><code class="hljs css language-js"><span class="hljs-meta">"use strict"</span>; 
+
+<span class="hljs-keyword">var</span> variableA = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">delete</span> variableA;
+</code></pre>
+<p>Without <code>use strict</code> the code won't create any error. But the above code would create <code>SyntaxError</code>..</p>
+<p><span style="color:red"><code>Uncaught SyntaxError: ...</code></span></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/javascript/rest-api"><span class="arrow-prev">← </span><span>REST Api</span></a><a class="docs-next button" href="/docs/react/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
