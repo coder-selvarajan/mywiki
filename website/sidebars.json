@@ -9,7 +9,8 @@
       "javascript/localstorage", 
       "javascript/object-oriented", 
       "javascript/async-programming", 
-      "javascript/rest-api"], 
+      "javascript/rest-api",
+      "javascript/grammar"], 
     "React": 
     [ "react/overview"],
     "MEAN Stack": ["nodejs-overview", "electron-overview"],

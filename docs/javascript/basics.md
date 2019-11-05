@@ -1,6 +1,7 @@
 ---
 id: basics
 title: Javascript Basics
+sidebar_label: Basics
 ---
 
 Install Visual Studio Code and add following extentions
