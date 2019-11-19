@@ -22,6 +22,10 @@
       "javascript/es6-features"]
   },
   "mobile": {
+    "App Design":
+    [
+      "app-design/ux-ui-design"
+    ],
     "iOS - Swift": 
     [ "swift/ios-basics", 
       "swift/swift-basics-part1", 

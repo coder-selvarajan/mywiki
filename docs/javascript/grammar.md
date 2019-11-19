@@ -174,6 +174,14 @@ In statically-typed languages doing that would generate an error.
 
 By default JavaScript passing value by reference. 
 
+JavaScript assigns values by reference without actually making a copy of the original value. 
+
+`var` latches onto window/this object, let and const don’t
+
+In global scope this reference points to instance of window object / global context.
+
+When variables are defined using var keyword they become attached to window object, but variables defined using let (and const) are not.
+
 ---
 
 ### Var / Let / Const
