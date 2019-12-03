@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>App Development - Basics · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Workflow Steps"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="App Development - Basics · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## Workflow Steps"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/javascript/basics" target="_self">Web</a></li><li class="siteNavGroupActive"><a href="/docs/swift/swift-basics-part1" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>App Development</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">App Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/app-dev/ux-ui-design">UX, UI Design</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/app-dev/basics">Basics</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">iOS - Swift</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/swift/ios-basics">iOS Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/swift/swift-basics-part1">Swift Basics - Part 1</a></li><li class="navListItem"><a class="navItem" href="/docs/swift/swift-basics-part2">Swift Basics - Part 2</a></li><li class="navListItem"><a class="navItem" href="/docs/swift/swift-datastructures">Data Structures</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Cross Platform Apps</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react-native/overview">React-Native Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/ionic-overview">Ionic Overview</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">App Development - Basics</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="workflow-steps"></a><a href="#workflow-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Workflow Steps</h2>
+<ul>
+<li><strong>Why</strong> we need an app?</li>
+<li>What is our <strong>app idea</strong>?</li>
+<li>Design</li>
+<li>Developemnt</li>
+<li>Test</li>
+<li>Publish on App Store</li>
+<li>Market</li>
+<li>Update</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="image-resolution"></a><a href="#image-resolution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image resolution</h4>
+<p><strong>1x</strong> - One square in a pixel
+<strong>2x</strong> - Four squares in a pixel
+<strong>3x</strong> - Nine squares in a pixel</p>
+<p>For example.. If you are creating an image create in these sizes..</p>
+<ul>
+<li>300px by 300px</li>
+<li>200px by 200px</li>
+<li>100px by 100px</li>
+</ul>
+<p><strong><a href="http://appicon.co">http://appicon.co</a></strong> can be used to create 1x, 2x, 3x images</p>
+<ul>
+<li>The downloaded zip contains <code>AppIcon.appiconset</code> folder with images.. we just need to copy this folder under <code>Assets.xcassets</code> folder in the project.</li>
+</ul>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="troubleshooting-app-run"></a><a href="#troubleshooting-app-run" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Troubleshooting - App run</h2>
+<p>Here are few things to be concidered while running the app in physical device.</p>
+<h4><a class="anchor" aria-hidden="true" id="check-xcode-and-ios-versions"></a><a href="#check-xcode-and-ios-versions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Check Xcode and iOS versions</h4>
+<p>The Xcode version should match with appropriate iOS version.</p>
+<ul>
+<li>Xcode 11.0 = iOS 13.0</li>
+<li>Xcode 11.1 = iOS 13.1</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="add-apple-developer-account"></a><a href="#add-apple-developer-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add apple developer account</h4>
+<p>It can be a free apple account. To add you account just goto Xcode Preferences &gt; Accounts tab &gt; Add your apple id.</p>
+<h4><a class="anchor" aria-hidden="true" id="sign-the-app"></a><a href="#sign-the-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sign the app</h4>
+<p>Under Project Properties &gt; Under TARGETS &gt; Singing &amp; Capabilities Tab &gt; Signing section:</p>
+<ul>
+<li>Enable 'Automatically manage signing'</li>
+<li>Select appropriate Team. If you dont find team then add your apple id in xcode-preferences-accounts section</li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="connect-your-physical-device"></a><a href="#connect-your-physical-device" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Connect your physical device</h4>
+<p>Once you connected, a popup appears.. just click 'Trust'</p>
+<h4><a class="anchor" aria-hidden="true" id="run-the-app"></a><a href="#run-the-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Run the app</h4>
+<p>Select your device as target and run the app.</p>
+<p>Steps to run the in physical device via wifi connection:</p>
+<ul>
+<li>First time you need to run the app in your iphone via the usb cable connection.</li>
+<li>With the cable connected goto Window &gt; Devices and Simulators.. you should see your iphone with the status as connected</li>
+<li>Tick the 'Connect via network' checkbox on the right side. Also make sure your phone and mac are connected to the same wifi connection.</li>
+</ul>
+<blockquote>
+<p>If your are running github open source project on your physical device then you have to go to Signing &amp; Capabilities &gt; change Team to your team and the bundle identifier as unique like <code>in.selvarajan.projectname</code>.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="useful-links"></a><a href="#useful-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Useful links</h3>
+<ul>
+<li><a href="https://github.com/dkhamsing/open-source-ios-apps">Open source ios apps</a></li>
+<li><a href="https://medium.mybridge.co/21-amazing-open-source-ios-apps-written-in-swift-5e835afee98e">21 amzing open source ios apps</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="image-view-content-mode"></a><a href="#image-view-content-mode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Image-view content mode</h4>
+<p><img src="/docs/assets/image-view-mode.png" alt="Image view mode"></p>
+<hr>
+<h4><a class="anchor" aria-hidden="true" id="tips"></a><a href="#tips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tips</h4>
+<p>If there is an issue like outlet name missmatch and so.. then you can verify that with below approach</p>
+<ul>
+<li>Right click on Storyboard &gt; Open as &gt; Source code  and check the errored outlet naem..</li>
+</ul>
+<p>If you want to rename an outlet name, the better way is:</p>
+<ul>
+<li>Control + Right click on the outlet name, choose Refactor &gt; rename then wait for a while until the window appears with all the references.. then you make the change in the name and click the <code>Rename</code> button</li>
+</ul>
+<p><strong>Image Literal:</strong>  <br>
+While assigning an image to imageview you can simply type Image Literal after the '=' sign and enter.. now there will be an image in the place.. when you click on that you will get to see all the available images.. pretty amzing is it?</p>
+<p><strong>Naming Conventions:</strong></p>
+<ul>
+<li>camelCase</li>
+<li>kebab-case</li>
+<li>snake_case</li>
+</ul>
+<p><strong>Coding Challenge Site:</strong></p>
+<ul>
+<li><a href="http://repl.it">http://repl.it</a></li>
+</ul>
+<p><strong>Random:</strong>  <br>
+var rnd = Int.random(in: 1...10)</p>
+<h3><a class="anchor" aria-hidden="true" id="auto-layouting"></a><a href="#auto-layouting" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Auto-Layouting</h3>
+<p><strong>Superview Vs Safe Area:</strong>  <br>
+Safe area - is the area that is excluding top bar and the bottom notch.
+Superview - is the primary view that contains status bar and safe area.</p>
+<h4><a class="anchor" aria-hidden="true" id="container"></a><a href="#container" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Container</h4>
+<p>To make the ui elements look good in both landscape and portrait modes</p>
+<ul>
+<li>Divide the screen by few(for ex.. 3) sections</li>
+<li>Place ui-views in those sections</li>
+<li>Place elements under appropriate view-containers
+<ul>
+<li>Method 1: Place view component, drag &amp; drop elements into those views</li>
+<li>Method 2: Select the elements goto Editor &gt; Embed in &gt; View</li>
+<li>Method 3: There is an icon nearby constraints icon. click on that and select view</li>
+</ul></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="stack-view"></a><a href="#stack-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Stack view</h4>
+<ul>
+<li>We can align elements horizontaly or vertically by using stack views</li>
+<li>and we can distribute equal width and height for the elements with stack view attributes</li>
+<li>then we set the contraints for the stack views not the elements..</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/app-dev/ux-ui-design"><span class="arrow-prev">← </span><span>UX, UI Design</span></a><a class="docs-next button" href="/docs/swift/ios-basics"><span class="function-name-prevnext">iOS Basics</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#workflow-steps">Workflow Steps</a></li><li><a href="#troubleshooting-app-run">Troubleshooting - App run</a><ul class="toc-headings"><li><a href="#useful-links">Useful links</a></li><li><a href="#auto-layouting">Auto-Layouting</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
