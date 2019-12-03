@@ -191,6 +191,7 @@ http://principleformac.com/
 **Proto.io**  
 https://proto.io/
 
+--- 
 
 #### Example Marvel Prototype
 
@@ -202,4 +203,16 @@ https://play.google.com/store/apps/details?id=com....
 
 **My Example Prototype Created with Marvel App**  
 https://marvelapp.com/314j414
+
+--- 
+
+#### Where to Find Free-For-Commercial use Image Assets
+
+**For HD photographic Images:**  
+- http://www.resplashed.com/
+- https://pixabay.com/
+
+**For vector images:**  
+- https://www.vecteezy.com/
+- http://www.freepik.com/
 
