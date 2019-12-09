@@ -124,3 +124,94 @@ To make the ui elements look good in both landscape and portrait modes
 - and we can distribute equal width and height for the elements with stack view attributes
 - then we set the contraints for the stack views not the elements.. 
 
+### Google, Stackoverflow
+
+Five step process in fixing any functionality/Issues
+
+- Google
+- StackOverflow
+- Implementation
+- Apple Docs
+- Customization
+
+> Hold on 'Option' key and mouse over & click the classes/objects in the code, Xcode will show the object information in a nice snippet
+
+#### How to link one function to many ui-elements?  
+First create IBAction from single ui element.. now the function has a grey circle in the front.. drag that to othe ui elements one by one.. now you got the function linked to all your ui elements.. 
+
+**Array, Dictionary sample:**
+
+```swift
+// Array
+let myArray = ["Frondend", "Backend", "Full stack"]
+
+// Dictionary
+let eggTimes = ["soft": 5, "medium": 7, "hard": 12]
+var dict : [String : Int] = ["Josh": 10, "Sara": 15]
+
+```
+
+#### Timer Sample Code:
+
+```swift
+//Egg Timer sample
+var timer = Timer()
+@IBAction func something(_ sender: UIButton) {
+    timer.invalidate()
+    timer = Timer.scheduledTimer(timeInterval: 1.0, target:self, selector: #selector(updateTimer), userInfo:nil, repeats: true)
+}
+
+@objc func updateTimer() {
+    if secondsPassed < totalTime {
+        secondsPassed += 1
+        progressBar.progress = Float(secondsPassed) / Float(totalTime)
+        print(Float(secondsPassed) / Float(totalTime))
+    } else {
+        timer.invalidate()
+        titleLabel.text = "DONE!"
+        
+        let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
+        player = try! AVAudioPlayer(contentsOf: url!)
+        player.play()
+    }
+}
+```
+
+#### Design inspiration
+
+- Dribbble.com
+- Behance.net
+- Niice.co
+- color.adob.com
+
+
+### Array 
+
+Sample code for declaring two dimentioanl array.. 
+
+```swift
+    let questions = [
+        ["5 + 4 is equel to 9", "True"],
+        ["Earth is not round", "False"],
+        ["India has 120+ crore population", "True"]
+    ]
+```
+
+### Structure
+
+Our own data type 
+
+```Swift
+
+struct Town {
+    let name = "Kulfiland",
+    var citizens = ["Chinnu", "Kani"],
+    var resources = ["Grains": 100, "Ore": 70, "Wool": 45]
+}
+
+var myTown: Town()
+
+print(myTown.name) //this prints 'Kulfiland'
+```
+
+

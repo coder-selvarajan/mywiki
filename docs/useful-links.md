@@ -22,9 +22,20 @@ https://egghead.io/courses/react-native-fundamentals
 https://github.com/30-seconds/30-seconds-of-code  
 https://www.30secondsofcode.org/  
 
+## Inspiring Medium articles: 
 
-## Inspiring Developers/Tech youtubers:  
-http://www.dailywebtuition.com/
+- [How to learn programming language fast](https://medium.com/better-programming/how-to-learn-a-new-programming-language-fast-5fe269370210)
+
+
+## Inspiring Tech Developers/Youtubers/Bloggers/Writers:  
+
+- http://www.dailywebtuition.com/
+- [Jun Wu](https://medium.com/jun-wu-blog)
+- https://scotch.io/   
+- https://tutsplus.com/   
+- https://blog.cleancoder.com/    
+- https://kamranahmed.info/  
+- https://www.geeksforgeeks.org/  
 
 --- 
 
@@ -105,13 +116,6 @@ ColorBox:
 https://www.colorbox.io/
 
 ---
-
-## Tech Blogs
-
-https://scotch.io/  
-https://tutsplus.com/  
-https://blog.cleancoder.com/  
-https://kamranahmed.info/
 
 ## Tech Podcasts/Radio
 

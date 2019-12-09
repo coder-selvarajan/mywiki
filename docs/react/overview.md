@@ -33,7 +33,9 @@ class tweet extends Component {
 
 - Install NodeJS
 - Install ReactJS via npm
-    - $ npm install -g create-react-app@1.5.2
+```
+    npm install -g create-react-app@1.5.2
+```
 - Install VS Code Editor
 - Install these two extensions in VS Code
     - Simple React Snippets
