@@ -162,4 +162,78 @@ Superview - is the primary view that contains status bar and safe area.</p>
 <li>and we can distribute equal width and height for the elements with stack view attributes</li>
 <li>then we set the contraints for the stack views not the elements..</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/app-dev/ux-ui-design"><span class="arrow-prev">← </span><span>UX, UI Design</span></a><a class="docs-next button" href="/docs/swift/ios-basics"><span class="function-name-prevnext">iOS Basics</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#workflow-steps">Workflow Steps</a></li><li><a href="#troubleshooting-app-run">Troubleshooting - App run</a><ul class="toc-headings"><li><a href="#useful-links">Useful links</a></li><li><a href="#auto-layouting">Auto-Layouting</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
+<h3><a class="anchor" aria-hidden="true" id="google-stackoverflow"></a><a href="#google-stackoverflow" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Google, Stackoverflow</h3>
+<p>Five step process in fixing any functionality/Issues</p>
+<ul>
+<li>Google</li>
+<li>StackOverflow</li>
+<li>Implementation</li>
+<li>Apple Docs</li>
+<li>Customization</li>
+</ul>
+<blockquote>
+<p>Hold on 'Option' key and mouse over &amp; click the classes/objects in the code, Xcode will show the object information in a nice snippet</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="how-to-link-one-function-to-many-ui-elements"></a><a href="#how-to-link-one-function-to-many-ui-elements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to link one function to many ui-elements?</h4>
+<p>First create IBAction from single ui element.. now the function has a grey circle in the front.. drag that to othe ui elements one by one.. now you got the function linked to all your ui elements..</p>
+<p><strong>Array, Dictionary sample:</strong></p>
+<pre><code class="hljs css language-swift"><span class="hljs-comment">// Array</span>
+<span class="hljs-keyword">let</span> myArray = [<span class="hljs-string">"Frondend"</span>, <span class="hljs-string">"Backend"</span>, <span class="hljs-string">"Full stack"</span>]
+
+<span class="hljs-comment">// Dictionary</span>
+<span class="hljs-keyword">let</span> eggTimes = [<span class="hljs-string">"soft"</span>: <span class="hljs-number">5</span>, <span class="hljs-string">"medium"</span>: <span class="hljs-number">7</span>, <span class="hljs-string">"hard"</span>: <span class="hljs-number">12</span>]
+<span class="hljs-keyword">var</span> dict : [<span class="hljs-type">String</span> : <span class="hljs-type">Int</span>] = [<span class="hljs-string">"Josh"</span>: <span class="hljs-number">10</span>, <span class="hljs-string">"Sara"</span>: <span class="hljs-number">15</span>]
+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="timer-sample-code"></a><a href="#timer-sample-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Timer Sample Code:</h4>
+<pre><code class="hljs css language-swift"><span class="hljs-comment">//Egg Timer sample</span>
+<span class="hljs-keyword">var</span> timer = <span class="hljs-type">Timer</span>()
+<span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">something</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: UIButton)</span></span> {
+    timer.invalidate()
+    timer = <span class="hljs-type">Timer</span>.scheduledTimer(timeInterval: <span class="hljs-number">1.0</span>, target:<span class="hljs-keyword">self</span>, selector: #selector(updateTimer), userInfo:<span class="hljs-literal">nil</span>, repeats: <span class="hljs-literal">true</span>)
+}
+
+<span class="hljs-meta">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateTimer</span><span class="hljs-params">()</span></span> {
+    <span class="hljs-keyword">if</span> secondsPassed &lt; totalTime {
+        secondsPassed += <span class="hljs-number">1</span>
+        progressBar.progress = <span class="hljs-type">Float</span>(secondsPassed) / <span class="hljs-type">Float</span>(totalTime)
+        <span class="hljs-built_in">print</span>(<span class="hljs-type">Float</span>(secondsPassed) / <span class="hljs-type">Float</span>(totalTime))
+    } <span class="hljs-keyword">else</span> {
+        timer.invalidate()
+        titleLabel.text = <span class="hljs-string">"DONE!"</span>
+        
+        <span class="hljs-keyword">let</span> url = <span class="hljs-type">Bundle</span>.main.url(forResource: <span class="hljs-string">"alarm_sound"</span>, withExtension: <span class="hljs-string">"mp3"</span>)
+        player = <span class="hljs-keyword">try</span>! <span class="hljs-type">AVAudioPlayer</span>(contentsOf: url!)
+        player.play()
+    }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="design-inspiration"></a><a href="#design-inspiration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design inspiration</h4>
+<ul>
+<li>Dribbble.com</li>
+<li>Behance.net</li>
+<li>Niice.co</li>
+<li>color.adob.com</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="array"></a><a href="#array" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Array</h3>
+<p>Sample code for declaring two dimentioanl array..</p>
+<pre><code class="hljs css language-swift">    <span class="hljs-keyword">let</span> questions = [
+        [<span class="hljs-string">"5 + 4 is equel to 9"</span>, <span class="hljs-string">"True"</span>],
+        [<span class="hljs-string">"Earth is not round"</span>, <span class="hljs-string">"False"</span>],
+        [<span class="hljs-string">"India has 120+ crore population"</span>, <span class="hljs-string">"True"</span>]
+    ]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="structure"></a><a href="#structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure</h3>
+<p>Our own data type</p>
+<pre><code class="hljs css language-Swift">
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Town</span> </span>{
+    <span class="hljs-keyword">let</span> name = <span class="hljs-string">"Kulfiland"</span>,
+    <span class="hljs-keyword">var</span> citizens = [<span class="hljs-string">"Chinnu"</span>, <span class="hljs-string">"Kani"</span>],
+    <span class="hljs-keyword">var</span> resources = [<span class="hljs-string">"Grains"</span>: <span class="hljs-number">100</span>, <span class="hljs-string">"Ore"</span>: <span class="hljs-number">70</span>, <span class="hljs-string">"Wool"</span>: <span class="hljs-number">45</span>]
+}
+
+<span class="hljs-keyword">var</span> myTown: <span class="hljs-type">Town</span>()
+
+<span class="hljs-built_in">print</span>(myTown.name) <span class="hljs-comment">//this prints 'Kulfiland'</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/app-dev/ux-ui-design"><span class="arrow-prev">← </span><span>UX, UI Design</span></a><a class="docs-next button" href="/docs/swift/ios-basics"><span class="function-name-prevnext">iOS Basics</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#workflow-steps">Workflow Steps</a></li><li><a href="#troubleshooting-app-run">Troubleshooting - App run</a><ul class="toc-headings"><li><a href="#useful-links">Useful links</a></li><li><a href="#auto-layouting">Auto-Layouting</a></li><li><a href="#google-stackoverflow">Google, Stackoverflow</a></li><li><a href="#array">Array</a></li><li><a href="#structure">Structure</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
