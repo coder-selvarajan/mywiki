@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Typescript Basics · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Overview"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Typescript Basics · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## Overview"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/javascript/basics" target="_self">Web</a></li><li class=""><a href="/docs/swift/swift-basics-part1" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/functions">Functions</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/window-object">Window Object</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/dom-object-selectors">DOM Objects &amp; Selectors</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/events">Events</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/localstorage">LocalStorage</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/object-oriented">Object Oriented Features</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/async-programming">Async Programming</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/rest-api">REST Api</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/grammar">Grammar</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/overview">Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/react/typescript-basics">Typescript</a></li><li class="navListItem"><a class="navItem" href="/docs/react/react-for-designers">For Designers</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MEAN Stack</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/nodejs-overview">NodeJS Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/electron-overview">Electron Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/resources">Other Resources</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/build-chrome-extn">Build Chrome Extention</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/useful-snippets">Useful JS Snippets</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/es6-features">ES6 Features</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Typescript Basics</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="overview"></a><a href="#overview" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overview</h2>
+<ul>
+<li>Typescript is open source language from Microsoft.</li>
+<li>Typed superset of Javascript.</li>
+<li>Compiles down to plain Javascript.</li>
+<li>Adds type support to javascript.</li>
+<li>Optional static typing and type inference..</li>
+<li>Excellent IDE support..</li>
+<li>Intellisence support(most valuable during development)..</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="how-to-install"></a><a href="#how-to-install" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to Install?</h3>
+<p>Well! You just need to install NodeJS to get to the Typescript. Once npm is available then run this..</p>
+<pre><code class="hljs">npm <span class="hljs-keyword">install</span> -g typescript 
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="how-to-run"></a><a href="#how-to-run" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to Run?</h3>
+<p>First the typescript file(ts) has be compiled into <code>js</code> file and them by using <code>node</code> we can run the js file in terminal.</p>
+<pre><code class="hljs">tsc main.ts 
+<span class="hljs-keyword">node</span> <span class="hljs-title">main</span>.js  
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="features"></a><a href="#features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Features</h2>
+<h3><a class="anchor" aria-hidden="true" id="declaration"></a><a href="#declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Declaration</h3>
+<p><strong>Datatypes:</strong></p>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>null</li>
+<li>undenfined</li>
+</ul>
+<p><strong>Format :</strong></p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">let</span> abc: <span class="hljs-built_in">string</span> = <span class="hljs-string">"Welcome"</span>;
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="embedded-expression"></a><a href="#embedded-expression" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Embedded Expression</h4>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">let</span> name: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Selvarajan'</span>;
+<span class="hljs-keyword">let</span> sentence: <span class="hljs-built_in">string</span> = <span class="hljs-string">`My name is <span class="hljs-subst">${name}</span>. I love Typescript`</span>;
+</code></pre>
+<p><strong>Further samples:</strong></p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">let</span> abc = <span class="hljs-string">"Selva"</span>
+abc = <span class="hljs-number">10</span> <span class="hljs-comment">//this will throw an error since abc is already declared as string</span>
+
+<span class="hljs-keyword">let</span> xy : <span class="hljs-built_in">any</span> = <span class="hljs-string">"Rajan"</span>
+xy = <span class="hljs-number">100</span> <span class="hljs-comment">// no error here.. bcoz xy can accept 'any' value</span>
+
+<span class="hljs-comment">//similarly in objects</span>
+<span class="hljs-keyword">let</span> myObject: <span class="hljs-built_in">any</span> = {
+    name: <span class="hljs-string">"Khan"</span>,
+    age: <span class="hljs-number">24</span>,
+    isSingle: <span class="hljs-literal">true</span>
+}
+
+myObject = {
+    name: <span class="hljs-string">"King"</span>,
+    age: <span class="hljs-number">25</span>,
+    isMarried: <span class="hljs-literal">false</span> <span class="hljs-comment">//again no error here.. since we have the object declared as any</span>
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="array-tuple-enum"></a><a href="#array-tuple-enum" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Array, Tuple, Enum</h3>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">//Array </span>
+<span class="hljs-keyword">let</span> list1: <span class="hljs-built_in">number</span>[] = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> list2: <span class="hljs-built_in">Array</span>&lt;<span class="hljs-built_in">number</span>&gt; = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+
+<span class="hljs-comment">//Tuple </span>
+<span class="hljs-keyword">let</span> person1: [<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">number</span>] = [<span class="hljs-string">'Jack'</span>, <span class="hljs-number">25</span>, <span class="hljs-number">25000</span>];
+
+<span class="hljs-comment">//Enum</span>
+<span class="hljs-keyword">enum</span> Color {Green, Red, Blue};
+<span class="hljs-keyword">let</span> c:Color = Color.Red;
+<span class="hljs-built_in">console</span>.log(c); <span class="hljs-comment">// prints 1</span>
+<span class="hljs-comment">// OR</span>
+<span class="hljs-keyword">enum</span> Color {Green=<span class="hljs-number">5</span>, Red, Blue};
+<span class="hljs-keyword">let</span> c:Color = Color.Red;
+<span class="hljs-built_in">console</span>.log(c); <span class="hljs-comment">// prints 6</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="any-type"></a><a href="#any-type" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Any type</h3>
+<p>Use any type if you are unsure about the value from a service. It is dynamically typed.</p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">let</span> rndValue: <span class="hljs-built_in">any</span> = <span class="hljs-number">10</span>;
+rndValue = <span class="hljs-literal">true</span>;
+rndValue = <span class="hljs-string">'Selva'</span>; <span class="hljs-comment">//NO Compiler error here</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="any-vs-unknown"></a><a href="#any-vs-unknown" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Any Vs Unknown</h3>
+<p>With <code>any</code> type there will not be any errors even we call methods from the variable. But in unknown we can assign values but can not call methods or keys.. doing that would throw compilation errors.. for example</p>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// NO ERRORs here</span>
+<span class="hljs-keyword">let</span> myVar: <span class="hljs-built_in">any</span> = <span class="hljs-number">10</span>;
+<span class="hljs-built_in">console</span>.log(myVar.name);
+myVar();
+myVar.toUpperCase();
+
+<span class="hljs-comment">//---------------------------------------------</span>
+
+<span class="hljs-comment">// Compilation ERRORS will be thrown here</span>
+<span class="hljs-keyword">let</span> myVar: unknown = <span class="hljs-number">10</span>;
+<span class="hljs-built_in">console</span>.log(myVar.name);    <span class="hljs-comment">//ERROR</span>
+myVar();    <span class="hljs-comment">// ERROR</span>
+myVar.toUpperCase();    <span class="hljs-comment">// ERROR </span>
+<span class="hljs-comment">//To fix above line we have to modify as like below</span>
+(myVar <span class="hljs-keyword">as</span> <span class="hljs-built_in">string</span>).toUpperCase(); <span class="hljs-comment">// NO ERROR here as we have converted the type</span>
+
+<span class="hljs-comment">//---------------------------------------------</span>
+
+<span class="hljs-comment">// The property access code can be fixed as like below</span>
+<span class="hljs-keyword">let</span> myVar: unknown = <span class="hljs-number">10</span>;
+<span class="hljs-comment">// this function checks whether the object has name property</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasName</span>(<span class="hljs-params">obj: <span class="hljs-built_in">any</span></span>): <span class="hljs-title">obj</span> <span class="hljs-title">is</span> </span>{ name : <span class="hljs-built_in">string</span> } {
+    <span class="hljs-keyword">return</span> !!obj &amp;&amp; 
+        <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">"object"</span> &amp;&amp;
+        <span class="hljs-string">"name"</span> <span class="hljs-keyword">in</span> obj
+}
+
+<span class="hljs-keyword">if</span> (hasName(myVar)) {
+    <span class="hljs-built_in">console</span>.log(myVar.name);
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="interface"></a><a href="#interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h3>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">interface</span> IMyObject {
+    name: <span class="hljs-built_in">string</span>,
+    age: <span class="hljs-built_in">number</span>,
+    isSingle: <span class="hljs-built_in">boolean</span>
+}
+
+<span class="hljs-keyword">const</span> myObject: IMyObject = {
+    name: <span class="hljs-string">"King"</span>,
+    age: <span class="hljs-number">25</span>,
+    isSingle: <span class="hljs-literal">true</span>
+    <span class="hljs-comment">// If you add or remove any of the keys above then you will get into error since we have the interface in place.</span>
+}
+
+<span class="hljs-comment">//---------------------------------------------</span>
+
+<span class="hljs-comment">// Optional paramter within interface</span>
+<span class="hljs-keyword">interface</span> IMyObject {
+    name: <span class="hljs-built_in">string</span>,
+    age?: <span class="hljs-built_in">number</span> <span class="hljs-comment">//so this is optional key</span>
+}
+
+<span class="hljs-keyword">const</span> myObject: IMyObject = {
+    name: <span class="hljs-string">"King"</span>
+    <span class="hljs-comment">//NO ERROR</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="custom-type"></a><a href="#custom-type" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom type</h3>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">type</span> AGES = <span class="hljs-number">26</span> | <span class="hljs-number">27</span> | <span class="hljs-number">28</span>;
+
+<span class="hljs-keyword">let</span> age: AGES;
+age = <span class="hljs-number">26</span>;
+
+age = <span class="hljs-number">25</span>; <span class="hljs-comment">//ERROR here.. 25 is not defined in type declaration</span>
+
+<span class="hljs-comment">// OR </span>
+<span class="hljs-keyword">type</span> AGES = <span class="hljs-built_in">boolean</span> | <span class="hljs-literal">undefined</span>;
+<span class="hljs-keyword">let</span> age: AGES = <span class="hljs-literal">true</span>;
+age = <span class="hljs-number">25</span>; <span class="hljs-comment">//ERROR</span>
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="export"></a><a href="#export" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Export</h3>
+<p>Just make sure to include export statement in each <code>ts</code> file.. otherwise the file will be considered as part of whole page script that includes other js ts files.. it eventually goes under global scope and sometimes the variable declaration might endup in error.. so including 'export' makes the ts file content under its own scope..</p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">export</span> {}
+
+<span class="hljs-keyword">let</span> message = <span class="hljs-string">'Hello World'</span>;
+<span class="hljs-built_in">console</span>.log(message);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="optional-vs-default"></a><a href="#optional-vs-default" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional Vs Default</h3>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// Optional parameters</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">num1: <span class="hljs-built_in">number</span>, num2?: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">number</span> </span>{
+    <span class="hljs-keyword">if</span> (num2) {
+        <span class="hljs-keyword">return</span> num1 + num2;
+    }
+    <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> num1;
+    }
+}
+
+add(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>);
+add(<span class="hljs-number">5</span>);
+
+<span class="hljs-comment">// Default parameters</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">num1: <span class="hljs-built_in">number</span>, num2: <span class="hljs-built_in">number</span> = 10</span>): <span class="hljs-title">number</span> </span>{
+    <span class="hljs-keyword">return</span> num1 + num2;    
+}
+
+add(<span class="hljs-number">5</span>, <span class="hljs-number">12</span>); <span class="hljs-comment">// result : 17</span>
+add(<span class="hljs-number">5</span>);     <span class="hljs-comment">// result : 15</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="classes"></a><a href="#classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Classes</h3>
+<p>As we all know that the traditional class is a blueprint of an object.. well! it applies to Typescript as well 😜</p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">class</span> Employee {
+    empName: <span class="hljs-built_in">string</span>;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">name: <span class="hljs-built_in">string</span></span>) {
+        <span class="hljs-keyword">this</span>.empName = name;
+    }
+
+    greet() {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Good morning <span class="hljs-subst">${<span class="hljs-keyword">this</span>.empName}</span>`</span>);
+    }
+}
+
+<span class="hljs-keyword">let</span> emp = <span class="hljs-keyword">new</span> Employee(<span class="hljs-string">'Selvarajan'</span>);
+emp.greet();
+
+<span class="hljs-comment">// inheritance</span>
+<span class="hljs-keyword">class</span> Manager <span class="hljs-keyword">extends</span> Employee {
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">managerName: <span class="hljs-built_in">string</span></span>){
+        <span class="hljs-keyword">super</span>(managerName);
+    }
+}
+<span class="hljs-keyword">let</span> mgr = <span class="hljs-keyword">new</span> Manager(<span class="hljs-string">'Kumar'</span>);
+mdr.greet(); <span class="hljs-comment">//inheritance is taking place</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="access-modifiers"></a><a href="#access-modifiers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Access Modifiers</h3>
+<p><strong>Public</strong> - Accessible everywhere<br>
+<strong>Private</strong> - Accessible only within the class<br>
+<strong>Protected</strong> - Accessible within the class and in derived classes</p>
+<h2><a class="anchor" aria-hidden="true" id="useful-links"></a><a href="#useful-links" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Useful Links</h2>
+<p><strong>Typescript vs Swift :</strong>  <br>
+<a href="https://alhazmy13.github.io/swift-is-like-typescript/">https://alhazmy13.github.io/swift-is-like-typescript/</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/react/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/docs/react/react-for-designers"><span>For Designers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#overview">Overview</a><ul class="toc-headings"><li><a href="#how-to-install">How to Install?</a></li><li><a href="#how-to-run">How to Run?</a></li></ul></li><li><a href="#features">Features</a><ul class="toc-headings"><li><a href="#declaration">Declaration</a></li><li><a href="#array-tuple-enum">Array, Tuple, Enum</a></li><li><a href="#any-type">Any type</a></li><li><a href="#any-vs-unknown">Any Vs Unknown</a></li><li><a href="#interface">Interface</a></li><li><a href="#custom-type">Custom type</a></li><li><a href="#export">Export</a></li><li><a href="#optional-vs-default">Optional Vs Default</a></li><li><a href="#classes">Classes</a></li><li><a href="#access-modifiers">Access Modifiers</a></li></ul></li><li><a href="#useful-links">Useful Links</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>REACT for Designers · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Pre-requisites &amp; Setup"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="REACT for Designers · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## Pre-requisites &amp; Setup"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/javascript/basics" target="_self">Web</a></li><li class=""><a href="/docs/swift/swift-basics-part1" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Javascript</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/functions">Functions</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/window-object">Window Object</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/dom-object-selectors">DOM Objects &amp; Selectors</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/events">Events</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/localstorage">LocalStorage</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/object-oriented">Object Oriented Features</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/async-programming">Async Programming</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/rest-api">REST Api</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/grammar">Grammar</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/react/typescript-basics">Typescript</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/react/react-for-designers">For Designers</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">MEAN Stack</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/nodejs-overview">NodeJS Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/electron-overview">Electron Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">JS Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/resources">Other Resources</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/build-chrome-extn">Build Chrome Extention</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/useful-snippets">Useful JS Snippets</a></li><li class="navListItem"><a class="navItem" href="/docs/javascript/es6-features">ES6 Features</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">REACT for Designers</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="pre-requisites-setup"></a><a href="#pre-requisites-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-requisites &amp; Setup</h2>
+<h4><a class="anchor" aria-hidden="true" id="nodejs"></a><a href="#nodejs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NodeJS</h4>
+<p>to install node you may need homebrew on mac.. install brew and run this command to install node</p>
+<pre><code class="hljs">brew install node
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="gatsby"></a><a href="#gatsby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Gatsby</h4>
+<p>Install Gatsby since it has good react starter project with router and all..</p>
+<pre><code class="hljs">npm install --global gatsby-cli 
+</code></pre>
+<p>Create a new site with the below command</p>
+<pre><code class="hljs">gatsby new my-<span class="hljs-keyword">app</span> https:<span class="hljs-comment">//github.com/mengto/gatsby-starter-default/</span>
+
+<span class="hljs-keyword">cd</span> my-<span class="hljs-keyword">app</span>
+
+<span class="hljs-comment">//to start the server</span>
+gatsby develop
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="design-tool-figma"></a><a href="#design-tool-figma" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design tool - Figma</h4>
+<p>Figma is good designer tool.. install that locally since the design assets for this course is provided in figma..</p>
+<h3><a class="anchor" aria-hidden="true" id="styles"></a><a href="#styles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styles</h3>
+<p>First delete the existing css styles.. we will recreate them in this course</p>
+<h4><a class="anchor" aria-hidden="true" id="google-fonts"></a><a href="#google-fonts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Google fonts</h4>
+<p>Goto google fonts site and search for 'Open sans' font - select the font.. the site owuld show the popup with information on adding that font in our web app..</p>
+<p>Just look for @import info and grab the specific import line and paste it in our css file..
+then there will be usage sample.. just use it in our code..</p>
+<h3><a class="anchor" aria-hidden="true" id="tools"></a><a href="#tools" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tools</h3>
+<p>If you find error in loading urls in css.. you can install url-loader module..</p>
+<pre><code class="hljs">npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save url-loader</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="styled-components"></a><a href="#styled-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styled components</h4>
+<p>Styled Components have a unique syntax that mixes with the javascript and CSS</p>
+<pre><code class="hljs">npm install --save styled-<span class="hljs-symbol">components@</span><span class="hljs-number">3.3</span><span class="hljs-number">.3</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="css-tips"></a><a href="#css-tips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS Tips</h3>
+<p>To display the background image in apt way</p>
+<pre><code class="hljs css language-css"><span class="hljs-selector-class">.bgclass</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'../images/bghome.jpg'</span>);
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">920px</span>;
+    <span class="hljs-attribute">background-size</span>: cover; <span class="hljs-comment">/*to cover the sceen*/</span>
+    <span class="hljs-attribute">background-position</span>: center; <span class="hljs-comment">/*to position centre of the screen*/</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="react-components"></a><a href="#react-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React Components</h3>
+<p>React components can be created in two ways</p>
+<pre><code class="hljs"><span class="hljs-comment">// First method (stateless)</span>
+<span class="hljs-keyword">import</span> <span class="hljs-type">React</span> from <span class="hljs-symbol">'reac</span>t'
+
+const <span class="hljs-type">Section</span> = props =&gt; { 
+    &lt;div&gt;<span class="hljs-type">Hello</span> welcome to <span class="hljs-type">Features</span> section&lt;/div&gt;
+}
+export <span class="hljs-keyword">default</span> <span class="hljs-type">Section</span>
+
+
+<span class="hljs-comment">// Second method (Statefull)</span>
+<span class="hljs-keyword">import</span> <span class="hljs-type">React</span> from <span class="hljs-symbol">'reac</span>t'
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Section</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    constructor(props) {
+        <span class="hljs-keyword">super</span>(props)
+    }
+    render() {
+        <span class="hljs-keyword">return</span> (
+            &lt;div&gt;<span class="hljs-type">Hello</span> welcome to <span class="hljs-type">Features</span> section&lt;/div&gt;
+        )
+    }
+}
+export <span class="hljs-keyword">default</span> <span class="hljs-type">Section</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="react-states-events"></a><a href="#react-states-events" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React States &amp; Events</h3>
+<p>Following sample demonstrates the usage of 'State' in React. Basically it creates a top header menu and cover it with black background when the page is scrolled.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// components/header.js</span>
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Header</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props)
+
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">hasScrolled</span>: <span class="hljs-literal">false</span>
+        }
+    }
+    componentDidMount() {
+        <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'scroll'</span>, <span class="hljs-keyword">this</span>.handleScroll)
+    }
+
+    handleScroll = <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> {
+        <span class="hljs-keyword">const</span> scrollTop = <span class="hljs-built_in">window</span>.pageYOffset
+
+        <span class="hljs-keyword">if</span> (scrollTop &gt; <span class="hljs-number">50</span>) {
+            <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">hasScrolled</span>: <span class="hljs-literal">true</span> })
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">hasScrolled</span>: <span class="hljs-literal">false</span> })
+        }
+    }
+
+    render() {
+        <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">{this.state.hasScrolled</span> ? '<span class="hljs-attr">Header</span> <span class="hljs-attr">HeaderScrolled</span>' <span class="hljs-attr">:</span> '<span class="hljs-attr">Header</span>'}&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"HeaderGroup"</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"30"</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/courses"</span>&gt;</span>Courses<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/downloads"</span>&gt;</span>Downloads<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/workshops"</span>&gt;</span>Workshops<span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"/buy"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Buy<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Link</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        )
+    }
+}
+
+
+</span></code></pre>
+<h3><a class="anchor" aria-hidden="true" id="styled-components-1"></a><a href="#styled-components-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Styled Components</h3>
+<p>Below sample demonstrates the waves at top and bottom of the section component by using styled component approach.</p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-17-tab-18" class="nav-link active" data-group="group_17" data-tab="tab-group-17-content-18">HTML</div><div id="tab-group-17-tab-19" class="nav-link" data-group="group_17" data-tab="tab-group-17-content-19">Section.js</div><div id="tab-group-17-tab-20" class="nav-link" data-group="group_17" data-tab="tab-group-17-content-20">Wave.js</div></div><div class="tab-content"><div id="tab-group-17-content-18" class="tab-pane active" data-group="group_17" tabindex="-1"><div><span><pre><code class="hljs css language-html"><span class="hljs-tag">&lt;<span class="hljs-name">Section</span><br />  <span class="hljs-attr">image</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">..</span>/<span class="hljs-attr">images</span>/<span class="hljs-attr">wallpaper2.jpg</span>')}<br />  <span class="hljs-attr">logo</span>=<span class="hljs-string">{require(</span>'<span class="hljs-attr">..</span>/<span class="hljs-attr">images</span>/<span class="hljs-attr">logo-react.png</span>')}<br />  <span class="hljs-attr">title</span>=<span class="hljs-string">"React for Designers"</span><br />  <span class="hljs-attr">text</span>=<span class="hljs-string">"Learn how to build a modern site "</span> /&gt;</span><br /></code></pre>
+</span></div></div><div id="tab-group-17-content-19" class="tab-pane" data-group="group_17" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> styled <span class="hljs-keyword">from</span> <span class="hljs-string">'styled-components'</span>;<br /><br /><span class="hljs-keyword">const</span> SectionGroup = styled.div<span class="hljs-string">`<br />    margin: 100px 0 0;<br />    background: url(<span class="hljs-subst">${props =&gt; props.image}</span>);<br />    background-size: cover;<br />    height: 720px;<br />    display: grid;<br />    grid-template-rows: 300px auto;<br />    grid-gap: 20px;<br />    position: relative;<br /> <br />    @media (max-width: 640px) {<br />        height: 820px;<br />    }<br />`</span><br /><span class="hljs-keyword">const</span> SectionLogo = styled.img<span class="hljs-string">`<br />    width: 128px;<br />    margin: 0 auto;<br />    align-self: end;<br />`</span><br /><br /><span class="hljs-keyword">const</span> SectionTitleGroup = styled.div<span class="hljs-string">`<br />    max-width: 800px;<br />    margin: 0 40px;<br />    display: grid;<br />    grid-gap: 20px;<br />    grid-template-columns: 300px auto;<br />    grid-template-rows: auto 100%;<br /><br />    @media (max-width: 720px) {<br />        grid-template-columns: 1fr;<br />    }<br />`</span><br /><br /><span class="hljs-keyword">const</span> SectionTitle = styled.h3<span class="hljs-string">`<br />    color: white;<br />    font-size: 60px;<br />    margin: 0;<br />    line-height: 1.2;<br /> <br />    @media (max-width: 640px) {<br />        font-size: 40px;<br />    }<br />`</span><br /><br /><span class="hljs-keyword">const</span> SectionText = styled.p<span class="hljs-string">`<br />    color: white;<br />`</span><br /><br /><span class="hljs-keyword">const</span> WaveTop = styled.div<span class="hljs-string">`<br />    position: absolute;<br />    width: 100%;<br />    top: -6px;<br />    transform: rotate(180deg)<br />`</span><br /><br /><span class="hljs-keyword">const</span> WaveBottom = styled.div<span class="hljs-string">`<br />    position: absolute;<br />    width: 100%;<br />    bottom: -6px;<br />`</span><br /><br /><span class="hljs-keyword">const</span> Section = <span class="hljs-function"><span class="hljs-params">props</span> =&gt;</span> (<br />    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">SectionGroup</span> <span class="hljs-attr">image</span>=<span class="hljs-string">{props.image}</span>&gt;</span><br />        <span class="hljs-tag">&lt;<span class="hljs-name">WaveBottom</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Wave</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">WaveBottom</span>&gt;</span><br />        <span class="hljs-tag">&lt;<span class="hljs-name">WaveTop</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Wave</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">WaveTop</span>&gt;</span><br />        <span class="hljs-tag">&lt;<span class="hljs-name">SectionLogo</span> <span class="hljs-attr">src</span>=<span class="hljs-string">{props.logo}</span> /&gt;</span><br />        <span class="hljs-tag">&lt;<span class="hljs-name">SectionTitleGroup</span>&gt;</span><br />            <span class="hljs-tag">&lt;<span class="hljs-name">SectionTitle</span>&gt;</span>{props.title}<span class="hljs-tag">&lt;/<span class="hljs-name">SectionTitle</span>&gt;</span><br />            <span class="hljs-tag">&lt;<span class="hljs-name">SectionText</span>&gt;</span>{props.text}<span class="hljs-tag">&lt;/<span class="hljs-name">SectionText</span>&gt;</span><br />        <span class="hljs-tag">&lt;/<span class="hljs-name">SectionTitleGroup</span>&gt;</span><br />    <span class="hljs-tag">&lt;/<span class="hljs-name">SectionGroup</span>&gt;</span><br />)<br />export default Section<br /></span></code></pre>
+</span></div></div><div id="tab-group-17-content-20" class="tab-pane" data-group="group_17" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-comment">// Wave Component </span><br /><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span><br /><br /><span class="hljs-keyword">const</span> Wave = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (<br />    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"100%"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"172"</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 100% 172"</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"none"</span>&gt;</span><br />        <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"white"</span>&gt;</span><br />            <span class="hljs-tag">&lt;<span class="hljs-name">animate</span> <span class="hljs-attr">repeatCount</span>=<span class="hljs-string">"indefinite"</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"freeze"</span> <span class="hljs-attr">attributeName</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">dur</span>=<span class="hljs-string">"10s"</span><br />            <span class="hljs-attr">values</span>=<span class="hljs-string">"M0 25.9086C277 84.5821 433 65.736 720 25.9086C934.818 -3.9019 1214.06 -5.23669 1442 8.06597C2079 45.2421 2208 63.5007 2560 25.9088V171.91L0 171.91V25.9086Z;<br /><br />            M0 86.3149C316 86.315 444 159.155 884 51.1554C1324 -56.8446 1320.29 34.1214 1538 70.4063C1814 116.407 2156 188.408 2560 86.315V232.317L0 232.316V86.3149Z;<br /><br />            M0 53.6584C158 11.0001 213 0 363 0C513 0 855.555 115.001 1154 115.001C1440 115.001 1626 -38.0004 2560 53.6585V199.66L0 199.66V53.6584Z;<br />         <br />            M0 25.9086C277 84.5821 433 65.736 720 25.9086C934.818 -3.9019 1214.06 -5.23669 1442 8.06597C2079 45.2421 2208 63.5007 2560 25.9088V171.91L0 171.91V25.9086Z;"</span> /&gt;</span><br />        <span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span><br />    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span><br />)<br /><br />export default Wave<br /></span></code></pre>
+</span></div></div></div></div>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/react/typescript-basics"><span class="arrow-prev">← </span><span>Typescript</span></a><a class="docs-next button" href="/docs/nodejs-overview"><span class="function-name-prevnext">NodeJS Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#pre-requisites-setup">Pre-requisites &amp; Setup</a><ul class="toc-headings"><li><a href="#styles">Styles</a></li><li><a href="#tools">Tools</a></li><li><a href="#css-tips">CSS Tips</a></li><li><a href="#react-components">React Components</a></li><li><a href="#react-states-events">React States &amp; Events</a></li><li><a href="#styled-components-1">Styled Components</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
