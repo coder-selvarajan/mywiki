@@ -12,7 +12,9 @@
       "javascript/rest-api",
       "javascript/grammar"], 
     "React": 
-    [ "react/overview"],
+    [ "react/overview",
+      "react/typescript-basics",
+      "react/react-for-designers"],
     "MEAN Stack": ["nodejs-overview", "electron-overview"],
     "JS Resources": 
     [ "javascript/frameworks-converters", 
@@ -25,7 +27,8 @@
     "App Development":
     [
       "app-dev/ux-ui-design",
-      "app-dev/basics"
+      "app-dev/basics",
+      "app-dev/swift-ui"
     ],
     "iOS - Swift": 
     [ "swift/ios-basics", 

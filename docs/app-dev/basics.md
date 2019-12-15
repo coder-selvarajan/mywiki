@@ -199,7 +199,7 @@ Sample code for declaring two dimentioanl array..
 
 ### Structure
 
-Our own data type 
+Our own data type.. its a blueprint for our real objects.. 
 
 ```Swift
 
@@ -207,11 +207,99 @@ struct Town {
     let name = "Kulfiland",
     var citizens = ["Chinnu", "Kani"],
     var resources = ["Grains": 100, "Ore": 70, "Wool": 45]
+
+    func fortify(){
+        //increase defences!
+    }
 }
 
 var myTown: Town()
 
 print(myTown.name) //this prints 'Kulfiland'
+myTown.fortify();
+
 ```
 
+#### Initializers:  
+
+```swift
+    init(name: string) {
+        self.name = name
+    }
+```
+    
+> Here self.name represents the property declared in the struct
+
+### Design Pattern
+
+- MVC (Model View Controller)
+
+With respect to the sample Q&A app the MVC might be  
+- Model
+    - Question.swft 
+    - QuizBrain.swift
+- View
+    - MainStoryboard
+- Controller
+    - ViewController
+
+
+
+#### Internal vs External Params:  
+
+```swift 
+// Internal param
+func checkAnswer(userAnswer: string){
+    print(userAnswer)
+}
+checkAnswer(userAnswer: userAns) 
+
+
+// External param
+func checkAnswer(answer userAnswer: string){
+    print(userAnswer)
+}
+checkAnswer(answer: userAns)
+
+
+// No External param
+func checkAnswer(_ userAnswer: string){
+    print(userAnswer)
+}
+checkAnswer(userAns)
+```
+
+#### Struct Mutation
+
+If a struct has a function that modifies one of struct's property then that method has to be named with `mutating`.. 
+
+```swift
+struct Town {
+    let name: String
+    var citizens: [String]
+    var resources: [String, Int]
+    
+    init(name: string) {
+        self.name = name
+    }
+
+    //this func changes the property so it has to be added with mutating keyword
+    mutating func harvestRice() {
+        resources["Rice"] = 100
+    }
+}
+```
+
+### Classes
+
+**Struct:**  
+- struct MyStruct { }
+- Immutable
+- Passed by value
+- 
+
+**Classes:**  
+- class MyClass: SuperClass { }
+- Passed by reference
+- Inheritance
 
