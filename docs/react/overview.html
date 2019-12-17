@@ -58,7 +58,7 @@
 <h4><a class="anchor" aria-hidden="true" id="essential-parts"></a><a href="#essential-parts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Essential Parts</h4>
 <ul>
 <li>Components</li>
-<li>Prop</li>
+<li>Props</li>
 <li>State</li>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="components-a-piece-of-the-ui"></a><a href="#components-a-piece-of-the-ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Components (a piece of the UI)</h2>
@@ -66,7 +66,10 @@
 <li>A page is build with multiple reusable components..</li>
 <li>Sample code</li>
 </ul>
-<pre><code class="hljs css language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">tweet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">tweet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
     state = {};
     render() {
         <span class="hljs-keyword">return</span>(
@@ -75,12 +78,15 @@
     }
 }
 </code></pre>
-<ul>
-<li>React keeps the light weight representation of DOM element in memory - called Virtual DOM
-<ul>
-<li>It avoids the tedious dom manipulation code in JS</li>
-</ul></li>
-</ul>
+<blockquote>
+<p>React keeps the light weight representation of DOM element in memory - called Virtual DOM. It avoids the tedious dom manipulation code in JS</p>
+</blockquote>
+<p>Here the output of <code>render()</code> method is a React Element which is a simple plain javascript object(Virtual DOM) that maps with DOM element.</p>
+<p>Simply changing the state of component makes neccessary changes in the DOM element.. we dont actually need to deal with DOM manipulation process with <code>document.querySelector()</code> kinda stuffs.</p>
+<blockquote>
+<p>React is only the library - it only takes care of rendering the view and making sure the view is in sync with the state.</p>
+</blockquote>
+<hr>
 <h2><a class="anchor" aria-hidden="true" id="dev-env-setup"></a><a href="#dev-env-setup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dev Env Setup</h2>
 <ul>
 <li>Install NodeJS</li>
@@ -95,17 +101,54 @@
 <li>Simple React Snippets</li>
 <li>Prettier</li>
 </ul></li>
-<li>Create react app with this command.
+<li>Create react app with this command.</li>
+</ul>
+<pre><code class="hljs">// <span class="hljs-string">old </span><span class="hljs-string">approach
+</span>$ <span class="hljs-built_in">create-react-app</span> <span class="hljs-string">my-app
+</span>
+// <span class="hljs-string">new </span><span class="hljs-string">approach
+</span>$ <span class="hljs-string">npx </span><span class="hljs-built_in">create-react-app</span> <span class="hljs-string">my-app
+</span></code></pre>
 <ul>
-<li>$ create-react-app react-app1</li>
-</ul></li>
-<li>Above command would install react along with other tools like
+<li>Above command would create react app along with other tools like
 <ul>
 <li>Light weight development server</li>
-<li>Webpack</li>
-<li>Babel</li>
+<li>Webpack (for bundling our files)</li>
+<li>Babel (for JS compilation)
+<ul>
+<li>goto <a href="https://babeljs.io/repl">https://babeljs.io/repl</a>  and test some sample convertions</li>
+</ul></li>
 </ul></li>
 </ul>
+<blockquote>
+<p><code>npm run eject</code> will withdraw all the default configurations - so that we can make our own for production environment</p>
+</blockquote>
+<ul>
+<li>To create react app and run it on browser</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-string">npx </span><span class="hljs-built_in">create-react-app</span> <span class="hljs-string">my-app
+</span><span class="hljs-string">cd </span><span class="hljs-string">my-app
+</span><span class="hljs-string">npm </span><span class="hljs-string">start
+</span></code></pre>
+<p>This will launch app on port 3000..</p>
+<h3><a class="anchor" aria-hidden="true" id="hello-world"></a><a href="#hello-world" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hello World</h3>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
+
+<span class="hljs-keyword">const</span> element = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span>;
+<span class="hljs-comment">// this code gets converted as below by babeljs.. </span>
+
+<span class="hljs-comment">// var element = React.createElement("h1", null, "Hello World!");</span>
+<span class="hljs-comment">// So for that reason only we need to import React object.. </span>
+
+<span class="hljs-comment">// Here element is 'React Element' which is part of virtual DOM.. </span>
+<span class="hljs-comment">// so to render this inside real DOM we need the 'ReactDOM' object imported.. </span>
+<span class="hljs-comment">// for example: </span>
+ReactDOM.render(element, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"root"</span>));
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="custom-configs"></a><a href="#custom-configs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Configs</h4>
+<p><code>npm run eject</code> to eject from all default configurations. This will allow you to manually set the configurations by yourself. This change is permanent so dont do this unless you know what you are doing</p>
+<hr>
 <h2><a class="anchor" aria-hidden="true" id="es6-essentials"></a><a href="#es6-essentials" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ES6 Essentials</h2>
 <ul>
 <li>Let/Const</li>
@@ -117,4 +160,6 @@
 <li>Classes</li>
 <li>Modules</li>
 </ul>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/javascript/grammar"><span class="arrow-prev">← </span><span>Grammar</span></a><a class="docs-next button" href="/docs/react/typescript-basics"><span>Typescript</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#components-a-piece-of-the-ui">Components (a piece of the UI)</a></li><li><a href="#dev-env-setup">Dev Env Setup</a></li><li><a href="#es6-essentials">ES6 Essentials</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="components"></a><a href="#components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Components</h2>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/javascript/grammar"><span class="arrow-prev">← </span><span>Grammar</span></a><a class="docs-next button" href="/docs/react/typescript-basics"><span>Typescript</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#components-a-piece-of-the-ui">Components (a piece of the UI)</a></li><li><a href="#dev-env-setup">Dev Env Setup</a><ul class="toc-headings"><li><a href="#hello-world">Hello World</a></li></ul></li><li><a href="#es6-essentials">ES6 Essentials</a></li><li><a href="#components">Components</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Selvarajan.in</section></footer></div></body></html>
