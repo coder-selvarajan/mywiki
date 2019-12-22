@@ -9,17 +9,19 @@ sidebar_label: For Designers
 #### NodeJS
 
 to install node you may need homebrew on mac.. install brew and run this command to install node
-
-    brew install node
+```sh
+brew install node
+```
 
 #### Gatsby
 
 Install Gatsby since it has good react starter project with router and all.. 
-
-    npm install --global gatsby-cli 
+```sh
+npm install --global gatsby-cli 
+```
 
 Create a new site with the below command
-```
+```sh
 gatsby new my-app https://github.com/mengto/gatsby-starter-default/
 
 cd my-app
@@ -33,8 +35,6 @@ Figma is good designer tool.. install that locally since the design assets for t
 
 ### Styles
 
-First delete the existing css styles.. we will recreate them in this course
-
 #### Google fonts
 
 Goto google fonts site and search for 'Open sans' font - select the font.. the site owuld show the popup with information on adding that font in our web app.. 
@@ -45,7 +45,8 @@ then there will be usage sample.. just use it in our code..
 ### Tools
 
 If you find error in loading urls in css.. you can install url-loader module.. 
-```
+
+```sh
 npm install --save url-loader
 ```
 
@@ -53,7 +54,7 @@ npm install --save url-loader
 
 Styled Components have a unique syntax that mixes with the javascript and CSS
 
-```
+```sh
 npm install --save styled-components@3.3.3
 ```
 
@@ -74,6 +75,7 @@ To display the background image in apt way
 React components can be created in two ways
 
 ```
+
 // First method (stateless)
 import React from 'react'
 
@@ -262,5 +264,39 @@ const Wave = () => (
 
 export default Wave
 ```
+<!--END_DOCUSAURUS_CODE_TABS-->
+
+### JSON Data Usage
+
+<!--DOCUSAURUS_CODE_TABS-->
+
+
+<!--JS File-->
+```js
+import staticdata from '../../staticdata.json'
+
+//within the render method you may use something like this..
+{staticdata.cells.map(cell => (
+  <Cell title={cell.title} image={cell.image} />
+))}
+```
+
+<!--JSON File-->
+```json
+// staticdata.json
+{
+    "cells": [
+        {
+            "title": "Intro to React",
+            "image": "https://cl.ly/1U1F170x3D0L/download/logo-react-small.png"
+        },
+        {
+            "title": "Basic Styling in CSS",
+            "image": "https://cl.ly/1U1F170x3D0L/download/logo-react-small.png"
+        }
+    ]
+}
+```
 
 <!--END_DOCUSAURUS_CODE_TABS-->
+
