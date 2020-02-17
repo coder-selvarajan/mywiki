@@ -1,95 +1,90 @@
 {
   "web": {
-    "Javascript": 
-    [ "javascript/basics", 
-      "javascript/functions", 
-      "javascript/window-object", 
-      "javascript/dom-object-selectors", 
-      "javascript/events", 
-      "javascript/localstorage", 
-      "javascript/object-oriented", 
-      "javascript/async-programming", 
+    "Javascript": [
+      "javascript/basics",
+      "javascript/functions",
+      "javascript/window-object",
+      "javascript/dom-object-selectors",
+      "javascript/events",
+      "javascript/localstorage",
+      "javascript/object-oriented",
+      "javascript/async-programming",
       "javascript/rest-api",
-      "javascript/grammar"], 
-    "React": 
-    [ "react/overview",
-      "react/typescript-basics",
-      "react/react-for-designers"],
+      "javascript/grammar"
+    ],
     "MEAN Stack": ["nodejs-overview", "electron-overview"],
-    "JS Resources": 
-    [ "javascript/frameworks-converters", 
-      "javascript/resources", 
-      "javascript/build-chrome-extn", 
+    "JS Resources": [
+      "javascript/frameworks-converters",
+      "javascript/resources",
+      "javascript/build-chrome-extn",
       "javascript/useful-snippets",
-      "javascript/es6-features"]
+      "javascript/es6-features"
+    ]
+  },
+  "react": {
+    "React": [
+      "react/overview",
+      "react/es6-essentials",
+      "react/components",
+      "react/forms-routing",
+      "react/http-service",
+      "react/testing"
+    ],
+    "Others": ["react/typescript-basics", "react/react-for-designers"]
   },
   "mobile": {
-    "App Development":
-    [
+    "App Development": [
       "app-dev/ux-ui-design",
       "app-dev/design-tools",
       "app-dev/basics",
       "app-dev/swift-ui"
     ],
-    "iOS - Swift": 
-    [ "swift/ios-basics", 
-      "swift/swift-basics-part1", 
-      "swift/swift-basics-part2", 
-      "swift/swift-datastructures"],
-    "Cross Platform Apps": 
-    [ "react-native/overview",
-      "ionic-overview" ]
+    "iOS - Swift": [
+      "swift/ios-basics",
+      "swift/swift-basics-part1",
+      "swift/swift-basics-part2",
+      "swift/swift-datastructures"
+    ],
+    "Cross Platform Apps": ["react-native/overview", "ionic-overview"]
   },
   "Big Data": {
-    "Big Data": 
-    [ "hadoop-overview", 
-      "linux-overview", 
-      "linux-commands"],
-    "Python": 
-    [ "python/setup", 
-      "python/basics", 
-      "python/resources"]
+    "Big Data": ["hadoop-overview", "linux-overview", "linux-commands"],
+    "Python": ["python/setup", "python/basics", "python/resources"]
   },
   "others": {
-    "Overview": 
-    [ "git", 
-      "docker-overview", 
-      "dns-overview",
-      "jenkins-overview"],
-    "Cheatsheet": 
-    [ "cheatsheet/programming",
-      "cheatsheet/markdown", 
+    "Overview": ["git", "docker-overview", "dns-overview", "jenkins-overview"],
+    "Cheatsheet": [
+      "cheatsheet/programming",
+      "cheatsheet/markdown",
       "cheatsheet/asciidoc",
-      "developer-roadmap" ],
-    "Links": 
-    [ "useful-links", 
-      "popular-github-repos",
-      "my-projects-apps" ],
-    "Misc": 
-    [ "tech-trends", 
-      "learning-techniques", 
-      "setup-coder-wiki"] 
+      "developer-roadmap"
+    ],
+    "Links": ["useful-links", "popular-github-repos", "my-projects-apps"],
+    "Misc": ["tech-trends", "learning-techniques", "setup-coder-wiki"]
   },
   "ielts": {
-    "Speaking": 
-    [ "ielts/speaking-strategies", 
-      "ielts/speaking-dos-donts", 
+    "Speaking": [
+      "ielts/speaking-strategies",
+      "ielts/speaking-dos-donts",
       "ielts/speaking-sample-answer",
-      "ielts/speaking-mock-part1", 
+      "ielts/speaking-mock-part1",
       "ielts/speaking-mock-part3",
       "ielts/speaking-mock-part123",
-    "ielts/speaking-part2-questions"],
+      "ielts/speaking-part2-questions"
+    ],
     "Writing": [
       "ielts/writing-strategies",
       "ielts/writing-vocabulary",
       "ielts/writing-tasks",
-      "ielts/writing-markers"],
-    "Other Topics": 
-    [ "ielts/reading-strategies",
-      "ielts/listening-strategies", 
-      "ielts/grammer-useful-links", 
-      "ielts/band-description", 
+      "ielts/writing-markers"
+    ],
+    "Other Topics": [
+      "ielts/reading-strategies",
+      "ielts/listening-strategies",
+      "ielts/grammer-useful-links",
+      "ielts/band-description",
       "ielts/grammer",
-      "ielts/general-tips"] 
+      "ielts/general-tips"
+    ]
   }
 }
