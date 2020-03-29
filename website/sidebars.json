@@ -39,13 +39,17 @@
       "app-dev/basics",
       "app-dev/swift-ui"
     ],
-    "iOS - Swift": [
+    "Cross Platform Apps": ["react-native/overview", "ionic-overview"]
+  },
+  "ios-swift": {
+    "Essential Developer": ["swift/ed/design-pattern"],
+    "Udemy & Appcoda": [
+      "swift/ios13-with-swift",
       "swift/ios-basics",
       "swift/swift-basics-part1",
       "swift/swift-basics-part2",
       "swift/swift-datastructures"
-    ],
-    "Cross Platform Apps": ["react-native/overview", "ionic-overview"]
+    ]
   },
   "Big Data": {
     "Big Data": ["hadoop-overview", "linux-overview", "linux-commands"],
