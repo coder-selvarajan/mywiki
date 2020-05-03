@@ -19,9 +19,9 @@ class HomeSplash extends React.Component {
     const { baseUrl, docsUrl } = siteConfig;
     const docsPart = `${docsUrl ? `${docsUrl}/` : ""}`;
     const langPart = `${language ? `${language}/` : ""}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+    const docUrl = (doc) => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-    const SplashContainer = props => (
+    const SplashContainer = (props) => (
       <div className="homeContainer">
         <div className="homeSplashFade">
           <div className="wrapper homeWrapper">{props.children}</div>
@@ -29,7 +29,7 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const Logo = props => (
+    const Logo = (props) => (
       <div className="projectLogo">
         <img src={props.img_src} alt="Project Logo" />
       </div>
@@ -42,7 +42,7 @@ class HomeSplash extends React.Component {
       </h2>
     );
 
-    const PromoSection = props => (
+    const PromoSection = (props) => (
       <div className="section promoSection">
         <div className="promoRow">
           <div className="pluginRowBlock">{props.children}</div>
@@ -50,7 +50,7 @@ class HomeSplash extends React.Component {
       </div>
     );
 
-    const Button = props => (
+    const Button = (props) => (
       <div className="pluginWrapper buttonWrapper">
         <a className="button" href={props.href} target={props.target}>
           {props.children}
@@ -85,7 +85,7 @@ class Index extends React.Component {
     const { config: siteConfig, language = "" } = this.props;
     const { baseUrl } = siteConfig;
 
-    const Block = props => (
+    const Block = (props) => (
       <Container
         padding={["bottom", "top"]}
         id={props.id}
@@ -124,8 +124,8 @@ class Index extends React.Component {
               "The illustrations you see on this page are from unDraw.",
             image: `${baseUrl}img/undraw_code_review.svg`,
             imageAlign: "left",
-            title: "Wonderful SVG Illustrations"
-          }
+            title: "Wonderful SVG Illustrations",
+          },
         ]}
       </Block>
     );
@@ -138,8 +138,8 @@ class Index extends React.Component {
               "This is another description of how this project is useful",
             image: `${baseUrl}img/undraw_note_list.svg`,
             imageAlign: "right",
-            title: "Description"
-          }
+            title: "Description",
+          },
         ]}
       </Block>
     );
@@ -148,7 +148,8 @@ class Index extends React.Component {
       <Block background="light">
         {[
           {
-            content: `Tasky: https://github.com/coder-selvarajan/tasky   
+            content: `Thayam: https://github.com/coder-selvarajan/Thayam  
+              Tasky: https://github.com/coder-selvarajan/tasky   
               TechieTab: https://github.com/coder-selvarajan/techie-tab  
               Build Vocabulary: https://github.com/coder-selvarajan/build_vocabulary  
               Grocery 2 Home: https://github.com/coder-selvarajan/grocery2home  
@@ -157,8 +158,8 @@ class Index extends React.Component {
             image: `${baseUrl}img/project-list2.png`,
             imageAlign: "left",
             contentAlign: "left",
-            title: "My projects on Github"
-          }
+            title: "My projects on Github",
+          },
         ]}
       </Block>
     );
@@ -170,19 +171,19 @@ class Index extends React.Component {
             content: `Learn basic linux commands <a href="${baseUrl}\docs\\linux-commands">HERE</a>`,
             image: `${baseUrl}img/linux.jpg`,
             imageAlign: "top",
-            title: "Linux"
+            title: "Linux",
           },
           {
             content: `Get started with Docker <a href="${baseUrl}\docs\\docker-overview">HERE</a>`,
             image: `${baseUrl}img/docker.png`,
             imageAlign: "top",
-            title: "Docker"
+            title: "Docker",
           },
           {
             content: `Learn the basics of git & github <a href="${baseUrl}\docs\\git">HERE</a>.`,
             image: `${baseUrl}img/git.png`,
             imageAlign: "top",
-            title: "Git"
+            title: "Git",
           },
           // {
           //   content: `Get started with Bigdata-Hadoop <a href="${baseUrl}\docs\\hadoop-overview">HERE</a>`,
@@ -194,8 +195,8 @@ class Index extends React.Component {
             content: `Useful tools, news & links <a href="${baseUrl}\docs\\useful-links">HERE</a>`,
             image: `${baseUrl}img/gears.png`,
             imageAlign: "top",
-            title: "Tools"
-          }
+            title: "Tools",
+          },
         ]}
       </Block>
     );
@@ -206,14 +207,15 @@ class Index extends React.Component {
       }
 
       const showcase = siteConfig.users
-        .filter(user => user.pinned)
-        .map(user => (
+        .filter((user) => user.pinned)
+        .map((user) => (
           <a href={user.infoLink} key={user.infoLink}>
             <img src={user.image} alt={user.caption} title={user.caption} />
           </a>
         ));
 
-      const pageUrl = page => baseUrl + (language ? `${language}/` : "") + page;
+      const pageUrl = (page) =>
+        baseUrl + (language ? `${language}/` : "") + page;
 
       return (
         <div className="productShowcaseSection paddingBottom">
