@@ -16,14 +16,14 @@ const users = [
     // if it is not '/', like: '/test-site/img/image.jpg'.
     image: "/img/undraw_open_source.svg",
     infoLink: "https://www.facebook.com",
-    pinned: true
-  }
+    pinned: true,
+  },
 ];
 
 const siteConfig = {
   title: "", // Title for your website.
   sitetitle: "CODER Wiki",
-  tagline: "Knowledge base from technical learnings",
+  tagline: "Personal Notes from Technical Learning",
   url: "https://coder-selvarajan.github.io", // Your website URL
   baseUrl: "/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -44,7 +44,7 @@ const siteConfig = {
     { doc: "hadoop-overview", label: "BigData" },
     // {doc: 'linux-overview', label: 'Linux'},
     // {doc: 'git', label: 'Git'},
-    { doc: "git", label: "Misc" }
+    { doc: "git", label: "Misc" },
     // { search: true },
     // {page: 'help', label: 'Help'},
     // {blog: true, label: 'Blog'},
@@ -64,7 +64,7 @@ const siteConfig = {
     // primaryColor: '#5e9390',
     // secondaryColor: '#416664',
     primaryColor: "#1287A5", //'#7274CE',
-    secondaryColor: "#47535E"
+    secondaryColor: "#47535E",
   },
 
   /* Custom fonts for website */
@@ -88,7 +88,7 @@ const siteConfig = {
     // Highlight.js theme to use for syntax highlighting in code blocks.
     // theme: 'default',
     // theme: 'github',
-    theme: "atom-one-dark" //'atom-one-light', //'atelier-plateau-dark', //'ocean', //'rainbow', //'railscasts',
+    theme: "atom-one-dark", //'atom-one-light', //'atelier-plateau-dark', //'ocean', //'rainbow', //'railscasts',
   },
 
   // Prism is another highlight for the specific language
@@ -107,7 +107,7 @@ const siteConfig = {
 
   // Open Graph and Twitter card images.
   ogImage: "img/undraw_online.svg",
-  twitterImage: "img/undraw_tweetstorm.svg"
+  twitterImage: "img/undraw_tweetstorm.svg",
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.
