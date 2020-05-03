@@ -2,5 +2,4 @@
 
 Its my wiki site developed in Docusaurus to share my technical learning. 
 
-
-image::/docs/assets/coder-wiki.png[Coder Wiki - Screenshot]
+![CoderWiki - Screenshot](docs/assets/coder-wiki.png)
