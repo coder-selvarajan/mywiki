@@ -68,7 +68,7 @@ class HomeSplash extends React.Component {
             <Button href={docUrl("javascript/basics")}>Javascript</Button>
             <Button href={docUrl("react/overview")}>React</Button>
             <Button href={docUrl("react-native/overview")}>React-Native</Button>
-            <Button href={docUrl("swift/ed/design-pattern")}>iOS-Swift</Button>
+            <Button href={docUrl("swift/swift-basics-part1")}>iOS-Swift</Button>
             <Button href={docUrl("python/basics")}>Python</Button>
             <Button href={docUrl("nodejs-overview")}>Node JS</Button>
             {/* <Button href={docUrl('hadoop-overview')}>Hadoop</Button>
