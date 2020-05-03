@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Testing with Jest &amp; Enzyme · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="React testing by using JEst and Enzyme"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Testing with Jest &amp; Enzyme · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="React testing by using JEst and Enzyme"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/javascript/basics" target="_self">Web</a></li><li class=""><a href="/docs/app-dev/ux-ui-design" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/react/es6-essentials">ES6 Essentials</a></li><li class="navListItem"><a class="navItem" href="/docs/react/components">Components</a></li><li class="navListItem"><a class="navItem" href="/docs/react/forms-routing">Forms Routing</a></li><li class="navListItem"><a class="navItem" href="/docs/react/http-service">Http Service</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/react/testing">Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Others</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/typescript-basics">Typescript</a></li><li class="navListItem"><a class="navItem" href="/docs/react/react-for-designers">For Designers</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Testing with Jest &amp; Enzyme</h1></header><article><div><span><p>React testing by using JEst and Enzyme</p>
+<p><code>Enzyme</code> is develoepd by Airbnb</p>
+<p>If we are not using create-react-app then we will have to use this command to get started with JEST.</p>
+<pre><code class="hljs">npm <span class="hljs-keyword">install </span>--save-dev <span class="hljs-keyword">jest </span><span class="hljs-keyword">babel-jest </span><span class="hljs-keyword">babel-core </span><span class="hljs-keyword">babel-preset-env </span><span class="hljs-keyword">babel-preset-react
+</span>npm <span class="hljs-keyword">install </span>--save-dev enzyme
+npm <span class="hljs-keyword">install </span>--save-dev enzyme-adapter-react-16
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/react/http-service"><span class="arrow-prev">← </span><span>Http Service</span></a><a class="docs-next button" href="/docs/react/typescript-basics"><span>Typescript</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Selvarajan.in</section></footer></div></body></html>

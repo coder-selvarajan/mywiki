@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Http Service · </title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Calling Backend Services"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Http Service · "/><meta property="og:type" content="website"/><meta property="og:url" content="https://coder-selvarajan.github.io/"/><meta property="og:description" content="## Calling Backend Services"/><meta property="og:image" content="https://coder-selvarajan.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://coder-selvarajan.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/code-logo2.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/atom-one-dark.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/coder-wiki.png" alt=""/><h2 class="headerTitleWithLogo"></h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/javascript/basics" target="_self">Web</a></li><li class=""><a href="/docs/app-dev/ux-ui-design" target="_self">Mobile</a></li><li class=""><a href="/docs/hadoop-overview" target="_self">BigData</a></li><li class=""><a href="/docs/git" target="_self">Misc</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">React</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/react/es6-essentials">ES6 Essentials</a></li><li class="navListItem"><a class="navItem" href="/docs/react/components">Components</a></li><li class="navListItem"><a class="navItem" href="/docs/react/forms-routing">Forms Routing</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/react/http-service">Http Service</a></li><li class="navListItem"><a class="navItem" href="/docs/react/testing">Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Others</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/react/typescript-basics">Typescript</a></li><li class="navListItem"><a class="navItem" href="/docs/react/react-for-designers">For Designers</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Http Service</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="calling-backend-services"></a><a href="#calling-backend-services" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Calling Backend Services</h2>
+<ul>
+<li><p>JSONPlaceHolder</p></li>
+<li><p>Angular: We have to use 'HttpModule' for http requests.. which is kinda complicated..</p></li>
+<li><p>React : We can use our preferred libs for http requests.. the options are</p>
+<ul>
+<li>Fetch API</li>
+<li>jQuery AJAX</li>
+<li>Axios</li>
+</ul></li>
+</ul>
+<p>Sample:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Api call with promise</span>
+<span class="hljs-keyword">const</span> promise = axios.get(<span class="hljs-string">"https://jsonplaceholder.typicode.com/posts"</span>);
+promise.then();
+
+<span class="hljs-comment">// The state of promise would initially be 'pending'..</span>
+<span class="hljs-comment">// Upon success it will become 'resolved'</span>
+<span class="hljs-comment">// Upon failure it will become 'rejected'</span>
+
+<span class="hljs-comment">// When you print the promis it will showcase two attributes..</span>
+<span class="hljs-comment">// 1. PromiseStatus: 'resolved'</span>
+<span class="hljs-comment">// 2. PromiseValue: Data object</span>
+
+
+<span class="hljs-comment">// Here is the modern way of handling api calls..</span>
+<span class="hljs-keyword">async</span> componentDidMount() {
+  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">"https://jsonplaceholder.typicode.com/posts"</span>);
+  <span class="hljs-comment">// OR</span>
+  <span class="hljs-keyword">const</span> { <span class="hljs-attr">data</span>: posts } = <span class="hljs-keyword">await</span> axios.get(<span class="hljs-string">"https://jsonplaceholder.typicode.com/posts"</span>);
+  <span class="hljs-keyword">this</span>.setState({ posts });
+}
+</code></pre>
+<p>Other API stuffs:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Add Object</span>
+handleAdd = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">title</span>: <span class="hljs-string">"a"</span>, <span class="hljs-attr">body</span>: <span class="hljs-string">"b"</span> };
+  <span class="hljs-keyword">const</span> { <span class="hljs-attr">data</span>: post } = <span class="hljs-keyword">await</span> axios.post(
+    <span class="hljs-string">"https://jsonplaceholder.typicode.com/posts"</span>,
+    obj
+  );
+};
+
+<span class="hljs-comment">// Update Object</span>
+handleUpdate = <span class="hljs-keyword">async</span> post =&gt; {
+  post.title = <span class="hljs-string">"Updated"</span>;
+  axios.put(apiEndPoint + <span class="hljs-string">"/"</span> + post.id, post); <span class="hljs-comment">// To update the entire object</span>
+  <span class="hljs-keyword">const</span> posts = [...this.state.posts];
+  <span class="hljs-keyword">const</span> index = posts.indexOf(post);
+  posts[index] = { ...post };
+  <span class="hljs-keyword">this</span>.setState({ posts });
+
+  <span class="hljs-comment">// To update specific fields alone</span>
+  <span class="hljs-comment">// axios.path(apiEndPoint + "/" + post.id, { title: post.title });</span>
+};
+
+<span class="hljs-comment">// Delete object (pessimistic approach)</span>
+handleDelete = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">await</span> axios.delete(apiEndPoint + <span class="hljs-string">"/"</span> + post.id);
+
+  <span class="hljs-keyword">const</span> posts = <span class="hljs-keyword">this</span>.state.posts.filter(<span class="hljs-function"><span class="hljs-params">p</span> =&gt;</span> p.id !== post.id);
+  <span class="hljs-keyword">this</span>.setState({ posts });
+};
+</code></pre>
+<blockquote>
+<p>Whenever browser sends a request to different domain then it will go as <code>OPTIONS</code> request</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="optimistic-vs-pessimistic-updates"></a><a href="#optimistic-vs-pessimistic-updates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optimistic Vs Pessimistic Updates</h3>
+<ul>
+<li>Optimistic
+<ul>
+<li>Update the ui first and then call the server update call</li>
+</ul></li>
+<li>Pessimistic
+<ul>
+<li>Call the service first and then update the ui</li>
+</ul></li>
+</ul>
+<p>Above sample code is for pessimistic approach.. below code uses optimistic approach..</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Delete object (Optimistic approach)</span>
+handleDelete = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> originalPosts = <span class="hljs-keyword">this</span>.state.posts;
+
+  <span class="hljs-keyword">const</span> posts = <span class="hljs-keyword">this</span>.state.posts.filter(<span class="hljs-function"><span class="hljs-params">p</span> =&gt;</span> p.id !== post.id);
+  <span class="hljs-keyword">this</span>.setState({ posts });
+
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">await</span> axios.delete(apiEndPoint + <span class="hljs-string">"/"</span> + post.id);
+  } <span class="hljs-keyword">catch</span> (ex) {
+    alert(<span class="hljs-string">"Something went wrong while deleting a post!"</span>);
+    <span class="hljs-keyword">this</span>.setState({ <span class="hljs-attr">posts</span>: originalPosts });
+  }
+};
+</code></pre>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-59-tab-60" class="nav-link active" data-group="group_59" data-tab="tab-group-59-content-60">Info</div><div id="tab-group-59-tab-61" class="nav-link" data-group="group_59" data-tab="tab-group-59-content-61">Sample</div></div><div class="tab-content"><div id="tab-group-59-content-60" class="tab-pane active" data-group="group_59" tabindex="-1"><div><span><p><br/></p>
+</span></div></div><div id="tab-group-59-content-61" class="tab-pane" data-group="group_59" tabindex="-1"><div><span></span></div></div></div></div>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/react/forms-routing"><span class="arrow-prev">← </span><span>Forms Routing</span></a><a class="docs-next button" href="/docs/react/testing"><span>Testing</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#calling-backend-services">Calling Backend Services</a><ul class="toc-headings"><li><a href="#optimistic-vs-pessimistic-updates">Optimistic Vs Pessimistic Updates</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/code-logo.png" alt="" width="66" height="58"/></a><div><h5>How tos / Tips</h5><a href="/docs/javascript/build-chrome-extn">How to build a chrome Extension</a><a href="/docs/setup-coder-wiki">How to setup Coder Wiki locally</a><a href="/docs/tech-trends">Tech Trends / Tips</a><a href="/docs/ielts/speaking-strategies">IELTS Tips</a><a href="/docs/coder-health">Coder Health</a></div><div><h5>Tools / Links</h5><a href="/docs/javascript/frameworks-converters">Frameworks &amp; Converters</a><a href="/docs/useful-links">Useful Links</a><a href="/docs/popular-github-repos">Popular Github Repos</a><a href="/docs/javascript/resources">Other Development Resources</a></div><div><h5>Cheatsheet</h5><a href="/docs/cheatsheet/programming">Programming Cheatsheet</a><a href="/docs/cheatsheet/markdown">Markdown Cheatsheet</a><br/><h5>Connect</h5><a href="https://github.com/coder-selvarajan" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Selvarajan.in</section></footer></div></body></html>
