@@ -34,9 +34,9 @@
   },
   "mobile": {
     "App Development": [
+      "app-dev/basics",
       "app-dev/ux-ui-design",
       "app-dev/design-tools",
-      "app-dev/basics",
       "app-dev/swift-ui"
     ],
     "Cross Platform Apps": ["react-native/overview", "ionic-overview"],

@@ -1,8 +1,12 @@
 ---
 id: ux-ui-design
-title: UX, UI and Design thinking
-sidebar_label: UX, UI Design
+title: UX, UI Resources & Design thinking
+sidebar_label: UX, UI Resources
 ---
+
+## Mobile UI Patterns
+
+- https://pttrns.com/
 
 ## Color Resources/Tools
 
@@ -12,7 +16,7 @@ http://www.colorhunt.co/
 **Adobe Color:**  
 https://color.adobe.com/create
 
-**Colour Code:**   
+**Colour Code:**  
 https://colourco.de/
 
 **Flat UI Colors:**  
@@ -24,20 +28,20 @@ https://www.materialpalette.com
 **Color Zilla:**  
 http://www.colorzilla.com/
 
---- 
+---
 
 ## Books about Colors & Designs
- 
-**Color: A Course in Mastering the Art of Mixing Colors by Betty Edwards**  
+
+**Color: A Course in Mastering the Art of Mixing Colors by Betty Edwards**
 
 **The Modern Web Design Process (free)**  
-https://ebooks.webflow.com/ebook/the-modern-web-design-process 
+https://ebooks.webflow.com/ebook/the-modern-web-design-process
 
 **The Shape of Design (free)**  
-https://shapeofdesignbook.com/chapters/00-introduction/ 
+https://shapeofdesignbook.com/chapters/00-introduction/
 
 **The Freelance Web Designers Guide (free)**  
-https://ebooks.webflow.com/ebook/the-freelance-web-designers-guide 
+https://ebooks.webflow.com/ebook/the-freelance-web-designers-guide
 
 **Web Design 101 (free)**  
 https://ebooks.webflow.com/ebook/web-design-101
@@ -45,7 +49,7 @@ https://ebooks.webflow.com/ebook/web-design-101
 **Designing for the Web**  
 https://designingfortheweb.co.uk/
 
---- 
+---
 
 ## Typography
 
@@ -55,8 +59,8 @@ https://designingfortheweb.co.uk/
 **Free Fonts:**  
 https://www.fontsquirrel.com/
 
+**Useful articles:**
 
-**Useful articles:**  
 - [26 Digital Typography Rules for Beginners](https://medium.com/product-design-ux-ui/26-digital-typography-rules-for-beginners-a04c6a5aaff3#.10tgnccvf)
 - [XD Essentials: Typography in Mobile Apps](https://medium.com/thinking-design/xd-essentials-typography-in-mobile-apps-7048abfb1cc5#.tu3y5hv6z)
 - [Need hints for good fonts? Here's 14 typographers with their favorite fonts](https://www.canva.com/learn/distinguished-typographers-share-their-favorite-fonts/)
@@ -65,7 +69,8 @@ https://www.fontsquirrel.com/
 
 ## UI Design for Mobile
 
-**Articles:**  
+**Articles:**
+
 - [Golden Rules of User Interface Design](https://uxplanet.org/golden-rules-of-user-interface-design-19282aeb06b#.kfznrp77q)
 - [teehanlax.com](https://www.teehanlax.com/story/medium/)
 - [Designing User Interfaces for My Mother](https://medium.com/@TGines/designing-user-interfaces-for-your-mother-dd45ec50f7b0#.j4bcs8rto)
@@ -78,23 +83,24 @@ About Face: The Essentials of Interaction Design
 
 ## UX Design
 
-- Find the core functionality of your app..  
-- Minimize the steps to reach the goal for the user...  
+- Find the core functionality of your app..
+- Minimize the steps to reach the goal for the user...
 
-- User experience may not exactly match the design...  Form vs function
-- always get a second opinion.. 
+- User experience may not exactly match the design... Form vs function
+- always get a second opinion..
 
 - Dont overdo the instructions & tips
 - Learn without learning.. like Flipboard app
 
-- Dont use the idiot box(confirmation box) much.. 
+- Dont use the idiot box(confirmation box) much..
 
 **Articles:**  
 [UX Design in 14 Simple Steps](https://medium.theuxblog.com/ux-design-in-14-simple-steps-b8a0f2780769#.8a8x7xvj4)
 [Using Dark Patterns for Good](https://www.uxbooth.com/articles/using-dark-patterns-for-good/)
 [UX design tips for your app](https://medium.com/@InVisionApp/ux-design-tips-for-your-app-8203107c77eb#.sjnw03a9t)
 
-**Books:**  
+**Books:**
+
 - Don't Make Me Think: A Common Sense Approach to Web Usability by Steve Krug
 - The Design of Everyday Things by Don Norman
 - 100 Things Every Designer Needs to Know About People
@@ -104,6 +110,7 @@ About Face: The Essentials of Interaction Design
 ## Mobile Design Workflow
 
 #### Steps
+
 - Select a design pattern
 - Choose color pallette
 - User flow diagram
@@ -115,31 +122,31 @@ About Face: The Essentials of Interaction Design
 - https://www.mobile-patterns.com/
 - https://pttrns.com/
 
-
 ### User Flow Diagram
 
-Create user flow diagrams for app functionality with below elements..   
+Create user flow diagrams for app functionality with below elements..
 
-- Square  (Screens)
-- Diamond  (Decision)
-- Arrow    
+- Square (Screens)
+- Diamond (Decision)
+- Arrow
 
 Single user activity based diagrams..
 
 ---
 
-### Wireframing Resources 
+### Wireframing Resources
 
 **UI Stencils' Free Downloadable Design Templates**  
 http://www.uistencils.com/blogs/news/ui-stencils-drafting-templates
 
-**Prototyping app**  
+**Prototyping app**
 
 Pop app - Free Download of Pop App by WooMoo
 
 - iOS - https://itunes.apple.com/app/id555647796
 
-**Wireframe | cc**  
+**Wireframe | cc**
+
 - https://wireframe.cc/
 
 ---
@@ -158,12 +165,11 @@ https://marvelapp.com/dashboard/
 **Canva**  
 https://www.canva.com/
 
-
 #### Websites and Tools for Creating Real Life App Mockups
+
 - https://placeit.net/
 - http://magicmockups.com/
 - http://smartmockups.com/
-
 
 #### Websites and Tools for Creating Designed Mockups (Alternatives to Sketch)
 
@@ -191,7 +197,7 @@ http://principleformac.com/
 **Proto.io**  
 https://proto.io/
 
---- 
+---
 
 #### Example Marvel Prototype
 
@@ -204,15 +210,35 @@ https://play.google.com/store/apps/details?id=com....
 **My Example Prototype Created with Marvel App**  
 https://marvelapp.com/314j414
 
---- 
+---
 
 #### Where to Find Free-For-Commercial use Image Assets
 
-**For HD photographic Images:**  
+**For Icons:**
+
+- https://iconstore.co/
+
+  - No link attribution is required for free icon set.
+  - Primium version is https://nucleoapp.com/premium-icons
+
+- https://icons8.com
+  - All icons are free but link attribution is required
+
+**For HD photographic Images:**
+
 - http://www.resplashed.com/
 - https://pixabay.com/
 
-**For vector images:**  
+**For vector images:**
+
 - https://www.vecteezy.com/
 - http://www.freepik.com/
 
+### Marketting
+
+- Create a landing page for the App
+  - Use AppStop.com
+
+SEO Optiomization
+
+- Use "Reverse Dictionary"

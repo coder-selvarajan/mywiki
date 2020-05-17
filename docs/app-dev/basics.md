@@ -4,7 +4,7 @@ title: App Development - Basics
 sidebar_label: Basics - Angela
 ---
 
-Content is created based on Angela Yu's Udemy course.
+Content is created based on Angela Yu's Udemy course on iOS app development.
 
 ## Workflow Steps
 
