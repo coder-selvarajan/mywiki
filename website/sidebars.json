@@ -62,7 +62,12 @@
       "developer-roadmap"
     ],
     "Links": ["useful-links", "popular-github-repos", "my-projects-apps"],
-    "Misc": ["tech-trends", "learning-techniques", "setup-coder-wiki"]
+    "Misc": [
+      "importance-of-online-presence",
+      "tech-trends",
+      "learning-techniques",
+      "setup-coder-wiki"
+    ]
   },
   "ielts": {
     "Speaking": [
